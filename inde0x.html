@@ -1,0 +1,122 @@
+        
+            <!DOCTYPE html>
+        <!-- IW-Workshop First Assignment -->
+     <html lang="en">
+     <head>
+         <meta charset="UTF-8">
+         <meta http-equiv="X-UA-Compatible" content="IE=edge">
+         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+         <title>Assignment Portfolio</title>
+         <link rel="stylesheet" href="css/style.css" type="text/css">
+     </head>
+     <body>
+
+        <!-- loading -->
+        <div id="loading">
+            loading..............
+        </div>
+        <div id="main-container" >
+            <figure class="img-wrapper" >
+                <img 
+                 height = "200px"
+                 width= " 200px"
+                  id="avatar">
+            </figure>
+     
+
+        <div class="details-container">
+            <section class="fullName">
+                <h1 id="fullName"></h1> 
+            </section> 
+        </div>
+        <div class="details-container">
+            <section class="Address">
+            <h3 id="location"></h3>
+        </section>
+    </div>
+
+        <div class="repo-hero-container">
+            <h2>About Me</h2>
+            <div class="repo-inner-hero-items" id="bio">   </div>
+
+            <h2>Status</h2>
+            <div class="repo-inner-hero-items">
+                <section id="public_reposNumber">   </section>
+                </div>
+                <div class="repo-inner-hero-items">
+                <section class="btn">
+                <button class="btn">
+                    <a href="" id="githubLink">Get User Api</a>
+                </button>
+
+                <button class="btn">
+                    <a id="htmlLink" target="_blank">Check Me on github</a>
+                </button>
+
+                </section>
+            </div>
+            <h2>My Repos </h2>
+            <div class="repo-inner-hero-items">
+            <section class="btn">
+            <button class="btn">
+                <a id="reposLink">Get Repos Api</a>
+            </button>
+
+            <button class="btn">
+                <a href="https://github.com/Dilli822?tab=repositories" target="_blank">My Repos on github</a>
+            </button>
+
+            </section>
+         
+            </div>
+            </div>
+        </div>
+        
+<!-- 
+        <div class="features-container">
+            <div class="left-feature-container">left</div>
+            <div class="left-feature-container">mid</div>
+            <div class="left-feature-container">right</div>
+        </div>
+
+
+        <footer>
+                <h6>Thank You</h6>
+        </footer> -->
+
+        <!-- Script Javascript -->
+        <script>
+            
+        fetch("https://api.github.com/users/dilli822")
+        .then(response => response.json())
+        .then(function(data){
+            console.log(data);
+
+            let public_reposNum = data['public_repos']
+            let public_reposInformation= `Currently I have ${public_reposNum} repos on github.`
+            
+            document.getElementById('avatar').src = data["avatar_url"]
+            document.getElementById('fullName').textContent = data["name"]
+            document.getElementById('bio').textContent  =  data["bio"]
+            document.getElementById('location').textContent  =  data["location"]
+
+            document.getElementById('public_reposNumber').textContent = public_reposInformation
+            
+            document.getElementById('githubLink').href= data ['url']
+
+            document.getElementById('htmlLink').href= data ['html_url']
+
+            document.getElementById('reposLink').href= data['repos_url']
+
+            //this will unhide the main element after hard reset
+            document.getElementById('main-container').hidden= false
+
+            //remove the loading after the main element is unhidden
+            document.getElementById('loading').hidden= true
+
+        })
+
+    
+        </script>
+     </body>
+     </html>

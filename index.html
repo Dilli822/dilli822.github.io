@@ -1,0 +1,114 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Assignment Project github Portfolio</title>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   
+         <script src="js/script.js"></script>
+    </head>
+    <body>
+        <div id="loading" style="color:red">
+            <span><i class="fa fa-spinner fa-spin"></i></span>
+         </div>
+     <div class="main" id="main-container"hidden>
+
+         <!-- profile img -->
+         <img 
+         height = "200px"
+         width= " 200px"
+          id="avatar">
+
+          <h1 id="fullName"></h1> 
+          <p id="location"></p>
+
+          <h2>About Me</h2>
+        <p id="bio"></p>
+
+        <h2>Status</h2>
+        <p id="public_reposNumber">   </p>
+
+        <section class="btn">
+            <button class="btn">
+                <a href="" id="githubLink">Get User Api</a>
+            </button>
+
+            <button class="btn">
+                <a id="htmlLink" target="_blank">Check Me on github</a>
+            </button>
+
+            </section>
+   
+        <h2>My Repos </h2>
+
+        <section class="btn">
+            <button class="btn">
+                <a id="reposLink">Get Repos Api</a>
+            </button>
+    
+            <button class="btn">
+                <a href="https://github.com/Dilli822?tab=repositories" target="_blank">My Repos on github</a>
+            </button>
+    
+            </section>
+             <br>
+
+             <div class="social-media-box">
+                 <section class="twitter">
+                    <a class="twitter-timeline" data-width="300" data-height="500" href="https://twitter.com/dilli_hangrae?ref_src=twsrc%5Etfw">Tweets by dilli_hangrae</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                 </section>
+
+             </div> 
+        </div>
+
+        <footer>
+            <h3>Thank You!</h3>
+        </footer>
+
+
+        <!-- JS script -->
+        <script>
+        fetch("https://api.github.com/users/dilli822")
+        .then(response => response.json())
+        .then(function(data){
+            console.log(data);
+
+            let public_reposNum = data['public_repos']
+            let public_reposInformation= `Currently I have ${public_reposNum} repos on github.`
+            
+            document.getElementById('avatar').src = data["avatar_url"]
+            document.getElementById('fullName').textContent = data["name"]
+            document.getElementById('bio').textContent  =  data["bio"]
+            document.getElementById('location').textContent  =  data["location"]
+
+            document.getElementById('public_reposNumber').textContent = public_reposInformation
+            document.getElementById('githubLink').href= data ['url']
+            document.getElementById('htmlLink').href= data ['html_url']
+            document.getElementById('reposLink').href= data['repos_url']
+
+
+            //this will unhide the main element after hard reset
+            document.getElementById('main-container').hidden= false
+
+            //remove the loading after the main element is unhidden
+            document.getElementById('loading').hidden= true
+        })
+
+        fetch("https://api.github.com/users/Dilli822/repos")
+        .then(response => response.json())
+        .then (function(data2){
+            console.log(data2)
+           console.log(data2[0])
+           console.log(data2[1])
+           console.log(data2[2])
+           console.log(data2[3])
+           console.log(data2[4])
+        })   
+
+        </script>
+    </body>
+    </html>

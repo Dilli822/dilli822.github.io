@@ -1,0 +1,85 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: sans-serif;
+  text-decoration: none;
+}
+
+h2 {
+  text-align: center;
+}
+
+img {
+  max-width: 100%;
+}
+
+img#avatar {
+  border: px solid #0026ff;
+  margin-bottom: 0rem;
+}
+
+h1 {
+  border: 0px solid red;
+}
+
+body {
+  color: #fff;
+  background-color: #242424;
+}
+
+div {
+  border: 1px solid #444242;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 1rem;
+}
+
+div.repo-hero-container {
+  display: block;
+}
+
+div.repo-hero-container div.repo-inner-hero-items {
+  height: auto;
+  font-size: 1.25rem;
+}
+
+div.repo-hero-container button.btn {
+  background-color: white;
+  border: none;
+  padding: 1rem;
+}
+
+div.repo-hero-container button.btn a {
+  color: #242424;
+  font-size: 1rem;
+  font-weight: bolder;
+}
+
+div.repo-hero-container button.btn:hover {
+  background-color: rgba(2, 133, 255, 0.952);
+}
+
+div.features-container {
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+div.features-container div.left-feature-container {
+  width: 30vw;
+  min-height: 50vh;
+}
+
+footer,
+h6 {
+  text-align: center;
+}
+/*# sourceMappingURL=main.css.map */

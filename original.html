@@ -1,0 +1,106 @@
+   
+          
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment Github PortFolio</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css">
+  
+   <style>
+       .main {
+           /* display: block;
+           margin: 0 auto; */
+           text-align: center;
+           font-family: sans-serif;
+       }
+   </style>
+   </head>
+   <body>
+       <div id="loading">
+           <span><i class="fa fa-spinner fa-spin"></i></span>
+        </div>
+
+    <div class="main" id="main-container"hidden>
+    <!-- <a href="https://placeholder.com"><img src="https://via.placeholder.com/150" alt="dilli.img"></a> -->
+     <!-- Now we make our page dynamic -->
+        <img 
+         height = "200px"
+         width= " 200px"
+          id="avatar">
+
+            <h1 id="fullName"></h1> 
+        <h3 id="location"></h3>
+       
+    <h2>About Me</h2>
+    <section id="bio">   </section>
+
+    <h2>Status</h2>
+        <section id="public_reposNumber">   </section>
+                  
+            <section class="btn">
+            <button class="btn">
+                <a href="" id="githubLink">Get User Api</a>
+            </button>
+
+            <button class="btn">
+                <a id="htmlLink" target="_blank">Check Me on github</a>
+            </button>
+
+            </section>
+   
+        <h2>My Repos </h2>
+
+        <section class="btn">
+        <button class="btn">
+            <a id="reposLink">Get Repos Api</a>
+        </button>
+
+        <button class="btn">
+            <a href="https://github.com/Dilli822?tab=repositories" target="_blank">My Repos on github</a>
+        </button>
+
+        </section>
+    
+</div>
+
+
+  <!-- SCript js  -->
+    <script>
+           
+           fetch("https://api.github.com/users/dilli822")
+        .then(response => response.json())
+        .then(function(data){
+            console.log(data);
+
+            let public_reposNum = data['public_repos']
+            let public_reposInformation= `Currently I have ${public_reposNum} repos on github.`
+            
+            document.getElementById('avatar').src = data["avatar_url"]
+            document.getElementById('fullName').textContent = data["name"]
+            document.getElementById('bio').textContent  =  data["bio"]
+            document.getElementById('location').textContent  =  data["location"]
+
+            document.getElementById('public_reposNumber').textContent = public_reposInformation
+            
+            document.getElementById('githubLink').href= data ['url']
+
+            document.getElementById('htmlLink').href= data ['html_url']
+
+            document.getElementById('reposLink').href= data['repos_url']
+
+            //this will unhide the main element after hard reset
+            document.getElementById('main-container').hidden= false
+
+            //remove the loading after the main element is unhidden
+            document.getElementById('loading').hidden= true
+
+        })
+    </script>
+   
+   </body>
+   </html>
