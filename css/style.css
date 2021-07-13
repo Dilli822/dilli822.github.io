@@ -66,6 +66,7 @@ p {
 button.btn {
   padding: 1rem;
   font-size: 1.1rem;
+  margin: .3rem .25rem;
   font-weight: bolder;
   border: none;
   outline: none;
