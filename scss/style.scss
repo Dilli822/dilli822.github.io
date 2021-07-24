@@ -5,76 +5,88 @@
             box-sizing: border-box;
             font-family: sans-serif;
             text-decoration: none;
+            list-style-type: none;
         }
+
         a{
-            color:#000;
-        }
-        body{
-            background: linear-gradient(90deg, rgba(161,161,163,1) 6%, rgba(184,184,190,1) 21%, rgba(77,77,80,1) 34%, rgba(65,64,72,1) 45%, rgba(64,63,72,1) 53%, rgba(69,69,76,1) 57%, rgba(65,65,74,1) 66%, rgba(63,62,72,1) 72%, rgba(163,162,167,1) 79%, rgba(77,77,80,1) 100%, rgba(148,148,148,1) 100%, rgba(2,0,36,1) 100%, rgba(0,212,255,1) 100%);
-             color:#fff;
-        }
-        #loading{
-            text-align: center;
-            font-size:  2rem;
-        }
-        div.main{
-            display: block;
-            margin: 0 auto;
-            width:  50%;
-            border: px solid rgb(185, 182, 182);
-            text-align: center;
-            padding: 1rem;
-            min-height: 100vh;
-            background-color: rgb(109, 105, 105)
+            color:rgb(0, 0, 0);
         }
 
-        @media only screen and (max-width: 550px) {
-            div.main{
-                width: 100%;
-            } 
+        button{
+            border: 0px solid;
+            cursor: pointer;
         }
 
-        img#avatar{
-            display: block;
-            margin: 0 auto;
-            border: 1px solid white;
-            padding: 1rem;
-            border-radius: 15px;
+        img{
+            max-width: 100%;
+            height:auto;
         }
-        h1{
-            padding: 1rem;
+        div.heading{
+            // position: fixed;
+            // width: 100%;
+            display: flex;
+            justify-content: space-around;
+            // background-color: #000;
+            // color: #fff;
+            cursor: pointer;
+            padding: 3rem;
         }
-        h2{
+
+        div.nav-bar nav ul{
+            display: none;
+            // display: inline-flex;
+            align-items: center;
+        }
+            
+            .my-logo,
+            .nav-bar nav ul li {
+            // margin: .2rem 1rem;
+            // padding: .5rem 1rem;
             font-size: 1.5rem;
-            padding: 1.2rem;
-        }
-        p{
-            padding: 1rem;
-            font-size: 1.1rem;
-            letter-spacing: 1px;
-            border: px solid rgba(133, 129, 129, 0.76);
-        }
+            }
+            
+            // .nav-bar nav ul li:hover{
+            //     background-color: rgb(0, 0, 0);         
+            // }
+               
+            .nav-bar ul li a:hover{
+                color:red;
+                }
+            
+    
+       
+        div.top-most-container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            border: 1px solid;
+            // height: 50vh;
+       }
 
-        
-        button.btn{
-            padding: 1rem;
-            font-size: 1.1rem;
-            margin: .3rem .25rem;
-            font-weight: bolder;
-            border: none;
-            outline: none;
-        }
+        div.top-inner-left-container{
+            border: 1px solid orange;
+            max-width: 500px;
+            padding: 3rem;
+          
 
-        button.btn:hover{
-            background-color: rgb(17, 160, 255);
+        button.meet-btn{
+            border: 0px solid;
+            padding: 0.7rem;
+            background-color:#000;
         }
-
-        button.btn:hover a{
+        button.meet-btn a{
             color:#fff;
         }
-
-        div.social-media-box,
-        h3{
-            text-align: center;
-            padding: 1rem;
+        button.meet-btn:hover{
+            background-color: #03493a;
         }
+      }
+
+        // div.top-inner-right-container{
+        //     background-image: url("/imgs/insta-dilli.png");
+        //     // background-position: center;
+        //     // background-repeat: no-repeat;
+        //     // background-size: cover;
+        //     // height: 50vh;
+        // }
