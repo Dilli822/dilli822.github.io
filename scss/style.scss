@@ -22,37 +22,58 @@
             height:auto;
         }
         div.heading{
-            // position: fixed;
-            // width: 100%;
             display: flex;
             justify-content: space-around;
-            // background-color: #000;
-            // color: #fff;
             cursor: pointer;
-            padding: 3rem;
+             padding: 1rem;
         }
 
-        div.nav-bar nav ul{
-            display: none;
-            // display: inline-flex;
-            align-items: center;
-        }
-            
-            .my-logo,
-            .nav-bar nav ul li {
-            // margin: .2rem 1rem;
-            // padding: .5rem 1rem;
-            font-size: 1.5rem;
-            }
-            
-            // .nav-bar nav ul li:hover{
-            //     background-color: rgb(0, 0, 0);         
-            // }
-               
-            .nav-bar ul li a:hover{
-                color:red;
-                }
-            
+       
+    .overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0.897);
+    overflow-x: hidden;
+    transition: 0.1s;
+  }
+  
+  .overlay-content {
+    width: 100%;
+    text-align: center;
+    margin-top: 10rem;
+  
+  }
+  .overlay-content nav ul li a{
+      padding: 1rem 0rem;
+    margin: 2rem 1rem;
+  }
+
+  .overlay-content nav ul li a:hover{
+      color:#03493a;
+  }
+
+  .closebtn {
+    float: right;
+    color:#fff;
+    font-size: 1rem;
+    padding: 1rem;
+  }
+
+  .closebtn:hover{
+      color:#ff0000;
+  }
+  
+  .overlay a {
+    text-decoration: none;
+    color: #818181;
+    display: block;
+    transition: 0.1s;
+    font-size: 5rem;
+  }
+  
+ 
     
        
         div.top-most-container{
@@ -83,10 +104,4 @@
         }
       }
 
-        // div.top-inner-right-container{
-        //     background-image: url("/imgs/insta-dilli.png");
-        //     // background-position: center;
-        //     // background-repeat: no-repeat;
-        //     // background-size: cover;
-        //     // height: 50vh;
-        // }
+       

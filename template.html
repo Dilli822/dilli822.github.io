@@ -35,8 +35,7 @@
         <!------------------------------------------------------ CSS Stylesheets--------------------------->
         <link rel="stylesheet" href="css/style.css" type="text/css">
         
-        <!-- Jquery javascript frameworks -->
-        <script src="js/script.js"></script>
+  
 
     </head>
     <body>
@@ -44,41 +43,50 @@
         <header>
             <div class="heading">
                 <div class="my-logo">
-                    <h2 style="font-size:1.45rem;">Dilli Hang </h2>
+                    <h2 style="font-size:1.45rem;">Dilli Hang Rai</h2>
                     <!-- my logo -->
                     <!-- <img src="https://via.placeholder.com/100x50" alt="dilli-logo.img"> -->
                 </div>
 
-                <span>
-                    <i class="fa fa-bars"></i>
-                </span>
-                <div class="nav-bar">
-                    <nav>
-                        <ul>
-                            <li><a href="#">Github</a></li>
-                            <li><a href="#">Code-pen</a></li>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Gallery</a></li>
-                        </ul>
-                    </nav>
-                </div>
+               
+        <span onclick="openNav()">
+            <i class="fa fa-bars" style="font-size: 1.5rem;">
+            </i>
+           </span> 
+
+        
+        <div class="overlay" id="myNav">
+            <div class="close-btn">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            </div>
+            <div class="overlay-content" >
+                <nav>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Github</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
             </div>
         </header>
 
-        <!--Main content starts -->
+       <!--Main content starts -->
          <main>
             <div class="top-most-container">
-                <div class="top-inner-left-container">
+                <div class="top-inner-left-container"> 
                     <!-- inner left container topmost -->
                  <article>
                     <h2>Hello World</h2>
 
                   <p class="brief">
                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit incidunt quisquam tempore. Distinctio, dolor? Ducimus?
-                  </p>
+                  </p> 
 
                   <!-- Button -->
-                  <button type="submit" class="meet-btn">
+                   <button type="submit" class="meet-btn">
                       <a href="https://www.facebook.com"> Meet Now </a>
                   </button>
                 </article>
@@ -91,7 +99,17 @@
             </div>
         </main>
 
-     
+        <script>
+            function openNav() {
+              document.getElementById("myNav").style.width = "100%";
+            }
+            
+            function closeNav() {
+              document.getElementById("myNav").style.width = "0%";
+            }
+            </script>
+                 
+        
     </body>
     </html>
 
