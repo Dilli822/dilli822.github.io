@@ -75,7 +75,7 @@ div.heading {
   display: block;
   -webkit-transition: 0.1s;
   transition: 0.1s;
-  font-size: 5rem;
+  font-size: 3rem;
 }
 
 div.top-most-container {
@@ -137,6 +137,7 @@ div.mid-clippy-wrapper {
   background-color: #f1f1f1;
   color: black;
   letter-spacing: 1px;
+  padding: 1rem 0rem;
 }
 
 div.mid-clippy-wrapper h3 {
@@ -146,14 +147,14 @@ div.mid-clippy-wrapper h3 {
 
 div.mid-clippy-wrapper p.enquiry {
   font-size: 1.3rem;
-  margin: 1rem 0;
+  margin-top: 2rem;
   opacity: 0.5;
 }
 
 div.mid-clippy-wrapper button.touch-btn {
   background-color: black;
   padding: 1rem;
-  margin-top: 1rem;
+  margin-top: 2rem;
   font-size: .9rem;
   text-align: center;
   color: #fff;

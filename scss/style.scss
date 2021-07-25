@@ -70,7 +70,7 @@
     color: #7c7b7b;
     display: block;
     transition: 0.1s;
-    font-size: 5rem;
+    font-size: 3rem;
   }
   
 
@@ -125,6 +125,7 @@
         background-color: rgb(241, 241, 241);
         color:rgb(0, 0, 0);
         letter-spacing: 1px;
+        padding: 1rem 0rem;
      
       h3{
         padding-top: 10rem;
@@ -132,14 +133,14 @@
       }
       p.enquiry{
           font-size: 1.3rem;
-          margin: 1rem 0;
+          margin-top: 2rem;
           opacity: 0.5;
       }
 
       button.touch-btn{
           background-color: rgb(0, 0, 0);
           padding: 1rem;
-          margin-top: 1rem;
+          margin-top: 2rem;
           font-size: .9rem;
           text-align: center;
           color:#fff;
