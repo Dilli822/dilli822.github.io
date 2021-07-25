@@ -71,7 +71,7 @@ div.heading {
 
 .overlay a {
   text-decoration: none;
-  color: #818181;
+  color: #7c7b7b;
   display: block;
   -webkit-transition: 0.1s;
   transition: 0.1s;
@@ -90,26 +90,92 @@ div.top-most-container {
           align-items: center;
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
-  border: 1px solid;
+  border: px solid;
 }
 
 div.top-inner-left-container {
-  border: 1px solid orange;
+  border: px solid orange;
   max-width: 500px;
   padding: 3rem;
+  margin-right: 5rem;
+}
+
+div.top-inner-left-container h2 {
+  font-family: serif;
+  font-size: 2.5rem;
+  font-weight: normal;
+}
+
+div.top-inner-left-container p.brief {
+  margin: 1rem 0;
+  letter-spacing: .15rem;
+  line-height: 1.5rem;
+  opacity: 0.5;
 }
 
 div.top-inner-left-container button.meet-btn {
   border: 0px solid;
-  padding: 0.7rem;
+  padding: .7rem 1rem;
   background-color: #000;
 }
 
 div.top-inner-left-container button.meet-btn a {
   color: #fff;
+  font-size: 1rem;
 }
 
 div.top-inner-left-container button.meet-btn:hover {
   background-color: #03493a;
+}
+
+div.mid-clippy-wrapper {
+  -webkit-clip-path: polygon(0 34%, 100% 0, 100% 100%, 0% 100%);
+          clip-path: polygon(0 34%, 100% 0, 100% 100%, 0% 100%);
+  text-align: center;
+  height: 50vh;
+  width: 100%;
+  background-color: #f1f1f1;
+  color: black;
+  letter-spacing: 1px;
+}
+
+div.mid-clippy-wrapper h3 {
+  padding-top: 10rem;
+  font-size: 2rem;
+}
+
+div.mid-clippy-wrapper p.enquiry {
+  font-size: 1.3rem;
+  margin: 1rem 0;
+  opacity: 0.5;
+}
+
+div.mid-clippy-wrapper button.touch-btn {
+  background-color: black;
+  padding: 1rem;
+  margin-top: 1rem;
+  font-size: .9rem;
+  text-align: center;
+  color: #fff;
+}
+
+div.mid-clippy-wrapper button.touch-btn:hover {
+  background-color: #03493a;
+}
+
+div.footer-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  background-color: #000;
+  color: #fff;
+  padding: 5rem;
 }
 /*# sourceMappingURL=style.css.map */
