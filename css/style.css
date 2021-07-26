@@ -56,6 +56,8 @@ div.heading {
 
 .overlay-content nav ul li a:hover {
   color: #03493a;
+  -webkit-transition: .5s;
+  transition: .5s;
 }
 
 .closebtn {
@@ -127,6 +129,8 @@ div.top-inner-left-container button.meet-btn a {
 
 div.top-inner-left-container button.meet-btn:hover {
   background-color: #03493a;
+  -webkit-transition: .5s;
+  transition: .5s;
 }
 
 div.mid-clippy-wrapper {
@@ -163,6 +167,8 @@ div.mid-clippy-wrapper button.touch-btn {
 
 div.mid-clippy-wrapper button.touch-btn:hover {
   background-color: #03493a;
+  -webkit-transition: .5s;
+  transition: .5s;
 }
 
 @media only screen and (max-width: 800px) {
@@ -206,6 +212,8 @@ div.footer-wrapper p.address1:hover,
 div.footer-wrapper p.address2:hover,
 div.footer-wrapper aside a:hover {
   color: #03493a;
+  -webkit-transition: .5s;
+  transition: .5s;
 }
 
 @media only screen and (max-width: 800px) {
