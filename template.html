@@ -24,26 +24,26 @@
          <!---------------------------------------------WEBSITE--TITLE---------------------------------->
          <title>Dilli Hang Rai</title>
          <!----------------------------------------------JQUERY--Framework------------------------------->
-         <link rel="stylesheet" href="jquery/jquery.min.js" tyrpe="text/javascript">
+         <script src="script/jquery.min.js" tyrpe="text/javascript"> </script>
          <!----------------------------------------------Fontsawesome Icons------------------------------->
-         <link rel="stylesheet" href="/logos/favicon.ico">
+         <link rel="stylesheet" href="/imgs/favicon.ico">
          
          <!----------------------------------------------Fontsawesome Icons------------------------------->
-        <!----------------------------------------------Materials Icons----------------------------------->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">       
         <!------------------------------------------------------ CSS Stylesheets--------------------------->
         <link rel="stylesheet" href="css/style.css" type="text/css">
-        
-  
 
+        <script src="/script/index.js"></script>
+        
     </head>
     <body>
 
         <header>
             <div class="heading">
                 <div class="my-logo">
-                    <h2 style="font-size:1.45rem;font-weight: normal;">Dilli Hang Rai</h2>
+                    <h2 style="font-size:1.45rem;font-weight: normal;" id="fullName">
+                        Dilli Hang Rai
+                    </h2>
                     <!-- my logo -->
                     <!-- <img src="https://via.placeholder.com/100x50" alt="dilli-logo.img"> -->
                 </div>
@@ -93,7 +93,7 @@
                  </div>
 
                 <div class="top-inner-right-container">
-                    <img src="/img/insta-dilli.png" width="350px" alt="dilli-profile-pic" style="padding: 0.2rem; margin: 1rem 0em;"> 
+                    <img src="/img/insta-dilli.png" width="350px" alt="dilli-profile-pic" style="padding: 0.2rem 0rem; margin: 1rem 0em;"> 
                     <!-- inner top right container with img -->
                  </div>
             </div>
@@ -110,7 +110,7 @@
 
                  <!-- Button -->
                  <button type="submit" class="touch-btn">
-                     Get In Touch
+                     GET IN TOUCH
                 </button>
             </article>
             </div>
@@ -120,40 +120,45 @@
             <footer>
                 <div class="footer-wrapper">
                     <div class="footer-left-wrapper">
-                        <h5>
-                            Dilli Hang Rai
+                        <h5 id="fullName"> Dilli Hang Rai
                         </h5>
+
                         <section class="social-media-links">
                             <span><a href="#"><i class="fa fa-facebook"></i></a></span>
                             <span><a href="#"><i class="fa fa-instagram"></i></a></span>
                             <span><a href="#"><i class="fa fa-youtube-play"></i></a></span>
                             <span><a href="#"><i class="fa fa-linkedin"></i></a></span>
                         </section>
+
                     </div>
 
                     <div class="footer-mid-wrapper">
+                        <article>
+
                         <h5>
                             Address
                         </h5>
-                        <p class="address1">Asia, Nepal </p>
-                        <p class="address2">Itahari-20, Tarahara, Sunsari</p>
+
+                        <section class="address">
+                            <p class="address1">Asia, Nepal </p>
+                            <p class="address2">Itahari-20, Tarahara, Sunsari</p>
+                        </section>
+                      
                     </div>
 
                     <div class="footer-right-wrapper">
-                        <article>
-
                         <h5>
                             Contact
                         </h5>
 
                         <aside> 
-                          <a href="mailto:dillihangrae#gmail.com" style="color:#fff">dillihangrae@gmail.com</a>
+                          <a href="mailto:dillihangrae#gmail.com">dillihangrae@gmail.com</a>
                         </aside>
 
                         <aside>
-                        <a href="tel:+977-9811075414" style="color:#fff">Tel: +977-9811075414</a>
+                        <a href="tel:+977-9811075414">Tel: +977-9811075414</a>
                       </aside>  
-
+                      
                     </article>
                     </div>
                 </div>
@@ -171,6 +176,8 @@
               document.getElementById("myNav").style.width = "0%";
             }
             </script>
+
+            
                  
         
     </body>

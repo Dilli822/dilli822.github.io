@@ -29,7 +29,7 @@ div.heading {
   -ms-flex-pack: distribute;
       justify-content: space-around;
   cursor: pointer;
-  padding: 1rem;
+  padding: 1.5rem;
 }
 
 .overlay {
@@ -65,8 +65,9 @@ div.heading {
   padding: 1rem;
 }
 
-.closebtn:hover {
-  color: #ff0000;
+.closebtn:hover,
+.fa-bars:hover {
+  color: #136621;
 }
 
 .overlay a {
@@ -164,19 +165,59 @@ div.mid-clippy-wrapper button.touch-btn:hover {
   background-color: #03493a;
 }
 
+@media only screen and (max-width: 800px) {
+  div.mid-clippy-wrapper h3 {
+    padding-top: 8rem;
+  }
+  div.mid-clippy-wrapper p.enquiry {
+    padding: 0;
+    margin: 0;
+    font-size: 1.1rem;
+  }
+}
+
 div.footer-wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
   background-color: #000;
   color: #fff;
   padding: 5rem;
+}
+
+div.footer-wrapper h5 {
+  font-size: 2rem;
+}
+
+div.footer-wrapper p.address1,
+div.footer-wrapper p.address2,
+div.footer-wrapper aside {
+  cursor: pointer;
+  padding-top: .75rem;
+}
+
+div.footer-wrapper aside a {
+  color: #fff;
+}
+
+div.footer-wrapper p.address1:hover,
+div.footer-wrapper p.address2:hover,
+div.footer-wrapper aside a:hover {
+  color: #03493a;
+}
+
+@media only screen and (max-width: 800px) {
+  div.footer-wrapper {
+    padding: 2rem;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  h5 {
+    margin-top: 1rem;
+  }
 }
 /*# sourceMappingURL=style.css.map */
