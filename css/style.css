@@ -96,17 +96,17 @@ div.top-most-container {
   border: px solid;
 }
 
+h2, h5 {
+  font-family: serif;
+  font-size: 2.5rem;
+  font-weight: normal;
+}
+
 div.top-inner-left-container {
   border: px solid orange;
   max-width: 500px;
   padding: 3rem;
   margin-right: 5rem;
-}
-
-div.top-inner-left-container h2 {
-  font-family: serif;
-  font-size: 2.5rem;
-  font-weight: normal;
 }
 
 div.top-inner-left-container p.brief {
@@ -142,7 +142,7 @@ div.mid-clippy-wrapper {
   background-color: #f1f1f1;
   color: black;
   letter-spacing: 1px;
-  padding: 1rem 0rem;
+  padding: 2rem 0rem;
 }
 
 div.mid-clippy-wrapper h3 {
@@ -172,14 +172,21 @@ div.mid-clippy-wrapper button.touch-btn:hover {
 }
 
 @media only screen and (max-width: 800px) {
+  div.mid-clippy-wrapper div.mid-clippy-wrapper {
+    height: auto;
+  }
   div.mid-clippy-wrapper h3 {
     padding-top: 8rem;
   }
   div.mid-clippy-wrapper p.enquiry {
-    padding: 0;
+    padding: 0.3rem 0;
     margin: 0;
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
+}
+
+div.mid-clippy-wrapper button.touch-btn {
+  margin: .8rem 0rem;
 }
 
 div.footer-wrapper {

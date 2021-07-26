@@ -10,6 +10,7 @@
 
             document.getElementById('fullName').textContent = data["name"]
             document.getElementById('bio').textContent = data["bio"]
+
         })
 
         // fetch("https://api.github.com/users/Dilli822/repos")

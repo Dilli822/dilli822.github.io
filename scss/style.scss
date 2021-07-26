@@ -82,19 +82,20 @@
             flex-wrap: wrap;
             border: px solid;
             // height: 50vh;
+            
        }
 
+       h2,h5{
+        font-family: serif;
+        font-size: 2.5rem;
+        font-weight: normal;
+       }
+       
         div.top-inner-left-container{
             border: px solid orange;
             max-width: 500px;
             padding: 3rem;
             margin-right: 5rem;
-
-            h2{
-                font-family: serif;
-                font-size: 2.5rem;
-                font-weight: normal;
-            }
 
             p.brief{
                 margin: 1rem 0;
@@ -117,6 +118,7 @@
             transition: .5s;
         }
       }
+ 
 
       div.mid-clippy-wrapper{
         clip-path: polygon(0 34%, 100% 0, 100% 100%, 0% 100%);        text-align: center;
@@ -125,7 +127,7 @@
         background-color: rgb(241, 241, 241);
         color:rgb(0, 0, 0);
         letter-spacing: 1px;
-        padding: 1rem 0rem;
+        padding: 2rem 0rem;
      
       h3{
         padding-top: 10rem;
@@ -147,21 +149,28 @@
           text-align: center;
           color:#fff;
       }
+
       button.touch-btn:hover{
           background-color: #03493a;
           transition: .5s;
       }
+
       @media only screen and (max-width: 800px) {
+        div.mid-clippy-wrapper{
+            height: auto;
+        }
         h3 {
             padding-top: 8rem;
         }
         p.enquiry{
-            padding: 0;
+            padding: 0.3rem 0;
             margin: 0;
-            font-size: 1.1rem;
+            font-size: 1rem;
         }
-   
       }
+      button.touch-btn{
+        margin: .8rem 0rem;
+    }
     }
     
     //  footer part starts
