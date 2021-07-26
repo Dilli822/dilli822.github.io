@@ -2,118 +2,184 @@
     <!DOCTYPE html>
     <html lang="en">
     <head>
+        
+        <!--------------------------------------------META--TAGS--------------------------------------->
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Assignment Project github Portfolio</title>
-        <link rel="stylesheet" href="">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-   
-         <script src="js/script.js"></script>
+         <meta name="canonical" href="https://dilli822.github.io">
+         <meta name="keywords" content="all the keywords separated by a comma(,)">
+         <meta name="author" content="Dilli Hang Rai">
+         <meta name="description" content="personal portfolio site">
+ 
+         <!-- Og tags -->
+         <meta property="og:title" content="personal portfolio site"/>
+         <meta property="og:type"   content="website" />
+         <meta property="og:url"    content="https://dilli822.github.io" />
+         <meta property="og:site_name" content="dilli hang rai portfolio"/>
+         <meta property="og:image" content=""/>
+         <meta property="og:image:alt" content="">
+         <meta property="og:description" content="dilli hang rai portfolio">
+ 
+         <!---------------------------------------------WEBSITE--TITLE---------------------------------->
+         <title>Dilli Hang Rai</title>
+         <!----------------------------------------------JQUERY--Framework------------------------------->
+         <script src="script/jquery.min.js" tyrpe="text/javascript"> </script>
+         <!----------------------------------------------Fontsawesome Icons------------------------------->
+         <link rel="stylesheet" href="/imgs/favicon.ico">
+         
+         <!----------------------------------------------Fontsawesome Icons------------------------------->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">       
+        <!------------------------------------------------------ CSS Stylesheets--------------------------->
+        <link rel="stylesheet" href="css/style.css" type="text/css">
+
+        
     </head>
     <body>
-        <div id="loading" style="color:red">
-            <span><i class="fa fa-spinner fa-spin"></i></span>
-         </div>
-     <div class="main" id="main-container"hidden>
 
-         <!-- profile img -->
-         <img 
-         height = "200px"
-         width= " 200px"
-          id="avatar">
+        <header>
+            <div class="heading">
+                <div class="my-logo">
+                    <h2 style="font-size:1.45rem;font-weight: normal;" id="fullName">
+                        <!-- Dilli Hang Rai -->
+                    </h2>
+                    <!-- my logo -->
+                    <!-- <img src="https://via.placeholder.com/100x50" alt="dilli-logo.img"> -->
+                </div>
 
-          <h1 id="fullName"></h1> 
-          <p id="location"></p>
+               
+        <span onclick="openNav()">
+            <i class="fa fa-bars" style="font-size: 1.5rem;">
+            </i>
+           </span> 
 
-          <h2>About Me</h2>
-        <p id="bio"></p>
-
-        <h2>Status</h2>
-        <p id="public_reposNumber">   </p>
-
-        <section class="btn">
-            <button class="btn">
-                <a href="" id="githubLink">Get User Api</a>
-            </button>
-
-            <button class="btn">
-                <a id="htmlLink" target="_blank">Check Me on github</a>
-            </button>
-
-            </section>
-   
-        <h2>My Repos </h2>
-
-        <section class="btn">
-            <button class="btn">
-                <a id="reposLink">Get Repos Api</a>
-            </button>
-    
-            <button class="btn">
-                <a href="https://github.com/Dilli822?tab=repositories" target="_blank">My Repos on github</a>
-            </button>
-    
-            </section>
-             <br>
-
-             <div class="social-media-box">
-                 <section class="twitter">
-                    <a class="twitter-timeline" data-width="300" data-height="500" href="https://twitter.com/dilli_hangrae?ref_src=twsrc%5Etfw">Tweets by dilli_hangrae</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                 </section>
-
-             </div> 
+        
+        <div class="overlay" id="myNav">
+            <div class="close-btn">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            </div>
+            <div class="overlay-content" >
+                <nav>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Contact</a></li>
+                        <li><a href="#">Github</a></li>
+                    </ul>
+                </nav>
+            </div>
         </div>
+            </div>
+        </header>
 
-        <footer>
-            <h3>Thank You!</h3>
-        </footer>
+       <!--Main content starts -->
+         <main>
+            <div class="top-most-container">
+                <div class="top-inner-left-container"> 
+                    <!-- inner left container topmost -->
+                 <article>
+                    <h2>Hello World</h2>
+
+                  <p class="brief" id="bio">
+                    <!-- Hi, I am Dilli Hang. I love coding and programming. Currently Focusing on Web-Development(Front-End-Web) Feel free to check and review the repos .Thank you -->
+                  </p> 
+
+                  <!-- Button -->
+                   <button type="submit" class="meet-btn">
+                      <a href="https://www.facebook.com"> Meet Now </a>
+                  </button>
+                </article>
+                 </div>
+
+                <div class="top-inner-right-container">
+                    <img src="/img/insta-dilli.png" width="350px" alt="dilli-profile-pic" style="padding: 0.2rem 0rem; margin: 1rem 0em;"> 
+                    <!-- inner top right container with img -->
+                 </div>
+            </div>
+
+            <div class="mid-clippy-wrapper">
+                <article>
+               <h3>
+                   Want to work with me?
+               </h3>
+
+               <p class="enquiry">
+                I would love to hear your questions. Submit the form to reach out to me today.
+               </p>
+
+                 <!-- Button -->
+                 <button type="submit" class="touch-btn">
+                     GET IN TOUCH
+                </button>
+            </article>
+            </div>
 
 
-        <!-- JS script -->
+            <!-- footer -->
+            <footer>
+                <div class="footer-wrapper">
+                    <div class="footer-left-wrapper">
+                        <h5 id="fullName"> Dilli Hang Rai
+                        </h5>
+
+                        <section class="social-media-links">
+                            <span><a href="#"><i class="fa fa-facebook"></i></a></span>
+                            <span><a href="#"><i class="fa fa-instagram"></i></a></span>
+                            <span><a href="#"><i class="fa fa-youtube-play"></i></a></span>
+                            <span><a href="#"><i class="fa fa-linkedin"></i></a></span>
+                        </section>
+
+                    </div>
+
+                    <div class="footer-mid-wrapper">
+                        <article>
+
+                        <h5>
+                            Address
+                        </h5>
+
+                        <section class="address">
+                            <p class="address1">Asia, Nepal </p>
+                            <p class="address2">Itahari-20, Tarahara, Sunsari</p>
+                        </section>
+                      
+                    </div>
+
+                    <div class="footer-right-wrapper">
+                        <h5>
+                            Contact
+                        </h5>
+
+                        <aside> 
+                          <a href="mailto:dillihangrae#gmail.com">dillihangrae@gmail.com</a>
+                        </aside>
+
+                        <aside>
+                        <a href="tel:+977-9811075414">Tel: +977-9811075414</a>
+                      </aside>  
+                      
+                    </article>
+                    </div>
+                </div>
+
+
+            </footer>
+        </main>
+
         <script>
-            // clearing and reloading the console
-            console.clear();
-            console.log('JS Relaoded')
-        fetch("https://api.github.com/users/dilli822")
-        .then(response => response.json())
-        .then(function(data){
-            console.log(data);
-
-            let public_reposNum = data['public_repos']
-            let public_reposInformation= `Currently I have ${public_reposNum} repos on github.`
+            function openNav() {
+              document.getElementById("myNav").style.width = "100%";
+            }
             
-            document.getElementById('avatar').src = data["avatar_url"]
-            document.getElementById('fullName').textContent = data["name"]
-            document.getElementById('bio').textContent  =  data["bio"]
-            document.getElementById('location').textContent  =  data["location"]
-
-            document.getElementById('public_reposNumber').textContent = public_reposInformation
-            document.getElementById('githubLink').href= data ['url']
-            document.getElementById('htmlLink').href= data ['html_url']
-            document.getElementById('reposLink').href= data['repos_url']
-
-
-          
-        })
-
-        fetch("https://api.github.com/users/Dilli822/repos")
-        .then(response => response.json())
-        .then (function(data2){
-            console.log(data2)
-           console.log(data2[1])
-           console.log(data2[4])
-           console.log(data2[8])
-           console.log(data2[12])
-           console.log(data2[17])
-
-             //this will unhide the main element after hard reset
-            document.getElementById('main-container').hidden= false
-
-            //remove the loading after the main element is unhidden
-            document.getElementById('loading').hidden= true
-        })   
-
-        </script>
+            function closeNav() {
+              document.getElementById("myNav").style.width = "0%";
+            }
+            </script>
+        
+        <script src="script/index.js" type="text/javascript"></script>
+     
+        
     </body>
     </html>
+
+
