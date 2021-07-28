@@ -6,6 +6,7 @@
             font-family: sans-serif;
             text-decoration: none;
             list-style-type: none;
+            outline: none;
         }
 
         a{
@@ -120,10 +121,17 @@
             transition: .5s;
         }
       }
- 
+
+      @media only screen and (max-width: 300px) {
+        div.top-inner-left-container{
+            max-width: 300px;
+            margin-right: 0rem;
+        }
+    }
 
       div.mid-clippy-wrapper{
-        clip-path: polygon(0 34%, 100% 0, 100% 100%, 0% 100%);        text-align: center;
+        clip-path: polygon(0 34%, 100% 0, 100% 100%, 0% 100%); 
+        text-align: center;
         height: 50vh;
         width: 100%;
         background-color: rgb(241, 241, 241);
@@ -132,7 +140,7 @@
         padding: 2rem 0rem;
      
       h3{
-        padding-top: 10rem;
+        padding-top: 8rem;
         font-size: 2.5rem;
         font-weight: normal;
       }
@@ -157,60 +165,87 @@
           background-color: #03493a;
           transition: .5s;
       }
+      
 
-      @media only screen and (max-width: 800px) {
+    
+    
+    
+
+    @media only screen and (max-width: 300px) {
         div.mid-clippy-wrapper{
-            height: auto;
+            height: 100vh;
+            width: 100vw;
         }
         h3 {
-            padding-top: 8rem;
+            padding-top: 0rem;
+            font-size: 1.4rem;
         }
         p.enquiry{
-            padding: 0.3rem 0;
+            padding: 0 0;
+            margin: 0;
+            font-size: .85rem;
+        }
+      button.touch-btn{
+        margin: 0rem 0rem;
+   }
+  }
+    
+      @media only screen and (max-width: 800px) {
+        div.mid-clippy-wrapper{
+            height: 100vh;
+        }
+        p.enquiry{
+            padding: 0.5rem 0;
             margin: 0;
             font-size: 1rem;
         }
       }
       button.touch-btn{
-        margin: .8rem 0rem;
+        margin: .9rem 0rem;
     }
+   }
+
+
+   //  footer part starts
+   div.footer-wrapper{
+    display: flex;
+    justify-content: space-around;
+    background-color: #000;
+    color:#fff;
+    padding: 5rem;
+   }
+
+   section.social-media-links .fa{
+       color:#fff;
+       font-size: 1.5rem;
+       padding: .5rem;
+   }
+   section.social-media-links .fa:hover{
+   color: #03493a;
+   }
+    h5{
+        font-size: 2rem;
     }
     
-    //  footer part starts
-    div.footer-wrapper{
-        display: flex;
-        justify-content: space-around;
-        background-color: #000;
+    p.address1,
+    p.address2,
+    aside{
+        cursor: pointer;
+        padding-top: .75rem;
+    }
+
+    aside a{
         color:#fff;
-        padding: 5rem;
-     
+    }
 
-        h5{
-            font-size: 2rem;
-        }
-        
-        p.address1,
-        p.address2,
-        aside{
-            cursor: pointer;
-            padding-top: .75rem;
-        }
+    p.address1:hover,
+    p.address2:hover,
+    aside a:hover{
+        color:#03493a;
+        transition: .5s;
+    }
 
-        aside a{
-            color:#fff;
-        }
-
-        p.address1:hover,
-        p.address2:hover,
-        aside a:hover{
-            color:#03493a;
-            transition: .5s;
-        }
-      }
-       
-
-    @media only screen and (max-width: 800px) {
-       
+    @media only screen and(max-width: 800px) {
         div.footer-wrapper{
             padding: 2rem;
             flex-direction: column;
@@ -218,5 +253,7 @@
         h5{
         margin-top: 1rem;
         }
-   }
-     
+        
+    }
+  
+    

@@ -6,6 +6,7 @@
   font-family: sans-serif;
   text-decoration: none;
   list-style-type: none;
+  outline: none;
 }
 
 a {
@@ -133,6 +134,13 @@ div.top-inner-left-container button.meet-btn:hover {
   transition: .5s;
 }
 
+@media only screen and (max-width: 300px) {
+  div.top-inner-left-container {
+    max-width: 300px;
+    margin-right: 0rem;
+  }
+}
+
 div.mid-clippy-wrapper {
   -webkit-clip-path: polygon(0 34%, 100% 0, 100% 100%, 0% 100%);
           clip-path: polygon(0 34%, 100% 0, 100% 100%, 0% 100%);
@@ -146,7 +154,7 @@ div.mid-clippy-wrapper {
 }
 
 div.mid-clippy-wrapper h3 {
-  padding-top: 10rem;
+  padding-top: 8rem;
   font-size: 2.5rem;
   font-weight: normal;
 }
@@ -172,22 +180,38 @@ div.mid-clippy-wrapper button.touch-btn:hover {
   transition: .5s;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 300px) {
   div.mid-clippy-wrapper div.mid-clippy-wrapper {
-    height: auto;
+    height: 100vh;
+    width: 100vw;
   }
   div.mid-clippy-wrapper h3 {
-    padding-top: 8rem;
+    padding-top: 0rem;
+    font-size: 1.4rem;
   }
   div.mid-clippy-wrapper p.enquiry {
-    padding: 0.3rem 0;
+    padding: 0 0;
+    margin: 0;
+    font-size: .85rem;
+  }
+  div.mid-clippy-wrapper button.touch-btn {
+    margin: 0rem 0rem;
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  div.mid-clippy-wrapper div.mid-clippy-wrapper {
+    height: 100vh;
+  }
+  div.mid-clippy-wrapper p.enquiry {
+    padding: 0.5rem 0;
     margin: 0;
     font-size: 1rem;
   }
 }
 
 div.mid-clippy-wrapper button.touch-btn {
-  margin: .8rem 0rem;
+  margin: .9rem 0rem;
 }
 
 div.footer-wrapper {
@@ -201,24 +225,34 @@ div.footer-wrapper {
   padding: 5rem;
 }
 
-div.footer-wrapper h5 {
+section.social-media-links .fa {
+  color: #fff;
+  font-size: 1.5rem;
+  padding: .5rem;
+}
+
+section.social-media-links .fa:hover {
+  color: #03493a;
+}
+
+h5 {
   font-size: 2rem;
 }
 
-div.footer-wrapper p.address1,
-div.footer-wrapper p.address2,
-div.footer-wrapper aside {
+p.address1,
+p.address2,
+aside {
   cursor: pointer;
   padding-top: .75rem;
 }
 
-div.footer-wrapper aside a {
+aside a {
   color: #fff;
 }
 
-div.footer-wrapper p.address1:hover,
-div.footer-wrapper p.address2:hover,
-div.footer-wrapper aside a:hover {
+p.address1:hover,
+p.address2:hover,
+aside a:hover {
   color: #03493a;
   -webkit-transition: .5s;
   transition: .5s;
