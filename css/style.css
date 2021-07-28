@@ -69,8 +69,11 @@ div.heading {
 }
 
 .closebtn:hover,
-.fa-bars:hover {
+.fa-bars:hover,
+section.social-media-links .fa:hover {
   color: #136621;
+  -webkit-transition: .5s;
+  transition: .5s;
 }
 
 .overlay a {
@@ -142,30 +145,30 @@ div.top-inner-left-container button.meet-btn:hover {
 }
 
 div.mid-clippy-wrapper {
-  -webkit-clip-path: polygon(0 34%, 100% 0, 100% 100%, 0% 100%);
-          clip-path: polygon(0 34%, 100% 0, 100% 100%, 0% 100%);
+  -webkit-clip-path: polygon(0 53%, 100% 0, 100% 100%, 0% 100%);
+          clip-path: polygon(0 53%, 100% 0, 100% 100%, 0% 100%);
   text-align: center;
-  height: 50vh;
+  height: auto;
   width: 100%;
   background-color: #f1f1f1;
   color: black;
   letter-spacing: 1px;
-  padding: 2rem 0rem;
+  padding: 4rem;
 }
 
-div.mid-clippy-wrapper h3 {
+h3 {
   padding-top: 8rem;
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: normal;
 }
 
-div.mid-clippy-wrapper p.enquiry {
+p.enquiry {
   font-size: 1.3rem;
   margin-top: 2rem;
   opacity: 0.5;
 }
 
-div.mid-clippy-wrapper button.touch-btn {
+button.touch-btn {
   background-color: black;
   padding: 1rem;
   margin-top: 2rem;
@@ -174,44 +177,29 @@ div.mid-clippy-wrapper button.touch-btn {
   color: #fff;
 }
 
-div.mid-clippy-wrapper button.touch-btn:hover {
+button.touch-btn:hover {
   background-color: #03493a;
   -webkit-transition: .5s;
   transition: .5s;
 }
 
-@media only screen and (max-width: 600px) {
-  div.mid-clippy-wrapper div.mid-clippy-wrapper {
-    height: 100vh;
-    width: 100vw;
+@media only screen and (max-width: 768px) {
+  div.mid-clippy-wrapper {
+    -webkit-clip-path: polygon(0 34%, 100% 0, 100% 100%, 0% 100%);
+            clip-path: polygon(0 34%, 100% 0, 100% 100%, 0% 100%);
+    padding: 2rem;
   }
-  div.mid-clippy-wrapper h3 {
-    padding-top: 0rem;
-    font-size: 1.4rem;
+  h3 {
+    padding-top: 5rem;
+    font-size: 1.85rem;
   }
-  div.mid-clippy-wrapper p.enquiry {
-    padding: 0 0;
-    margin: 0;
-    font-size: .85rem;
+  p.enquiry {
+    font-size: .9rem;
+    margin: .5rem 0rem;
   }
-  div.mid-clippy-wrapper button.touch-btn {
-    margin: 0rem 0rem;
+  button.touch-btn {
+    margin: .85rem 0rem;
   }
-}
-
-@media only screen and (max-width: 800px) {
-  div.mid-clippy-wrapper div.mid-clippy-wrapper {
-    height: 100vh;
-  }
-  div.mid-clippy-wrapper p.enquiry {
-    padding: 0.5rem 0;
-    margin: 0;
-    font-size: 1rem;
-  }
-}
-
-div.mid-clippy-wrapper button.touch-btn {
-  margin: .9rem 0rem;
 }
 
 div.footer-wrapper {
@@ -229,10 +217,6 @@ section.social-media-links .fa {
   color: #fff;
   font-size: 1.5rem;
   padding: .5rem;
-}
-
-section.social-media-links .fa:hover {
-  color: #03493a;
 }
 
 h5 {
@@ -258,7 +242,7 @@ aside a:hover {
   transition: .5s;
 }
 
-@media only screen and (max-width: 800px) {
+@media only screen and (max-width: 600px) {
   div.footer-wrapper {
     padding: 2rem;
     -webkit-box-orient: vertical;
