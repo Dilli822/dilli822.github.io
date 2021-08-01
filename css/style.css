@@ -38,7 +38,7 @@ div.heading {
   width: 0;
   position: fixed;
   z-index: 1;
-  background-color: rgba(0, 0, 0, 0.897);
+  background-color: #fff;
   overflow-x: hidden;
   -webkit-transition: 0.1s;
   transition: 0.1s;
@@ -47,7 +47,21 @@ div.heading {
 .overlay-content {
   width: 100%;
   text-align: center;
-  margin-top: 10rem;
+  /* Center vertically and horizontally */
+  position: absolute;
+  top: 40%;
+  left: 0%;
+}
+
+@media screen and (min-width: 600px) {
+  .overlay-content nav ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
 }
 
 .overlay-content nav ul li a {
