@@ -40,8 +40,8 @@ div.heading {
   z-index: 1;
   background-color: #fff;
   overflow-x: hidden;
-  -webkit-transition: 0.1s;
-  transition: 0.1s;
+  -webkit-transition: 0.75s;
+  transition: 0.75s;
 }
 
 .overlay-content {
