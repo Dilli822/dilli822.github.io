@@ -53,6 +53,12 @@ div.heading {
   left: 0%;
 }
 
+@media only screen and (max-width: 600px) {
+  .overlay-content {
+    top: 15%;
+  }
+}
+
 @media screen and (min-width: 600px) {
   .overlay-content nav ul {
     display: -webkit-box;
@@ -67,6 +73,7 @@ div.heading {
 .overlay-content nav ul li a {
   padding: 1rem 0rem;
   margin: 2rem 1rem;
+  font-size: 2rem;
 }
 
 .overlay-content nav ul li a:hover {
@@ -147,8 +154,18 @@ aside a:hover {
         -ms-flex-direction: column;
             flex-direction: column;
   }
+  section.social-media-links .fa {
+    font-size: 1.3rem;
+    padding: .25rem;
+  }
   h5 {
     margin-top: 1rem;
+    font-size: 1.5rem;
+  }
+  p.address1,
+  p.address2,
+  aside {
+    font-size: .85rem;
   }
 }
 /*# sourceMappingURL=head-foot.css.map */

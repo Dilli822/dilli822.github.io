@@ -1,18 +1,15 @@
-div.top-contact-wrapper,
-div.background-img {
+div.top-contact-wrapper {
   background-color: #e6e6e6;
   text-align: center;
   padding: 2rem;
 }
 
-div.top-contact-wrapper q,
-div.background-img q {
+div.top-contact-wrapper q {
   font-weight: 600;
   letter-spacing: 2px;
 }
 
-div.top-contact-wrapper h3,
-div.background-img h3 {
+div.top-contact-wrapper h3 {
   font-weight: lighter;
   font-size: 2.5rem;
 }
@@ -89,5 +86,14 @@ div.main-contact-wrapper script {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+@media only screen and (max-width: 600px) {
+  div.top-contact-wrapper h3 {
+    font-size: 1.5rem;
+  }
+  div.contact-form {
+    padding: 1rem 3rem;
+  }
 }
 /*# sourceMappingURL=contact.css.map */
