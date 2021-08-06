@@ -55,7 +55,7 @@ div.heading {
 
 @media only screen and (max-width: 600px) {
   .overlay-content {
-    top: 15%;
+    top: 5%;
   }
 }
 
