@@ -50,10 +50,19 @@ div.top-inner-left-container button.meet-btn:hover {
   transition: .5s;
 }
 
-@media only screen and (max-width: 300px) {
+img.profile {
+  padding: 0.2rem 0rem;
+  margin: 1rem 0em;
+}
+
+@media only screen and (max-width: 600px) {
   div.top-inner-left-container {
-    max-width: 300px;
+    max-width: 500px;
     margin-right: 0rem;
+    padding: 2rem;
+  }
+  img.profile {
+    padding: 1rem;
   }
 }
 
@@ -113,45 +122,5 @@ button.touch-btn:hover {
   button.touch-btn {
     margin: .85rem 0rem;
   }
-}
-
-div.footer-wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  background-color: #000;
-  color: #fff;
-  padding: 5rem;
-}
-
-section.social-media-links .fa {
-  color: #fff;
-  font-size: 1.5rem;
-  padding: .5rem;
-}
-
-h5 {
-  font-size: 2rem;
-}
-
-p.address1,
-p.address2,
-aside {
-  cursor: pointer;
-  padding-top: .75rem;
-}
-
-aside a {
-  color: #fff;
-}
-
-p.address1:hover,
-p.address2:hover,
-aside a:hover {
-  color: #03493a;
-  -webkit-transition: .5s;
-  transition: .5s;
 }
 /*# sourceMappingURL=style.css.map */

@@ -11,6 +11,11 @@
 
 a {
   color: black;
+  outline: none;
+}
+
+a:hover {
+  outline: none;
 }
 
 button {
