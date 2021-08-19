@@ -12,7 +12,7 @@
     :hover{
         outline: none!important;
     }
-    
+
     a{
         color:rgb(0, 0, 0);
         outline: none!important;
@@ -158,7 +158,12 @@ section.social-media-links .fa{
     p.address1,
     p.address2,
     aside{
-        font-size: .85rem;;
+        font-size: .85rem;
+        outline: none!important;
+
+    :hover{
+        outline: none!important;
+    }
     }
 }
 

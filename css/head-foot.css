@@ -176,6 +176,12 @@ aside a:hover {
   p.address2,
   aside {
     font-size: .85rem;
+    outline: none !important;
+  }
+  p.address1 :hover,
+  p.address2 :hover,
+  aside :hover {
+    outline: none !important;
   }
 }
 /*# sourceMappingURL=head-foot.css.map */
