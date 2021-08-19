@@ -140,20 +140,12 @@ p.address1,
 p.address2,
 aside {
   cursor: pointer;
-  padding: .75rem 0;
+  margin: .75rem 0;
 }
 
 aside a {
   color: #fff;
   padding: .75rem 0;
-}
-
-p.address1:hover,
-p.address2:hover,
-aside a:hover {
-  color: #03493a;
-  -webkit-transition: .5s;
-  transition: .5s;
 }
 
 @media only screen and (max-width: 600px) {
