@@ -8,14 +8,18 @@
         list-style-type: none;
         outline: none!important;
     }
-    
 
+    :hover{
+        outline: none!important;
+    }
+    
     a{
         color:rgb(0, 0, 0);
-        outline: none;
+        outline: none!important;
+
     }
     a:hover{
-        outline: none;
+        outline: none!important;
     }
 
     button{

@@ -9,13 +9,17 @@
   outline: none !important;
 }
 
+:hover {
+  outline: none !important;
+}
+
 a {
   color: black;
-  outline: none;
+  outline: none !important;
 }
 
 a:hover {
-  outline: none;
+  outline: none !important;
 }
 
 button {
