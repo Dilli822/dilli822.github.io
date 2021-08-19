@@ -7,14 +7,14 @@
         text-decoration: none;
         list-style-type: none;
         outline: none!important;
-    }
+      }
 
     :hover{
         outline: none!important;
     }
 
     a{
-        color:rgb(0, 0, 0);
+        color:#000;
         outline: none!important;
 
     }
@@ -122,24 +122,25 @@ section.social-media-links .fa{
      font-size: 2rem;
  }
  
- p.address1,
- p.address2,
- aside{
+li.address1,
+li.address2,
+li.name, li.tel{
      cursor: pointer;
-     margin: .75rem 0;
+     padding: .75rem 0 .5rem 0;
  }
 
- aside a{
+ li.name a, li.tel a {
      color:#fff;
-     padding: .75rem 0;
+     padding: .75rem 0 .5rem 0;
  }
 
-//  p.address1:hover,
-//  p.address2:hover,
-//  aside a:hover{
-//      color:#03493a;
-//      transition: .5s;
-//  }
+ li.address1:hover,
+ li.address2:hover,
+ li.name a:hover,
+ li.tel a:hover{
+     color:#03493a;
+     transition: .5s;
+ }
 
  @media only screen and(max-width: 600px) {
     div.footer-wrapper{
@@ -155,15 +156,14 @@ section.social-media-links .fa{
     margin-top: 1rem;
     font-size: 1.5rem;
     }  
-    p.address1,
-    p.address2,
-    aside{
-        font-size: .85rem;
-        outline: none!important;
+//     p.address1,
+//     p.address2,
+//     aside{
+//         font-size: .85rem;
 
-    :hover{
-        outline: none!important;
-    }
-    }
-}
+//     :hover{
+//         outline: none!important;
+//     }
+//     }
+  }
 
