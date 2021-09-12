@@ -133,8 +133,9 @@ section.social-media-links .fa {
 }
 section.social-media-links .fa:hover{
   color: #03493a;
-  -webkit-transition: 1.5s;
-  transition: 1.5s;
+  -webkit-transition: 1s;
+  transition: 1s;
+  opacity: 0.8;
 }
 h5 {
   font-size: 2rem;
@@ -157,6 +158,7 @@ li.address1:hover,
 li.address2:hover,
 li.name a:hover,
 li.tel a:hover {
+  opacity: 0.8;
   color: #03493a;
   -webkit-transition: .5s;
   transition: .5s;
