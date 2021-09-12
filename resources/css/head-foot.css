@@ -131,7 +131,11 @@ section.social-media-links .fa {
   font-size: 1.5rem;
   padding: .5rem;
 }
-
+section.social-media-links .fa:hover{
+  color: #03493a;
+  -webkit-transition: 1.5s;
+  transition: 1.5s;
+}
 h5 {
   font-size: 2rem;
 }
@@ -140,7 +144,8 @@ li.address1,
 li.address2,
 li.name, li.tel {
   cursor: pointer;
-  padding: .75rem 0 .5rem 0;
+  line-height: 2rem;
+  /* padding: .75rem 0 .5rem 0; */
 }
 
 li.name a, li.tel a {
@@ -156,6 +161,18 @@ li.tel a:hover {
   -webkit-transition: .5s;
   transition: .5s;
 }
+
+/* footer nav ul li a */
+li.address2 a{
+  color: #ffff;
+}
+
+li.address2 a:hover{
+  color: #03493a;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
 
 @media only screen and (max-width: 600px) {
   div.footer-wrapper {

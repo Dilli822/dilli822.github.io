@@ -105,6 +105,16 @@ button.touch-btn:hover {
   transition: .5s;
 }
 
+/* footer nav ul li a */
+li.address2 a{
+  color: #ffff;
+}
+li.address2 a:hover{
+  color: #03493a;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
 @media only screen and (max-width: 768px) {
   div.mid-clippy-wrapper {
     -webkit-clip-path: polygon(0 34%, 100% 0, 100% 100%, 0% 100%);
