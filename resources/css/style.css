@@ -98,6 +98,9 @@ button.touch-btn {
   text-align: center;
   color: #fff;
 }
+button.touch-btn a{
+  color: #fff;
+}
 
 button.touch-btn:hover {
   background-color: #03493a;
