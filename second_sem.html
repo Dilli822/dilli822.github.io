@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+        // script.js
+const slider = document.querySelector(".slider");
+const prevButton = document.getElementById("prevBtn");
+const nextButton = document.getElementById("nextBtn");
+
+const totalImages = 1000; // Total number of images (adjust as needed)
+
+let currentIndex = 1; // Start with the first image (image100.jpg)
+
+function getImageUrl(index) {
+  return `https://dilli822.github.io/resources/img/csit/pastquestionsolutions/image=${index}.jpg`;
+}
+
+function updateSlider() {
+  const currentImageUrl = getImageUrl(currentIndex);
+  slider.innerHTML = ""; // Clear the slider
+
+  const imageElement = document.createElement("img");
+  imageElement.src = currentImageUrl;
+  slider.appendChild(imageElement);
+}
+
+prevButton.addEventListener("click", () => {
+  currentIndex = currentIndex === 1 ? totalImages - 1 : currentIndex - 1;
+  updateSlider();
+});
+
+nextButton.addEventListener("click", () => {
+  currentIndex = currentIndex === totalImages - 1 ? 1 : currentIndex + 1;
+  updateSlider();
+});
+
+// Initial update to load the first image
+updateSlider();
+
+    </script>
+</body>
+</html>
