@@ -1,49 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Slider</title>
+  <!-- jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- Slick Slider CSS -->
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css">
+  <!-- Slick Slider JS -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+  <style>
+    .slider, img {
+      max-width: 100%;
+      width: 400px;
+      height: 400px;
+    }
+  </style>
 </head>
 <body>
-    
-
-    <script>
-        // script.js
-const slider = document.querySelector(".slider");
-const prevButton = document.getElementById("prevBtn");
-const nextButton = document.getElementById("nextBtn");
-
-const totalImages = 1000; // Total number of images (adjust as needed)
-
-let currentIndex = 1; // Start with the first image (image100.jpg)
-
-function getImageUrl(index) {
-  return `https://dilli822.github.io/resources/img/csit/pastquestionsolutions/image=${index}.jpg`;
-}
-
-function updateSlider() {
-  const currentImageUrl = getImageUrl(currentIndex);
-  slider.innerHTML = ""; // Clear the slider
-
-  const imageElement = document.createElement("img");
-  imageElement.src = currentImageUrl;
-  slider.appendChild(imageElement);
-}
-
-prevButton.addEventListener("click", () => {
-  currentIndex = currentIndex === 1 ? totalImages - 1 : currentIndex - 1;
-  updateSlider();
-});
-
-nextButton.addEventListener("click", () => {
-  currentIndex = currentIndex === totalImages - 1 ? 1 : currentIndex + 1;
-  updateSlider();
-});
-
-// Initial update to load the first image
-updateSlider();
-
-    </script>
+  <div class="slider-container">
+    <div class="slider">
+      <!-- Slides will go here -->
+    </div>
+    <button id="prevBtn">Previous</button>
+    <button id="nextBtn">Next</button>
+  </div>
+  <script>
+    $(document).ready(function () {
+      const totalImages = 100;
+      let currentIndex = 1;
+      const imageExtensions = ["jpg", "png", "jpeg", "svg"];
+      function updateSlider() {
+        $('.slider').slick('slickRemove', null, null, true);
+        for (const extension of imageExtensions) {
+          const currentImageUrl = getImageUrl(currentIndex, extension);
+          const slide = $('<div><img src="' + currentImageUrl + '"></div>');
+          if (extension === 'svg') {
+            slide.html('<p>SVG Image</p>');
+          }
+          $('.slider').slick('slickAdd', slide);
+        }
+      }
+      $('#prevBtn').click(() => {
+        currentIndex = currentIndex === 1 ? totalImages : currentIndex - 1;
+        updateSlider();
+      });
+      $('#nextBtn').click(() => {
+        currentIndex = currentIndex === totalImages ? 1 : currentIndex + 1;
+        updateSlider();
+      });
+      function getImageUrl(index, extension) {
+        return `https://raw.githubusercontent.com/Dilli822/dilli822.github.io/main/resources/img/csit/pastquestionsolutions/image${index}.${extension}`;
+      }
+      $('.slider').slick({
+        infinite: true,
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        prevArrow: $('#prevBtn'),
+        nextArrow: $('#nextBtn'),
+      });
+      updateSlider();
+    });
+  </script>
 </body>
 </html>
