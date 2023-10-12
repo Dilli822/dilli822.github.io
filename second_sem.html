@@ -1,67 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Image Slider</title>
-  <!-- jQuery -->
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <!-- Slick Slider CSS -->
-  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.css">
-  <!-- Slick Slider JS -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
-  <style>
-    .slider, img {
-      max-width: 100%;
-      width: 400px;
-      height: 400px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Slider</title>
+
+    <!-- Include Bootstrap CSS from a CDN -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+
+    <style>
+        .image {
+            max-width: 100%;
+            max-width: 500px;
+        }
+    </style>
 </head>
 <body>
-  <div class="slider-container">
-    <div class="slider">
-      <!-- Slides will go here -->
+
+    <!-- <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="sliderss">
+                    <div class="slider"></div>
+                 
+                </div>
+              
+                <button id="prevBtnCustom">Previous</button>
+                <button id="nextBtnCustom">Next</button>
+            </div>
+
+            
+        </div>
+
+
+        <div class="row">
+            <div class="col">
+                <div class="sliderss">
+                    <div class="slider"></div>
+                 
+                </div>
+              
+                <button id="prevBtnCustom">Previous</button>
+                <button id="nextBtnCustom">Next</button>
+            </div>
+
+            
+        </div>
+        
+    </div> -->
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="sliderss"></div>
+                <button id="prevBtnCustom1">Previous</button>
+                <button id="nextBtnCustom1">Next</button>
+            </div>
+        </div>
     </div>
-    <button id="prevBtn">Previous</button>
-    <button id="nextBtn">Next</button>
-  </div>
-  <script>
-    $(document).ready(function () {
-      const totalImages = 100;
-      let currentIndex = 1;
-      const imageExtensions = ["jpg", "png", "jpeg", "svg"];
-      function updateSlider() {
-        $('.slider').slick('slickRemove', null, null, true);
-        for (const extension of imageExtensions) {
-          const currentImageUrl = getImageUrl(currentIndex, extension);
-          const slide = $('<div><img src="' + currentImageUrl + '"></div>');
-          if (extension === 'svg') {
-            slide.html('<p>SVG Image</p>');
-          }
-          $('.slider').slick('slickAdd', slide);
+
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="sliderss"></div>
+                <button id="prevBtnCustom2">Previous</button>
+                <button id="nextBtnCustom2">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+const slider1 = document.querySelectorAll(".sliderss")[0];
+        const prevButton1 = document.getElementById("prevBtnCustom1");
+        const nextButton1 = document.getElementById("nextBtnCustom1");
+        let currentIndex1 = 1;
+
+        const slider2 = document.querySelectorAll(".sliderss")[1];
+        const prevButton2 = document.getElementById("prevBtnCustom2");
+        const nextButton2 = document.getElementById("nextBtnCustom2");
+        let currentIndex2 = 1;
+
+        function getImageUrl(index) {
+            return `https://raw.githubusercontent.com/Dilli822/dilli822.github.io/main/resources/img/csit/pastquestionsolutions/image${index}.jpg`;
         }
-      }
-      $('#prevBtn').click(() => {
-        currentIndex = currentIndex === 1 ? totalImages : currentIndex - 1;
-        updateSlider();
-      });
-      $('#nextBtn').click(() => {
-        currentIndex = currentIndex === totalImages ? 1 : currentIndex + 1;
-        updateSlider();
-      });
-      function getImageUrl(index, extension) {
-        return `https://raw.githubusercontent.com/Dilli822/dilli822.github.io/main/resources/img/csit/pastquestionsolutions/image${index}.${extension}`;
-      }
-      $('.slider').slick({
-        infinite: true,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        prevArrow: $('#prevBtn'),
-        nextArrow: $('#nextBtn'),
-      });
-      updateSlider();
-    });
-  </script>
+
+        function updateSlider(slider, prevButton, nextButton, currentIndex) {
+            const currentImageUrl = getImageUrl(currentIndex);
+            slider.innerHTML = "";
+
+            const imageElement = document.createElement("img");
+            imageElement.classList.add("image");
+            imageElement.src = currentImageUrl;
+            slider.appendChild(imageElement);
+
+            const img = new Image();
+            img.src = getImageUrl(currentIndex + 1);
+            img.onload = () => {
+                nextButton.disabled = false;
+            };
+            img.onerror = () => {
+                nextButton.disabled = true;
+            };
+
+            prevButton.disabled = currentIndex === 1;
+        }
+
+        prevButton1.addEventListener("click", () => {
+            currentIndex1 = currentIndex1 === 1 ? 1 : currentIndex1 - 1;
+            updateSlider(slider1, prevButton1, nextButton1, currentIndex1);
+        });
+
+        nextButton1.addEventListener("click", () => {
+            currentIndex1++;
+            updateSlider(slider1, prevButton1, nextButton1, currentIndex1);
+        });
+
+        prevButton2.addEventListener("click", () => {
+            currentIndex2 = currentIndex2 === 1 ? 1 : currentIndex2 - 1;
+            updateSlider(slider2, prevButton2, nextButton2, currentIndex2);
+        });
+
+        nextButton2.addEventListener("click", () => {
+            currentIndex2++;
+            updateSlider(slider2, prevButton2, nextButton2, currentIndex2);
+        });
+
+        updateSlider(slider1, prevButton1, nextButton1, currentIndex1);
+        updateSlider(slider2, prevButton2, nextButton2, currentIndex2);
+</script>
+
+    <!-- Include Bootstrap JS from a CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
 </body>
 </html>
