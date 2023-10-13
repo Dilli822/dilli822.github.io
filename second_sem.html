@@ -160,13 +160,14 @@ const default_baseImageUrl = 'https://raw.githubusercontent.com/Dilli822/dilli82
 let baseImageUrl = default_baseImageUrl;
 
 // Add click event listeners to the <li> elements
-async function fetchAndStoreImages() {
+// ... (previous code)
 
-  // Check if the data is already in localStorage
+// Function to fetch and store images in local storage
+async function fetchAndStoreImages() {
   const existingImageArrayJson = localStorage.getItem('imageArray');
   if (existingImageArrayJson) {
     console.log("Images are already in localStorage");
-    return; // Exit the function if data is already in localStorage
+    return;
   }
 
   let currentIndex = 0;
@@ -175,12 +176,16 @@ async function fetchAndStoreImages() {
   while (true) {
     const imageUrl = `${baseImageUrl}${currentIndex + 1}.jpg`;
 
+    console.log("Fetching image:", imageUrl);
+
     try {
       const response = await fetch(imageUrl);
 
+      console.log("Response status:", response.status);
+
       if (response.status === 404) {
         console.log("404 Error - End of images");
-        break; // Stop fetching if a 404 error is encountered
+        break;
       }
 
       if (response.ok) {
@@ -188,27 +193,24 @@ async function fetchAndStoreImages() {
         imageArray.push(imageURL);
       } else {
         console.error(`Error fetching image at index ${currentIndex}: ${response.statusText}`);
-        break; // Stop fetching on any other error
+        break;
       }
 
       currentIndex++;
     } catch (error) {
       console.error(`An error occurred while fetching the image at index ${currentIndex}: ${error}`);
-      break; // Stop fetching on any error
+      break;
     }
   }
 
   if (imageArray.length > 0) {
-    // Convert the imageArray to a JSON string
     const imageArrayJson = JSON.stringify(imageArray);
-
-    // Save the JSON string in browser storage
     localStorage.setItem('imageArray', imageArrayJson);
-
-    // Log the JSON format of the image URLs array to the console
     console.log(imageArrayJson);
   }
 }
+
+// ... (rest of the code)
 
 // Start fetching and storing images
 fetchAndStoreImages();
@@ -218,30 +220,40 @@ let imageArray = [];
 
 
 // Load the imageArray from local storage
-const imageArrayJson = localStorage.getItem('imageArray');
-if (imageArrayJson) {
-  imageArray = JSON.parse(imageArrayJson);
+function loadImagesFromLocalStorage() {
+  const imageArrayJson = localStorage.getItem('imageArray');
+  if (imageArrayJson) {
+    return JSON.parse(imageArrayJson);
+  }
+  return []; // Return an empty array if data is not in local storage.
 }
-
 
 console.log(imageArray);
 // Get the container element where you want to add the images
 const sliderHighlightImage = document.getElementById('sliderHighlightImage');
 
 // Loop through the imageArray and create img tags
-if (imageArray.length === 0) {
-  // Handle the case when imageArray is empty (no images to display)
-  const noImagesMessage = document.createElement('p');
-  noImagesMessage.textContent = 'No images available.';
-  sliderHighlightImage.appendChild(noImagesMessage);
-} else {
-  imageArray.forEach((imageUrl, index) => {
-    const img = document.createElement('img');
-    img.src = imageUrl;
-    img.alt = `Image ${index + 1}`; // Provide an alt attribute for accessibility
-    sliderHighlightImage.appendChild(img);
-  });
+function displayImages(imageArray) {
+  const sliderHighlightImage = document.getElementById('sliderHighlightImage');
+
+  if (imageArray.length === 0) {
+    // Handle the case when imageArray is empty (no images to display)
+    const noImagesMessage = document.createElement('p');
+    noImagesMessage.textContent = 'No images available.';
+    sliderHighlightImage.appendChild(noImagesMessage);
+  } else {
+    imageArray.forEach((imageUrl, index) => {
+      const img = document.createElement('img');
+      img.src = imageUrl;
+      img.alt = `Image ${index + 1}`; // Provide an alt attribute for accessibility
+      sliderHighlightImage.appendChild(img);
+    });
+  }
 }
+
+// Call this function to display images from the imageArray when needed.
+displayImages(imageArray);
+
 
 // Function to load and display images in the slider
 function loadImagesInSlider(index) {
@@ -254,6 +266,8 @@ function loadImagesInSlider(index) {
   const sliderImage = document.getElementById('sliderImage');
   sliderImage.src = imageArray[index];
 }
+
+
 
 // Function to compare and add a red border
 // Add event listeners for the "Previous" and "Next" buttons
@@ -307,40 +321,46 @@ listItems.forEach(item => {
     });
 });
 
-
 const liElements = document.querySelectorAll('#main-list li');
 liElements.forEach((li) => {
-  li.addEventListener('click', (event) => {
+  li.addEventListener('click', async (event) => {
     const liValue = event.target.textContent.trim();
     const variableName = liValue.split(' ').join('_');
 
     if (urls[variableName]) {
-      // Alert the information
       alert(`Clicked on ${liValue}. URL: ${urls[variableName]}`);
-      // storing the matched variable value inside the newUrl 
-      var newUrl = urls[variableName];
-      alert("ne w url is ",newUrl);
 
-      baseImageUrl = '';
-      alert("assigned url is ", baseImageUrl);
-      
+      // Clear the local storage
+      localStorage.removeItem('imageArray');
+
       // Clear the imageArray
       imageArray = [];
-      alert("image array is ", imageArray);
 
-      // Remove the data from localStorage
-      localStorage.removeItem('imageArray');
-      // changing the baseImageUrl
-      baseImageUrl = newUrl;
-      fetchAndStoreImages();
-      loadImagesInSlider();
-      // Call the loadAndCompareImages function (assuming it's defined)
-      loadAndCompareImages();
-      compareAndHighlightImage();
-      
+      // Clear the baseImageUrl
+      baseImageUrl = '';
+
+      // Set the new baseImageUrl
+      baseImageUrl = urls[variableName];
+
+      try {
+        await fetchAndStoreImages();
+
+        // Load and display images
+        imageArray = loadImagesFromLocalStorage();
+        loadImagesInSlider(0);
+
+        // Display the updated images
+        displayImages(imageArray);
+
+        compareAndHighlightImage();
+      } catch (error) {
+        console.error('An error occurred:', error);
+        alert('An error occurred. Please check the browser console.');
+      }
     }
   });
 });
+
 
 
 
