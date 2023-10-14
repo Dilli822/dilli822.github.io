@@ -197,10 +197,11 @@ margin: 1px;
     border: 1px solid #00b398;
 }
 
-#slider{
+#slider, .slideC{
     height: 75vh;
     overflow: auto;
 }
+
 
 #sliderImage{
     max-width: 100%;
@@ -214,3 +215,27 @@ margin: 1px;
     margin: 3px;
     color: #e6e6e6;
 }
+
+
+
+#loadingOverlay{
+    position: relative;
+} 
+
+.customload{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+.spinner-border {
+    --bs-spinner-width: 4rem;
+    --bs-spinner-height: 4rem;
+
+  }
+
+  #HighlightsLo{
+    --bs-spinner-width: 2rem;
+    --bs-spinner-height: 2rem;
+  }

@@ -34,33 +34,80 @@
                 transform: translateX(-100%);
             }
         }
+
+
+        .modal-open .container-fluid {
+    opacity: 0;
+  }
+
     </style>
 </head>
 <body>
 
-    <p class="p-0 marquee">This is only KEC's Solution for Bsc.CSIT Second Semester up to 2078BS PAST QUESTION. Thanks @dilli_hangrae</p>
+
+  <!-- Add this code inside the body tag, preferably after the main content -->
+<div class="modal fade" id="usernameModal" tabindex="-1" role="dialog" aria-labelledby="usernameModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="usernameModalLabel">Enter Your Username</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <input type="text" id="usernameInput" class="form-control" placeholder="Username" />
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" data-dismiss="modal" id="saveUsername">Save</button>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 
 
     <div class="container-fluid">
+      <p class="p-1 m-1 mt-0 marquee">This is only KEC's Solution for Bsc.CSIT Second Semester up to 2078BS PAST QUESTION. Thanks @dilli_hangrae</p>
+<hr class="">
         <div class="row">
             <div class="col-4">
-                <h4>Solutions Highlights:</h4>
-                <div class="stored-urls" id="sliderHighlightImage">
-                
-                        <!-- <button id="prevBtnCustom2" type="button" class="btn btn-outline-primary">Previous</button> -->
-                     
-                            <!-- Images will be added dynamically here -->
 
-                        <!-- <button id="nextBtnCustom2" type="button" class="btn btn-outline-success">Next</button> -->
-                    
+
+              <div id="greetingDiv">
+
+
+              </div>
+
+                <h4>Solutions Highlights:</h4>
+
+
+              <div class="" id="welcomeMessageContainer">
+                <div> <span class="h4" id="welcomeMessage"></span> </div>
+            </div>
+
+                <div class="stored-urls" id="sliderHighlightImage">
                 </div>
             </div>
             
-            <div class="col-5" >
+            <div class="col-5 h-100" >
+
+              <div class="col-11 slideC" id="slideC">
+                <div class="h-100">
+                  <iframe width="100%"  height="100%" src="https://www.youtube.com/embed/hkNdhKAMhAA?si=hXGBU3lnagerHCbJ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+
+              </div>
+
                 <div id="slider">
+
+
                    
                       
-                            <img id="sliderImage" src="" alt="Slider Image">
+                            <img id="sliderImage" src="" alt="No Solution available">
                   
                   
                 </div>
@@ -137,6 +184,10 @@
 
 
     <script>
+
+
+
+
 
 // Define the URLs in an object for easy access
 const urls = {
@@ -223,7 +274,9 @@ let imageArray = [];
 function loadImagesFromLocalStorage() {
   const imageArrayJson = localStorage.getItem('imageArray');
   if (imageArrayJson) {
-    return JSON.parse(imageArrayJson);
+    const parsedArray = JSON.parse(imageArrayJson);
+    // Use a Set to remove duplicates, and then convert it back to an array
+    return [...new Set(parsedArray)];
   }
   return []; // Return an empty array if data is not in local storage.
 }
@@ -239,7 +292,7 @@ function displayImages(imageArray) {
   if (imageArray.length === 0) {
     // Handle the case when imageArray is empty (no images to display)
     const noImagesMessage = document.createElement('p');
-    noImagesMessage.textContent = 'No images available.';
+    noImagesMessage.textContent = 'No Solutions Available.';
     sliderHighlightImage.appendChild(noImagesMessage);
   } else {
     imageArray.forEach((imageUrl, index) => {
@@ -266,6 +319,8 @@ function loadImagesInSlider(index) {
   const sliderImage = document.getElementById('sliderImage');
   sliderImage.src = imageArray[index];
 }
+
+
 
 
 
@@ -323,6 +378,12 @@ listItems.forEach(item => {
 
 const liElements = document.querySelectorAll('#main-list li');
 
+
+document.getElementById("slider").style.display = "none";
+document.getElementById("prevBtnCustom2").style.visibility = "hidden";
+document.getElementById("nextBtnCustom2").style.visibility = "hidden";
+
+
 liElements.forEach((li) => {
   li.addEventListener('click', async (event) => {
     const liValue = event.target.textContent.trim();
@@ -330,6 +391,11 @@ liElements.forEach((li) => {
 
     if (urls[variableName]) {
       alert(`Click Okay.You Selected ${liValue}.`);
+      document.getElementById("slideC").style.display = "none";
+      document.getElementById("slider").style.display = "block";
+      document.getElementById("prevBtnCustom2").style.visibility = "visible";
+      document.getElementById("nextBtnCustom2").style.visibility = "visible";
+
 
       // Clear the local storage
       localStorage.removeItem('imageArray');
@@ -413,7 +479,7 @@ function displayImages(imageArray) {
   if (imageArray.length === 0) {
     // Handle the case when imageArray is empty (no images to display)
     const noImagesMessage = document.createElement('p');
-    noImagesMessage.textContent = 'No images available.';
+    noImagesMessage.textContent = 'No Solutions Available.';
     sliderHighlightImage.appendChild(noImagesMessage);
   } else {
     imageArray.forEach((imageUrl, index) => {
@@ -425,10 +491,48 @@ function displayImages(imageArray) {
   }
 }
 
+// Function to save the username to local storage
+function saveUsernameToLocalStorage() {
+  const username = document.getElementById('usernameInput').value;
+  if (username) {
+    localStorage.setItem('username', username);
+    displayWelcomeMessage(username);
+  }
+}
+
+// Event listener to save the username when the modal is closed
+$('#usernameModal').on('hidden.bs.modal', function () {
+  saveUsernameToLocalStorage();
+});
+
+// Function to display the welcome message
+function displayWelcomeMessage(username) {
+  const welcomeMessage = document.getElementById('welcomeMessage');
+  if (localStorage.getItem('username')) {
+    welcomeMessage.textContent = `Welcome, ${username}!`;
+  } else {
+    welcomeMessage.textContent = `Hello, ${username}!`;
+  }
+}
+
+// Function to retrieve and greet the user
+function greetUser() {
+  const storedUsername = localStorage.getItem('username');
+  if (storedUsername) {
+    displayWelcomeMessage(storedUsername);
+  } else {
+    // If no username is stored, open the modal
+    $('#usernameModal').modal('show');
+  }
+}
+
+// Call the greetUser function when the page loads
+greetUser();
+
+
+
 
 
     </script>
 </body>
 </html>
-
-
