@@ -15,14 +15,17 @@
       const savedUsername = localStorage.getItem('username');
       
       if (!savedUsername) {
+        
         // If username is not saved, show the modal
         $('#usernameModal').modal('show');
+        document.getElementById("content").style.opacity = "0";
       
         // Save the username to localStorage when the "Save" button is clicked
         $('#saveUsername').on('click', function() {
           const username = $('#usernameInput').val();
           localStorage.setItem('username', username);
           $('#usernameModal').modal('hide');
+          document.getElementById("content").style.opacity = "1";
           displayFirstUsername(username);
         });
       } else {
@@ -31,9 +34,9 @@
       }
       
       function displayUsername(username) {
-        document.getElementById('greeting').textContent = `Welcome Back, ${username}. You are doing great! Keep on Studying!`;
+        document.getElementById('greeting').innerHTML = `Welcome Back, ${username}.<br> <span> You are doing great! Keep on Studying! <br> `;
       }
 
       function displayFirstUsername(firstusername){
-        document.getElementById('greeting').textContent = `Hello ${firstusername}.Best of Luck!`;
+        document.getElementById('greeting').textContent = `Hello ${firstusername}. Best of Luck!`;
       };

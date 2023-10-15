@@ -40,7 +40,7 @@
          <div class="modal-dialog" role="document">
             <div class="modal-content">
                <div class="modal-header">
-                  <h5 class="modal-title" id="usernameModalLabel">Enter Your Username</h5>
+                  <h5 class="modal-title" id="usernameModalLabel">Welcome Schoolar! Enter Your Username</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                   </button>
@@ -54,31 +54,45 @@
             </div>
          </div>
       </div>
-      <div class="container-fluid">
-         <p class="pt-2 m-0 marquee">This is only KEC's Solution for Bsc.CSIT Second Semester up to 2078 B.S PAST QUESTION. Thanks | @dilli_hangrae</p>
-         <hr class="mt-2">
+
+      <main id="content"> 
+
+      <header class="">
+        <p class="pt-2 m-0 marquee">This is only lITE Demo Version KEC's Solution for Bsc.CSIT Second Semester up to 2078 B.S PAST QUESTION. Thanks | @dilli_hangrae</p>
+        <hr class="mt-2">
+      </header>
+
+      <div class="container-sm">
+
          <div class="row">
             <div class="col-4">
-               <h4>Past Question Solutions Highlights:</h4>
-               <hr>
-               <div>
-                <h5 id="choosensolutionHighLights"></h5>
-               </div>
-               <hr>
+
                <div >
                   <h5 id="greeting"></h5>
                </div>
+               <hr>
                <div class="" id="welcomeMessageContainer">
-                  <div> <span class="h4" id="welcomeMessage"></span> </div>
+                  <div> <span class="h6" id="welcomeMessage"></span> </div>
                </div>
+
+               <h5>Past Question Solutions Highlights:</h5>
+               <hr>
+               <div>
+                <h5 id="choosensolutionHighLights"> </h5>
+               </div>
+         
 
                <hr>
                <div id="loaders" class="text-center">
                   <!-- Add the spinner and loading text -->
-                  <div class="spinner-border text-primary" role="status">
+                  <!-- <div class="spinner-border text-primary" role="status">
                      <span class="sr-only">Loading...</span>
+                  </div> -->
+                  <div class="spinner-border text-success" role="status">
+                    <span class="sr-only">Loading...</span>
                   </div>
-                  <p>Loading...</p>
+
+                  <p>Loading... <br> <span>Please Wait...</span> </p>
                </div>
                <div class="stored-urls" id="sliderHighlightImage">
                </div>
@@ -86,13 +100,13 @@
             <div class="col-5" >
                <div id="loader" class="text-center">
                   <!-- Add the spinner and loading text -->
-                  <div class="spinner-border text-primary" role="status">
+                  <div class="spinner-border text-info" role="status">
                      <span class="sr-only">Loading...</span>
                   </div>
-                  <p>Loading...</p>
+                  <p>Loading...<br> <span>Please Wait...</span> </p>
                </div>
                <div class="col-11  slideC" id="slideC">
-                  <div  id="ifram">
+                  <div  class="h-100" id="ifram">
                      <iframe 
                         width="100%"
                         height="100%"
@@ -118,15 +132,16 @@
                   <div id="whole-Slider">
                      <div id="slider">
                         <div id="fullscreenContainer" style="position: relative;">
-                           <img id="sliderImage" src="" alt="">
+                           <img id="sliderImage" src="" alt="">                 
+                            <button id="closeFullscreenBtn" style="position: absolute; top: 10px; right: 10px; background-color: #fff; border: none; cursor: pointer;">
+                            <i class="fas fa-times"></i>
+                            </button>
                         </div>
                      </div>
                   </div>
                </div>
-               <div id="buttonss">
-                  <button id="closeFullscreenBtn" style="position: absolute; top: 10px; right: 10px; background-color: #fff; border: none; cursor: pointer;">
-                  <i class="fas fa-times"></i>
-                  </button>
+               <div id="buttonss" style="position: relative;">
+
                   <div style="margin-top: 10px; text-align: center;"> 
                      <button id="prevBtnCustom2" type="button" class="btn btn-outline-primary">Previous</button>
                      <button id="nextBtnCustom2" type="button" class="btn btn-outline-success">Next</button>
@@ -195,9 +210,9 @@
       </div>
       <footer>
          <div class="col-12 p-1 mt-1 position-absolute bottom-0 bg-success text-white text-center">
-            <h6 class="mt-1">This Web App is Created, Developed & Maintained by  <a class="text-info text-decoration-none" href="https://www.instagram.com/dilli_hangrae/"> Dilli Hang Rai </a> </h6>
+            <h6 class="mt-1">This Web App (may be slower) is Created, Developed & Maintained by  <a class="text-info text-decoration-none" href="https://www.instagram.com/dilli_hangrae/"> Dilli Hang Rai </a> </h6>
             <section class="mt-0 social-media-links">
-               <span><a>Click on Icon to Follow me | For Queries Advice:</a></span>
+               <span><a> Click on Icon to Follow & to Share the Latest Solution with me | For Queries Advice |</a></span>
                <span><a href="https://www.instagram.com/?hl=en" target="_blank"><i class="fab fa-instagram"></i></a></span>
                <span><a href="https://www.youtube.com/channel/UCGMG6ppG6kBj7gp1zROQAFA" target="_blank"><i class="fab fa-youtube"></i></a></span>
                <span><a href="https://www.linkedin.com/in/dilli-hang-rai-4724411b2/" target="_blank"><i class="fab fa-linkedin"></i></a></span>
@@ -206,6 +221,8 @@
             </section>
          </div>
       </footer>
+
+      <main>
       <!-- Include Bootstrap JS and Pooper.js (required for dropdown functionality) -->
       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/@pooperjs/core@2.11.6/dist/umd/pooper.min.js"></script>
@@ -244,7 +261,11 @@
          let baseImageUrl;
          let imageArray = [];
 
-
+         document.getElementById("buttonss").style.display = "none";
+         document.getElementById("closeFullscreenBtn").style.display = "none";
+         document.getElementById("fullscreenContainer").style.display = "none";
+         document.getElementById("whole-Slider").style.display = "none";
+         document.getElementById("slider").style.display = "none";
          // section for loader hide and show
          function showLoading(){
           document.getElementById("loader").style.display = "block";
@@ -252,6 +273,10 @@
           document.getElementById("ifram").style.display = "none";
           document.getElementById("sliderImage").style.display = "none";
           document.getElementById("sliderHighlightImage").style.display = "none";
+          document.getElementById("buttonss").style.display = "none";
+          document.getElementById("closeFullscreenBtn").style.display = "none";
+         
+        
          }
 
 
@@ -260,6 +285,9 @@
           document.getElementById("loaders").style.display = "none";
           document.getElementById("sliderImage").style.display = "block";
           document.getElementById("sliderHighlightImage").style.display = "block";
+ 
+        
+
           // document.get
         }
 
@@ -359,7 +387,7 @@
            function loadImagesInSlider(index) {
              if (index < 0 || index >= imageArray.length) {
                console.error('Invalid image index');
-               
+                       
                return;
              }
            
@@ -436,6 +464,11 @@
            
                    compareAndHighlightImage();
                    document.getElementById('choosensolutionHighLights').textContent = `${liValue}`;
+                   document.getElementById("buttonss").style.display = "block";
+                   document.getElementById("closeFullscreenBtn").style.display = "block";
+                   document.getElementById("whole-Slider").style.display = "block";
+                   document.getElementById("slider").style.display = "block";
+                   document.getElementById("fullscreenContainer").style.display = "block";
                    hideLoading();
                    
                  } catch (error) {
@@ -446,11 +479,12 @@
              });
            });
 
-           const frontCover = 
+          const backCover = "https://raw.githubusercontent.com/Dilli822/dilli822.github.io/main/resources/img/csit/pastquestionsolutions/2079KECCOVER/KEC2079BACKCOVER.jpg";
+          const frontCover = "https://raw.githubusercontent.com/Dilli822/dilli822.github.io/main/resources/img/csit/pastquestionsolutions/2079KECCOVER/KEC2079FRONTCOVER.jpg"
 
           
-           document.getElementById("backCover").src();
-           document.getElementById("frontCover").src();
+           document.getElementById("backCover").src = backCover;
+           document.getElementById("frontCover").src = frontCover;
            
          
          

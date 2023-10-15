@@ -240,8 +240,8 @@ margin: 1px;
   }
 
 .spinner-border {
-    --bs-spinner-width: 4rem;
-    --bs-spinner-height: 4rem;
+    --bs-spinner-width: 3rem;
+    --bs-spinner-height: 3rem;
 
   }
 
@@ -257,6 +257,9 @@ margin: 1px;
 
   .coverPages img{
     padding: 5px;
-    width: auto;
-    height: auto;
+    max-width: 200px;
+   
+    height: 150px;
   }
+
+  
