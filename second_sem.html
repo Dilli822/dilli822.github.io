@@ -59,11 +59,12 @@
          <hr class="mt-2">
          <div class="row">
             <div class="col-4">
-               <h4>Solutions Highlights:</h4>
+               <h4>Past Question Solutions Highlights:</h4>
                <hr>
                <div>
                 <h5 id="choosensolutionHighLights"></h5>
                </div>
+               <hr>
                <div >
                   <h5 id="greeting"></h5>
                </div>
@@ -179,7 +180,17 @@
                      </li>
                   </ul>
                </div>
+                           <!-- Cover Part -->
+            <div>
+              <figure  class="coverPages d-flex p-1">
+                <img  id="frontCover" src="https://unsplash.it/100" alt=""> 
+                <img  id="backCover" src="https://unsplash.it/100" alt="">
+              </figure>
             </div>
+
+            </div>
+            
+
          </div>
       </div>
       <footer>
@@ -240,6 +251,7 @@
           document.getElementById("loaders").style.display = "block";
           document.getElementById("ifram").style.display = "none";
           document.getElementById("sliderImage").style.display = "none";
+          document.getElementById("sliderHighlightImage").style.display = "none";
          }
 
 
@@ -247,8 +259,11 @@
           document.getElementById("loader").style.display = "none";
           document.getElementById("loaders").style.display = "none";
           document.getElementById("sliderImage").style.display = "block";
-          document.get
+          document.getElementById("sliderHighlightImage").style.display = "block";
+          // document.get
         }
+
+        // initailly loading is hidden
         hideLoading();
          
          async function fetchAndStoreImages() {
@@ -430,6 +445,12 @@
                }
              });
            });
+
+           const frontCover = 
+
+          
+           document.getElementById("backCover").src();
+           document.getElementById("frontCover").src();
            
          
          

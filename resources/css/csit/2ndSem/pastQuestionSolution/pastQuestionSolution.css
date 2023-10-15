@@ -249,3 +249,14 @@ margin: 1px;
     --bs-spinner-width: 2rem;
     --bs-spinner-height: 2rem;
   }
+
+
+  img{
+    max-width: 100%;
+  }
+
+  .coverPages img{
+    padding: 5px;
+    width: auto;
+    height: auto;
+  }
