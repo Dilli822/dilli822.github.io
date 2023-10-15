@@ -215,8 +215,8 @@
                            <!-- Cover Part -->
             <div>
               <figure  class="coverPages d-flex p-1">
-                <img  id="frontCover" src="https://unsplash.it/100" alt=""> 
-                <img  id="backCover" src="https://unsplash.it/100" alt="">
+                <img  id="frontCover" src="" alt=""> 
+                <img  id="backCover" src="" alt="">
               </figure>
             </div>
 
@@ -475,7 +475,7 @@
                const variableName = liValue.split(' ').join('_');
            
                if (urls[variableName]) {
-                 alert(`Click Okay.You Selected ${liValue}.`);
+                //  alert(`Click Okay.You Selected ${liValue}.`);
                  // Clear the local storage
                  localStorage.removeItem('imageArray');
                  showLoading();
@@ -511,7 +511,7 @@
                    
                  } catch (error) {
                    console.error('An error occurred:', error);
-                   alert('An error occurred. Please check the browser console.');
+                  //  alert('An error occurred. Please check the browser console.');
                  }
                }
              });
