@@ -60,12 +60,18 @@
          <div class="row">
             <div class="col-4">
                <h4>Solutions Highlights:</h4>
+               <hr>
+               <div>
+                <h5 id="choosensolutionHighLights"></h5>
+               </div>
                <div >
                   <h5 id="greeting"></h5>
                </div>
                <div class="" id="welcomeMessageContainer">
                   <div> <span class="h4" id="welcomeMessage"></span> </div>
                </div>
+
+               <hr>
                <div id="loaders" class="text-center">
                   <!-- Add the spinner and loading text -->
                   <div class="spinner-border text-primary" role="status">
@@ -206,15 +212,22 @@
            DS_MATH_2078_BS_TU: "https://raw.githubusercontent.com/Dilli822/dilli822.github.io/main/resources/img/csit/pastquestionsolutions/DiscreteMath/2078/ds-2078-",
            DS_MATH_2076_BS_TU: "https://raw.githubusercontent.com/Dilli822/dilli822.github.io/main/resources/img/csit/pastquestionsolutions/DiscreteMath/2076/ds-2076-",
            DS_MATH_2075_BS_TU: "https://raw.githubusercontent.com/Dilli822/dilli822.github.io/main/resources/img/csit/pastquestionsolutions/DiscreteMath/2075/ds-2075-",
+           
            OOP_2078_BS_TU: "https://raw.githubusercontent.com/Dilli822/dilli822.github.io/main/resources/img/csit/pastquestionsolutions/OOP/2078/oop-2078-",
            OOP_2076_BS_TU: "https://raw.githubusercontent.com/Dilli822/dilli822.github.io/main/resources/img/csit/pastquestionsolutions/OOP/2076/oop-2076-",
            OOP_2075_BS_TU: "https://raw.githubusercontent.com/Dilli822/dilli822.github.io/main/resources/img/csit/pastquestionsolutions/OOP/2075/oop-2075-",
+
            Mathematics_II_2078_BS_TU: "https://raw.githubusercontent.com/Dilli822/dilli822.github.io/main/resources/img/csit/pastquestionsolutions/Maths-II/2078/Maths-II-2078-",
            Mathematics_II_2076_BS_TU: "https://raw.githubusercontent.com/Dilli822/dilli822.github.io/main/resources/img/csit/pastquestionsolutions/Maths-II/2078/Maths-II-2076-",
            Mathematics_II_2075_BS_TU: "https://raw.githubusercontent.com/Dilli822/dilli822.github.io/main/resources/img/csit/pastquestionsolutions/Maths-II/2078/Maths-II-2075-",
+
            MicroProcessor_2078_BS_TU: "https://raw.githubusercontent.com/Dilli822/dilli822.github.io/main/resources/img/csit/pastquestionsolutions/Microprocessor/2078/microprocessor-2078-",
            MicroProcessor_2076_BS_TU: "https://raw.githubusercontent.com/Dilli822/dilli822.github.io/main/resources/img/csit/pastquestionsolutions/Microprocessor/2076/microprocessor-2076-",
            MicroProcessor_2075_BS_TU: "https://raw.githubusercontent.com/Dilli822/dilli822.github.io/main/resources/img/csit/pastquestionsolutions/Microprocessor/2075/microprocessor-2075-",
+
+           STATISTICS_I_2078_BS_TU :  "https://raw.githubusercontent.com/Dilli822/dilli822.github.io/main/resources/img/csit/pastquestionsolutions/STAT-I/2078/STATS-I-2078-",
+           STATISTICS_I_2076_BS_TU: "https://raw.githubusercontent.com/Dilli822/dilli822.github.io/main/resources/img/csit/pastquestionsolutions/STAT-I/2078/STATS-I-2076-",
+           STATISTICS_I_2075_BS_TU:   "https://raw.githubusercontent.com/Dilli822/dilli822.github.io/main/resources/img/csit/pastquestionsolutions/STAT-I/2078/STATS-I-2075-"
          };
          
          let baseImageUrl;
@@ -407,7 +420,9 @@
                    displayImages(imageArray);
            
                    compareAndHighlightImage();
+                   document.getElementById('choosensolutionHighLights').textContent = `${liValue}`;
                    hideLoading();
+                   
                  } catch (error) {
                    console.error('An error occurred:', error);
                    alert('An error occurred. Please check the browser console.');
@@ -418,7 +433,7 @@
            
          
          
-             
+         
       </script>
    </body>
 </html>
