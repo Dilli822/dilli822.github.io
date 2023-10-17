@@ -267,11 +267,11 @@ margin: 1px;
     height: 150px;
   }
 
-  #mesa{
+  #messa{
     display: none;
   }
   @media only screen and (max-width: 600px) {
-    #mesa {
+    #messa {
         display: block;
     }
   }
