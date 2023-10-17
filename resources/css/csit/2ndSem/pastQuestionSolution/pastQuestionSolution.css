@@ -135,7 +135,7 @@ display: none;
 }
 
 @media screen and (max-width: 720px) {
-    body{
+    #content, #usernameModal{
     display: none;
     }
     }
@@ -203,7 +203,7 @@ margin: 1px;
 }
 
 #slider, .slideC, #fullscreenContainer{
-    height: 75vh;
+    height: 70vh;
     overflow: auto;
 
 }
@@ -268,3 +268,14 @@ margin: 1px;
   }
 
   
+
+  #message{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-weight: bolder;
+    color: red;
+    width: 100%;
+    padding: 5px;
+  }

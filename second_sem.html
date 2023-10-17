@@ -38,6 +38,11 @@
       </style>
    </head>
    <body>
+
+      <div id="message" >
+         <h1>Please use a laptop, tablet or desktop to use this app. Currently Not Supported For Mobile Devices.</h1>
+     </div>
+
       <!-- Add this code inside the body tag, preferably after the main content -->
       <div class="modal fade" id="usernameModal" tabindex="-1" role="dialog" aria-labelledby="usernameModalLabel" aria-hidden="true">
          <div class="modal-dialog" role="document">
@@ -61,7 +66,10 @@
       <main id="content"> 
 
       <header class="">
-        <p class="pt-2 m-0 marquee">This is only a lite Demo Version of KEC's Solution for BSc.CSIT Second Semester up to 2078 B.S PAST QUESTION. NOT Supported for Mobile Devices.Thanks | @dilli_hangrae </p>
+        <p class="pt-2 m-0 marquee">
+         This is only a lite Demo Version of KEC's Solution for BSc.CSIT Second Semester up to 2078 B.S PAST QUESTION. 
+         NOT Supported for Mobile Devices.Thanks | @dilli_hangrae 
+      </p>
         <hr class="mt-2">
       </header>
 
@@ -220,6 +228,19 @@
                 <img  id="frontCover" src="" alt=""> 
                 <img  id="backCover" src="" alt="">
               </figure>
+
+              <div class="coverPages">
+               <h4> Developer Section </h4>
+               <div class="d-flex">
+    
+                  <h6> App FlowChart </h6>
+                  <a href="path_to_your_file.pdf" download>
+                     <i class="fas fa-download"></i> Download
+                 </a>
+               </div>
+               <h6> Project/App Documentation - Coming Soon... </h6>
+              </div>
+            
             </div>
 
             </div>
@@ -345,12 +366,12 @@
              while (true) {
                const imageUrl = `${baseImageUrl}${currentIndex + 1}.jpg`;
            
-               console.log("Fetching image:", imageUrl);
+               // console.log("Fetching image:", imageUrl);
            
                try {
                  const response = await fetch(imageUrl);
            
-                 console.log("Response status:", response.status);
+               //   console.log("Response status:", response.status);
            
                  if (response.status === 404) {
                    console.log("404 Error - End of images");
@@ -367,7 +388,7 @@
            
                  currentIndex++;
                } catch (error) {
-                 console.error(`An error occurred while fetching the image at index ${currentIndex}: ${error}`);
+               //   console.error(`An error occurred while fetching the image at index ${currentIndex}: ${error}`);
                  break;
                }
              }
@@ -375,7 +396,7 @@
              if (imageArray.length > 0) {
                const imageArrayJson = JSON.stringify(imageArray);
                localStorage.setItem('imageArray', imageArrayJson);
-               console.log("image array json ", imageArrayJson);
+               // console.log("image array json ", imageArrayJson);
                displayImages(imageArray); // Call displayImages after fetching
              }
            }
