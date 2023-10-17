@@ -134,20 +134,8 @@ display: none;
 }
 }
 
-
-#message{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    font-weight: bolder;
-    color: red;
-    width: 100%;
-    padding: 5px;
-  }
-
 @media screen and (max-width: 720px) {
-    #content, #usernameModal{
+    #body{
     display: none;
     }
     }
@@ -279,6 +267,11 @@ margin: 1px;
     height: 150px;
   }
 
-  
-
- 
+  #mesa{
+    display: none;
+  }
+  @media only screen and (max-width: 600px) {
+    #mesa {
+        display: block;
+    }
+  }

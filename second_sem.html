@@ -39,10 +39,10 @@
    </head>
    <body>
 
-      <div id="message" >
-         <h1>Please use a laptop, tablet or desktop to use this app. Currently Not Supported For Mobile Devices.</h1>
-     </div>
 
+      <h5 id="messa"> Not supported for mobile.Please use laptop,tab or desktop!</h5>
+
+      <div id="body"> 
       <!-- Add this code inside the body tag, preferably after the main content -->
       <div class="modal fade" id="usernameModal" tabindex="-1" role="dialog" aria-labelledby="usernameModalLabel" aria-hidden="true">
          <div class="modal-dialog" role="document">
@@ -263,6 +263,9 @@
       </footer>
 
       <main>
+
+      </div>
+
       <!-- Include Bootstrap JS and Pooper.js (required for dropdown functionality) -->
       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
       <script src="https://cdn.jsdelivr.net/npm/@pooperjs/core@2.11.6/dist/umd/pooper.min.js"></script>
@@ -366,12 +369,12 @@
              while (true) {
                const imageUrl = `${baseImageUrl}${currentIndex + 1}.jpg`;
            
-               // console.log("Fetching image:", imageUrl);
+               console.log("Fetching image:", imageUrl);
            
                try {
                  const response = await fetch(imageUrl);
            
-               //   console.log("Response status:", response.status);
+                 console.log("Response status:", response.status);
            
                  if (response.status === 404) {
                    console.log("404 Error - End of images");
@@ -388,7 +391,7 @@
            
                  currentIndex++;
                } catch (error) {
-               //   console.error(`An error occurred while fetching the image at index ${currentIndex}: ${error}`);
+                 console.error(`An error occurred while fetching the image at index ${currentIndex}: ${error}`);
                  break;
                }
              }
@@ -396,7 +399,7 @@
              if (imageArray.length > 0) {
                const imageArrayJson = JSON.stringify(imageArray);
                localStorage.setItem('imageArray', imageArrayJson);
-               // console.log("image array json ", imageArrayJson);
+               console.log("image array json ", imageArrayJson);
                displayImages(imageArray); // Call displayImages after fetching
              }
            }
