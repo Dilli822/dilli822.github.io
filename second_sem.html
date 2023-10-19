@@ -34,13 +34,29 @@
          opacity: 0;
          }
 
+
+         #overlayFlowchart, #overlayDoc {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 2;
+  cursor: pointer;
+}
+
          
       </style>
    </head>
    <body>
 
 
-      <h1 id="messa" class="text-danger"> Not supported for mobile.Please use laptop,tab or desktop!</h1>
+      <h5 id="messa" class="text-danger"> Not supported for mobile.Please use laptop,tab or desktop!</h5>
+
       <div id="body"> 
       <!-- Add this code inside the body tag, preferably after the main content -->
       <div class="modal fade" id="usernameModal" tabindex="-1" role="dialog" aria-labelledby="usernameModalLabel" aria-hidden="true">
@@ -67,7 +83,7 @@
       <header class="">
         <p class="pt-2 m-0 marquee text-danger">
          This is only a lite Demo Version of KEC's Solution for BSc.CSIT Second Semester up to 2078 B.S PAST QUESTION. 
-         NOT Supported for Mobile Devices.Thanks | @dilli_hangrae 
+         NOT Supported for Mobile Devices.App may be slower. Thanks | @dilli_hangrae 
       </p>
         <hr class="mt-2">
       </header>
@@ -223,25 +239,34 @@
                </div>
                            <!-- Cover Part -->
             <div>
-              <figure  class="coverPages d-flex p-1">
+              <figure  class="coverPages d-flex p-0">
                 <img  id="frontCover" src="" alt=""> 
                 <img  id="backCover" src="" alt="">
               </figure>
 
-              <div class="coverPages">
-               <h4> Developer Section </h4>
-               <div class="">
-    
-                  <h6> 
-                  <a  class="link-success" href="path_to_your_file.pdf" download>
-                     <i class="fas fa-download"></i> Download App FlowChart
-                 </a></h6>
-               </div>
-               <h6> 
-               <a class="link-success" href="https://docs.google.com/document/d/1Yswbq4L3z3dRcxCSwzO7ijY8_JFAOyLBmktg45aiQ-Q/edit#heading=h.xbtke5pfgeig">
-               <i class="fas fa-download"></i> Download App Documentation </a> </h6>
-              </div>
-            
+ 
+      <h4>Developer Section</h4>
+<div class="" style="padding:0px">
+
+  <h6 class=" mb-1"> App FlowChart</h6>
+
+  <button class="btn btn-outline-success mt-0" data-toggle="modal"   onclick="onFlowchart()">View FlowChart </button>
+  <button class="btn btn-primary mt-0" data-toggle="modal">
+   <a class="text-decoration-none text-white" href="./resources/FlowCharts/Lite CSIT App Solution FlowChart.pdf" download="App FlowChart.pdf">Download</a>
+   </button>
+
+  <h6 class="mt-3 mb-1"> App Documentation </h6>
+ 
+  <button class="btn btn-outline-success  mt-0" data-toggle="modal"  onclick="onDocumentation()">View Documentation </button>
+  <button class="btn btn-primary mt-0" data-toggle="modal" >
+   <a class="text-decoration-none text-white" href="./resources/FlowCharts/Lite CSIT App Solution FlowChart.pdf" download="App Documentation.pdf">Download</a>
+
+</button>
+
+</div>
+
+
+
             </div>
 
             </div>
@@ -251,7 +276,7 @@
       </div>
       <footer>
          <div class="col-12 p-1 mt-1 position-absolute bottom-0 bg-success text-white text-center">
-            <h6 class="mt-1">This Web App (which may be slower) is Created, Developed & Maintained by  <a class="text-info text-decoration-none" href="https://www.instagram.com/dilli_hangrae/"> Dilli Hang Rai </a> </h6>
+            <h6 class="mt-1">This Web App is Created, Developed & Maintained by  <a class="text-info text-decoration-none" href="https://www.instagram.com/dilli_hangrae/"> Dilli Hang Rai </a> </h6>
             <section class="mt-0 social-media-links">
                <span><a> Click on the Icon to Follow & to Share the Latest Solution with me | For Queries and Advice  </a></span>
                <span><a href="https://www.instagram.com/?hl=en" target="_blank"><i class="fab fa-instagram"></i></a></span>
@@ -267,6 +292,22 @@
 
       </div>
 
+      <div id="overlayFlowchart" onclick="offFlowChart()">
+         <button class="btn btn-primary" data-toggle="modal"  id="closePDF" onclick="hidePDF()">
+            <i class="fas fa-times"></i> Close
+        </button>
+         <embed id="pdfViewer" src="./resources/FlowCharts/Lite CSIT App Solution FlowChart.pdf" type="application/pdf" width="100%" height="600">
+         
+      </div>
+
+      <div id="overlayDoc" onclick="offDocumentation()">
+         <button class="btn btn-primary" data-toggle="modal"  id="closePDF" onclick="hidePDF()">
+            <i class="fas fa-times"></i> Close
+        </button>
+         <embed id="pdfDocViewer" src="./resources/Documentation/Project Documentation_ CSIT Solution Lite Demo Version Web App.pdf" type="application/pdf" width="100%" height="600">
+          
+      </div>
+
       <!-- Include Bootstrap JS and Pooper.js (required for dropdown functionality) -->
       <script src="https://www.google.com/recaptcha/api.js" async defer></script>
       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" async defer></script>
@@ -276,7 +317,28 @@
       <!-- <script src="./resources/script/csit/2ndSem/PastQuestionSolution/pastQuestionSolutions.js"></script> -->
       <script src="./resources/script/csit/2ndSem/PastQuestionSolution/fullScreenButtons.js" async defer></script>
       <script src="./resources/script/csit/2ndSem/PastQuestionSolution/collectUsername.js" async defer></script>
-      
+      <script>
+         function onFlowchart() {
+  document.getElementById("overlayFlowchart").style.display = "block";
+}
+
+function offFlowChart() {
+  document.getElementById("overlayFlowchart").style.display = "none";
+}
+
+function onDocumentation() {
+  document.getElementById("overlayDoc").style.display = "block";
+}
+
+function offDocumentation() {
+  document.getElementById("overlayDoc").style.display = "none";
+}
+
+function hidePDF() {
+      //   document.getElementById('pdfViewer').src = '';
+      //   document.getAnimations('pdfDocViewer').src = '';
+    }
+      </script>
       <script async defer>
 
 

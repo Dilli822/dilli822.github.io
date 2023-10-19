@@ -275,3 +275,29 @@ margin: 1px;
         display: block;
     }
   }
+
+
+  .pdf-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+  }
+  
+  .pdf-header {
+    background: #fff;
+    padding: 10px;
+    text-align: right;
+  }
+  
+  .pdf-content {
+    text-align: center;
+  }
+  
+  canvas {
+    border: 1px solid #000;
+  }
+  
