@@ -40,8 +40,7 @@
    <body>
 
 
-      <h5 id="messa"> Not supported for mobile.Please use laptop,tab or desktop!</h5>
-
+      <h1 id="messa" class="text-danger"> Not supported for mobile.Please use laptop,tab or desktop!</h1>
       <div id="body"> 
       <!-- Add this code inside the body tag, preferably after the main content -->
       <div class="modal fade" id="usernameModal" tabindex="-1" role="dialog" aria-labelledby="usernameModalLabel" aria-hidden="true">
@@ -66,7 +65,7 @@
       <main id="content"> 
 
       <header class="">
-        <p class="pt-2 m-0 marquee">
+        <p class="pt-2 m-0 marquee text-danger">
          This is only a lite Demo Version of KEC's Solution for BSc.CSIT Second Semester up to 2078 B.S PAST QUESTION. 
          NOT Supported for Mobile Devices.Thanks | @dilli_hangrae 
       </p>
@@ -231,14 +230,16 @@
 
               <div class="coverPages">
                <h4> Developer Section </h4>
-               <div class="d-flex">
+               <div class="">
     
-                  <h6> App FlowChart </h6>
-                  <a href="path_to_your_file.pdf" download>
-                     <i class="fas fa-download"></i> Download
-                 </a>
+                  <h6> 
+                  <a  class="link-success" href="path_to_your_file.pdf" download>
+                     <i class="fas fa-download"></i> Download App FlowChart
+                 </a></h6>
                </div>
-               <h6> Project/App Documentation - Coming Soon... </h6>
+               <h6> 
+               <a class="link-success" href="https://docs.google.com/document/d/1Yswbq4L3z3dRcxCSwzO7ijY8_JFAOyLBmktg45aiQ-Q/edit#heading=h.xbtke5pfgeig">
+               <i class="fas fa-download"></i> Download App Documentation </a> </h6>
               </div>
             
             </div>
@@ -267,14 +268,16 @@
       </div>
 
       <!-- Include Bootstrap JS and Pooper.js (required for dropdown functionality) -->
-      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/@pooperjs/core@2.11.6/dist/umd/pooper.min.js"></script>
-      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
+      <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" async defer></script>
+      <script src="https://cdn.jsdelivr.net/npm/@pooperjs/core@2.11.6/dist/umd/pooper.min.js" async defer></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" async defer></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" async defer></script>
       <!-- <script src="./resources/script/csit/2ndSem/PastQuestionSolution/pastQuestionSolutions.js"></script> -->
-      <script src="./resources/script/csit/2ndSem/PastQuestionSolution/fullScreenButtons.js"></script>
-      <script src="./resources/script/csit/2ndSem/PastQuestionSolution/collectUsername.js"></script>
-      <script>
+      <script src="./resources/script/csit/2ndSem/PastQuestionSolution/fullScreenButtons.js" async defer></script>
+      <script src="./resources/script/csit/2ndSem/PastQuestionSolution/collectUsername.js" async defer></script>
+      
+      <script async defer>
 
 
          const sliderHighlightImage = document.getElementById("sliderHighlightImage");
