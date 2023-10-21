@@ -91,35 +91,80 @@
       <div class="container-sm">
 
          <div class="row">
+
+
             <div class="col-4">
-
-               <div >
-                  <h5 id="greeting"></h5>
+               <h4>Subject Past Quest Solutions</h4>
+               <div class="ul-main">
+                  <ul id="main-list">
+                     <li class="has-sub-list">
+                        <i class="fas"></i> Discrete Math 
+                        <ul class="sub-list">
+                           <li>DS_MATH_2078_BS_TU </li>
+                           <li>DS_MATH_2076_BS_TU </li>
+                           <li>DS_MATH_2075_BS_TU </li>
+                        </ul>
+                     </li>
+                     <li class="has-sub-list">
+                        Object Oriented Programming <i class="fas"></i>
+                        <ul class="sub-list">
+                           <li>OOP_2078_BS_TU</li>
+                           <li>OOP_2076_BS_TU</li>
+                           <li>OOP_2075_BS_TU</li>
+                        </ul>
+                     </li>
+                     <li class="has-sub-list">
+                        MicroProcessor<i class="fas"></i>
+                        <ul class="sub-list">
+                           <li>MicroProcessor_2078_BS_TU </li>
+                           <li>MicroProcessor_2076_BS_TU </li>
+                           <li>MicroProcessor_2075_BS_TU </li>
+                        </ul>
+                     </li>
+                     <li class="has-sub-list">
+                        Mathematics - II<i class="fas"></i>
+                        <ul class="sub-list">
+                           <li>Mathematics_II_2078_BS_TU </li>
+                           <li>Mathematics_II_2076_BS_TU </li>
+                           <li>Mathematics_II_2075_BS_TU </li>
+                        </ul>
+                     </li>
+                     <li class="has-sub-list">
+                        Statistics - I<i class="fas"></i>
+                        <ul class="sub-list">
+                           <li>STATISTICS_I_2078_BS_TU </li>
+                           <li>STATISTICS_I_2076_BS_TU </li>
+                           <li>STATISTICS_I_2075_BS_TU </li>
+                        </ul>
+                     </li>
+                  </ul>
                </div>
-               <hr>
-               <div class="" id="welcomeMessageContainer">
-                  <div> <span class="h6" id="welcomeMessage"></span> </div>
-               </div>
+                           <!-- Cover Part -->
+            <div>
+              <figure  class="coverPages d-flex p-0">
+                <img  id="frontCover" src="" alt=""> 
+                <img  id="backCover" src="" alt="">
+              </figure>
+              <h4><b> Developer Section </b></h4>
+              <div class="" style="padding:0px">
+                 <h5 class=" mb-1"> App FlowChart</h5>
+                 <a class="p-1 text-danger mt-0" data-toggle="modal" onclick="onFlowchart()">   <i class="far fa-file-pdf"></i>  View FlowChart   </a>
+                 <a class=" border border-black mt-0" data-toggle="modal">
+                 <a class="p-1 text-success" href="./resources/FlowCharts/Lite CSIT App Solution FlowChart.pdf" download="App FlowChart.pdf">Download   <i class="fas fa-download"></i></a>
+                 </a> 
+                 <h5 class="mt-3 mb-1"> App Documentation </h5>
+                 <a class="p-1 text-danger  mt-0" data-toggle="modal"  onclick="onDocumentation()">   <i class="far fa-file-pdf"></i>  <span class=""> View Documentation</span> </a>
+                 <a class=" border border-black mt-0" data-toggle="modal" > 
+                 <a class="p-1 text-success" href="./resources/FlowCharts/Lite CSIT App Solution FlowChart.pdf" download="App Documentation.pdf">Download    <i class="fas fa-download"></i> </a>
+                 </a>
+              </div>
 
-               <h5>Past Question Solutions Highlights:</h5>
-               <hr>
 
-         
 
-               <div id="loaders" class="text-center">
-                  <!-- Add the spinner and loading text -->
-                  <!-- <div class="spinner-border text-primary" role="status">
-                     <span class="sr-only">Loading...</span>
-                  </div> -->
-                  <div class="spinner-border text-success" role="status">
-                    <span class="sr-only">Loading...</span>
-                  </div>
-
-                  <p>Loading... <br> <span>Please Wait...</span> </p>
-               </div>
-               <div class="stored-urls" id="sliderHighlightImage">
-               </div>
             </div>
+
+            </div>
+
             <div class="col-5" >
                <div id="loader" class="text-center">
                   <!-- Add the spinner and loading text -->
@@ -191,77 +236,40 @@
                   </div>
                </div>
             </div>
+
+
+                        
             <div class="col-3">
-               <h4>Subject Past Quest Solutions</h4>
-               <div class="ul-main">
-                  <ul id="main-list">
-                     <li class="has-sub-list">
-                        Discrete Math <i class="fas"></i>
-                        <ul class="sub-list">
-                           <li>DS_MATH_2078_BS_TU </li>
-                           <li>DS_MATH_2076_BS_TU </li>
-                           <li>DS_MATH_2075_BS_TU </li>
-                        </ul>
-                     </li>
-                     <li class="has-sub-list">
-                        Object Oriented Programming <i class="fas"></i>
-                        <ul class="sub-list">
-                           <li>OOP_2078_BS_TU</li>
-                           <li>OOP_2076_BS_TU</li>
-                           <li>OOP_2075_BS_TU</li>
-                        </ul>
-                     </li>
-                     <li class="has-sub-list">
-                        MicroProcessor<i class="fas"></i>
-                        <ul class="sub-list">
-                           <li>MicroProcessor_2078_BS_TU </li>
-                           <li>MicroProcessor_2076_BS_TU </li>
-                           <li>MicroProcessor_2075_BS_TU </li>
-                        </ul>
-                     </li>
-                     <li class="has-sub-list">
-                        Mathematics - II<i class="fas"></i>
-                        <ul class="sub-list">
-                           <li>Mathematics_II_2078_BS_TU </li>
-                           <li>Mathematics_II_2076_BS_TU </li>
-                           <li>Mathematics_II_2075_BS_TU </li>
-                        </ul>
-                     </li>
-                     <li class="has-sub-list">
-                        Statistics - I<i class="fas"></i>
-                        <ul class="sub-list">
-                           <li>STATISTICS_I_2078_BS_TU </li>
-                           <li>STATISTICS_I_2076_BS_TU </li>
-                           <li>STATISTICS_I_2075_BS_TU </li>
-                        </ul>
-                     </li>
-                  </ul>
+
+               <div >
+                  <h5 id="greeting"></h5>
                </div>
-                           <!-- Cover Part -->
-            <div>
-              <figure  class="coverPages d-flex p-0">
-                <img  id="frontCover" src="" alt=""> 
-                <img  id="backCover" src="" alt="">
-              </figure>
-              <h4><b> Developer Section </b></h4>
-              <div class="" style="padding:0px">
-                 <h5 class=" mb-1"> App FlowChart</h5>
-                 <a class="p-1 text-danger mt-0" data-toggle="modal" onclick="onFlowchart()">   <i class="far fa-file-pdf"></i>  View FlowChart   </a>
-                 <a class=" border border-black mt-0" data-toggle="modal">
-                 <a class="p-1 text-success" href="./resources/FlowCharts/Lite CSIT App Solution FlowChart.pdf" download="App FlowChart.pdf">Download   <i class="fas fa-download"></i></a>
-                 </a> 
-                 <h5 class="mt-3 mb-1"> App Documentation </h5>
-                 <a class="p-1 text-danger  mt-0" data-toggle="modal"  onclick="onDocumentation()">   <i class="far fa-file-pdf"></i>  <span class=""> View Documentation</span> </a>
-                 <a class=" border border-black mt-0" data-toggle="modal" > 
-                 <a class="p-1 text-success" href="./resources/FlowCharts/Lite CSIT App Solution FlowChart.pdf" download="App Documentation.pdf">Download    <i class="fas fa-download"></i> </a>
-                 </a>
-              </div>
+               <hr>
+               <div class="" id="welcomeMessageContainer">
+                  <div> <span class="h6" id="welcomeMessage"></span> </div>
+               </div>
 
+               <h5>Past Question Solutions Highlights:</h5>
+               <hr>
 
+         
 
+               <div id="loaders" class="text-center">
+                  <!-- Add the spinner and loading text -->
+                  <!-- <div class="spinner-border text-primary" role="status">
+                     <span class="sr-only">Loading...</span>
+                  </div> -->
+                  <div class="spinner-border text-success" role="status">
+                    <span class="sr-only">Loading...</span>
+                  </div>
+
+                  <p>Loading... <br> <span>Please Wait...</span> </p>
+               </div>
+               <div class="stored-urls" id="sliderHighlightImage">
+               </div>
             </div>
 
-            </div>
+         
             
 
          </div>
