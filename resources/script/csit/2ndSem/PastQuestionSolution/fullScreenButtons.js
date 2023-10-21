@@ -10,6 +10,9 @@
        // Function to toggle full-screen mode for the image
        function toggleFullScreen() {
          if (isFullscreen) {
+
+
+          
            // Exit full-screen mode
            if (document.exitFullscreen) {
              document.exitFullscreen();

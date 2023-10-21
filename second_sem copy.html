@@ -83,7 +83,7 @@
       <header class="">
         <p class="pt-2 m-0 marquee text-danger">
          This is only a lite Demo Version of KEC's Solution for BSc.CSIT Second Semester up to 2078 B.S PAST QUESTION. 
-         NOT Supported for Mobile Devices.App may be slower. Thanks | @dilli_hangrae 
+         NOT Supported for Mobile Devices. App may be slower. Thanks | @dilli_hangrae 
       </p>
         <hr class="mt-2">
       </header>
@@ -243,19 +243,27 @@
                 <img  id="frontCover" src="" alt=""> 
                 <img  id="backCover" src="" alt="">
               </figure>
-              <h4><b> Developer Section </b></h4>
-              <div class="" style="padding:0px">
-                 <h5 class=" mb-1"> App FlowChart</h5>
-                 <a class="p-1 text-danger mt-0" data-toggle="modal" onclick="onFlowchart()">   <i class="far fa-file-pdf"></i>  View FlowChart   </a>
-                 <a class=" border border-black mt-0" data-toggle="modal">
-                 <a class="p-1 text-success" href="./resources/FlowCharts/Lite CSIT App Solution FlowChart.pdf" download="App FlowChart.pdf">Download   <i class="fas fa-download"></i></a>
-                 </a> 
-                 <h5 class="mt-3 mb-1"> App Documentation </h5>
-                 <a class="p-1 text-danger  mt-0" data-toggle="modal"  onclick="onDocumentation()">   <i class="far fa-file-pdf"></i>  <span class=""> View Documentation</span> </a>
-                 <a class=" border border-black mt-0" data-toggle="modal" > 
-                 <a class="p-1 text-success" href="./resources/FlowCharts/Lite CSIT App Solution FlowChart.pdf" download="App Documentation.pdf">Download    <i class="fas fa-download"></i> </a>
-                 </a>
-              </div>
+
+ 
+      <h4>Developer Section</h4>
+<div class="" style="padding:0px">
+
+  <h6 class=" mb-1"> App FlowChart</h6>
+
+  <button class="btn btn-outline-success mt-0" data-toggle="modal"   onclick="onFlowchart()">View FlowChart </button>
+  <button class="btn btn-primary mt-0" data-toggle="modal">
+   <a class="text-decoration-none text-white" href="./resources/FlowCharts/Lite CSIT App Solution FlowChart.pdf" download="App FlowChart.pdf">Download</a>
+   </button>
+
+  <h6 class="mt-3 mb-1"> App Documentation </h6>
+ 
+  <button class="btn btn-outline-success  mt-0" data-toggle="modal"  onclick="onDocumentation()">View Documentation </button>
+  <button class="btn btn-primary mt-0" data-toggle="modal" >
+   <a class="text-decoration-none text-white" href="./resources/FlowCharts/Lite CSIT App Solution FlowChart.pdf" download="App Documentation.pdf">Download</a>
+
+</button>
+
+</div>
 
 
 
@@ -613,5 +621,73 @@ function hidePDF() {
          
          
       </script>
+
+
+<script>
+   const subjectURLs = {
+      DS_MATH_2078_BS_TU: "https://raw.githubusercontent.com/yana-music/CSIT2ndSemSolution/main/DiscreteMath/2078/ds-2078-",
+           DS_MATH_2076_BS_TU: "https://raw.githubusercontent.com/yana-music/CSIT2ndSemSolution/main/DiscreteMath/2076/ds-2076-",
+           DS_MATH_2075_BS_TU: "https://raw.githubusercontent.com/yana-music/CSIT2ndSemSolution/main/DiscreteMath/2075/ds-2075-",
+
+           OOP_2078_BS_TU: "https://raw.githubusercontent.com/yana-music/CSIT2ndSemSolution/main/OOP/2078/oop-2078-",
+           OOP_2076_BS_TU: "https://raw.githubusercontent.com/yana-music/CSIT2ndSemSolution/main/OOP/2076/oop-2076-",
+           OOP_2075_BS_TU: "https://raw.githubusercontent.com/yana-music/CSIT2ndSemSolution/main/OOP/2075/oop-2075-",
+
+           Mathematics_II_2078_BS_TU: "https://raw.githubusercontent.com/yana-music/CSIT2ndSemSolution/main/Maths-II/2078/Maths-II-2078-",
+           Mathematics_II_2076_BS_TU: "https://raw.githubusercontent.com/yana-music/CSIT2ndSemSolution/main/Maths-II/2076/Maths-II-2076-",
+           Mathematics_II_2075_BS_TU: "https://raw.githubusercontent.com/yana-music/CSIT2ndSemSolution/main/Maths-II/2075/Maths-II-2075-",
+
+           MicroProcessor_2078_BS_TU: "https://raw.githubusercontent.com/yana-music/CSIT2ndSemSolution/main/Microprocessor/2078/microprocessor-2078-",
+           MicroProcessor_2076_BS_TU: "https://raw.githubusercontent.com/yana-music/CSIT2ndSemSolution/main/Microprocessor/2076/microprocessor-2076-",
+           MicroProcessor_2075_BS_TU: "https://raw.githubusercontent.com/yana-music/CSIT2ndSemSolution/main/Microprocessor/2075/microprocessor-2075-",
+
+           STATISTICS_I_2078_BS_TU :  "https://raw.githubusercontent.com/yana-music/CSIT2ndSemSolution/main/STAT-I/2078/STATS-I-2078-",
+           STATISTICS_I_2076_BS_TU: "https://raw.githubusercontent.com/yana-music/CSIT2ndSemSolution/main/STAT-I/2076/STATS-I-2076-",
+           STATISTICS_I_2075_BS_TU:   "https://raw.githubusercontent.com/yana-music/CSIT2ndSemSolution/main/STAT-I/2075/STATS-I-2075-"
+
+  // Add more subjects and URLs here...
+};
+
+// Function to fetch and store images for a subject
+async function fetchAndStoreImages(subjectKey, url) {
+  try {
+    let currentIndex = 1; // Start with the first image index
+
+    // Initialize an array to store images
+    const imageArray = [];
+
+    while (true) {
+      const imageUrl = `${url}${currentIndex}.jpg`;
+
+      const response = await fetch(imageUrl);
+
+      if (response.status === 404) {
+        break; // End of images
+      }
+
+      if (response.ok) {
+        imageArray.push(imageUrl);
+      } else {
+        console.error(`Error fetching image at index ${currentIndex}: ${response.statusText}`);
+        break;
+      }
+
+      currentIndex++;
+    }
+
+    // Store the imageArray in localStorage with the subjectKey as the key
+    localStorage.setItem(subjectKey, JSON.stringify(imageArray));
+  } catch (error) {
+    console.error(`An error occurred for subject ${subjectKey}: ${error}`);
+  }
+}
+
+// Loop through the subjectURLs object and fetch/store images for each subject
+for (const subjectKey in subjectURLs) {
+  fetchAndStoreImages(subjectKey, subjectURLs[subjectKey]);
+}
+
+</script>
+      
    </body>
 </html>

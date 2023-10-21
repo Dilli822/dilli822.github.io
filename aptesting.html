@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+  
+</body>
+
+<script>
+
+    
+  // Define your subject URLs
+const subjectURLs = {
+
+
+  DS_MATH_2078_BS_TU: "https://raw.githubusercontent.com/yana-music/CSIT2ndSemSolution/main/DiscreteMath/2078/ds-2078-",
+           DS_MATH_2076_BS_TU: "https://raw.githubusercontent.com/yana-music/CSIT2ndSemSolution/main/DiscreteMath/2076/ds-2076-",
+           DS_MATH_2075_BS_TU: "https://raw.githubusercontent.com/yana-music/CSIT2ndSemSolution/main/DiscreteMath/2075/ds-2075-",
+
+           OOP_2078_BS_TU: "https://raw.githubusercontent.com/yana-music/CSIT2ndSemSolution/main/OOP/2078/oop-2078-",
+           OOP_2076_BS_TU: "https://raw.githubusercontent.com/yana-music/CSIT2ndSemSolution/main/OOP/2076/oop-2076-",
+           OOP_2075_BS_TU: "https://raw.githubusercontent.com/yana-music/CSIT2ndSemSolution/main/OOP/2075/oop-2075-",
+
+           Mathematics_II_2078_BS_TU: "https://raw.githubusercontent.com/yana-music/CSIT2ndSemSolution/main/Maths-II/2078/Maths-II-2078-",
+           Mathematics_II_2076_BS_TU: "https://raw.githubusercontent.com/yana-music/CSIT2ndSemSolution/main/Maths-II/2076/Maths-II-2076-",
+           Mathematics_II_2075_BS_TU: "https://raw.githubusercontent.com/yana-music/CSIT2ndSemSolution/main/Maths-II/2075/Maths-II-2075-",
+
+           MicroProcessor_2078_BS_TU: "https://raw.githubusercontent.com/yana-music/CSIT2ndSemSolution/main/Microprocessor/2078/microprocessor-2078-",
+           MicroProcessor_2076_BS_TU: "https://raw.githubusercontent.com/yana-music/CSIT2ndSemSolution/main/Microprocessor/2076/microprocessor-2076-",
+           MicroProcessor_2075_BS_TU: "https://raw.githubusercontent.com/yana-music/CSIT2ndSemSolution/main/Microprocessor/2075/microprocessor-2075-",
+
+           STATISTICS_I_2078_BS_TU :  "https://raw.githubusercontent.com/yana-music/CSIT2ndSemSolution/main/STAT-I/2078/STATS-I-2078-",
+           STATISTICS_I_2076_BS_TU: "https://raw.githubusercontent.com/yana-music/CSIT2ndSemSolution/main/STAT-I/2076/STATS-I-2076-",
+           STATISTICS_I_2075_BS_TU:   "https://raw.githubusercontent.com/yana-music/CSIT2ndSemSolution/main/STAT-I/2075/STATS-I-2075-"
+
+};
+
+
+let numberOfSubjects = 0;
+
+
+// Loop through the subjectURLs object to count the number of subjects
+for (const subjectName in subjectURLs) {
+  if (subjectURLs.hasOwnProperty(subjectName)) {
+    numberOfSubjects++;
+  }
+}
+
+console.log("Number of subjects:", numberOfSubjects);
+
+// Number of images to store for each subject
+const n = numberOfSubjects;
+const urls = {};
+// Loop through the subject URLs and store them in local storage
+for (const subjectName in subjectURLs) {
+  if (subjectURLs.hasOwnProperty(subjectName)) {
+    const subjectURL = subjectURLs[subjectName];
+    const images = [];
+    // https://raw.githubusercontent.com/yana-music/CSIT2ndSemSolution/main/DiscreteMath/2078/ds-2078-1.jpg
+    // https://raw.githubusercontent.com/Dilli822/dilli822.github.io/main/resources/img/csit/pastquestionsolutions/OOP/2075/oop-2075-1.jpg
+    for (let i = 1; i <= n; i++) {
+      console.log(`${subjectURL}${i}.jpg`);
+      images.push(`${subjectURL}${i}`);
+    }
+
+    localStorage.setItem(subjectName, JSON.stringify(images));
+   
+    urls[subjectName] = images;
+  }
+}
+
+console.log("URLs:", urls);
+console.log(typeof(urls));
+console.log("uls[0]", urls[1]);
+
+
+const variableName = "DS_MATH_2076_BS_TU";
+
+// Check if variableName exists as a key in the URLs object
+if (urls.hasOwnProperty(variableName)) {
+  // Access the array of URLs for the subject
+  const subjectURLs = urls[variableName];
+  console.log(`URLs for ${variableName}:`, subjectURLs);
+  alert(`Match found URLs for ${variableName}:`, subjectURLs);
+} else {
+  console.log(`URLs for ${variableName} not found.`);
+}
+
+
+</script>
+</html>
