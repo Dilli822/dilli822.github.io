@@ -165,7 +165,7 @@ padding-left: 20px;
 
 li i {
 position: absolute;
-left: -20px;
+right: 0px;
 }
 
 li.has-sub-list i:before {
