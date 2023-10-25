@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fixed Divs with Content</title>
+    <style>
+
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: sans-serif;
+        }
+
+        a{
+            color: #000;
+            text-decoration: none;
+           
+        }
+        /* Common styles for all divs */
+        .fixed-div {
+            position: fixed;
+            width: 180px;
+            height: 145px;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+        }
+
+        /* Left div styles */
+        .left-div {
+            background-image: url("https://unsplash.it/898");
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 70%;
+            width: 8%;
+            top: 10%;
+            left: 0;
+        }
+
+        /* Right div styles */
+        .right-div {
+            background-image: url("https://unsplash.it/899");
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 65%;
+            width: 8%;
+            top: 0%;
+            right: 0;
+        }
+
+        /* Middle div styles */
+        .mid-div {
+            position: fixed;
+            width: 74%; /* Adjust the width as needed */
+            height: 55%;
+            top: 30%;
+            left: 15%; /* The total width of left div */
+            right: 10%; /* The total width of right div */
+            background-color: #ffffff;
+            text-align: center;
+            /* line-height: 50%; */
+            border: 0px;
+           
+          
+        }
+
+        .mid-div .parent{
+            border: 1px solid red;
+            text-align: center;
+            border-top-left-radius: 100px;
+            border-bottom-right-radius: 200px;
+            display: block;
+            margin: 0 auto;
+            width: 50%;
+            min-height: 70%;
+            /* line-height: 0; */
+        
+        }
+
+        /* Footer styles */
+        .footer {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 60px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            line-height: 60px;
+        }
+
+
+        .custom-button {
+            display: inline-block;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            background-color: #007BFF;
+            color: #fff;
+            border-radius: 5px;
+        }
+
+        /* Primary button styles */
+        .primary-button {
+            background-color: #007BFF;
+        }
+
+        /* Secondary button styles */
+        .secondary-button {
+            background-color: #6C757D;
+        }
+
+        /* Success button styles */
+        .success-button {
+            background-color: #28A745;
+        }
+
+
+           /* Base button styles */
+           .custom-button {
+            display: inline-block;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        /* Primary button styles */
+        .primary-button {
+            background-color: transparent;
+            color: #007BFF;
+            border: 2px solid #007BFF;
+        }
+
+        .primary-button:hover {
+            background-color: #007BFF;
+            color: #fff;
+        }
+
+        .primary-button a:hover {
+            background-color: #007BFF;
+            color: #fff;
+        }
+
+        /* Secondary button styles */
+        .secondary-button {
+            background-color: transparent;
+            color: #6C757D;
+            border: 2px solid #6C757D;
+        }
+
+        .secondary-button:hover {
+            background-color: #6C757D;
+            color: #fff;
+        }
+
+        /* Success button styles */
+        .success-button {
+            background-color: transparent;
+            color: #28A745;
+            border: 2px solid #28A745;
+        }
+
+        .success-button:hover {
+            background-color: #28A745;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <!-- Left Div -->
+    <div class="fixed-div left-div">
+        <!-- Content for the left div goes here -->
+        <!-- <h2>Left Div</h2> -->
+    </div>
+
+    <!-- Right Div -->
+    <div class="fixed-div right-div">
+        <!-- Content for the right div goes here -->
+        <!-- <h2>Right Div</h2> -->
+    </div>
+
+    <!-- Middle Div -->
+    <div class="fixed-div mid-div">
+        <!-- Content for the middle div goes here -->
+
+
+        <div class="parent">
+         <h4>CSIT Lite Solution App</h4>
+
+            <div>
+
+                <button class="custom-button primary-button">      <a href="./second_sem.html"> Go to Second Semester Solution </a> </button>
+                <!-- <h2>Middle Div</h2> -->
+                <button> 
+              
+                </button>
+            </div>
+        </div>
+     
+      
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        CSIT Lite Solution App | All Rights Reserved &copy; 2023 -  | @dilli_hangrae 
+    </div>
+</body>
+</html>
