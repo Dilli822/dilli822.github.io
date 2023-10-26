@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Queue-Based Task Scheduler with FIFO Animation</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    .task-block {
+      border: 1px solid #ddd;
+      background-color: #f9f9f9;
+      padding: 5px;
+      margin: 5px;
+      width: 100px;
+      transition: transform 1s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+  <h2 class="mb-3">Queue-Based Task Scheduler with FIFO Animation</h2>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-8 col-12">
+        <div id="taskQueue">
+          <input type="text" id="taskInput" class="form-control" placeholder="Enter a task">
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-4 col-12 mt-3 mt-md-0">
+        <div id="buttons" class="text-center">
+          <button onclick="addTask()" class="btn btn-primary">Add Task</button>
+          <button onclick="executeTask()" class="btn btn-success">Execute Task</button>
+        
+          <button onclick="exitApp()" class="btn btn-danger">Exit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container mt-5">
+    <h3 class="mb-3">Task Queue</h3>
+    <div id="queueItems" class="row">
+    </div>
+  </div>
+  <script>
+    const taskQueue = [];
+    
+    function addTask() {
+      const taskInput = document.getElementById("taskInput");
+      const task = taskInput.value.trim();
+      if (task !== "") {
+        taskQueue.push(task);
+        taskInput.value = "";
+        displayTasks();
+      }
+    }
+
+    function executeTask() {
+      if (taskQueue.length > 0) {
+        const executedTask = taskQueue.shift();
+        displayTasks();
+        showAutoCloseAlert(`Executing: ${executedTask}`);
+      }
+    }
+    function displayTasks() {
+      const queueItems = document.getElementById("queueItems");
+      queueItems.innerHTML = "";
+      taskQueue.forEach((task, index) => {
+        const taskBlock = document.createElement("div");
+        taskBlock.classList.add("col-2", "task-block");
+        taskBlock.innerText = `${index + 1}. ${task}`;
+        taskBlock.style.transform = `translateX(${index * 120}px)`;
+        queueItems.appendChild(taskBlock);
+      });
+    }
+
+    function showAutoCloseAlert(message) {
+      const alertBox = document.createElement("div");
+      alertBox.className = "alert alert-success";
+      alertBox.innerText = message;
+      document.body.appendChild(alertBox);
+
+      setTimeout(() => {
+        alertBox.style.opacity = 0;
+        setTimeout(() => {
+          alertBox.remove();
+        }, 1000);
+      }, 3000); // Auto-close after 3 seconds
+    }
+
+    function exitApp() {
+    // Prompt the user to confirm closing the tab
+    const confirmExit = confirm("Are you sure you want to exit?");
+    if (confirmExit) {
+      window.close();
+    }
+  }
+
+  </script>
+</body>
+</html>
