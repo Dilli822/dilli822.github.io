@@ -95,10 +95,17 @@ a{
     }
 
     .b-img{
-        right: -2%;
+        right: 0%;
         height: 70%;
         position: absolute;
     }
+
+    /* Use a media query to hide the content for screens smaller than 720px */
+@media (max-width: 720px) {
+  body {
+    display: none;
+  }
+}
     </style>
 </head>
 <body>
