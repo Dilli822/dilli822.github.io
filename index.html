@@ -34,9 +34,9 @@
 
 
 
-      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous"/>
       <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,400&display=swap" rel="stylesheet"/>
       <link href="https://fonts.googleapis.com/css?family=Raleway:700&display=swap" rel="stylesheet"/>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
       <!------------------------------------------------------ CSS Stylesheets--------------------------->
       <style>
@@ -277,7 +277,7 @@
          transform: translateY(8px);
          }
          /* Footer */
-         footer {
+         header,footer {
          font-weight: 300;
          display: flex;
          justify-content: space-evenly;
@@ -285,10 +285,10 @@
          background: var(--main-gray);
          border-top: 4px solid var(--main-red);
          }
-         footer > p {
+         header > p, footer > p {
          margin: 2rem;
          }
-         footer i {
+         header i, footer i {
          vertical-align: middle;
          }
          @media (max-width: 28.75em) {
@@ -306,6 +306,23 @@
          height: 300px;
          opacity: 0.75;
          border-radius: 50%;
+         }
+
+         .btnpod{
+            background-color: #f0f0f0;
+            padding: 15px;
+            cursor: pointer;
+            border: 0px;
+            margin-top: 10px;
+         }
+
+         .btnpod a{
+            color: #000;
+            font-size: 2rem;
+         }
+
+         .btnpod:hover{
+            background-color: #d9d9d9;
          }
       </style>
  
@@ -339,8 +356,8 @@
       <!-- START WELCOME SECTION -->
       <section id="welcome-section" class="welcome-section">
          <h1>Hello World, I am Dilli Hang Rai</h1>
-         <p style="font-size: 3rem; font-style: normal;"> From Nepal <span style="font-size: 4rem;"> 🇳🇵⛰ </span> </p>
-         <p> A Web Developer | B.Sc.CSIT Computer Science Student</p>
+         <p style="font-size: 3rem; font-style: normal; text-align: center;"> From Nepal <span style="font-size: 4rem;"> 🇳🇵⛰ </span> </p>
+         <p style="text-align: center;"> A Web Developer | B.Sc.CSIT Computer Science Student</p>
          <!-- <button class="btn btn-show-all"> Meet Now </button> -->
          <br>
          <figure>
@@ -533,6 +550,34 @@
             ></a>
       </section>
       <!-- END PROJECTS SECTION -->
+
+            <!-- START CONTACT SECTION -->
+            <section id="contact" class="contact-section" style="background: #083644de; border-bottom: 2px solid #fff;">
+               <div class="contact-section-header">
+                  <h2> Podcast   <i class="fas fa-podcast fa-3x"></i> </h2> 
+                  <!-- <p>Here are methods to find me. It's Just One Click....</p> -->
+               </div>
+               <div class="contact-links">
+          
+                  <a
+                     href="./podcast.html"
+                     target="_blank"
+                     class="btn contact-details"
+                     > <i class="fas fa-waveform"></i>
+                     <i class="fas fa-headphones fa-2x"></i>
+
+                     Click Here to Listen Podcast </a> <br>
+                  
+                
+               </div>
+               <button class="btnpod">   <a
+                  href="./podcast.html"
+                  target="_blank"
+                  > Go to Podcast </a> </button>
+            </section>
+
+           <hr>
+
       <!-- START CONTACT SECTION -->
       <section id="contact" class="contact-section">
          <div class="contact-section-header">
@@ -573,7 +618,7 @@
 
       <!-- START FOOTER SECTION -->
       <footer>
-        <div>
+        <div style="text-align: center;">
           <p id="dateTime">
           </p>
           <p>
@@ -587,40 +632,8 @@
       </footer>
 
       <!-- END FOOTER SECTION -->
-      <script>
-         // Create a new Date object
-         const currentDate = new Date();
-         
-         // Get the current year
-         const year = currentDate.getFullYear();
-         
-         // Select the span element with the id "currentYear" and set its content
-         const yearElement = document.getElementById("currentYear");
-         yearElement.textContent = year;
 
-
-
-         var isHidden = true;
-         document.getElementById("hideShow").style.display = "none";
-         
-
-function hideShow() {
-    const div = document.getElementById("hideShow");
-    const btnText = document.getElementById("btnHideShow");
-   
-
-    if (isHidden) {
-      btnText.innerHTML = "Hide All <i class='fas fa-chevron-right'></i>";
-        div.style.display = "inherit"; // Show the div
-    } else {
-      btnText.innerHTML = "Show All <i class='fas fa-chevron-right'></i>";
-        div.style.display = "none"; // Hide the div
-    }
-
-    isHidden = !isHidden; // Toggle the state
-}
-
-      </script>
+      <script src="./resources/script/index.js" defer  async></script>
 
    </body>
 </html>
