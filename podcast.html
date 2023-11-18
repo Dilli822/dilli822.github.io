@@ -45,6 +45,9 @@
       --main-gray: #303841;
     }
 
+    ul{
+      margin-bottom: 0;
+    }
     /* Base reset */
     * {
       margin: 0;
@@ -89,7 +92,7 @@
     h1, h2 {
       font-family: 'Raleway', sans-serif;
       font-weight: 700;
-      text-align: center;
+
     }
 
     h1 {
@@ -149,7 +152,7 @@
     }
 
     /* Footer */
-    header, footer {
+    footer {
       font-weight: 300;
       display: flex;
       justify-content: space-evenly;
@@ -166,13 +169,7 @@
       vertical-align: middle;
     }
 
-    @media (max-width: 28.75em) {
-      footer {
-        flex-direction: column;
-        text-align: center;
-      }
-    }
-
+ 
     header {
       background: var(--main-red);
     }
@@ -181,6 +178,84 @@
       background: var(--main-blue);
       color: #fff;
     }
+
+
+    #audioPlayer {
+    width: 100%;
+
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+
+  #audioPlayer::-webkit-media-controls {
+    background-color: #f4f4f4;
+  }
+
+  #audioPlayer::-webkit-media-controls-volume-slider {
+    width: 80px;
+  }
+
+  #audioPlayer::-webkit-media-controls-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  #audioPlayer::-webkit-media-controls-download-button {
+    display: inline-block;
+    background-color: #4caf50;
+    color: #fff;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  img{
+    max-width: 100%;
+  }
+
+  #audioList{
+    min-height: 500px;
+    overflow: auto;
+  }
+
+
+  #audioList li {
+      cursor: pointer;
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+      margin-bottom: 5px;
+      /* background-color: #f4f4f4; */
+      transition: background-color 0.3s ease;
+    }
+
+
+    #audioList li.selected {
+      background-color: #4caf50;
+      color: #fff;
+    }
+    #audioList{
+      line-height: 35px;
+    }
+
+    @media (max-width: 28.75em) {
+      footer {
+        flex-direction: column;
+        text-align: center;
+      }
+   
+    }
+
+    @media  (max-width: 767px) {
+      #audioList{
+        min-height: 0px;
+        overflow: auto;
+      }
+    }
+
+
   </style>
 </head>
 <body>
@@ -196,24 +271,69 @@
   </header> 
 
   <main>
+
+    <article> 
     <div class="container">
+      <br>
       <div class="row">
-        <div class="col-6">
+        <div class="col-12 col-lg-6">
+  
+         <div class="col-12 col-lg-11"> 
+          
+        
           <h2>PodCast Player</h2>
-          <h3 >Selected Podcast: </h3>
-          <h4 id="selectedPodcast"></h4>
-          <audio id="audioPlayer" controls src="" class="mb-4"></audio>
+          <!-- <h3 id="selectedPodcast" >Selected Podcast: None</h3> -->
+
+          <figure>
+            <img src="./resources/img/podcast.png" alt="" style="opacity: 0;">
+          </figure>
+          <audio id="audioPlayer" controls src="" class="mb-4" style="width: 100%;" download="MAILISOLOS.mp3"></audio>
+
+   
         </div>
-        <div class="col-6">
-          <h2>Podcast List</h2>
-          <ul id="audioList" class="list-group">
-            <!-- Add more podcasts as needed -->
+
+
+
+     
+    </div>
+        <div class="col-12 col-lg-6">
+          <h2> About: </h2>
+          <!-- <ul id="audioList" class="list-group">
+            
+            <li> Podcast For A Memory:  Between Dilli Hang Rai & Nishal Rai </li>
+            <span> Date: 14-15 Nov 2023 </span>
+            <span style="margin-top: 1rem;">
+          
+
+              This is the first time a podcast or conversation between two close friends discussed many things.
+            </span>
+        
+            <span style="margin-top: 1rem;">
+
+
+          
+              Note: we are not genius or experts, we spoke about from our current up-to-date knowledge and experiences. We may criticize or unknowingly hurt others with words. Please do not take it seriously.
+
+            </span>
+
+
+            <span style="margin-top: 1rem;">
+            
+            </span>
+            <span>
+              
+             <li> Recorded at: Yana Records </li>
+             <li> Midnight Podcast </li>
+            </span> -->
+
+            <h2>COMING SOON!!!</h2>
 
           </ul>
-        </div>
-      </div>
+      
+      </div> 
     </div>
   </main>
+</article>
 
   <!-- START FOOTER SECTION -->
   <footer>
@@ -226,30 +346,33 @@
     </div>
   </footer>
 
-  <script>
-     document.addEventListener('DOMContentLoaded', function () {
+  <!-- <script>
+      document.addEventListener('DOMContentLoaded', function () {
       const audioList = document.getElementById('audioList');
       const audioPlayer = document.getElementById('audioPlayer');
       const selectedPodcast = document.getElementById('selectedPodcast');
 
       // Define an array of audio URLs
       const audioURLs = [
-        'https://freemusicarchive.org/music/Kevin_MacLeod/Classical_Sampler/Prelude_No_23',
-      //   'https://freemusicarchive.org/music/A_A_Aalto/Through_My_Iron_Heart',
+        'https://raw.githubusercontent.com/slashanime/healthapp/master/MAILISOLOS.mp3',
+        '',
         // Add more audio URLs as needed
       ];
 
       // Populate the audio playlist
       audioURLs.forEach((audioURL, index) => {
+        // Extract the name from the URL
+        const name = audioURL.split('/').pop().replace(/\.mp3/, '').replace(/_/g, ' ');
+        
         const listItem = document.createElement('li');
-        listItem.textContent = `Podcast ${index + 1}`;
+        listItem.textContent = name;
         listItem.addEventListener('click', function () {
           // Update the audio player source
           audioPlayer.src = audioURL;
           audioPlayer.play();
 
           // Update the selected podcast title
-          selectedPodcast.textContent = `${listItem.textContent}`;
+          selectedPodcast.textContent = `Currently Playing Podcast: ${name}`;
 
           // Update the styling to indicate the selected item (you can customize this part)
           clearSelection();
@@ -266,7 +389,8 @@
         });
       }
     });
-  </script>
+  </script> -->
+  <script src="./resources/script/index.js"></script>
 
 </body>
 </html>
