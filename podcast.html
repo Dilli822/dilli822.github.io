@@ -1,396 +1,366 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="canonical" href="https://dilli822.github.io">
-  <meta name="keywords" content="front-end-developer, personal portfolio site, static webpages">
-  <meta name="author" content="Dilli Hang Rai">
-  <meta name="description" content="personal portfolio site">
-  
-  <!-- Og tags -->
-  <meta property="og:title" content="personal portfolio site"/>
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://dilli822.github.io" />
-  <meta property="og:site_name" content="dilli hang rai portfolio"/>
-  <meta property="og:description" content="dilli hang rai portfolio">
-  
-  <title>Dilli Hang Rai | Podcast </title>
-  
-  <!-- FavIcons -->
-  <link rel="icon" href="/resources/favicon/favicon.ico" type="image/x-icon">
-  <link rel="shortcut icon" href="/resources/favicon/favicon.ico" type="image/x-icon">
-  <link rel="manifest" href="/resources/favicon/site.webmanifest.json">
-  <link rel="favicon-32x32" href="/resources/favicon/favicon-32x32.png" type="image/x-icon" sizes="32x32">
-  <link rel="favicon-16x16" href="/resources/favicon/favicon-16x16.png" type="image/x-icon" sizes="16x16">
-  <link rel="android-chrome-192x192" href="/resources/favicon/android-chrome-192x192.png" type="image/x-icon" sizes="192x192">
-  <link rel="android-chrome-512x512" href="/resources/favicon/android-chrome-512x512.png" type="image/x-icon" sizes="512x512">
-  
-  <!-- Font Awesome and Google Fonts -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,400&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Raleway:700&display=swap" rel="stylesheet">
-  
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  
-  <style>
-    /* Custom properties/variables  */
-    :root {
-      --main-white: #f0f0f0;
-      --main-red: #be3144;
-      --main-blue: #45567d;
-      --main-gray: #303841;
-    }
-
-    ul{
-      margin-bottom: 0;
-    }
-    /* Base reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: inherit;
-    }
-
-    /* box-sizing and font sizing */
-    html {
-      box-sizing: border-box;
-      font-size: 62.5%;
-      scroll-behavior: smooth;
-    }
-
-    @media (max-width: 75em) {
-      html {
-        font-size: 60%;
-      }
-    }
-
-    @media (max-width: 61.25em) {
-      html {
-        font-size: 58%;
-      }
-    }
-
-    @media (max-width: 28.75em) {
-      html {
-        font-size: 55%;
-      }
-    }
-
-    /* Base styles */
-    body {
-      font-family: 'Poppins', sans-serif;
-      font-size: 1.8rem; /* 18px */
-      font-weight: 400;
-      line-height: 1.4;
-      color: var(--main-white);
-    }
-
-    h1, h2 {
-      font-family: 'Raleway', sans-serif;
-      font-weight: 700;
-
-    }
-
-    h1 {
-      font-size: 6rem;
-    }
-
-    h2 {
-      font-size: 4.2rem;
-    }
-
-    ul {
-      list-style: none;
-    }
-
-    a {
-      text-decoration: none;
-      color: var(--main-white);
-    }
-
-    img {
-      display: block;
-      width: 100%;
-    }
-
-    /* nav */
-    .nav {
-      display: flex;
-      justify-content: flex-end;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: var(--main-red);
-      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
-      z-index: 10;
-    }
-
-    @media (max-width: 28.75em) {
-      .nav {
-        justify-content: center;
-      }
-    }
-
-    .nav-list {
-      display: flex;
-      margin-right: 2rem;
-    }
-
-    .nav-list a {
-      display: block;
-      font-size: 2.2rem;
-      padding: 2rem;
-    }
-
-    .nav-list a:hover {
-      background: var(--main-blue);
-    }
-
-    /* Footer */
-    footer {
-      font-weight: 300;
-      display: flex;
-      justify-content: space-evenly;
-      padding: 2rem;
-      background: var(--main-gray);
-      border-top: 4px solid var(--main-red);
-    }
-
-    header > p, footer > p {
-      margin: 2rem;
-    }
-
-    header i, footer i {
-      vertical-align: middle;
-    }
-
- 
-    header {
-      background: var(--main-red);
-    }
-
-    main {
-      background: var(--main-blue);
-      color: #fff;
-    }
-
-
-    #audioPlayer {
-    width: 100%;
-
-    border: 2px solid #ddd;
-    border-radius: 8px;
-    margin-bottom: 20px;
-  }
-
-  #audioPlayer::-webkit-media-controls {
-    background-color: #f4f4f4;
-  }
-
-  #audioPlayer::-webkit-media-controls-volume-slider {
-    width: 80px;
-  }
-
-  #audioPlayer::-webkit-media-controls-panel {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  #audioPlayer::-webkit-media-controls-download-button {
-    display: inline-block;
-    background-color: #4caf50;
-    color: #fff;
-    padding: 5px 10px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-
-  img{
-    max-width: 100%;
-  }
-
-  #audioList{
-    min-height: 500px;
-    overflow: auto;
-  }
-
-
-  #audioList li {
-      cursor: pointer;
-      padding: 10px;
-      border-bottom: 1px solid #ddd;
-      margin-bottom: 5px;
-      /* background-color: #f4f4f4; */
-      transition: background-color 0.3s ease;
-    }
-
-
-    #audioList li.selected {
-      background-color: #4caf50;
-      color: #fff;
-    }
-    #audioList{
-      line-height: 35px;
-    }
-
-    @media (max-width: 28.75em) {
-      footer {
-        flex-direction: column;
-        text-align: center;
-      }
-   
-    }
-
-    @media  (max-width: 767px) {
-      #audioList{
-        min-height: 0px;
-        overflow: auto;
-      }
-    }
-
-
-  </style>
-</head>
-<body>
-
-  <header>
-    <nav class="container">
-      <ul class="nav-list">
-        <li>
-          <a href="./index.html">Go Back</a>
-        </li>
-      </ul>
-    </nav>
-  </header> 
-
-  <main>
-
-    <article> 
-    <div class="container">
-      <br>
-      <div class="row">
-        <div class="col-12 col-lg-6">
-  
-         <div class="col-12 col-lg-11"> 
-          
-        
-          <h2>PodCast Player</h2>
-          <!-- <h3 id="selectedPodcast" >Selected Podcast: None</h3> -->
-
-          <figure>
-            <img src="./resources/img/podcast.png" alt="" style="opacity: 0;">
-          </figure>
-          <audio id="audioPlayer" controls src="" class="mb-4" style="width: 100%;" download="MAILISOLOS.mp3"></audio>
-
-   
-        </div>
-
-
-
-     
-    </div>
-        <div class="col-12 col-lg-6">
-          <h2> About: </h2>
-          <!-- <ul id="audioList" class="list-group">
-            
-            <li> Podcast For A Memory:  Between Dilli Hang Rai & Nishal Rai </li>
-            <span> Date: 14-15 Nov 2023 </span>
-            <span style="margin-top: 1rem;">
-          
-
-              This is the first time a podcast or conversation between two close friends discussed many things.
-            </span>
-        
-            <span style="margin-top: 1rem;">
-
-
-          
-              Note: we are not genius or experts, we spoke about from our current up-to-date knowledge and experiences. We may criticize or unknowingly hurt others with words. Please do not take it seriously.
-
-            </span>
-
-
-            <span style="margin-top: 1rem;">
-            
-            </span>
-            <span>
-              
-             <li> Recorded at: Yana Records </li>
-             <li> Midnight Podcast </li>
-            </span> -->
-
-            <h2>COMING SOON!!!</h2>
-
-          </ul>
-      
-      </div> 
-    </div>
-  </main>
-</article>
-
-  <!-- START FOOTER SECTION -->
-  <footer>
-    <div>
-      <p id="dateTime"></p>
-      <p>
-        @dilli_hangrae | 2021 - <span id="currentYear"></span> &copy; Reference | Created & Powered By
-        <a href="https://www.freecodecamp.com/" target="_blank">freeCodeCamp <i class="fab fa-free-code-camp"></i></a>
-      </p>
-    </div>
-  </footer>
-
-  <!-- <script>
-      document.addEventListener('DOMContentLoaded', function () {
-      const audioList = document.getElementById('audioList');
-      const audioPlayer = document.getElementById('audioPlayer');
-      const selectedPodcast = document.getElementById('selectedPodcast');
-
-      // Define an array of audio URLs
-      const audioURLs = [
-        'https://raw.githubusercontent.com/slashanime/healthapp/master/MAILISOLOS.mp3',
-        '',
-        // Add more audio URLs as needed
-      ];
-
-      // Populate the audio playlist
-      audioURLs.forEach((audioURL, index) => {
-        // Extract the name from the URL
-        const name = audioURL.split('/').pop().replace(/\.mp3/, '').replace(/_/g, ' ');
-        
-        const listItem = document.createElement('li');
-        listItem.textContent = name;
-        listItem.addEventListener('click', function () {
-          // Update the audio player source
-          audioPlayer.src = audioURL;
-          audioPlayer.play();
-
-          // Update the selected podcast title
-          selectedPodcast.textContent = `Currently Playing Podcast: ${name}`;
-
-          // Update the styling to indicate the selected item (you can customize this part)
-          clearSelection();
-          listItem.classList.add('selected');
-        });
-        audioList.appendChild(listItem);
-      });
-
-      // Function to clear selection from all list items
-      function clearSelection() {
-        const listItems = audioList.getElementsByTagName('li');
-        Array.from(listItems).forEach(item => {
-          item.classList.remove('selected');
-        });
-      }
-    });
-  </script> -->
-  <script src="./resources/script/index.js"></script>
-
-</body>
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="canonical" href="https://dilli822.github.io">
+      <meta name="keywords" content="front-end-developer, personal portfolio site, static webpages">
+      <meta name="author" content="Dilli Hang Rai">
+      <meta name="description" content="personal portfolio site">
+      <!-- Og tags -->
+      <meta property="og:title" content="personal portfolio site"/>
+      <meta property="og:type" content="website" />
+      <meta property="og:url" content="https://dilli822.github.io" />
+      <meta property="og:site_name" content="dilli hang rai portfolio"/>
+      <meta property="og:description" content="dilli hang rai portfolio">
+      <title>Dilli Hang Rai | Podcast </title>
+      <!-- FavIcons -->
+      <link rel="icon" href="/resources/favicon/favicon.ico" type="image/x-icon">
+      <link rel="shortcut icon" href="/resources/favicon/favicon.ico" type="image/x-icon">
+      <link rel="manifest" href="/resources/favicon/site.webmanifest.json">
+      <link rel="favicon-32x32" href="/resources/favicon/favicon-32x32.png" type="image/x-icon" sizes="32x32">
+      <link rel="favicon-16x16" href="/resources/favicon/favicon-16x16.png" type="image/x-icon" sizes="16x16">
+      <link rel="android-chrome-192x192" href="/resources/favicon/android-chrome-192x192.png" type="image/x-icon" sizes="192x192">
+      <link rel="android-chrome-512x512" href="/resources/favicon/android-chrome-512x512.png" type="image/x-icon" sizes="512x512">
+      <!-- Font Awesome and Google Fonts -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,400&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Raleway:700&display=swap" rel="stylesheet">
+      <!-- Bootstrap CSS -->
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      <style>
+         /* Custom properties/variables  */
+         :root {
+         --main-white: #f0f0f0;
+         --main-red: #be3144;
+         --main-blue: #45567d;
+         --main-gray: #303841;
+         }
+         ul{
+         margin-bottom: 0;
+         }
+         /* Base reset */
+         * {
+         margin: 0;
+         padding: 0;
+         box-sizing: inherit;
+         }
+         /* box-sizing and font sizing */
+         html {
+         box-sizing: border-box;
+         font-size: 62.5%;
+         scroll-behavior: smooth;
+         }
+         @media (max-width: 75em) {
+         html {
+         font-size: 60%;
+         }
+         }
+         @media (max-width: 61.25em) {
+         html {
+         font-size: 58%;
+         }
+         }
+         @media (max-width: 28.75em) {
+         html {
+         font-size: 55%;
+         }
+         }
+         /* Base styles */
+         body {
+         font-family: 'Poppins', sans-serif;
+         font-size: 1.8rem; /* 18px */
+         font-weight: 400;
+         line-height: 1.4;
+         color: var(--main-white);
+         }
+         h1, h2 {
+         font-family: 'Raleway', sans-serif;
+         font-weight: 700;
+         }
+         h1 {
+         font-size: 6rem;
+         }
+         h2 {
+         font-size: 4.2rem;
+         }
+         ul {
+         list-style: none;
+         }
+         a {
+         text-decoration: none;
+         color: var(--main-white);
+         }
+         img {
+         display: block;
+         width: 100%;
+         }
+         /* nav */
+         .nav {
+         display: flex;
+         justify-content: flex-end;
+         position: fixed;
+         top: 0;
+         left: 0;
+         width: 100%;
+         background: var(--main-red);
+         box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
+         z-index: 10;
+         }
+         @media (max-width: 28.75em) {
+         .nav {
+         justify-content: center;
+         }
+         }
+         .nav-list {
+         display: flex;
+         margin-right: 2rem;
+         }
+         .nav-list a {
+         display: block;
+         font-size: 2.2rem;
+         padding: 2rem;
+         }
+         .nav-list a:hover {
+         background: var(--main-blue);
+         }
+         /* Footer */
+         footer {
+         font-weight: 300;
+         display: flex;
+         justify-content: space-evenly;
+         padding: 2rem;
+         background: var(--main-gray);
+         border-top: 4px solid var(--main-red);
+         }
+         header > p, footer > p {
+         margin: 2rem;
+         }
+         header i, footer i {
+         vertical-align: middle;
+         }
+         header {
+         background: var(--main-red);
+         }
+         main {
+         background: var(--main-blue);
+         color: #fff;
+         }
+         #audioPlayer {
+         width: 100%;
+         border: 2px solid #ddd;
+         border-radius: 8px;
+         margin-bottom: 20px;
+         }
+         #audioPlayer::-webkit-media-controls {
+         background-color: #f4f4f4;
+         }
+         #audioPlayer::-webkit-media-controls-volume-slider {
+         width: 80px;
+         }
+         #audioPlayer::-webkit-media-controls-panel {
+         display: flex;
+         justify-content: space-between;
+         align-items: center;
+         }
+         #audioPlayer::-webkit-media-controls-download-button {
+         display: inline-block;
+         background-color: #4caf50;
+         color: #fff;
+         padding: 5px 10px;
+         border: none;
+         border-radius: 4px;
+         cursor: pointer;
+         }
+         img{
+         max-width: 100%;
+         }
+         #audioList{
+         min-height: 500px;
+         overflow: auto;
+         }
+         #audioList li {
+         cursor: pointer;
+         padding: 10px;
+         border-bottom: 1px solid #ddd;
+         margin-bottom: 5px;
+         /* background-color: #f4f4f4; */
+         transition: background-color 0.3s ease;
+         }
+         #audioList li.selected {
+         background-color: #4caf50;
+         color: #fff;
+         }
+         #audioList{
+         line-height: 35px;
+         }
+         @media (max-width: 28.75em) {
+         footer {
+         flex-direction: column;
+         text-align: center;
+         }
+         }
+         #ifrm{
+         height: 100%;
+         }
+         @media  (max-width: 767px) {
+         #audioList{
+         min-height: 0px;
+         overflow: auto;
+         }
+         #ifrm{
+         height: 400px;
+         }
+         }
+      </style>
+   </head>
+   <body>
+      <header>
+         <nav class="container">
+            <ul class="nav-list">
+               <li>
+                  <a href="./index.html">Go Back</a>
+               </li>
+            </ul>
+         </nav>
+      </header>
+      <main>
+         <article style="width: 100%; min-height: 100vh">
+            <div class="container">
+            <br>
+            <div class="row">
+               <div class="col-12 col-lg-6">
+                  <div class="col-12 col-lg-11" style="width: 100%; height: 100%">
+                     <!-- <h3 id="selectedPodcast" >Selected Podcast: None</h3> -->
+                     <!-- <audio id="audioPlayer" controls src="" class="mb-4" style="width: 100%;" download="MAILISOLOS.mp3"></audio>
+                        -->
+                     <iframe width="100%" id="ifrm" src="https://www.youtube.com/embed/k6aZ5TSR3VQ?si=ZpyqXNPK7GH7xIBN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                  </div>
+               </div>
+               <div class="col-12 col-lg-6" >
+                  <h2> About: </h2>
+                  <h3>
+                     Close Podcast is a midnight conversation between two close friends Nishal (Right Side) & Dilli Hang (Left Side) discussing various topics like Spirituality, Failures/Success, and Trekking from life experiences.
+                     <br><br>
+                     Disclaimer: We are not experts and are not intentionally criticizing any particular individual. It is an unfiltered normal causal chat and talk from our up-to-date knowledge, experiences, and thought processes.
+                     We share our experiences, thoughts, OPINIONS, and knowledge. Amid our discussions, we often find ourselves caught in the overwhelmed moment, sharing real and unfiltered thoughts.
+                     <br><br>
+                     One of the reasons for this podcast is for a memory snapshot of our evolving ideas, experiences, and shared moments as well as a mark of our growth and learning.
+                     <br>
+                     <br>
+                     Reach Out to us at Instagram|
+                     <a
+                        href="https://www.instagram.com/dilli_hangrae/"
+                        target="_blank"
+                        ><i class="fab fa-instagram"></i> Dilli Hang Rai </a>
+                     |
+                     <a
+                        href="https://www.instagram.com/nishalrai1"
+                        target="_blank"
+                        ><i class="fab fa-instagram"></i> Nishal Rai </a>
+                     <br>
+                     Recorded at<br>
+                     Yana Records<br>
+                     Itahari-20,Tarahara, Sunsari, Nepal
+                     <br><br>
+                     <!-- 
+                        Video Shot By Iphone Xs
+                        <br><br> -->
+                     <!-- 
+                        "© 2023  @dilli_hangrae  | All rights reserved. This video contains copyrighted material. Unauthorized reproduction, copying, or use without permission is prohibited. "
+                        <br>
+                        For inquiries, contact dillihangrae@gmail.com
+                        <br>
+                        Note: Positive Comments and Feedback are welcome. -->
+                  </h3>
+                  <!-- <ul id="audioList" class="list-group">
+                     <li> Podcast For A Memory:  Between Dilli Hang Rai & Nishal Rai </li>
+                     <span> Date: 14-15 Nov 2023 </span>
+                     <span style="margin-top: 1rem;">
+                     
+                     
+                       This is the first time a podcast or conversation between two close friends discussed many things.
+                     </span>
+                     
+                     <span style="margin-top: 1rem;">
+                     
+                     
+                     
+                       Note: we are not genius or experts, we spoke about from our current up-to-date knowledge and experiences. We may criticize or unknowingly hurt others with words. Please do not take it seriously.
+                     
+                     </span>
+                     
+                     
+                     <span style="margin-top: 1rem;">
+                     
+                     </span>
+                     <span>
+                       
+                      <li> Recorded at: Yana Records </li>
+                      <li> Midnight Podcast </li>
+                     </span> -->
+                  </ul>
+               </div>
+            </div>
+      </main>
+      </article>
+      <!-- START FOOTER SECTION -->
+      <footer>
+         <div>
+            <p id="dateTime"></p>
+            <p>
+               @dilli_hangrae | 2021 - <span id="currentYear"></span> &copy; Reference | Created & Powered By
+               <a href="https://www.freecodecamp.com/" target="_blank">freeCodeCamp <i class="fab fa-free-code-camp"></i></a>
+            </p>
+         </div>
+      </footer>
+      <!-- <script>
+         document.addEventListener('DOMContentLoaded', function () {
+         const audioList = document.getElementById('audioList');
+         const audioPlayer = document.getElementById('audioPlayer');
+         const selectedPodcast = document.getElementById('selectedPodcast');
+         
+         // Define an array of audio URLs
+         const audioURLs = [
+           'https://raw.githubusercontent.com/slashanime/healthapp/master/MAILISOLOS.mp3',
+           '',
+           // Add more audio URLs as needed
+         ];
+         
+         // Populate the audio playlist
+         audioURLs.forEach((audioURL, index) => {
+           // Extract the name from the URL
+           const name = audioURL.split('/').pop().replace(/\.mp3/, '').replace(/_/g, ' ');
+           
+           const listItem = document.createElement('li');
+           listItem.textContent = name;
+           listItem.addEventListener('click', function () {
+             // Update the audio player source
+             audioPlayer.src = audioURL;
+             audioPlayer.play();
+         
+             // Update the selected podcast title
+             selectedPodcast.textContent = `Currently Playing Podcast: ${name}`;
+         
+             // Update the styling to indicate the selected item (you can customize this part)
+             clearSelection();
+             listItem.classList.add('selected');
+           });
+           audioList.appendChild(listItem);
+         });
+         
+         // Function to clear selection from all list items
+         function clearSelection() {
+           const listItems = audioList.getElementsByTagName('li');
+           Array.from(listItems).forEach(item => {
+             item.classList.remove('selected');
+           });
+         }
+         });
+         </script> -->
+      <script src="./resources/script/index.js"></script>
+   </body>
 </html>
