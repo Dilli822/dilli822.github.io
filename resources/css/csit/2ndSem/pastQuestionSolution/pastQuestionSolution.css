@@ -1,303 +1,316 @@
 .image {
-    max-width: 100%;
-    max-width: 500px;
+  max-width: 100%;
+  max-width: 500px;
 }
 
 .stored-urls {
-    margin-top: 20px;
-  
+  margin-top: 20px;
 }
 
-.stored-urls div{
-    display: flex;
-    flex-wrap: wrap;
+.stored-urls div {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 /* .sliderss{
-    max-width: 500px;
-    height: 500px;
-    
+  max-width: 500px;
+  height: 500px;
+  
 
 } */
-.sliderss img{
-    max-width: 100%;
-    height: 100%;
-    /* max-width: 800px; */
-    /* border: 1px solid red; */
+.sliderss img {
+  max-width: 100%;
+  height: 100%;
+  /* max-width: 800px; */
+  /* border: 1px solid red; */
 }
 
-#imageContainer img{
-    width: 60px;
-    height: 60px;
+#imageContainer img {
+  width: 60px;
+  height: 60px;
 }
-
 
 /* Add a red border to the image with matching src */
 .highlight {
-border: 2px solid rgb(255, 0, 0);
+  border: 2px solid rgb(255, 0, 0);
 }
 
-
 /*Global*/
-html, body {
-width: 100%;
-margin: 0;
-padding: 0;
-font-family: helvetica, sans-serif;
+html,
+body {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: helvetica, sans-serif;
 }
 
 /*Func*/
 
-.multi-level, .item ul, .nav input[type="checkbox"] {
-display: none;
+.multi-level,
+.item ul,
+.nav input[type="checkbox"] {
+  display: none;
 }
-#menu:checked ~ .multi-level, .item input:checked ~ ul {
-display: block;
+#menu:checked ~ .multi-level,
+.item input:checked ~ ul {
+  display: block;
 }
 
 /*Arrow*/
 
 .arrow {
-width: 12px;
-height: 12px;
-vertical-align: middle;
-float: left;
-z-index: 0;
-margin: 17px 1em 0 2em;
+  width: 12px;
+  height: 12px;
+  vertical-align: middle;
+  float: left;
+  z-index: 0;
+  margin: 17px 1em 0 2em;
 }
 .item input + .arrow {
-transform: rotate(-90deg);
-transition: 0.1s;
+  transform: rotate(-90deg);
+  transition: 0.1s;
 }
 .item input:checked + .arrow {
-transform: rotate(0deg);
-transition: 0.1s;
+  transform: rotate(0deg);
+  transition: 0.1s;
 }
-
-
 
 /*Styles*/
 
 label:hover {
-cursor: pointer;
+  cursor: pointer;
 }
 label {
-width: 100%;
-display: block;
-z-index: 3;
-position: relative;
+  width: 100%;
+  display: block;
+  z-index: 3;
+  position: relative;
 }
 .nav {
-width: 100%;
-background-color: white;
-overflow-x: hidden;
-border-bottom: 1px solid #CFD8DC;
+  width: 100%;
+  background-color: white;
+  overflow-x: hidden;
+  border-bottom: 1px solid #cfd8dc;
 }
 
 #nav-icon {
-font-size: 28px;
-line-height: 50px;
-padding-left: 1em;
-color: white;
-background-color: #F44336;
+  font-size: 28px;
+  line-height: 50px;
+  padding-left: 1em;
+  color: white;
+  background-color: #f44336;
 }
 
-.nav ul, .nav li, label {
-line-height: 50px;
-margin: 0;
-padding: 0 2em;
-list-style: none;
-text-decoration: none;
-color: #90A4AE;
-font-weight: 100;
-width: 100%;
+.nav ul,
+.nav li,
+label {
+  line-height: 50px;
+  margin: 0;
+  padding: 0 2em;
+  list-style: none;
+  text-decoration: none;
+  color: #90a4ae;
+  font-weight: 100;
+  width: 100%;
 }
 .item ul {
-padding: 0 0.25em;
+  padding: 0 0.25em;
 }
 .nav li a {
-line-height: 50px;
-margin: 0;
-padding: 0 4em;
-list-style: none;
-text-decoration: none;
-color: #90A4AE;
-font-weight: 100;
+  line-height: 50px;
+  margin: 0;
+  padding: 0 4em;
+  list-style: none;
+  text-decoration: none;
+  color: #90a4ae;
+  font-weight: 100;
 }
 
-.menu label{
-margin: 0;
+.menu label {
+  margin: 0;
 }
 @media screen and (min-width: 720px) {
-.mobile-nav{
-display: none;
-}
+  .mobile-nav {
+      display: none;
+  }
 }
 
 @media screen and (max-width: 720px) {
-    #body{
-    display: none;
-    }
-    }
-
+  #body {
+      display: none;
+  }
+}
 
 ul {
-list-style-type: none;
-padding-left: 0;
+  list-style-type: none;
+  padding-left: 0;
 }
 
 li {
-position: relative;
-cursor: pointer;
-padding: 8px;
-border-bottom: 1px solid #ccc;
-margin: 2px;
+  position: relative;
+  cursor: pointer;
+  padding: 8px;
+  border-bottom: 1px solid #ccc;
+  margin: 2px;
 }
 
 li:hover {
-background-color: #ffffff;
+  background-color: #ffffff;
 }
 
 .sub-list {
-display: none;
-padding-left: 20px;
+  display: none;
+  padding-left: 20px;
 }
 
 li i {
-position: absolute;
-right: 0px;
+  position: absolute;
+  right: 0px;
 }
 
 li.has-sub-list i:before {
-content: "\f107"; /* Font Awesome icon for arrow right */
+  content: "\f107"; /* Font Awesome icon for arrow right */
 }
 
 li.has-sub-list.expanded i:before {
-content: "\f106"; /* Font Awesome icon for arrow down */
+  content: "\f106"; /* Font Awesome icon for arrow down */
 }
 
 .sub-list.visible {
-display: block;
+  display: block;
 }
 
-.ul-main{
-box-shadow: inset #605e5e;
+.ul-main {
+  box-shadow: inset #605e5e;
 }
 
-
-
-#prevBtnCustom2, #nextBtnCustom2{
-height: auto;
-width: auto;
-margin: 1px;
+#prevBtnCustom2,
+#nextBtnCustom2 {
+  height: auto;
+  width: auto;
+  margin: 1px;
 }
 
-
-
-.stored-urls img{
-    width: 50px;
-    height: 50px;
-    padding: 5px;
-    margin: 5px;
-    border: 1px solid #00b398;
+.stored-urls img {
+  width: 40px;
+  height: 40px;
+  padding: 5px;
+  margin: 5px;
+  border: 1px solid #00b398;
 }
 
-#slider, .slideC, #fullscreenContainer{
-    height: 70vh;
-    overflow: auto;
-
+#slider,
+.slideC,
+#fullscreenContainer {
+  /* height: 70vh; */
+  overflow: auto;
 }
 
-
-#sliderImage{
-    max-width: 100%;
-    margin: 0 auto;
-    height: 100%;
-    display: block;
-
- 
+#fullscreenContainer {
+  height: 70vh;
 }
 
-#sliderHighlightImage{
-    height: 95vh;
-    overflow: auto;
+#sliderImage {
+  max-width: 100%;
+  margin: 0 auto;
+  height: 100%;
+  display: block;
 }
 
-
-
-.social-media-links i{
-    font-size: 24px;
-    margin: 3px;
-    color: #e6e6e6;
+#sliderHighlightImage {
+  height: 95vh;
+  overflow: auto;
 }
 
+.social-media-links i {
+  font-size: 24px;
+  margin: 3px;
+  color: #e6e6e6;
+}
 
+#loadingOverlay {
+  position: relative;
+}
 
-#loadingOverlay{
-    position: relative;
-} 
-
-.customload{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-  }
+.customload {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
 .spinner-border {
-    --bs-spinner-width: 3rem;
-    --bs-spinner-height: 3rem;
+  --bs-spinner-width: 3rem;
+  --bs-spinner-height: 3rem;
+}
 
-  }
+#HighlightsLo {
+  --bs-spinner-width: 2rem;
+  --bs-spinner-height: 2rem;
+}
 
-  #HighlightsLo{
-    --bs-spinner-width: 2rem;
-    --bs-spinner-height: 2rem;
-  }
+img {
+  max-width: 100%;
+}
 
+.coverPages img {
+  padding: 5px;
+  max-width: 100px;
+  height: 100px;
+}
 
-  img{
-    max-width: 100%;
+#messa {
+  display: none;
+}
+@media only screen and (max-width: 600px) {
+  #messa {
+      display: block;
   }
+}
 
-  .coverPages img{
-    padding: 5px;
-    max-width: 200px;
-   
-    height: 150px;
-  }
+.pdf-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+}
 
-  #messa{
-    display: none;
-  }
-  @media only screen and (max-width: 600px) {
-    #messa {
-        display: block;
-    }
-  }
+.pdf-header {
+  background: #fff;
+  padding: 10px;
+  text-align: right;
+}
 
+.pdf-content {
+  text-align: center;
+}
 
-  .pdf-container {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    display: none;
-  }
-  
-  .pdf-header {
-    background: #fff;
-    padding: 10px;
-    text-align: right;
-  }
-  
-  .pdf-content {
-    text-align: center;
-  }
-  
-  canvas {
-    border: 1px solid #000;
-  }
-  
+canvas {
+  border: 1px solid #000;
+}
+
+.sub-list {
+  display: none; /* Initially hide sub-lists */
+}
+
+.show-sub-list {
+  display: block; /* Show sub-lists when the class is present */
+}
+
+/* Initially, set the down chevron icon */
+.has-sub-list i:before {
+  content: "\f107"; /* Assuming "\f107" corresponds to the "fa-chevron-down" icon */
+}
+
+/* Apply the up chevron icon when the list item is expanded */
+.has-sub-list.expanded i:before {
+  content: "\f106"; /* Assuming "\f106" corresponds to the "fa-chevron-up" icon */
+}
+
+iframe {
+  min-height: 500px;
+  height: 100%;
+}
