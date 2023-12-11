@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function displayInfo(username, savedSemester) {
         if (savedSemester === null) {
-            document.getElementById("greeting").innerHTML = `Welcome Back, ${username}.<br> <span> You are doing great! Keep on Studying! <hr> <h3> Semester: Not Set`;
+            document.getElementById("greeting").innerHTML = `Welcome Back.<br> <span> You are doing great! Keep on Studying! <hr> <h3> Semester: Not Set`;
         } else if (savedSemester === "1") {
             document.getElementById("greeting").innerHTML = `Welcome Back, ${username}.<br> <span> You are doing great! Keep on Studying! <hr> <h3> Semester: ${savedSemester}st`;
         } else if (savedSemester === "2") {
