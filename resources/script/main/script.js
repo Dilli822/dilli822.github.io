@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function displayInfo(username, savedSemester) {
         if (savedSemester === null) {
-            document.getElementById("greeting").innerHTML = `Welcome Back.<br> <span> You are doing great! Keep on Studying! <hr> <h3> Semester: Not Set`;
+            document.getElementById("greeting").innerHTML = `Welcome Back ${username}.<br> <span> You are doing great! Keep on Studying! <hr> <h3> Semester: ${savedSemester}`;
         } else if (savedSemester === "1") {
             document.getElementById("greeting").innerHTML = `Welcome Back, ${username}.<br> <span> You are doing great! Keep on Studying! <hr> <h3> Semester: ${savedSemester}st`;
         } else if (savedSemester === "2") {
@@ -181,7 +181,10 @@ document.addEventListener("DOMContentLoaded", function () {
     // Function to create list items based on the selected semester
     function createListItems(subjects) {
         // // Clear the existing list items
-
+        const savedSemester = localStorage.getItem("semester");
+        const selectedUsername = localStorage.getItem("username");
+        
+        displayInfo(selectedUsername, savedSemester);
         listContainer.innerHTML = "";
         // Clear the existing content in the container (assuming sliderHighlightImage is defined)
         sliderHighlightImage.innerHTML = "";
@@ -224,6 +227,8 @@ document.addEventListener("DOMContentLoaded", function () {
         displayInfo(savedUsername, selectedSemester);
         // Call the function to update the list based on the selected semester
         updateListBasedOnSemester(selectedSemester);
+
+
 
         // For demonstration, alert the user with the selected semester
         // alert(`Semester ${selectedSemester} selected!`);
