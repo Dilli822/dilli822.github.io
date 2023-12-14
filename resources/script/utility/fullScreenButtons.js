@@ -131,10 +131,18 @@ function offFlowChart() {
     document.getElementById("overlayFlowchart").style.display = "none";
 }
 
+
+
 function onDocumentation() {
     document.getElementById("overlayDoc").style.display = "block";
+
+
 }
 
 function offDocumentation() {
+   
+
     document.getElementById("overlayDoc").style.display = "none";
+
+ 
 }
