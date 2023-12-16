@@ -173,7 +173,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // You can add additional logic or function calls here if needed
 
         // For demonstration, alert the user with the selected semester
-        alert(`Semester ${selectedSemester} selected!`);
+        // alert(`Semester ${selectedSemester} selected!`);
     });
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -231,7 +231,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         // For demonstration, alert the user with the selected semester
-        alert(`Semester ${selectedSemester} selected!`);
+        // alert(`Semester ${selectedSemester} selected!`);
     });
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -304,7 +304,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Capture and alert the text content only for specific elements
                 if (item.classList.contains("has-sub-list") || item.classList.contains("sub-list")) {
                     const clickedValue = this.textContent.trim();
-                    console.log(clickedValue);
+                    // console.log(clickedValue);
 
                     const sliderHighlightImage = document.getElementById("sliderHighlightImage");
 
@@ -373,7 +373,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         while (true) {
                             const imageUrl = `${baseImageUrl}${currentIndex + 1}.jpg`;
 
-                            console.log("Fetching image:", imageUrl);
+                            // console.log("Fetching image:", imageUrl);
 
                             try {
                                 const response = await fetch(imageUrl);
@@ -381,7 +381,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 // console.log("Response status:", response.status);
 
                                 if (response.status === 404) {
-                                    console.log("404 Error - End of images");
+                                    // console.log("404 Error - End of images");
                                     break;
                                 }
 
@@ -389,13 +389,13 @@ document.addEventListener("DOMContentLoaded", function () {
                                     const imageURL = imageUrl;
                                     imageArray.push(imageURL); // Push the imageUrl, not a string
                                 } else {
-                                    console.error(`Error fetching image at index ${currentIndex}: ${response.statusText}`);
+                                    // console.error(`Error fetching image at index ${currentIndex}: ${response.statusText}`);
                                     break;
                                 }
 
                                 currentIndex++;
                             } catch (error) {
-                                console.error(`An error occurred while fetching the image at index ${currentIndex}: ${error}`);
+                                // console.error(`An error occurred while fetching the image at index ${currentIndex}: ${error}`);
                                 break;
                             }
                         }
@@ -403,7 +403,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         if (imageArray.length > 0) {
                             const imageArrayJson = JSON.stringify(imageArray);
                             localStorage.setItem("imageArray", imageArrayJson);
-                            console.log("image array json ", imageArrayJson);
+                            // console.log("image array json ", imageArrayJson);
                             displayImages(imageArray); // Call displayImages after fetching
                         }
                     }
@@ -537,7 +537,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                     document.getElementById("loader").style.display = "none";
                                     document.getElementById("loaders").style.display = "none";
                                 } catch (error) {
-                                    console.error("An error occurred:", error);
+                                    //console.error("An error occurred:", error);
                                     //  alert('An error occurred. Please check the browser console.');
                                 }
                             }
