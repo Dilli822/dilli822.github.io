@@ -1,376 +1,380 @@
 <!DOCTYPE html>
 <!--------------------------------------------Created by Dilli Hang Rai-------------------------->
 <html lang="en">
-   <head>
-      <!--------------------------------------------META--TAGS--------------------------------------->
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="canonical" href="https://dilli822.github.io">
-      <meta name="keywords" content="front-end-developer, personal portfolio site, static webpages">
-      <meta name="author" content="Dilli Hang Rai">
-      <meta name="description" content="personal portfolio site">
-      <!-- Og tags -->
-      <meta property="og:title" content="personal portfolio site"/>
-      <meta property="og:type"   content="personal static website" />
-      <meta property="og:url"    content="https://dilli822.github.io" />
-      <meta property="og:site_name" content="dilli hang rai portfolio"/>
-      <!-- <meta property="og:image" content="https://hikechinde.github.io/assets/img/Dilli%20Hang%20Rai-I.JPG"> -->
-      <meta property="og:image:alt" content="profile-dilli">
-      <meta property="og:description" content="dilli hang rai portfolio">
-      <!---------------------------------------------WEBSITE--TITLE---------------------------------->
-      <title>Dilli Hang Rai | Portfolio </title>
-      <!----------------------------------------------FavIcons------------------------------->
-      <link rel="icon" href="/resources/favicon/favicon.ico" type="image/x-icon">
-      <link rel="favicon-32x32" href="/resources/favicon/favicon-32x32.png" type="image/x-icon" sizes="32x32">
-      <link rel="favicon-16x16" href="/resources/favicon/favicon-16x16.png" type="image/x-icon" sizes="16x16">
-      <link rel="android-chrome-192x192" href="/resources/favicon/android-chrome-192x192.png" type="image/x-icon" sizes="192x192">
-      <link rel="android-chrome-512x512" href="/resources/favicon/android-chrome-512x512.png" type="image/x-icon" sizes="512x512">
-      <link rel="manifest" href="/resources/favicon/site.webmanifest.json">
-      <link rel="shortcut icon" href="/resources/favicon/favicon.ico" type="image/x-icon">
-      <!----------------------------------------------Fontsawesome Icons------------------------------->
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-      <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
-      <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,400&display=swap" rel="stylesheet"/>
-      <link href="https://fonts.googleapis.com/css?family=Raleway:700&display=swap" rel="stylesheet"/>
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <head>
+    <!--------------------------------------------META--TAGS--------------------------------------->
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="canonical" href="https://dilli822.github.io" />
+    <meta name="keywords" content="front-end-developer, personal portfolio site, static webpages" />
+    <meta name="author" content="Dilli Hang Rai" />
+    <meta name="description" content="personal portfolio site" />
+    <!-- Og tags -->
+    <meta property="og:title" content="personal portfolio site" />
+    <meta property="og:type" content="personal static website" />
+    <meta property="og:url" content="https://dilli822.github.io" />
+    <meta property="og:site_name" content="dilli hang rai portfolio" />
+    <!-- <meta property="og:image" content="https://hikechinde.github.io/assets/img/Dilli%20Hang%20Rai-I.JPG"> -->
+    <meta property="og:image:alt" content="profile-dilli" />
+    <meta property="og:description" content="dilli hang rai portfolio" />
+    <!---------------------------------------------WEBSITE--TITLE---------------------------------->
+    <title>Dilli Hang Rai | Portfolio</title>
+    <!----------------------------------------------FavIcons------------------------------->
+    <link rel="icon" href="/resources/favicon/favicon.ico" type="image/x-icon" />
+    <link rel="favicon-32x32" href="/resources/favicon/favicon-32x32.png" type="image/x-icon" sizes="32x32" />
+    <link rel="favicon-16x16" href="/resources/favicon/favicon-16x16.png" type="image/x-icon" sizes="16x16" />
+    <link rel="android-chrome-192x192" href="/resources/favicon/android-chrome-192x192.png" type="image/x-icon" sizes="192x192" />
+    <link rel="android-chrome-512x512" href="/resources/favicon/android-chrome-512x512.png" type="image/x-icon" sizes="512x512" />
+    <link rel="manifest" href="/resources/favicon/site.webmanifest.json" />
+    <link rel="shortcut icon" href="/resources/favicon/favicon.ico" type="image/x-icon" />
+    <!----------------------------------------------Fontsawesome Icons------------------------------->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,400&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Raleway:700&display=swap" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
 
-      <!------------------------------------------------------ CSS Stylesheets--------------------------->
-      <style>
-         /* Custom properties/variables  */
-         :root {
-         --main-white: #f0f0f0;
-         --main-red: #be3144;
-         --main-blue: #45567d;
-         --main-gray: #303841;
-         }
-         /* Base reset */
-         * {
-         margin: 0;
-         padding: 0;
-         }
-         /* box-sizing and font sizing */
-         *,
-         *::before,
-         *::after {
-         box-sizing: inherit;
-         }
-         html {
-         box-sizing: border-box;
-         font-size: 62.5%;
-         scroll-behavior: smooth;
-         }
-   
-         @media (max-width: 75em) {
-         html {
-         font-size: 60%;
-         }
-         }
-         /* 980px / 16px = 61.25em */
-         @media (max-width: 61.25em) {
-         html {
-         font-size: 58%;
-         }
-         }
-         /* 460px / 16px = 28.75em */
-         @media (max-width: 28.75em) {
-         html {
-         font-size: 55%;
-         }
-         }
-         /* Base styles */
-         body {
-         font-family: 'Poppins', sans-serif;
-         font-size: 1.8rem; /* 18px */
-         font-weight: 400;
-         line-height: 1.4;
-         color: var(--main-white);
-         }
-         h1,
-         h2 {
-         font-family: 'Raleway', sans-serif;
-         font-weight: 700;
-         text-align: center;
-         }
-         h1 {
-         font-size: 6rem;
-         }
-         h2 {
-         font-size: 4.2rem;
-         }
-         ul {
-         list-style: none;
-         }
-         a {
-         text-decoration: none;
-         color: var(--main-white);
-         }
-         img {
-         display: block;
-         width: 100%;
-         }
-         /* nav */
-         .nav {
-         display: flex;
-         justify-content: flex-end;
-         position: fixed;
-         top: 0;
-         left: 0;
-         width: 100%;
-         background: var(--main-red);
-         box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
-         z-index: 10;
-         }
-         .nav-list {
-         display: flex;
-         margin-right: 2rem;
-         }
-         @media (max-width: 28.75em) {
-         .nav {
-         justify-content: center;
-         }
-         .nav-list {
-         margin: 0 1rem;
-         }
-         }
-         .nav-list a {
-         display: block;
-         font-size: 2.2rem;
-         padding: 2rem;
-         }
-         .nav-list a:hover {
-         background: var(--main-blue);
-         }
-         /* Welcome section */
-         .welcome-section {
-         display: flex;
-         flex-direction: column;
-         justify-content: center;
-         align-items: center;
-         width: 100%;
-         height: 100vh;
-         background-color: #000;
-         background-image: linear-gradient(62deg, #3a3d40 0%, #181719 100%);
-         }
-         .welcome-section > p {
-         font-size: 3rem;
-         font-weight: 200;
-         font-style: italic;
-         color: var(--main-red);
-         }
-         /* Projects section */
-         .projects-section {
-         text-align: center;
-         padding: 10rem 2rem;
-         background: var(--main-blue);
-         }
-         .projects-section-header {
-         max-width: 640px;
-         margin: 0 auto 6rem auto;
-         border-bottom: 0.2rem solid var(--main-white);
-         }
-         @media (max-width: 28.75em) {
-         .projects-section-header {
-         font-size: 4rem;
-         }
-         }
-         /* "Automagic" image grid using no media queries */
-         .projects-grid > div {
-         display: grid;
-         grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-         grid-gap: 4rem;
-         width: 100%;
-         max-width: 1280px;
-         margin: 0 auto;
-         margin-bottom: 6rem;
-         }
-         @media (max-width: 30.625em) {
-         .projects-section {
-         padding: 6rem 1rem;
-         }
-         .projects-grid {
-         grid-template-columns: 1fr;
-         }
-         }
-         .project {
-         background: var(--main-gray);
-         box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-         border-radius: 2px;
-         }
-         .code {
-         color: var(--main-gray);
-         transition: color 0.3s ease-out;
-         }
-         .project:hover .code {
-         color: #ff7f50;
-         }
-         .project-image {
-         /* height: calc(100% - 6.8rem); */
-         width: 100%;
-         object-fit: cover;
-         }
-         .project-title {
-         font-size: 2rem;
-         padding: 2rem 0.5rem;
-         }
-         .btn {
-         display: inline-block;
-         padding: 1rem 2rem;
-         border-radius: 2px;
-         }
-         .btn-show-all {
-         font-size: 2rem;
-         background: var(--main-gray);
-         transition: background 0.3s ease-out;
-         }
-         .btn-show-all:hover {
-         background: var(--main-red);
-         }
-         .btn-show-all:hover > i {
-         transform: translateX(2px);
-         }
-         .btn-show-all > i {
-         margin-left: 10px;
-         transform: translateX(0);
-         transition: transform 0.3s ease-out;
-         }
-         /* Contact section */
-         .contact-section {
-         display: flex;
-         flex-direction: column;
-         justify-content: center;
-         align-items: center;
-         text-align: center;
-         width: 100%;
-         height: 80vh;
-         padding: 0 2rem;
-         background: var(--main-gray);
-         }
-         .contact-section-header > h2 {
-         font-size: 6rem;
-         }
-         @media (max-width: 28.75em) {
-         .contact-section-header > h2 {
-         font-size: 4rem;
-         }
-         }
-         .contact-section-header > p {
-         font-style: italic;
-         }
-         .contact-links {
-         display: flex;
-         justify-content: center;
-         width: 100%;
-         max-width: 980px;
-         margin-top: 4rem;
-         flex-wrap: wrap;
-         }
-         .contact-details {
-         font-size: 2.4rem;
-         text-shadow: 2px 2px 1px #1f1f1f;
-         transition: transform 0.3s ease-out;
-         }
-         .contact-details:hover {
-         transform: translateY(8px);
-         }
-         /* Footer */
-         header,footer {
-         font-weight: 300;
-         display: flex;
-         justify-content: space-evenly;
-         padding: 2rem;
-         background: var(--main-gray);
-         border-top: 4px solid var(--main-red);
-         }
-         header > p, footer > p {
-         margin: 2rem;
-         }
-         header i, footer i {
-         vertical-align: middle;
-         }
-         @media (max-width: 28.75em) {
-         footer {
-         flex-direction: column;
-         text-align: center;
-         }
-         }
-         iframe{
-         height:360px;
-         width: 400px;
-         }
-         .profile {
-         width: 300px;
-         height: 300px;
-         opacity: 0.75;
-         border-radius: 50%;
-         }
+    <!------------------------------------------------------ CSS Stylesheets--------------------------->
+    <style>
+      /* Custom properties/variables  */
+      :root {
+        --main-white: #f0f0f0;
+        --main-red: #be3144;
+        --main-blue: #45567d;
+        --main-gray: #303841;
+      }
+      /* Base reset */
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      /* box-sizing and font sizing */
+      *,
+      *::before,
+      *::after {
+        box-sizing: inherit;
+      }
+      html {
+        box-sizing: border-box;
+        font-size: 62.5%;
+        scroll-behavior: smooth;
+      }
 
-         .btnpod{
-            background-color: #f0f0f0;
-            padding: 15px;
-            cursor: pointer;
-            border: 0px;
-            margin-top: 10px;
-         }
+      @media (max-width: 75em) {
+        html {
+          font-size: 60%;
+        }
+      }
+      /* 980px / 16px = 61.25em */
+      @media (max-width: 61.25em) {
+        html {
+          font-size: 58%;
+        }
+      }
+      /* 460px / 16px = 28.75em */
+      @media (max-width: 28.75em) {
+        html {
+          font-size: 55%;
+        }
+      }
+      /* Base styles */
+      body {
+        font-family: "Poppins", sans-serif;
+        font-size: 1.8rem; /* 18px */
+        font-weight: 400;
+        line-height: 1.4;
+        color: var(--main-white);
+      }
+      h1,
+      h2 {
+        font-family: "Raleway", sans-serif;
+        font-weight: 700;
+        text-align: center;
+      }
+      h1 {
+        font-size: 6rem;
+      }
+      h2 {
+        font-size: 4.2rem;
+      }
+      ul {
+        list-style: none;
+      }
+      a {
+        text-decoration: none;
+        color: var(--main-white);
+      }
+      img {
+        display: block;
+        width: 100%;
+      }
+      /* nav */
+      .nav {
+        display: flex;
+        justify-content: flex-end;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: var(--main-red);
+        box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
+        z-index: 10;
+      }
+      .nav-list {
+        display: flex;
+        margin-right: 2rem;
+      }
+      @media (max-width: 28.75em) {
+        .nav {
+          justify-content: center;
+        }
+        .nav-list {
+          margin: 0 1rem;
+        }
+      }
+      .nav-list a {
+        display: block;
+        font-size: 2.2rem;
+        padding: 2rem;
+      }
+      .nav-list a:hover {
+        background: var(--main-blue);
+      }
+      /* Welcome section */
+      .welcome-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100vh;
+        background-color: #000;
+        background-image: linear-gradient(62deg, #3a3d40 0%, #181719 100%);
+      }
+      .welcome-section > p {
+        font-size: 3rem;
+        font-weight: 200;
+        font-style: italic;
+        color: var(--main-red);
+      }
+      /* Projects section */
+      .projects-section {
+        text-align: center;
+        padding: 10rem 2rem;
+        background: var(--main-blue);
+      }
+      .projects-section-header {
+        max-width: 640px;
+        margin: 0 auto 6rem auto;
+        border-bottom: 0.2rem solid var(--main-white);
+      }
+      @media (max-width: 28.75em) {
+        .projects-section-header {
+          font-size: 4rem;
+        }
+      }
+      /* "Automagic" image grid using no media queries */
+      .projects-grid > div {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        grid-gap: 4rem;
+        width: 100%;
+        max-width: 1280px;
+        margin: 0 auto;
+        margin-bottom: 6rem;
+      }
+      @media (max-width: 30.625em) {
+        .projects-section {
+          padding: 6rem 1rem;
+        }
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      .project {
+        background: var(--main-gray);
+        box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        border-radius: 2px;
+      }
+      .code {
+        color: var(--main-gray);
+        transition: color 0.3s ease-out;
+      }
+      .project:hover .code {
+        color: #ff7f50;
+      }
+      .project-image {
+        /* height: calc(100% - 6.8rem); */
+        width: 100%;
+        object-fit: cover;
+      }
+      .project-title {
+        font-size: 2rem;
+        padding: 2rem 0.5rem;
+      }
+      .btn {
+        display: inline-block;
+        padding: 1rem 2rem;
+        border-radius: 2px;
+      }
+      .btn-show-all {
+        font-size: 2rem;
+        background: var(--main-gray);
+        transition: background 0.3s ease-out;
+      }
+      .btn-show-all:hover {
+        background: var(--main-red);
+      }
+      .btn-show-all:hover > i {
+        transform: translateX(2px);
+      }
+      .btn-show-all > i {
+        margin-left: 10px;
+        transform: translateX(0);
+        transition: transform 0.3s ease-out;
+      }
+      /* Contact section */
+      .contact-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        height: 80vh;
+        padding: 0 2rem;
+        background: var(--main-gray);
+      }
+      .contact-section-header > h2 {
+        font-size: 6rem;
+      }
+      @media (max-width: 28.75em) {
+        .contact-section-header > h2 {
+          font-size: 4rem;
+        }
+      }
+      .contact-section-header > p {
+        font-style: italic;
+      }
+      .contact-links {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        max-width: 980px;
+        margin-top: 4rem;
+        flex-wrap: wrap;
+      }
+      .contact-details {
+        font-size: 2.4rem;
+        text-shadow: 2px 2px 1px #1f1f1f;
+        transition: transform 0.3s ease-out;
+      }
+      .contact-details:hover {
+        transform: translateY(8px);
+      }
+      /* Footer */
+      header,
+      footer {
+        font-weight: 300;
+        display: flex;
+        justify-content: space-evenly;
+        padding: 2rem;
+        background: var(--main-gray);
+        border-top: 4px solid var(--main-red);
+      }
+      header > p,
+      footer > p {
+        margin: 2rem;
+      }
+      header i,
+      footer i {
+        vertical-align: middle;
+      }
+      @media (max-width: 28.75em) {
+        footer {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+      iframe {
+        height: 360px;
+        width: 400px;
+      }
+      .profile {
+        width: 300px;
+        height: 300px;
+        opacity: 0.75;
+        border-radius: 50%;
+      }
 
-         .btnpod a{
-            color: #000;
-            font-size: 2rem;
-         }
+      .btnpod {
+        background-color: #f0f0f0;
+        padding: 15px;
+        cursor: pointer;
+        border: 0px;
+        margin-top: 10px;
+      }
 
-         .btnpod:hover{
-            background-color: #d9d9d9;
-         }
-      </style>
- 
-      <!-- START NAV -->
-   </head>
-   <body id="home">
+      .btnpod a {
+        color: #000;
+        font-size: 2rem;
+      }
+
+      .btnpod:hover {
+        background-color: #d9d9d9;
+      }
+    </style>
+
+    <!-- START NAV -->
+  </head>
+  <body id="home">
     <footer>
       <nav id="navbar" class="nav">
         <ul class="nav-list">
-           <li>
-              <a href="#home">Home</a>
-           </li>
-           <li>
-              <a href="#welcome-section">About</a>
-           </li>
-           <li>
-              <a href="#projects">Work</a>
-           </li>
-           <li>
-              <a href="#contact">Contact</a>
-           </li>
+          <li>
+            <a href="#home">Home</a>
+          </li>
+          <li>
+            <a href="#welcome-section">About</a>
+          </li>
+          <li>
+            <a href="#projects">Work</a>
+          </li>
+          <li>
+            <a href="#contact">Contact</a>
+          </li>
         </ul>
-     </nav>
-     <!-- END NAV -->
+      </nav>
+      <!-- END NAV -->
     </footer>
 
-
-    <main> 
-
-      <article> 
-      <!-- START WELCOME SECTION -->
-      <section id="welcome-section" class="welcome-section">
-         <h1>Hello World, I am Dilli Hang Rai</h1>
-         <p style="font-size: 3rem; font-style: normal; text-align: center;"> From Nepal <span style="font-size: 4rem;"> 🇳🇵⛰ </span> </p>
-         <p style="text-align: center;"> A Web Developer | B.Sc.CSIT Computer Science Student</p>
-         <!-- <button class="btn btn-show-all"> Meet Now </button> -->
-         <br>
-         <figure>
-            <img src="./resources/img/insta-dilli.png" alt="dilli-profile-pic" class="profile"> 
-         </figure>
-      </section>
-      <!-- END WELCOME SECTION -->
-      <!-- START PROJECTS SECTION -->
-      <section id="projects" class="projects-section">
-         <h2 class="projects-section-header">These are some of my projects</h2>
-         <div class="projects-grid">
-
-
-            <div> 
-        
-            <!-- <a
+    <main>
+      <article>
+        <!-- START WELCOME SECTION -->
+        <section id="welcome-section" class="welcome-section">
+          <h1>Hello World, I am Dilli Hang Rai</h1>
+          <p style="font-size: 3rem; font-style: normal; text-align: center;">From Nepal <span style="font-size: 4rem;"> 🇳🇵⛰ </span></p>
+          <p style="text-align: center;">A Web Developer | B.Sc.CSIT Computer Science Student</p>
+          <!-- <button class="btn btn-show-all"> Meet Now </button> -->
+          <br />
+          <figure>
+            <img src="./resources/img/insta-dilli.png" alt="dilli-profile-pic" class="profile" />
+          </figure>
+        </section>
+        <!-- END WELCOME SECTION -->
+        <!-- START PROJECTS SECTION -->
+        <section id="projects" class="projects-section">
+          <h2 class="projects-section-header">These are some of my projects</h2>
+          <div class="projects-grid">
+            <div>
+              <!-- <a
                href="https://hikechinde.github.io"
                target="_blank"
                class="project project-tile"
@@ -383,47 +387,53 @@
                   <span class="code">&#47;&gt;</span>
                </p>
             </a> -->
-            <a
-               href="./designs.html"
-               target="_blank"
-               class="project project-tile"
-               >
-               <iframe class="project-image" 
-                  src="https://www.youtube.com/embed/G1cKvDD8iDs?si=TeyCu9aVNJYLGySC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-               <p class="project-title">
+              <a href="./designs.html" target="_blank" class="project project-tile">
+                <iframe
+                  class="project-image"
+                  src="https://www.youtube.com/embed/G1cKvDD8iDs?si=TeyCu9aVNJYLGySC"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+                <p class="project-title">
                   <span class="code">&lt;</span>
-                   UI/UX & Designs
+                  UI/UX & Designs
                   <span class="code">&#47;&gt;</span>
-               </p>
-            </a>
-            <a
-               href="./csit_Landing.html"
-               target="_blank"
-               class="project project-tile"
-               >
-               <iframe class="project-image" 
-                  src="https://youtube.com/embed/rDyz0jsZaMQ?si=JGm59J41bGYPi2wb" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-               <p class="project-title">
+                </p>
+              </a>
+              <a href="./csit_Landing.html" target="_blank" class="project project-tile">
+                <iframe
+                  class="project-image"
+                  src="https://youtube.com/embed/rDyz0jsZaMQ?si=JGm59J41bGYPi2wb"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+                <p class="project-title">
                   <span class="code">&lt;</span>
                   Lite CSIT Solution App
                   <span class="code">&#47;&gt;</span>
-               </p>
-            </a>
-            <a
-            href="./academic-dsa.html"
-               target="_blank"
-               class="project project-tile"
-               >
-               <iframe        class="project-image"
-                  src="https://www.youtube.com/embed/5yVy7OSoLV0?si=6sk6KbVW0ws7HgHz" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-               <p class="project-title">
+                </p>
+              </a>
+              <a href="./academic-dsa.html" target="_blank" class="project project-tile">
+                <iframe
+                  class="project-image"
+                  src="https://www.youtube.com/embed/5yVy7OSoLV0?si=6sk6KbVW0ws7HgHz"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen
+                ></iframe>
+                <p class="project-title">
                   <span class="code">&lt;</span>
-                  Academic Data Structure & Algorithm 
+                  Academic Data Structure & Algorithm
                   <span class="code">&#47;&gt;</span>
-               </p>
-            </a>
-   
-            <!-- <a
+                </p>
+              </a>
+
+              <!-- <a
                href="https://dilli822.github.io/simple_graph_theory.html"
                target="_blank"
                class="project project-tile"
@@ -437,11 +447,11 @@
                   <span class="code">&#47;&gt;</span>
                </p>
             </a> -->
-         </div>
+            </div>
 
-         <div class="projects-grid" id="hideShow">
-          <div>
-               <!-- <a
+            <div class="projects-grid" id="hideShow">
+              <div>
+                <!-- <a
                href="https://dilli822.github.io/queue_task_sechedular.html"
                target="_blank"
                class="project project-tile"
@@ -455,8 +465,7 @@
                </p>
             </a> -->
 
-
-            <!-- <a
+                <!-- <a
             href="https://www.youtube.com/fjtNbeKb5jY?si=1UN9kqwgt0VyFCz2"
             target="_blank"
             class="project project-tile"
@@ -470,130 +479,97 @@
             </p>
          </a> -->
 
-            <a
-               href="https://jaunt2.com/destin"
-               target="_blank"
-               class="project project-tile"
-               >
-               <iframe class="project-image"
-               src="https://www.youtube.com/embed/KbVvi6eQnWI?si=KJiLvf437Gp2kpM7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-               <p class="project-title"> <span class="code">&lt;</span>
-               
-                  Jaunt2(Frontend Engineer)
-                  <span class="code">&#47;&gt;</span>
-               </p>
+                <a href="https://jaunt2.com/destin" target="_blank" class="project project-tile">
+                  <iframe
+                    class="project-image"
+                    src="https://www.youtube.com/embed/KbVvi6eQnWI?si=KJiLvf437Gp2kpM7"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                  ></iframe>
+                  <p class="project-title">
+                    <span class="code">&lt;</span>
+
+                    Jaunt2(Frontend Engineer)
+                    <span class="code">&#47;&gt;</span>
+                  </p>
+                </a>
+                <a href="https://e-destinaccess.com" target="_blank" class="project project-tile">
+                  <iframe
+                    class="project-image"
+                    src="https://www.youtube.com/embed/fSK-O2Dt_JE?si=PI1oXsE2Fet0wbvZ"
+                    title="YouTube video player"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen
+                  ></iframe>
+
+                  <p class="project-title">
+                    <span class="code">&lt;</span>
+                    e-destinaccess(Team Project Member)
+                    <span class="code">&#47;&gt;</span>
+                  </p>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <a onclick="hideShow()" id="btnHideShow" class="btn btn-show-all">Show All<i class="fas fa-chevron-right"></i></a>
+        </section>
+        <!-- END PROJECTS SECTION -->
+
+        <!-- START CONTACT SECTION -->
+        <section id="podcast" class="contact-section" style="background: #083644de; border-bottom: 2px solid #fff;">
+          <div class="contact-section-header">
+            <h2>Podcast <i class="fas fa-podcast fa-3x"></i></h2>
+            <!-- <p>Here are methods to find me. It's Just One Click....</p> -->
+          </div>
+          <div class="contact-links">
+            <a href="./podcast.html" target="_blank" class="btn contact-details">
+              <i class="fas fa-waveform"></i>
+              <i class="fas fa-headphones fa-2x"></i>
+
+              Click Here to Listen Podcast
             </a>
-            <a
-               href="https://e-destinaccess.com"
-               target="_blank"
-               class="project project-tile"
-               >
-               <iframe class="project-image"
-               src="https://www.youtube.com/embed/fSK-O2Dt_JE?si=PI1oXsE2Fet0wbvZ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <br />
+          </div>
+          <button class="btnpod"><a href="./podcast.html" target="_blank"> Go to Podcast </a></button>
+        </section>
 
-               <p class="project-title">
-                  <span class="code">&lt;</span>
-                  e-destinaccess(Team Project Member)
-                  <span class="code">&#47;&gt;</span>
-               </p>
-            </a>
+        <hr />
 
-         </div> </div>
-
-         </div>
-
-         <a
-         onclick="hideShow()"
-        id="btnHideShow"
-            class="btn btn-show-all"
-            >Show All<i class="fas fa-chevron-right"></i
-            ></a>
-      </section>
-      <!-- END PROJECTS SECTION -->
-
-            <!-- START CONTACT SECTION -->
-            <section id="podcast" class="contact-section" style="background: #083644de; border-bottom: 2px solid #fff;">
-               <div class="contact-section-header">
-                  <h2> Podcast   <i class="fas fa-podcast fa-3x"></i> </h2> 
-                  <!-- <p>Here are methods to find me. It's Just One Click....</p> -->
-               </div>
-               <div class="contact-links">
-          
-                  <a
-                     href="./podcast.html"
-                     target="_blank"
-                     class="btn contact-details"
-                     > <i class="fas fa-waveform"></i>
-                     <i class="fas fa-headphones fa-2x"></i>
-
-                     Click Here to Listen Podcast </a> <br>
-                  
-                
-               </div>
-               <button class="btnpod">   <a
-                  href="./podcast.html"
-                  target="_blank"
-                  > Go to Podcast </a> </button>
-            </section>
-
-           <hr>
-
-      <!-- START CONTACT SECTION -->
-      <section id="contact" class="contact-section">
-         <div class="contact-section-header">
+        <!-- START CONTACT SECTION -->
+        <section id="contact" class="contact-section">
+          <div class="contact-section-header">
             <h2>Let's work together...</h2>
             <p>Here are methods to find me. It's Just One Click....</p>
-         </div>
-         <div class="contact-links">
-            <a
-               href="https://www.facebook.com/dilli822/"
-               target="_blank"
-               class="btn contact-details"
-               ><i class="fab fa-facebook-square"></i> Facebook</a
-               >
-            <a
-               id="profile-link"
-               href="https://github.com/dilli822"
-               target="_blank"
-               class="btn contact-details"
-               ><i class="fab fa-github"></i> GitHub</a
-               >
-            <a
-               href="https://www.instagram.com/dilli_hangrae/"
-               target="_blank"
-               class="btn contact-details"
-               ><i class="fab fa-instagram"></i> instagram</a
-               >
-            <a href="mailto:dillihangrae@gmail.com" class="btn contact-details"
-               ><i class="fas fa-at"></i> Send a mail</a
-               >
-            <a href="tel:9863521357" class="btn contact-details"
-               ><i class="fas fa-mobile-alt"></i> Call me</a
-               >
-         </div>
-      </section>
-    </article>
+          </div>
+          <div class="contact-links">
+            <a href="https://www.facebook.com/dilli822/" target="_blank" class="btn contact-details"><i class="fab fa-facebook-square"></i> Facebook</a>
+            <a id="profile-link" href="https://github.com/dilli822" target="_blank" class="btn contact-details"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://www.instagram.com/dilli_hangrae/" target="_blank" class="btn contact-details"><i class="fab fa-instagram"></i> instagram</a>
+            <a href="mailto:dillihangrae@gmail.com" class="btn contact-details"><i class="fas fa-at"></i> Send a mail</a>
+            <a href="tel:9863521357" class="btn contact-details"><i class="fas fa-mobile-alt"></i> Call me</a>
+          </div>
+        </section>
+      </article>
       <!-- END CONTACT SECTION -->
     </main>
 
-      <!-- START FOOTER SECTION -->
-      <footer>
-        <div style="text-align: center;">
-          <p id="dateTime">
-          </p>
-          <p>
-             @dilli_hangrae | 2021 - <span id="currentYear"></span> &copy; Reference | Created & Powered By
-             <a href="https://www.freecodecamp.com/" target="_blank"
-                >freeCodeCamp <i class="fab fa-free-code-camp"></i
-                ></a>
-          </p>
-        </div>
+    <!-- START FOOTER SECTION -->
+    <footer>
+      <div style="text-align: center;">
+        <p id="dateTime"></p>
+        <p>
+          @dilli_hangrae | 2021 - <span id="currentYear"></span> &copy; Reference | Created & Powered By
+          <a href="https://www.freecodecamp.com/" target="_blank">freeCodeCamp <i class="fab fa-free-code-camp"></i></a>
+        </p>
+      </div>
+    </footer>
 
-      </footer>
+    <!-- END FOOTER SECTION -->
 
-      <!-- END FOOTER SECTION -->
-
-      <script src="./resources/script/index.js" defer  async></script>
-
-   </body>
+    <script src="./resources/script/index.js" defer async></script>
+  </body>
 </html>
