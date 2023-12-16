@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const backCover = "https://raw.githubusercontent.com/Dilli822/dilli822.github.io/pastyearsolutions/resources/img/csit/pastquestionsolutions/2079KECCOVER/KEC2079BACKCOVER.jpg";
-    const frontCover = "https://raw.githubusercontent.com/Dilli822/dilli822.github.io/pastyearsolutions/resources/img/csit/pastquestionsolutions/2079KECCOVER/KEC2079FRONTCOVER.jpg";
+    const backCover = "https://raw.githubusercontent.com/yana-music/CSITSolution/main/solutionBookCover/2079KECCOVER/KEC2079BACKCOVER.jpg";
+    const frontCover = "https://raw.githubusercontent.com/yana-music/CSITSolution/main/solutionBookCover/2079KECCOVER/KEC2079FRONTCOVER.jpg";
 
     document.getElementById("backCover").src = backCover;
     document.getElementById("frontCover").src = frontCover;
@@ -160,7 +160,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const semesterValue = localStorage.getItem("semester"); // You can replace this with your actual logic to get the semester value
 
-    // const listContainer = document.getElementById("main-list");
+    const listContainer = document.getElementById("main-list");
 
     // Add an event listener to the "Set Semester" button
     document.getElementById("semesterSelect").addEventListener("click", function () {
@@ -173,7 +173,7 @@ document.addEventListener("DOMContentLoaded", function () {
         // You can add additional logic or function calls here if needed
 
         // For demonstration, alert the user with the selected semester
-        // alert(`Semester ${selectedSemester} selected!`);
+        alert(`Semester ${selectedSemester} selected!`);
     });
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -231,7 +231,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
         // For demonstration, alert the user with the selected semester
-        // alert(`Semester ${selectedSemester} selected!`);
+        alert(`Semester ${selectedSemester} selected!`);
     });
 
     /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -304,30 +304,30 @@ document.addEventListener("DOMContentLoaded", function () {
                 // Capture and alert the text content only for specific elements
                 if (item.classList.contains("has-sub-list") || item.classList.contains("sub-list")) {
                     const clickedValue = this.textContent.trim();
-                    // console.log(clickedValue);
+                    console.log(clickedValue);
 
                     const sliderHighlightImage = document.getElementById("sliderHighlightImage");
 
                     const urls = {
-                        DS_MATH_2078_BS_TU: "https://raw.githubusercontent.com/yana-music/CSITSolution/pastyearsolutions/secondSemester/DiscreteMath/2078/ds-2078-",
-                        DS_MATH_2076_BS_TU: "https://raw.githubusercontent.com/yana-music/CSITSolution/pastyearsolutions/secondSemester/DiscreteMath/2076/ds-2076-",
-                        DS_MATH_2075_BS_TU: "https://raw.githubusercontent.com/yana-music/CSITSolution/pastyearsolutions/secondSemester/DiscreteMath/2075/ds-2075-",
+                        DS_MATH_2078_BS_TU: "https://raw.githubusercontent.com/yana-music/CSITSolution/main/pastyearsolutions/secondSemester/DiscreteMath/2078/ds-2078-",
+                        DS_MATH_2076_BS_TU: "https://raw.githubusercontent.com/yana-music/CSITSolution/main/pastyearsolutions/secondSemester/DiscreteMath/2076/ds-2076-",
+                        DS_MATH_2075_BS_TU: "https://raw.githubusercontent.com/yana-music/CSITSolution/main/pastyearsolutions/secondSemester/DiscreteMath/2075/ds-2075-",
 
-                        OOP_2078_BS_TU: "https://raw.githubusercontent.com/yana-music/CSITSolution/pastyearsolutions/secondSemester/OOP/2078/oop-2078-",
-                        OOP_2076_BS_TU: "https://raw.githubusercontent.com/yana-music/CSITSolution/pastyearsolutions/secondSemester/OOP/2076/oop-2076-",
-                        OOP_2075_BS_TU: "https://raw.githubusercontent.com/yana-music/CSITSolution/pastyearsolutions/secondSemester/OOP/2075/oop-2075-",
+                        OOP_2078_BS_TU: "https://raw.githubusercontent.com/yana-music/CSITSolution/main/pastyearsolutions/secondSemester/OOP/2078/oop-2078-",
+                        OOP_2076_BS_TU: "https://raw.githubusercontent.com/yana-music/CSITSolution/main/pastyearsolutions/secondSemester/OOP/2076/oop-2076-",
+                        OOP_2075_BS_TU: "https://raw.githubusercontent.com/yana-music/CSITSolution/main/pastyearsolutions/secondSemester/OOP/2075/oop-2075-",
 
-                        Mathematics_II_2078_BS_TU: "https://raw.githubusercontent.com/yana-music/CSITSolution/pastyearsolutions/secondSemester/Maths-II/2078/Maths-II-2078-",
-                        Mathematics_II_2076_BS_TU: "https://raw.githubusercontent.com/yana-music/CSITSolution/pastyearsolutions/secondSemester/Maths-II/2076/Maths-II-2076-",
-                        Mathematics_II_2075_BS_TU: "https://raw.githubusercontent.com/yana-music/CSITSolution/pastyearsolutions/secondSemester/Maths-II/2075/Maths-II-2075-",
+                        Mathematics_II_2078_BS_TU: "https://raw.githubusercontent.com/yana-music/CSITSolution/main/pastyearsolutions/secondSemester/Maths-II/2078/Maths-II-2078-",
+                        Mathematics_II_2076_BS_TU: "https://raw.githubusercontent.com/yana-music/CSITSolution/main/pastyearsolutions/secondSemester/Maths-II/2076/Maths-II-2076-",
+                        Mathematics_II_2075_BS_TU: "https://raw.githubusercontent.com/yana-music/CSITSolution/main/pastyearsolutions/secondSemester/Maths-II/2075/Maths-II-2075-",
 
-                        MicroProcessor_2078_BS_TU: "https://raw.githubusercontent.com/yana-music/CSITSolution/pastyearsolutions/secondSemester/Microprocessor/2078/microprocessor-2078-",
-                        MicroProcessor_2076_BS_TU: "https://raw.githubusercontent.com/yana-music/CSITSolution/pastyearsolutions/secondSemester/Microprocessor/2076/microprocessor-2076-",
-                        MicroProcessor_2075_BS_TU: "https://raw.githubusercontent.com/yana-music/CSITSolution/pastyearsolutions/secondSemester/Microprocessor/2075/microprocessor-2075-",
+                        MicroProcessor_2078_BS_TU: "https://raw.githubusercontent.com/yana-music/CSITSolution/main/pastyearsolutions/secondSemester/Microprocessor/2078/microprocessor-2078-",
+                        MicroProcessor_2076_BS_TU: "https://raw.githubusercontent.com/yana-music/CSITSolution/main/pastyearsolutions/secondSemester/Microprocessor/2076/microprocessor-2076-",
+                        MicroProcessor_2075_BS_TU: "https://raw.githubusercontent.com/yana-music/CSITSolution/main/pastyearsolutions/secondSemester/Microprocessor/2075/microprocessor-2075-",
 
-                        STATISTICS_I_2078_BS_TU: "https://raw.githubusercontent.com/yana-music/CSITSolution/pastyearsolutions/secondSemester/STAT-I/2078/STATS-I-2078-",
-                        STATISTICS_I_2076_BS_TU: "https://raw.githubusercontent.com/yana-music/CSITSolution/pastyearsolutions/secondSemester/STAT-I/2076/STATS-I-2076-",
-                        STATISTICS_I_2075_BS_TU: "https://raw.githubusercontent.com/yana-music/CSITSolution/pastyearsolutions/secondSemester/STAT-I/2075/STATS-I-2075-",
+                        STATISTICS_I_2078_BS_TU: "https://raw.githubusercontent.com/yana-music/CSITSolution/main/pastyearsolutions/secondSemester/STAT-I/2078/STATS-I-2078-",
+                        STATISTICS_I_2076_BS_TU: "https://raw.githubusercontent.com/yana-music/CSITSolution/main/pastyearsolutions/secondSemester/STAT-I/2076/STATS-I-2076-",
+                        STATISTICS_I_2075_BS_TU: "https://raw.githubusercontent.com/yana-music/CSITSolution/main/pastyearsolutions/secondSemester/STAT-I/2075/STATS-I-2075-",
                     };
 
                     let baseImageUrl;
@@ -373,7 +373,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         while (true) {
                             const imageUrl = `${baseImageUrl}${currentIndex + 1}.jpg`;
 
-                            // console.log("Fetching image:", imageUrl);
+                            console.log("Fetching image:", imageUrl);
 
                             try {
                                 const response = await fetch(imageUrl);
@@ -381,7 +381,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                 // console.log("Response status:", response.status);
 
                                 if (response.status === 404) {
-                                    // console.log("404 Error - End of images");
+                                    console.log("404 Error - End of images");
                                     break;
                                 }
 
@@ -403,7 +403,7 @@ document.addEventListener("DOMContentLoaded", function () {
                         if (imageArray.length > 0) {
                             const imageArrayJson = JSON.stringify(imageArray);
                             localStorage.setItem("imageArray", imageArrayJson);
-                            // console.log("image array json ", imageArrayJson);
+                            console.log("image array json ", imageArrayJson);
                             displayImages(imageArray); // Call displayImages after fetching
                         }
                     }
