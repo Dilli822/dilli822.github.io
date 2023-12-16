@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Academic Data Structure & Algorithm </title>
+    <!----------------------------------------------Fontsawesome Icons------------------------------->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* CSS Styles */
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            text-align: center;
+        }
+
+        #graph-container {
+            position: relative;
+            min-height: 350px;
+            width: 100%;
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+        }
+
+        .node {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: #3498db;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            color: white;
+            cursor: pointer;
+            z-index: 999;
+        }
+
+        .edge {
+            position: absolute;
+            background-color: transparent;
+            border: 1px solid rgb(169, 0, 121);
+            border-radius: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="container text-left">
+        <br/>
+
+
+        <h2 class="mb-3">Queue-Based Task Scheduler with FIFO Animation</h2>
+        <h3 class="">To-Do List </h3>
+        <div class="row ">
+            <div class="col-lg-6 col-md-8 col-12">
+                <div id="taskQueue">
+                    <input type="text" id="taskInput" class="form-control" placeholder="Enter a task">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-4 col-12 mt-3 mt-md-0">
+                <div id="buttons" class="text-center">
+                    <button onclick="addTask()" class="btn btn-primary">Add Task</button>
+                    <button onclick="executeTask()" class="btn btn-success">Execute Task</button>
+
+                    <button onclick="exitApp()" class="btn btn-danger">Exit</button>
+                </div>
+
+            </div>
+
+            <div class="container mt-5">
+                <h3 class="mb-3">Task Queue</h3>
+                <div id="queueItems" class="row w-100">
+                </div>
+            </div>
+
+
+
+        </div>
+
+        <div class="">
+            <hr/>
+
+            <h3>Transportation Network Route Using Graph Theory</h3>
+            <div class="row">
+
+                <div class="col">
+                    <div class="h-100" id="graph-container">
+
+                    </div>
+
+
+                    <div class="mt-2">
+
+                        <button class="btn btn-success" id="add-node-button" onclick="addNode()">Add Node</button>
+                        <button class="btn btn-info" id="connect-nodes-button" onclick="connectNodes()">Connect Nodes</button>
+                        <button class="btn btn-warning" id="find-shortest-path-button" onclick="findShortestPath()">Find Shortest Path</button>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <br/>
+
+            <div class=" mt-5 text-left">
+                <hr/>
+                <div class="row">
+
+                    <div class="col-lg-6 ">
+
+                        <h1 class="mb-3 text-left">App Build using Stack.</h1>
+                        <h3 class="mb-3">Simple Text Editor with Undo Functionality </h3>
+                        <div class="form-group">
+                            <textarea id="editor" class="form-control overflow-auto bg-white  text-black" rows="5"></textarea>
+                        </div>
+                        <button id="undoButton" class="btn btn-outline-info">Undo/Delete a character</button>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
+        <br/>
+        <br/>
+
+
+        <!-- Include Bootstrap and jQuery JavaScript -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+        <script>
+            const taskQueue = [];
+
+            function addTask() {
+                const taskInput = document.getElementById("taskInput");
+                const task = taskInput.value.trim();
+                if (task !== "") {
+                    taskQueue.push(task);
+                    taskInput.value = "";
+                    displayTasks();
+                }
+            }
+
+            function executeTask() {
+                if (taskQueue.length > 0) {
+                    const executedTask = taskQueue.shift();
+                    displayTasks();
+                    showAutoCloseAlert(`Executing: ${executedTask}`);
+                }
+            }
+
+            function displayTasks() {
+                const queueItems = document.getElementById("queueItems");
+                queueItems.innerHTML = "";
+                taskQueue.forEach((task, index) => {
+                    const taskBlock = document.createElement("div");
+                    taskBlock.classList.add("col-2", "task-block");
+                    taskBlock.innerText = `${index + 1}. ${task}`;
+                    taskBlock.style.transform = `translateX(${index * 120}px)`;
+                    queueItems.appendChild(taskBlock);
+                });
+            }
+
+            function showAutoCloseAlert(message) {
+                const alertBox = document.createElement("div");
+                alertBox.className = "alert alert-success w-100 mt-3";
+                alertBox.innerText = message;
+
+                // Select the target container where you want to append the alert
+                const taskQueueContainer = document.getElementById("queueItems");
+
+                // Append the alertBox to the target container
+                taskQueueContainer.appendChild(alertBox);
+
+                setTimeout(() => {
+                    alertBox.style.opacity = 0;
+                    setTimeout(() => {
+                        alertBox.remove();
+                    }, 1000);
+                }, 3500); // Auto-close after 10 seconds
+            }
+
+
+            function exitApp() {
+                // Prompt the user to confirm closing the tab
+                const confirmExit = confirm("Are you sure you want to exit?");
+                if (confirmExit) {
+                    window.close();
+                }
+            }
+        </script>
+
+        <script>
+            // Create an empty stack to track changes
+            const stack = [];
+
+            // Get references to the textarea and undo button
+            const editor = document.getElementById("editor");
+            const undoButton = document.getElementById("undoButton");
+
+            // Listen for text input in the textarea
+            editor.addEventListener("input", function() {
+                // Push the current content onto the stack
+                stack.push(editor.value);
+            });
+
+            // Listen for clicks on the undo button
+            undoButton.addEventListener("click", function() {
+                // Check if there are previous versions in the stack
+                if (stack.length > 1) {
+                    // Pop the last version from the stack
+                    stack.pop();
+                    // Set the editor content to the previous version
+                    editor.value = stack[stack.length - 1];
+                }
+            });
+        </script>
+
+        <script>
+            // JavaScript code
+            const nodes = [];
+            const edges = [];
+
+            function addNode() {
+                const container = document.getElementById('graph-container');
+                const newNode = document.createElement('div');
+                newNode.className = 'node';
+                newNode.innerText = nodes.length + 1;
+                const randomX = Math.floor(Math.random() * (container.clientWidth - 40));
+                const randomY = Math.floor(Math.random() * (container.clientHeight - 40));
+                newNode.style.left = randomX + 'px';
+                newNode.style.top = randomY + 'px';
+                container.appendChild(newNode);
+                nodes.push(newNode);
+            }
+
+            function connectNodes() {
+                const container = document.getElementById('graph-container');
+                for (let i = 0; i < nodes.length; i++) {
+                    for (let j = i + 1; j < nodes.length; j++) {
+                        const edge = document.createElement('div');
+                        edge.className = 'edge';
+                        const x1 = parseInt(nodes[i].style.left) + 20;
+                        const y1 = parseInt(nodes[i].style.top) + 20;
+                        const x2 = parseInt(nodes[j].style.left) + 20;
+                        const y2 = parseInt(nodes[j].style.top) + 20;
+                        const centerX = (x1 + x2) / 2;
+                        const centerY = (y1 + y2) / 2;
+                        const distance = Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+                        const angle = Math.atan2(y2 - y1, x2 - x1);
+                        edge.style.left = (centerX - distance / 2) + 'px';
+                        edge.style.top = (centerY - 1) + 'px';
+                        edge.style.width = distance + 'px';
+                        edge.style.transform = `rotate(${angle}rad)`;
+                        container.appendChild(edge);
+                        edges.push(edge);
+                    }
+                }
+            }
+
+
+            function findShortestPath() {
+                const sourceIndex = parseInt(prompt('Enter the source node (1 to ' + nodes.length + '):')) - 1;
+                const destinationIndex = parseInt(prompt('Enter the destination node (1 to ' + nodes.length + '):')) - 1;
+                if (isNaN(sourceIndex) || isNaN(destinationIndex) || sourceIndex < 0 || sourceIndex >= nodes.length || destinationIndex < 0 || destinationIndex >= nodes.length) {
+                    alert('Invalid input. Please enter valid source and destination nodes.');
+                    return;
+                }
+
+                const sourceNode = nodes[sourceIndex];
+                const destinationNode = nodes[destinationIndex];
+
+                highlightShortestPath(sourceNode, destinationNode); // Call the highlightShortestPath function here.
+            }
+
+
+            function highlightShortestPath(sourceNode, destinationNode) {
+                for (const edge of edges) {
+                    edge.style.backgroundColor = 'transparent';
+                }
+
+                sourceNode.style.backgroundColor = 'green';
+                destinationNode.style.backgroundColor = 'red';
+
+                const path = findShortestPathBetweenNodes(sourceNode, destinationNode);
+                if (path) {
+                    for (let i = 0; i < path.length - 1; i++) {
+                        const node1 = path[i];
+                        const node2 = path[i + 1];
+                        for (const edge of edges) {
+                            const x1 = parseInt(node1.style.left) + 20;
+                            const y1 = parseInt(node1.style.top) + 20;
+                            const x2 = parseInt(node2.style.left) + 20;
+                            const y2 = parseInt(node2.style.top) + 20;
+                            if (edge.style.left === (x1 + x2) / 2 - edge.offsetWidth / 2 + 'px' && edge.style.top === (y1 + y2) / 2 - 1 + 'px') {
+                                edge.style.backgroundColor = 'blue';
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+        </script>
+</body>
+</html>

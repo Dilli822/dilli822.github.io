@@ -48,6 +48,87 @@
         editor.value = stack[stack.length - 1];
       }
     });
+
+
+    console.clear();
+const discreteMath = "https://raw.githubusercontent.com/Dilli822/dilli822.github.io/main/resources/solutions/csit/pastyearsolutions/firstSemester/DiscreteMath/";
+const mathsII = "https://raw.githubusercontent.com/yana-music/CSITSolution/main/pastyearsolutions/firstSemester/Maths-II/";
+// const oop;
+// const microprocessor;
+// const statsI;
+
+const startYear = 2075; // Specify the starting year as needed
+const maxIterations = 10; // Specify the maximum number of iterations
+
+const secondSem = [
+    {
+        name: "Discrete Math",
+        years: [],
+    },
+    {
+      name: "Maths-II",
+      years: [],
+    }
+    // Other course objects...
+];
+
+// Log the final arrays of existing years outside the function
+console.log("Final array of existing years for Discrete Math:", secondSem.find(course => course.name === "Discrete Math").years);
+console.log("Final array of existing years for Maths-II:", secondSem.find(course => course.name === "Maths-II").years);
+
+async function checkExistence() {
+    let year = startYear;
+    let iterations = 0;
+    let discreteMathObject;
+    let mathsIIObject;
+
+    // Find the "Discrete Math" object in secondSem array
+    discreteMathObject = secondSem.find(course => course.name === "Discrete Math");
+    mathsIIObject = secondSem.find(course => course.name === "Maths-II" );
+
+    // If the object is found, insert the starting year at the beginning
+    if (discreteMathObject || mathsIIObject) {
+        discreteMathObject.years.unshift(`DS_MATH_${startYear}_BS_TU`);
+        mathsIIObject.years.unshift(`Maths-II_${startYear}_BS_TU`);
+    }
+   // https://raw.githubusercontent.com/yana-music/CSITSolution/main/pastyearsolutions/firstSemester/Maths-II/2075/Maths-II-2075-1.jpg
+    while (iterations < maxIterations) {
+        const url = `${discreteMath}${year}/ds-${year}-1.jpg`;
+        const mathUrl  = `${mathsII}${year}/Maths-II-${year}-1.jpg`;
+
+        try {
+            const response = await fetch(url);
+
+            if (response.ok) {
+                console.log(`${url} exists (status code: ${response.status}) - Yes`);
+
+                // If the object is found, append the year
+                if (discreteMathObject || mathsIIObject) {
+                    discreteMathObject.years.push(`DS_MATH_${year}_BS_TU`);
+                    mathsIIObject.years.push(`Maths-II-${year}_BS_TU`);
+                }
+
+                console.log(secondSem);
+            } else {
+                console.log(`${url} does not exist (status code: ${response.status}) - No`);
+            }
+        } catch (error) {
+            console.error(`Error while fetching ${url}: ${error}`);
+        }
+
+        // Increment the year and iteration count
+        year++;
+        iterations++;
+    }
+}
+
+checkExistence();
+
+// Log the final arrays of existing years outside the function
+console.log("Final array of existing years for Discrete Math:", secondSem.find(course => course.name === "Discrete Math").years);
+console.log("Final array of existing years for Maths-II:", secondSem.find(course => course.name === "Maths-II").years);
+
+
   </script>
 </body>
 </html>
