@@ -68,7 +68,7 @@ const secondSem = [
     {
       name: "Maths-II",
       years: [],
-    }
+    },
     // Other course objects...
 ];
 
@@ -81,17 +81,18 @@ async function checkExistence() {
     let iterations = 0;
     let discreteMathObject;
     let mathsIIObject;
+    let statsObject;
 
     // Find the "Discrete Math" object in secondSem array
     discreteMathObject = secondSem.find(course => course.name === "Discrete Math");
     mathsIIObject = secondSem.find(course => course.name === "Maths-II" );
-
+    statsObject = secondSem.find(course => course.name )
     // If the object is found, insert the starting year at the beginning
-    if (discreteMathObject || mathsIIObject) {
+    if (discreteMathObject || mathsIIObject)  {
         discreteMathObject.years.unshift(`DS_MATH_${startYear}_BS_TU`);
         mathsIIObject.years.unshift(`Maths-II_${startYear}_BS_TU`);
     }
-   // https://raw.githubusercontent.com/yana-music/CSITSolution/main/pastyearsolutions/firstSemester/Maths-II/2075/Maths-II-2075-1.jpg
+   https://raw.githubusercontent.com/yana-music/CSITSolution/main/pastyearsolutions/firstSemester/Maths-II/2075/Maths-II-2075-1.jpg
     while (iterations < maxIterations) {
         const url = `${discreteMath}${year}/ds-${year}-1.jpg`;
         const mathUrl  = `${mathsII}${year}/Maths-II-${year}-1.jpg`;

@@ -10,8 +10,8 @@
         /* CSS Styles */
 
         body {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            text-align: center;
+        
+            font-family: "Poppins", sans-serif;
         }
 
         #graph-container {
@@ -48,7 +48,11 @@
 
 <body>
 
-
+    <header style="background-color: #be3144; ">
+        <div class="container p-2 text-left" >
+            <button class="btn btn-outline-danger border-0"><a class="text-white text-decoration-none"  href="./index.html">Go Back</a></button>
+        </div>
+    </header>
     <div class="container text-left">
         <br/>
 
@@ -124,12 +128,27 @@
 
 
         </div>
-
+ 
 
         <br/>
         <br/>
 
+</div>
 
+
+<footer class="text-white" >
+    <div class=" m-0 p-0"   style="background-color: #be3144; min-height: 4px;">
+    </div>
+    <div class="p-2" style="text-align: center; font-family: Poppins, sans-serif; background-color: #303841; ">
+      <p id="dateTime"></p>
+      <p>
+        @dilli_hangrae | 2021 - <span id="currentYear"></span> © Reference | Created &amp; Powered By
+        <a class="text-decoration-none" href="https://www.freecodecamp.com/" target="_blank">freeCodeCamp <i class="fab fa-free-code-camp"></i></a>
+      </p>
+    
+    </div>
+
+  </footer>
         <!-- Include Bootstrap and jQuery JavaScript -->
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>

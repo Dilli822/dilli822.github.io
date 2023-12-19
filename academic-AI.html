@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dilli Hang Rai | Portfolio AI </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+        *{
+            font-family: "Poppins", sans-serif;
+        }
+    </style>
+
+</head>
+<body>
+
+    <header style="background-color: #be3144; ">
+        <div class="container p-2"  >
+            <button class="btn btn-outline-danger border-0"><a class="text-white text-decoration-none"  href="./index.html">Go Back</a></button>
+        </div>
+    </header>
+    <div class="container">
+        <br>
+        <h2>Simple Reflexive AI Agent ~ Vaccum cleaner</h2>
+        <hr>
+        <div class="row ">
+           
+            <div class="col-12 col-md-7">
+                <article class=" overflow-auto" style="height: 400px;">
+                    <p >
+                        A reflex agent is a type of artificial intelligence (AI) agent that makes decisions based solely on the current state of the environment, without considering the history of past states. It reacts to sensory input using predefined rules or conditions. A vacuum cleaner can be considered a simple reflex agent, especially if it operates based on basic sensor input and a set of predefined rules.
+
+<li>          
+Here's how a simple reflex agent model might work for a vacuum cleaner:
+<br>
+</li>
+Percept:
+<br>
+<li> The vacuum cleaner's sensors detect the current state of the environment, which includes information about whether a particular location is dirty or clean.
+Action:
+</li>
+<br>
+If the current location is dirty, the vacuum cleaner performs the "suck" action to clean the area.
+If the current location is clean, the vacuum cleaner moves to the next location.
+</li>
+<br>
+Rule:
+<br>
+<li> 
+"If the current location is dirty, then suck."
+"If the current location is clean, then move to the next location."
+This simple reflex agent operates based on a direct mapping between percept and action. It doesn't have memory or the ability to learn from past experiences. Its decision-making is determined solely by the immediate state of the environment.
+<br></li>
+<br>
+<li> While this basic model may work for scenarios with a limited and predictable environment (e.g., a small room with known dirt locations), more sophisticated AI techniques, such as model-based or learning-based approaches, might be necessary for complex environments where the state is dynamic and uncertai
+</li>               </p>
+                </article>
+            </div>
+
+
+            <div class="col-12 col-md-5">
+                <iframe
+                class="project-image overflow-auto"
+                src="https://www.youtube.com/embed/6WWCchlZYaw?si=f-ruIULGG3TMWlXP"
+                title="YouTube video player"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+                style="min-height: 400px; min-width: 100%; height: 100%;"
+              ></iframe>
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="row">
+            <div class="col ">
+                <h3>
+                    Code
+                </h3>
+            
+                    GitHub Code Link:
+                    <a href="https://github.com/Dilli822/Godawari-College/tree/main/4thSemester/AI/Projects">Source Code~ Click Here </a>
+               <hr>
+            
+<button class="btn btn-outline-info" onclick="copyCode()">Copy Code</button>
+
+                <pre class=" overflow-auto" style="height: 150px;" id="code-block"> <code>
+import tkinter as tk
+from tkinter import ttk
+import time
+
+class VacuumCleaner:
+    CLEAN = 'Clean'
+    DIRTY = 'Dirty'
+
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Vacuum Cleaner App")
+
+        # Initialize user input variables
+        self.current_location_var = tk.StringVar()
+        self.room_a_status_var = tk.StringVar()
+        self.room_b_status_var = tk.StringVar()
+
+        # Create entry widgets for user input
+        tk.Label(root, text="Current Location of Vacuum Cleaner (A or B):").pack()
+        tk.Entry(root, textvariable=self.current_location_var).pack()
+
+        tk.Label(root, text="Room A Status:").pack()
+        self.room_a_dropdown = ttk.Combobox(root, textvariable=self.room_a_status_var, values=[self.CLEAN, self.DIRTY])
+        self.room_a_dropdown.pack()
+        self.room_a_dropdown.set(self.CLEAN)  # Set default value
+
+        tk.Label(root, text="Room B Status:").pack()
+        self.room_b_dropdown = ttk.Combobox(root, textvariable=self.room_b_status_var, values=[self.CLEAN, self.DIRTY])
+        self.room_b_dropdown.pack()
+        self.room_b_dropdown.set(self.DIRTY)  # Set default value
+
+        # Create a button to trigger the cleaning process
+        self.clean_button = tk.Button(root, text="Clean", command=self.run)
+        self.clean_button.pack()
+
+        # Create canvas to display environment
+        self.canvas = tk.Canvas(root, width=600, height=300)  # Increased canvas size
+        self.canvas.pack()
+
+        # Create label to display status
+        self.status_label = tk.Label(root, text="")
+        self.status_label.pack()
+
+        # Initialize vacuum cleaner variable
+        self.vacuum_cleaner = None
+
+    def draw_environment(self):
+        self.canvas.delete("all")
+
+        for room, status_var in [('A', self.room_a_status_var), ('B', self.room_b_status_var)]:
+            status = status_var.get()
+            color = "green" if status == self.CLEAN else "red"
+            x1, y1, x2, y2 = 75 if room == 'A' else 325, 50, 225 if room == 'A' else 475, 250  # Adjusted coordinates and increased room sizes
+            self.canvas.create_rectangle(x1, y1, x2, y2, fill=color)
+            
+            label_x = (x1 + x2) / 2
+            label_y = y1 + 150
+            label_color = "white"  # Set the text color for room labels
+            label_size = 12  # Set the text size for room labels
+            self.canvas.create_text(label_x, label_y, text=f"Room {room} ({status})", font=('Arial', label_size, 'bold'), fill=label_color)
+
+        if self.vacuum_cleaner:
+            # Adjusted coordinates for the smaller vacuum cleaner
+            x1, y1, x2, y2 = self.vacuum_cleaner
+            vacuum_width = x2 - x1
+            vacuum_height = y2 - y1
+
+            # Draw the vacuum cleaner body
+            self.canvas.create_rectangle(x1, y1, x2, y2, fill="gray")
+
+            # Draw the front wheel
+            wheel_radius = vacuum_width // 10
+            wheel_x, wheel_y = x1 + vacuum_width // 4, y2 - wheel_radius - 5
+            self.canvas.create_oval(wheel_x - wheel_radius, wheel_y - wheel_radius, wheel_x + wheel_radius, wheel_y + wheel_radius, fill="black")
+
+            # Draw the back wheel
+            wheel_x = x1 + 3 * vacuum_width // 4
+            self.canvas.create_oval(wheel_x - wheel_radius, wheel_y - wheel_radius, wheel_x + wheel_radius, wheel_y + wheel_radius, fill="black")
+
+            # Draw the suction pipe
+            pipe_width = vacuum_width // 20
+            pipe_length = vacuum_height // 2
+            pipe_x1, pipe_y1 = x1 + vacuum_width // 2, y1 + vacuum_height // 2
+            pipe_x2, pipe_y2 = pipe_x1, pipe_y1 - pipe_length
+            self.canvas.create_line(pipe_x1, pipe_y1, pipe_x2, pipe_y2, width=pipe_width, fill="darkgray")
+
+            # Draw the handle
+            handle_width = vacuum_width // 20
+            handle_height = vacuum_height // 4
+            handle_x, handle_y = x1 + vacuum_width // 2 - handle_width // 2, y1 - handle_height
+            self.canvas.create_rectangle(handle_x, handle_y, handle_x + handle_width, handle_y + handle_height, fill="darkgray")
+
+            # Draw the text label for the vacuum cleaner
+            label_x = (x1 + x2) / 2
+            label_y = (y1 + y2) / 2
+            self.canvas.create_text(label_x, label_y, text="Vacuum Cleaner", font=('Arial', 10, 'bold'), fill="white")
+
+        self.root.update()
+
+    def scan_and_clean(self, room):
+        if room == 'A':
+            status_var = self.room_a_status_var
+        elif room == 'B':
+            status_var = self.room_b_status_var
+        else:
+            return False
+
+        if status_var.get() == self.DIRTY:
+            status_var.set(self.CLEAN)
+            return True
+        else:
+            return False
+
+    def move_left(self):
+        self.current_location = 'A'
+
+    def move_right(self):
+        self.current_location = 'B'
+
+    def update_status_label(self, message):
+        self.status_label.config(text=message)
+        self.root.update()
+
+    def run(self):
+        # Get user input values
+        self.current_location = self.current_location_var.get().upper()
+
+        # Cleaning process
+        while any(status_var.get() == self.DIRTY for status_var in [self.room_a_status_var, self.room_b_status_var]):
+            while self.scan_and_clean(self.current_location):
+                self.draw_environment()
+                self.update_status_label(f"Cleaning in Room {self.current_location}...")
+                time.sleep(1)
+
+            if self.current_location == 'A':
+                self.move_right()
+            else:
+                self.move_left()
+
+            # Adjusted coordinates for the smaller vacuum cleaner
+            self.vacuum_cleaner = (150 if self.current_location == 'A' else 400, 80, 200 if self.current_location == 'A' else 450, 140)
+            self.draw_environment()
+            self.update_status_label(f"Moving to Room {self.current_location}...")
+            time.sleep(1)
+
+        self.draw_environment()
+        self.update_status_label("All rooms are clean. Task completed.")
+
+if __name__ == "__main__":
+    root = tk.Tk()
+    vacuum = VacuumCleaner(root)
+    root.mainloop()
+                </pre>  </code>
+          
+                <hr>
+            
+            </div>
+
+     
+
+        </div>
+    </div>
+
+
+    <footer class="text-white" >
+        <div class=" m-0 p-0"   style="background-color: #be3144; min-height: 4px;">
+        </div>
+        <div class="p-2" style="text-align: center; font-family: Poppins, sans-serif; background-color: #303841; ">
+          <p id="dateTime"></p>
+          <p>
+            @dilli_hangrae | 2021 - <span id="currentYear"></span> © Reference | Created &amp; Powered By
+            <a class="text-decoration-none" href="https://www.freecodecamp.com/" target="_blank">freeCodeCamp <i class="fab fa-free-code-camp"></i></a>
+          </p>
+        
+        </div>
+     
+      </footer>
+
+    <script>
+        function copyCode() {
+            const codeBlock = document.getElementById('code-block');
+            const codeText = codeBlock.textContent;
+
+            // Create a textarea element to copy the code
+            const textarea = document.createElement('textarea');
+            textarea.value = codeText;
+            document.body.appendChild(textarea);
+
+            // Select and copy the code
+            textarea.select();
+            document.execCommand('copy');
+
+            // Remove the textarea element
+            document.body.removeChild(textarea);
+
+            // Change the button text to "Copied"
+            const copyButton = document.querySelector('.btn');
+            copyButton.textContent = 'Copied';
+        }
+    </script>
+    
+</body>
+</html>
