@@ -1,56 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Simple Text Editor with Undo</title>
-  <!-- Include Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
-<body>
-  <div class="container mt-5">
-    <div class="row">
-      <div class="col-lg-6 mx-auto">
-        <h1 class="mb-3">App Build using Stack.</h1>
-        <h3 class="mb-3">Simple Text Editor with Undo Functionality </h3>
-        <div class="form-group">
-          <textarea id="editor" class="form-control" rows="5"></textarea>
-        </div>
-        <button id="undoButton" class="btn btn-primary">Undo/Delete a character</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Include Bootstrap and jQuery JavaScript -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-  <script>
-    // Create an empty stack to track changes
-    const stack = [];
-
-    // Get references to the textarea and undo button
-    const editor = document.getElementById("editor");
-    const undoButton = document.getElementById("undoButton");
-
-    // Listen for text input in the textarea
-    editor.addEventListener("input", function () {
-      // Push the current content onto the stack
-      stack.push(editor.value);
-    });
-
-    // Listen for clicks on the undo button
-    undoButton.addEventListener("click", function () {
-      // Check if there are previous versions in the stack
-      if (stack.length > 1) {
-        // Pop the last version from the stack
-        stack.pop();
-        // Set the editor content to the previous version
-        editor.value = stack[stack.length - 1];
-      }
-    });
 
 
-    console.clear();
+console.clear();
 const discreteMath = " https://raw.githubusercontent.com/yana-music/CSITSolution/main/pastyearsolutions/secondSemester/DiscreteMath/";
 const mathsII = " https://raw.githubusercontent.com/yana-music/CSITSolution/main/pastyearsolutions/secondSemester/Maths-II/";
 const oop = "https://raw.githubusercontent.com/yana-music/CSITSolution/main/pastyearsolutions/secondSemester/OOP/";
@@ -58,7 +8,7 @@ const statsI = "https://raw.githubusercontent.com/yana-music/CSITSolution/main/p
 const microprocessor = "https://raw.githubusercontent.com/yana-music/CSITSolution/main/pastyearsolutions/secondSemester/Microprocessor/";
 
 const startYear = 2075; // Specify the starting year as needed
-const maxIterations = 10; // Specify the maximum number of iterations
+const maxIterations = 15; // Specify the maximum number of iterations
 
 const secondSem = [
     {
@@ -159,9 +109,3 @@ console.log("secondsem",secondSem);
 console.log("Final array of existing years for Discrete Math:", secondSem.find(course => course.name === "Discrete Math").years);
 console.log("Final array of existing years for Maths-II:", secondSem.find(course => course.name === "Maths-II").years);
 
-
-
-
-  </script>
-</body>
-</html>

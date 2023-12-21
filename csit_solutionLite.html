@@ -46,6 +46,37 @@
          z-index: 2;
          cursor: pointer;
          }
+
+
+         @keyframes glowAndMove {
+            0% {
+                text-shadow: 0 0 10px #ff0000;
+                transform: translateX(0);
+                transform: translateY(0);
+            }
+            50% {
+                text-shadow: 0 0 20px #ff0000;
+                transform: translateX(10px);
+                transform: translateY(2px);
+            }
+            100% {
+                text-shadow: 0 0 10px #ff0000;
+                transform: translateX(0);
+                transform: translateY(0);
+            }
+        }
+
+         @keyframes glow {
+            0% { text-shadow: 0 0 10px #ff0000; }
+            50% { text-shadow: 0 0 20px #ff0000; }
+            100% { text-shadow: 0 0 10px #ff0000; }
+        }
+
+        #donate {
+            animation: glow 2s infinite; /* Adjust the duration as needed */
+            animation: glowAndMove 2s infinite; /* Adjust the duration as needed */
+        }
+
       </style>
    </head>
    <body>
@@ -78,10 +109,7 @@
          <main id="content">
          <header class="">
             <p class="pt-2 m-0 marquee text-danger">
-               This is only a lite Demo Version of KEC's Solution for BSc.CSIT Student.
-               Currently,Only the Second Semester Solution is available.
-               NOT Supported for Mobile Devices. App may be slower due to high traffic.
-               Thanks | @dilli_hangrae 
+               This is only a lite Version of KEC's Solution for BSc.CSIT Student.Currently, Only a few Semester Solution is available.NOT Supported for Mobile Devices.App may be slower due to high traffic.Thanks | @dilli_hangrae 
             </p>
             <hr class="mt-2">
          </header>
@@ -181,17 +209,16 @@
                      </div>
                   </div>
                </div>
-               <div class="col-3 " style="height: 80vh;">
+               <div class="col-3 overflow-auto " style="height: 80vh;">
                   <h4>Subject Past Quest Solutions</h4>
-                  <div class="ul-main overflow-auto border p-2 rounded-1 ">
+                  <div class="ul-main  overflow-auto border p-2 rounded-1 " >
                      <ul id="main-list" >
                         <!--  Dynamic UL LI LIST FOR NTH SEMESTER SUBJECTS -->
                      </ul>
                   </div>
                   <!-- Cover Part -->
-                  <br>
                   <div>
-                     <figure  class="coverPages d-flex p-0">
+                     <figure  class="coverPages d-flex p-0 d-none">
                         <img  id="frontCover" src="" alt="img"> 
                         <img  id="backCover" src="" alt="img">
                      </figure>
@@ -221,6 +248,17 @@
                            </div>
                           </div>
                         </div>
+                      </div>
+                     
+                      <hr>
+                      <div class="row">
+                        <div class="col">
+                           <h5 id="donate"> Donate/Aid for App Development </h5>
+                           <button class="btn btn-outline-danger"  data-toggle="modal" data-target="#imageModal">
+                              Donate Via FonePay/E-sewa/Khalti
+                           </button>
+                        </div>
+                       
                       </div>
 
               
@@ -261,6 +299,31 @@
          </button>
          <embed id="pdfDocViewer" src="./resources/Documentation/Project Documentation_ CSIT Solution Lite Demo Version Web App.pdf" type="application/pdf" width="100%" height="600px">
       </div>
+
+
+      <!-- Modal -->
+<div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+   <div class="modal-dialog" role="document">
+     <div class="modal-content">
+       <div class="modal-header">
+         <h5 class="modal-title" id="exampleModalLabel"> Scan QR to Donate </h5>
+         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+           <span aria-hidden="true">&times;</span>
+         </button>
+       </div>
+       <div class="modal-body">
+         <!-- Add your images here -->
+         <!-- <img src="./resources/" alt="NIC ASIA "> -->
+         <img src="./resources/img/Donation/QR Code/Nabil Smart.jpg" alt="Nabil SMART" style="max-width: 100%;">
+         <!-- Add more images as needed -->
+       </div>
+       <div class="modal-footer">
+         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+       </div>
+     </div>
+   </div>
+ </div>
+
       <!-- Include Bootstrap JS and Pooper.js (required for dropdown functionality) -->
       <script src="https://www.google.com/recaptcha/api.js"></script>
       <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>

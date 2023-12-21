@@ -77,8 +77,8 @@ document.addEventListener("DOMContentLoaded", function () {
         { name: "Introduction to IT", years: ["Introduction to IT PDF"] },
         { name: "C Programming", years: ["Coming Soon!"] },
         { name: "Digital Logic", years: ["Coming Soon!"] },
-        { name: "Math I", years: ["Coming Soon!"] },
-        { name: "Physics", years: ["Coming Soon!"] },
+        { name: "Maths-I", years: ["Maths_I_Book_Solution"] },
+        { name: "Physics", years: ["Physics_Book_Solution"] },
     ];
     // Semester 2
     const secondSem = [
@@ -106,10 +106,10 @@ document.addEventListener("DOMContentLoaded", function () {
     // Semester 3
     const thirdSem = [
         // Courses for semester 3...
-        { name: "Data Structure and Algorithm", years: [] },
+        { name: "Data Structure and Algorithm", years: ["DSA_2077_BS_TU","DSA_2078_BS_TU" ] },
         { name: "Numerical Method", years: ["Coming Soon!"] },
-        { name: "Computer Graphics", years: ["Coming Soon!"] },
-        { name: "Computer Architecture", years: ["Coming Soon!"] },
+        { name: "Computer Graphics", years: ["CG_2075_BS_TU", "CG_2077_BS_TU"] },
+        { name: "Computer Architecture", years: ["CA_2078_BS_TU", "CA_2077_BS_TU"] },
         { name: "Statistics II ", years: ["Coming Soon!"] },
     ];
     // Semester 4
@@ -328,6 +328,27 @@ document.addEventListener("DOMContentLoaded", function () {
                         STATISTICS_I_2078_BS_TU: "https://raw.githubusercontent.com/yana-music/CSITSolution/main/pastyearsolutions/secondSemester/STAT-I/2078/STATS-I-2078-",
                         STATISTICS_I_2076_BS_TU: "https://raw.githubusercontent.com/yana-music/CSITSolution/main/pastyearsolutions/secondSemester/STAT-I/2076/STATS-I-2076-",
                         STATISTICS_I_2075_BS_TU: "https://raw.githubusercontent.com/yana-music/CSITSolution/main/pastyearsolutions/secondSemester/STAT-I/2075/STATS-I-2075-",
+
+
+                        DSA_2077_BS_TU: "https://raw.githubusercontent.com/yana-music/CSITSolution/main/pastyearsolutions/thirdSemester/DSA/2077/DSA-2077-",
+                        DSA_2078_BS_TU: "https://raw.githubusercontent.com/yana-music/CSITSolution/main/pastyearsolutions/thirdSemester/DSA/2078/DSA-2078-",
+
+                        CG_2075_BS_TU: "https://raw.githubusercontent.com/yana-music/CSITSolution/main/pastyearsolutions/thirdSemester/CG/2075/CG-2075-",
+                        CG_2077_BS_TU: "https://raw.githubusercontent.com/yana-music/CSITSolution/main/pastyearsolutions/thirdSemester/CG/2077/CG-2077-",
+
+                        CA_2078_BS_TU: "https://raw.githubusercontent.com/yana-music/CSITSolution/main/pastyearsolutions/thirdSemester/CA/2078/CA-2078-",
+                        CA_2077_BS_TU: "https://raw.githubusercontent.com/yana-music/CSITSolution/main/pastyearsolutions/thirdSemester/CA/2077/CA-2077-"
+
+                        // { name: "Data Structure and Algorithm", years: ["DSA_2077_BS_TU","DSA_2078_BS_TU" ] },
+                        // { name: "Computer Graphics", years: ["CG_2075", "CG_2077"] },
+                        // { name: "Computer Architecture", years: ["CA_2078", "CA_2077"] },
+
+
+
+                        // Maths_I_Book_Solution: "",
+                        // Physics_Book_Solution: "CSITSolution/bookSolutions/firstSemester/Physics/Physics Model Question Solution.pdf",
+
+
                     };
 
                     let baseImageUrl;
@@ -484,7 +505,7 @@ document.addEventListener("DOMContentLoaded", function () {
                             if (img.src === sliderImage.src) {
                                 // If the src attributes match, add a red border to the image
                                 img.style.border = "2px solid red";
-                                sliderImage.style.border = "2px solid red";
+                                sliderImage.style.border = "2px solid #fff";
                             } else {
                                 // If the src attributes don't match, remove the red border (if it was previously set)
                                 img.style.border = "none";
