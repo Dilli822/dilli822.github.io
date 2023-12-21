@@ -107,10 +107,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const thirdSem = [
         // Courses for semester 3...
         { name: "Data Structure and Algorithm", years: ["DSA_2077_BS_TU","DSA_2078_BS_TU" ] },
-        { name: "Numerical Method", years: ["Coming Soon!"] },
+        { name: "Numerical Method", years: ["NM_2075_BS_TU", "NM_2077_BS_TU"] },
         { name: "Computer Graphics", years: ["CG_2075_BS_TU", "CG_2077_BS_TU"] },
         { name: "Computer Architecture", years: ["CA_2078_BS_TU", "CA_2077_BS_TU"] },
-        { name: "Statistics II ", years: ["Coming Soon!"] },
+        { name: "Statistics II ", years: ["STATS_II_2075_BS_TU", "STATS_II_2077_BS_TU"] },
     ];
     // Semester 4
     const fourthSem = [
@@ -228,8 +228,6 @@ document.addEventListener("DOMContentLoaded", function () {
         // Call the function to update the list based on the selected semester
         updateListBasedOnSemester(selectedSemester);
 
-
-
         // For demonstration, alert the user with the selected semester
         // alert(`Semester ${selectedSemester} selected!`);
     });
@@ -337,17 +335,13 @@ document.addEventListener("DOMContentLoaded", function () {
                         CG_2077_BS_TU: "https://raw.githubusercontent.com/yana-music/CSITSolution/main/pastyearsolutions/thirdSemester/CG/2077/CG-2077-",
 
                         CA_2078_BS_TU: "https://raw.githubusercontent.com/yana-music/CSITSolution/main/pastyearsolutions/thirdSemester/CA/2078/CA-2078-",
-                        CA_2077_BS_TU: "https://raw.githubusercontent.com/yana-music/CSITSolution/main/pastyearsolutions/thirdSemester/CA/2077/CA-2077-"
+                        CA_2077_BS_TU: "https://raw.githubusercontent.com/yana-music/CSITSolution/main/pastyearsolutions/thirdSemester/CA/2077/CA-2077-",
 
-                        // { name: "Data Structure and Algorithm", years: ["DSA_2077_BS_TU","DSA_2078_BS_TU" ] },
-                        // { name: "Computer Graphics", years: ["CG_2075", "CG_2077"] },
-                        // { name: "Computer Architecture", years: ["CA_2078", "CA_2077"] },
+                        NM_2075_BS_TU: "https://raw.githubusercontent.com/yana-music/CSITSolution/main/pastyearsolutions/thirdSemester/NM/2075/NM-2075-",
+                        NM_2077_BS_TU: "https://raw.githubusercontent.com/yana-music/CSITSolution/main/pastyearsolutions/thirdSemester/NM/2077/NM-2077-",
 
-
-
-                        // Maths_I_Book_Solution: "",
-                        // Physics_Book_Solution: "CSITSolution/bookSolutions/firstSemester/Physics/Physics Model Question Solution.pdf",
-
+                        STATS_II_2075_BS_TU: "https://raw.githubusercontent.com/yana-music/CSITSolution/main/pastyearsolutions/thirdSemester/STATS-II/2075/STATS-II-2075-",
+                        STATS_II_2077_BS_TU: "https://raw.githubusercontent.com/yana-music/CSITSolution/main/pastyearsolutions/thirdSemester/STATS-II/2077/STATS-II-2077-",
 
                     };
 
