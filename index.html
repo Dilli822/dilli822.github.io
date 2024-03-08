@@ -390,6 +390,37 @@
       color: #fff;
       /* Change color of link when button is hovered */
     }
+
+    @media (max-width: 767px) {
+
+      footer p,
+      h1,
+      h2,
+      h3,
+      p {
+        font-size: 22px !important;
+      }
+
+      .profile {
+        border-radius: 15px;
+        opacity: .75;
+      }
+
+      ul li a,
+      span,
+      i,
+      a i {
+        font-size: initial !important;
+      }
+
+      .project,
+      .projects-section,
+      .contact-section,
+      #visitingCard {
+        min-height: 0;
+        padding: 5%;
+      }
+    }
   </style>
 
   <!-- START NAV -->
@@ -629,7 +660,7 @@
       </section>
 
       <!-- START CONTACT SECTION -->
-      <section id="" class="contact-section" style="margin-top: 0;">
+      <section id="visitingCard" class="contact-section" style="margin-top: 0;">
         <div style="display: flex;">
           <figure>
             <img src="./resources/img/visitingCard/1.png" alt="">
