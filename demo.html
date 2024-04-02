@@ -1,37 +1,84 @@
 <!DOCTYPE html>
-<!--------------------------------------------Created by Dilli Hang Rai-------------------------->
 <html lang="en">
-  <head>
-    <!--------------------------------------------META--TAGS--------------------------------------->
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Display User Location</title>
+</head>
+<body>
 
-    <link rel="shortcut icon" href="/resources/favicon/favicon.ico" type="image/x-icon" />
-    <!----------------------------------------------Fontsawesome Icons------------------------------->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,400&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css?family=Raleway:700&display=swap" rel="stylesheet" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-      integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+<!-- Display user's latitude and longitude -->
+<div id="location"></div>
 
-    <body>
+<script>
+// Function to convert decimal degrees to degrees, minutes, and seconds format
+function decimalToDMS(decimal, direction) {
+    var degrees = Math.floor(decimal);
+    var minutesDecimal = (decimal - degrees) * 60;
+    var minutes = Math.floor(minutesDecimal);
+    var seconds = ((minutesDecimal - minutes) * 60).toFixed(1);
+    return degrees + "°" + minutes + "'" + seconds + "\"" + direction;
+}
 
+// Function to display user's location in the specified format
+function showUserLocation(latitude, longitude) {
+    // Convert latitude and longitude to DMS format
+    var latitudeDMS = decimalToDMS(Math.abs(latitude), latitude >= 0 ? 'N' : 'S');
+    var longitudeDMS = decimalToDMS(Math.abs(longitude), longitude >= 0 ? 'E' : 'W');
 
-        <!-- LAYOUT CONTAINER ROW , COL -->
-        <!-- CLASSES FOR BUTTON, BORDER, COLORS -->
+    // Display latitude and longitude in the specified format
+    document.getElementById('location').innerHTML = latitudeDMS + " " + longitudeDMS;
 
-        <div class="container-sm">
-            container
-        </div>
+    // Store latitude and longitude in variables
+    var userLatitude = latitudeDMS;
+    var userLongitude = longitudeDMS;
 
+    // Construct Google Maps link using template literals
+    // var googleMapsLink = `https://www.google.com/maps/place/${userLatitude}+${userLongitude}/@${latitude},${longitude},17z?entry=ttu`;
+    var googleMapsLink = `https://www.google.com/maps/place/${userLatitude}+${userLongitude}/@${latitude},${longitude},17z?entry=ttu`;
+    // Open Google Maps link in a new tab
+    window.open(googleMapsLink, '_blank');
+}
 
-    </body>
+// Function to handle errors
+function showError(error) {
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            alert("User denied the request for Geolocation.");
+            break;
+        case error.POSITION_UNAVAILABLE:
+            alert("Location information is unavailable.");
+            break;
+        case error.TIMEOUT:
+            alert("The request to get user location timed out.");
+            break;
+        case error.UNKNOWN_ERROR:
+            alert("An unknown error occurred.");
+            break;
+    }
+}
 
+// Function to get user's location
+function getUserLocation() {
+    // Check if geolocation is supported by the browser
+    if (navigator.geolocation) {
+        // Get user's current position
+        navigator.geolocation.getCurrentPosition(function(position) {
+            // Get latitude and longitude
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+            // Display user's location in the specified format
+            showUserLocation(latitude, longitude);
+        }, showError);
+    } else {
+        // Display an error message if geolocation is not supported
+        alert("Geolocation is not supported by this browser.");
+    }
+}
+
+// Call the function to get user's location
+getUserLocation();
+</script>
+
+</body>
 </html>

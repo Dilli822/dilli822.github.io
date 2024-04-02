@@ -1,697 +1,726 @@
 <!DOCTYPE html>
-<!--------------------------------------------Created by Dilli Hang Rai-------------------------->
 <html lang="en">
 
 <head>
-  <!--------------------------------------------META--TAGS--------------------------------------->
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="canonical" href="https://dilli822.github.io" />
-  <meta name="keywords" content="front-end-developer, personal portfolio site, static webpages" />
-  <meta name="author" content="Dilli Hang Rai" />
-  <meta name="description" content="personal portfolio site" />
-  <!-- Og tags -->
-  <meta property="og:title" content="personal portfolio site" />
-  <meta property="og:type" content="personal static website" />
-  <meta property="og:url" content="https://dilli822.github.io" />
-  <meta property="og:site_name" content="dilli hang rai portfolio" />
-  <meta property="og:image" content="https://hikechinde.github.io/assets/img/Dilli%20Hang%20Rai-I.JPG">
-  <meta property="og:image:alt" content="profile-dilli" />
-  <meta property="og:description" content="dilli hang rai portfolio" />
-  <!---------------------------------------------WEBSITE--TITLE---------------------------------->
-  <title>Dilli Hang Rai | Portfolio</title>
-  <!----------------------------------------------FavIcons------------------------------->
-  <link rel="icon" href="/resources/favicon/favicon.ico" type="image/x-icon" />
-  <link rel="favicon-32x32" href="/resources/favicon/favicon-32x32.png" type="image/x-icon" sizes="32x32" />
-  <link rel="favicon-16x16" href="/resources/favicon/favicon-16x16.png" type="image/x-icon" sizes="16x16" />
-  <link rel="android-chrome-192x192" href="/resources/favicon/android-chrome-192x192.png" type="image/x-icon"
-    sizes="192x192" />
-  <link rel="android-chrome-512x512" href="/resources/favicon/android-chrome-512x512.png" type="image/x-icon"
-    sizes="512x512" />
-  <link rel="manifest" href="/resources/favicon/site.webmanifest.json" />
-  <link rel="shortcut icon" href="/resources/favicon/favicon.ico" type="image/x-icon" />
-  <!----------------------------------------------Fontsawesome Icons------------------------------->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,400&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css?family=Raleway:700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+        integrity="sha512-BuD1E8ccBydDvTjr/Sm3tJp7Lq3OoGOmRnA11iIVQi2LW48RqNvA1rB2U1lzP1g0WIBGfj/PZiZ6sW3tgKPexQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <!------------------------------------------------------ CSS Stylesheets--------------------------->
-  <style>
-    /* Custom properties/variables  */
-    :root {
-      --main-white: #f0f0f0;
-      --main-red: #be3144;
-      --main-blue: #45567d;
-      --main-gray: #01070d;
-    }
 
-    /* Base reset */
-    * {
-      margin: 0;
-      padding: 0;
-    }
+    <style>
+        @font-face {
+            font-family: "Geist Sans";
+            src: url("https://assets.codepen.io/605876/GeistVF.ttf") format("truetype");
+        }
 
-    /* box-sizing and font sizing */
-    *,
-    *::before,
-    *::after {
-      box-sizing: inherit;
-    }
+        *,
+        *:after,
+        *:before {
+            box-sizing: border-box;
+        }
 
-    html {
-      box-sizing: border-box;
-      font-size: 62.5%;
-      scroll-behavior: smooth;
-    }
+        a {
+            color: #fff;
+        }
 
-    @media (max-width: 75em) {
-      html {
-        font-size: 60%;
-      }
-    }
+        html {
+            scroll-snap-type: y mandatory;
+        }
 
-    /* 980px / 16px = 61.25em */
-    @media (max-width: 61.25em) {
-      html {
-        font-size: 58%;
-      }
-    }
+        body {
+            min-height: 100vh;
+            font-family: "Geist Sans", "SF Pro Text", "SF Pro Icons", "AOS Icons", "Helvetica Neue", Helvetica, Arial, sans-serif, system-ui;
+            font-weight: 80;
+            background: black;
+            color: hsl(0 0% 90%);
+            overflow-x: hidden;
+        }
 
-    /* 460px / 16px = 28.75em */
-    @media (max-width: 28.75em) {
-      html {
-        font-size: 55%;
-      }
-    }
+        p {
+            max-width: 40ch;
+        }
 
-    /* Base styles */
-    body {
-      font-family: "Poppins", sans-serif;
-      font-size: 1.8rem;
-      /* 18px */
-      font-weight: 400;
-      line-height: 1.4;
-      color: var(--main-white);
-    }
+        section:nth-of-type(1) {
+            scroll-snap-align: center;
+            height: 100vh;
+        }
 
-    h1,
-    h2 {
-      font-family: "Raleway", sans-serif;
-      font-weight: 700;
-      text-align: center;
-    }
+        section:nth-of-type(2) {
+            scroll-snap-align: start;
+        }
 
-    h1 {
-      font-size: 6rem;
-    }
+        article {
+            min-height: 100vh;
+        }
 
-    h2 {
-      font-size: 4.2rem;
-    }
+        :is(h1, h2) {
+            font-weight: 70;
+            font-size: clamp(2.5rem, 3.35vw + 1rem, 8rem);
+            letter-spacing: -0.075ch;
+            margin: 0;
+        }
 
-    ul {
-      list-style: none;
-    }
+        h1 {
+            color: hsl(0 0% 90%);
+        }
 
-    a {
-      text-decoration: none;
-      color: var(--main-white);
-    }
+        :is(section, article) {
+            position: relative;
+        }
 
-    img {
-      display: block;
-      width: 100%;
-    }
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem;
+            z-index: 999;
+            display: flex;
+            justify-content: space-between;
+        }
 
-    /* nav */
-    .nav {
-      display: flex;
-      justify-content: flex-end;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      background: var(--main-red);
-      box-shadow: 0 2px 0 rgba(0, 0, 0, 0.4);
-      z-index: 10;
-    }
+        nav a:first-of-type {
+            width: 48px;
+            aspect-ratio: 1;
+            display: grid;
+            place-items: center;
+            color: white;
+        }
 
-    .nav-list {
-      display: flex;
-      margin-right: 2rem;
-    }
+        nav a:last-of-type {
+            background: hsl(173 100% 51%);
+            color: black;
+            padding: 1rem 2rem;
+            border-radius: 22px;
+            text-decoration: none;
+            font-weight: 120;
+            transition: background 0.2s;
+        }
 
-    @media (max-width: 28.75em) {
-      .nav {
-        justify-content: center;
-      }
+        nav a:last-of-type:is(:hover, :focus-visible) {
+            background: hsl(173 100% 40%);
+        }
 
-      .nav-list {
-        margin: 0 1rem;
-      }
-    }
+        .content {
+            margin: 0 auto;
+            width: 900px;
+            max-width: 100%;
+            height: 100%;
+            z-index: 2;
+            position: absolute;
+            inset: 0;
+            padding: 1rem;
+        }
 
-    .nav-list a {
-      display: block;
-      font-size: 2.2rem;
-      padding: 2rem;
-    }
+        .fixed img {
+            height: 100%;
+            width: 150%;
+            object-fit: cover;
+            z-index: -1;
+            position: absolute;
+            inset: 0;
+            left: 50%;
+            translate: -50% 0;
+            filter: brightness(0.5);
+        }
 
-    .nav-list a:hover {
-      background: var(--main-blue);
-    }
+        section:first-of-type img {
+            left: 50%;
+            translate: -50% 0;
+        }
 
-    /* Welcome section */
-    .welcome-section {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      width: 100%;
-      height: 100vh;
-      background-color: #000;
-      background-image: linear-gradient(62deg, #3a3d40 0%, #181719 100%);
-    }
+        section:first-of-type {
+            padding: 2rem 1rem;
+            display: grid;
+            align-content: end;
+            justify-content: start;
+        }
 
-    .welcome-section>p {
-      font-size: 3rem;
-      font-weight: 200;
-      font-style: italic;
-      color: var(--main-red);
-    }
+        section:first-of-type .fixed {
+            z-index: 5;
+        }
 
-    /* Projects section */
-    .projects-section {
-      text-align: center;
-      padding: 10rem 2rem;
-      background: var(--main-blue);
-    }
+        section:first-of-type .fixed .content {
+            margin: 0 auto;
+            width: 900px;
+            max-width: 100%;
+            display: grid;
+            align-content: center;
+            justify-content: start;
+            padding: 6rem 2rem;
+            height: 100%;
+        }
 
-    .projects-section-header {
-      max-width: 640px;
-      margin: 0 auto 6rem auto;
-      border-bottom: 0.2rem solid var(--main-white);
-    }
+        section:first-of-type {
+            background: black;
+        }
 
-    @media (max-width: 28.75em) {
-      .projects-section-header {
-        font-size: 4rem;
-      }
-    }
+        section:first-of-type p {
+            font-size: clamp(1rem, 0.2vw + 1rem, 2rem);
+            padding: 0 2rem 0 0;
+        }
 
-    /* "Automagic" image grid using no media queries */
-    .projects-grid>div {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      grid-gap: 4rem;
-      width: 100%;
-      max-width: 1280px;
-      margin: 0 auto;
-      margin-bottom: 6rem;
-    }
+        section:nth-of-type(2) article:first-of-type .fixed {
+            z-index: 2;
+        }
 
-    @media (max-width: 30.625em) {
-      .projects-section {
-        padding: 6rem 1rem;
-      }
+        section:nth-of-type(2) .content {
+            display: grid;
+            padding: 4rem 1rem;
+            align-content: center;
+        }
 
-      .projects-grid {
-        grid-template-columns: 1fr;
-      }
-    }
+        section:nth-of-type(2) article:first-of-type .content {
+            align-content: end;
+        }
 
-    .project {
-      background: var(--main-gray);
-      box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-      border-radius: 2px;
-    }
+        section:nth-of-type(2) article:first-of-type .fixed::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: hsl(0 0% 0% / 0.25);
+        }
 
-    .code {
-      color: var(--main-gray);
-      transition: color 0.3s ease-out;
-    }
+        section:nth-of-type(2) article:first-of-type h2 {
+            padding: 1rem 0;
+        }
 
-    .project:hover .code {
-      color: #ff7f50;
-    }
+        section:nth-of-type(2) article:nth-of-type(2) h2 {
+            padding: 0 2rem 0 0;
+        }
 
-    .project-image {
-      /* height: calc(100% - 6.8rem); */
-      width: 100%;
-      object-fit: cover;
-    }
+        section:nth-of-type(2) article:nth-of-type(2) .fixed {
+            background: black;
+            z-index: 2;
+        }
 
-    .project-title {
-      font-size: 2rem;
-      padding: 2rem 0.5rem;
-    }
+        section:nth-of-type(2) article:nth-of-type(3) .content {
+            align-content: start;
+        }
 
-    .btn {
-      display: inline-block;
-      padding: 1rem 2rem;
-      border-radius: 2px;
-    }
+        section:nth-of-type(2) article:nth-of-type(3) .fixed {
+            z-index: 2;
+        }
 
-    .btn-show-all {
-      font-size: 2rem;
-      background: var(--main-gray);
-      transition: background 0.3s ease-out;
-    }
+        section:nth-of-type(2) article:nth-of-type(3) img {
+            filter: saturate(0.5) brightness(0.5);
+        }
 
-    .btn-show-all:hover {
-      background: var(--main-red);
-    }
+        .text-blocks {
+            width: 100%;
+            max-width: 46ch;
+            justify-self: end;
+            display: grid;
+            place-items: center;
+            gap: 2rem 0;
+            padding-right: 2rem;
+        }
 
-    .btn-show-all:hover>i {
-      transform: translateX(2px);
-    }
+        /* Text block styling */
+        .chat-container {
+            height: 100vh;
+            width: 100%;
+            position: sticky;
+            top: 0;
+            display: grid;
+            place-items: center;
+        }
 
-    .btn-show-all>i {
-      margin-left: 10px;
-      transform: translateX(0);
-      transition: transform 0.3s ease-out;
-    }
+        .text-blocks p {
+            display: inline-block;
+            border-radius: 6px;
+            margin: 0;
+            font-size: clamp(1.5rem, 0.5vw + 1rem, 4rem);
+            font-weight: 120;
+        }
 
-    /* Contact section */
-    .contact-section {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      width: 100%;
-      min-height: 60vh;
-      padding: 0 5%;
-      background: var(--main-gray);
-    }
+        .text-blocks p:nth-of-type(even) {
+            justify-self: end;
+            text-align: right;
+            color: hsl(173 100% 51%);
+        }
 
-    .contact-section-header>h2 {
-      font-size: 6rem;
-    }
+        .text-blocks p:nth-of-type(odd) {
+            justify-self: start;
+        }
 
-    @media (max-width: 28.75em) {
-      .contact-section-header>h2 {
-        font-size: 4rem;
-      }
-    }
+        .filler {
+            display: none;
+        }
 
-    .contact-section-header>p {
-      font-style: italic;
-    }
+        /* Scroll indicators */
+        .indicators {
+            width: 20px;
+            aspect-ratio: 1 / 7;
+            position: fixed;
+            top: 50%;
+            right: 1rem;
+            z-index: 999999;
+            translate: 0 -50%;
+            display: flex;
+            flex-direction: column;
+        }
 
-    .contact-links {
-      display: flex;
-      justify-content: center;
-      width: 100%;
-      max-width: 980px;
-      margin-top: 4rem;
-      flex-wrap: wrap;
-    }
+        .indicator {
+            background: linear-gradient(white, white) padding-box;
+            border-radius: 100px;
+            width: 100%;
+            min-height: 20px;
+            display: inline-block;
+            flex: 1;
+            border: 2px solid transparent;
+        }
 
-    .contact-details {
-      font-size: 2.4rem;
-      text-shadow: 2px 2px 1px #1f1f1f;
-      transition: transform 0.3s ease-out;
-    }
+        html {
+            scroll-behavior: smooth;
+        }
 
-    .contact-details:hover {
-      transform: translateY(8px);
-    }
+        @supports (animation-timeline: scroll()) {
+            section:nth-of-type(1) article {
+                view-timeline: --article-one;
+            }
 
-    /* Footer */
-    header,
-    footer {
-      font-weight: 300;
-      display: flex;
-      justify-content: space-evenly;
-      padding: 2rem;
-      background: var(--main-gray);
-      border-top: 4px solid var(--main-red);
-    }
+            section:nth-of-type(2) article:nth-of-type(1) {
+                view-timeline: --article-two;
+            }
 
-    header>p,
-    footer>p {
-      margin: 2rem;
-    }
+            section:nth-of-type(2) article:nth-of-type(2) {
+                view-timeline: --article-three;
+            }
 
-    header i,
-    footer i {
-      vertical-align: middle;
-    }
+            section:nth-of-type(2) article:nth-of-type(3) {
+                view-timeline: --article-four;
+            }
 
-    @media (max-width: 28.75em) {
-      footer {
-        flex-direction: column;
-        text-align: center;
-      }
-    }
+            section:nth-of-type(2) article:nth-of-type(4) {
+                view-timeline: --article-five;
+            }
 
-    iframe {
-      height: 360px;
-      width: 400px;
-    }
+            .fixed {
+                position: fixed;
+                inset: 0;
+            }
 
-    .profile {
-      width: 300px;
-      height: 300px;
-      opacity: 0.75;
-      border-radius: 50%;
-    }
+            .static {
+                position: absolute;
+                inset: 0;
+                z-index: 6;
+            }
 
-    .btnpod {
-      background-color: #d9d9d9;
-      padding: 15px;
-      cursor: pointer;
-      margin-top: 10px;
-      border: 2px solid var(--main-gray);
-      border-radius: 5px;
-    }
+            .filler {
+                display: block;
+                width: 100%;
+                position: absolute;
+                bottom: 30vh;
+                padding: 1rem;
+            }
 
-    .btnpod a {
-      color: #000;
-      font-size: 2rem;
-      text-decoration: none;
-    }
+            .text-blocks p {
+                animation: slide-in, fade-in;
+                animation-fill-mode: both;
+                animation-timing-function: linear;
+                animation-timeline: --article-four;
+            }
 
-    .btnpod:hover {
-      border: 2px solid #fff;
-      transition: ease-in-out 1000ms;
-      color: #fff;
-      /* Change color of link on button hover */
-      background-color: var(--main-red);
-    }
+            .text-blocks p:nth-of-type(1) {
+                animation-range: entry-crossing 50% entry-crossing 55%;
+            }
 
-    .btnpod:hover a {
-      color: #fff;
-      /* Change color of link when button is hovered */
-    }
+            .text-blocks p:nth-of-type(2) {
+                animation-range: entry-crossing 55% entry-crossing 60%;
+            }
 
-    @media (max-width: 767px) {
+            .text-blocks p:nth-of-type(3) {
+                animation-range: entry-crossing 60% entry-crossing 65%;
+            }
 
-      h1,
-      h2,
-      h3,
-      p {
-        font-size: 22px !important;
-      }
+            .text-blocks p:nth-of-type(4) {
+                animation-range: entry-crossing 65% entry-crossing 70%;
+            }
 
-      .profile {
-        border-radius: 15px;
-        opacity: .75;
-      }
+            .text-blocks p:nth-of-type(5) {
+                animation-range: entry-crossing 70% entry-crossing 75%;
+            }
 
-      footer p,
-      ul li a,
-      span,
-      i,
-      a i {
-        font-size: initial !important;
-      }
+            section:nth-of-type(2) article:last-of-type {
+                z-index: 5;
+            }
 
-      .project,
-      .projects-section,
-      .contact-section,
-      #visitingCard {
-        min-height: 0;
-        padding: 6% 5%;
-      }
-    }
-  </style>
+            section:nth-of-type(2) article:nth-of-type(3) {
+                height: 400vh;
+            }
 
-  <!-- START NAV -->
+            section:nth-of-type(2) article:nth-of-type(3) h2 {
+                margin-top: 80vh;
+            }
+
+            section:nth-of-type(2) article:last-of-type .fixed {
+                clip-path: ellipse(220% 200% at 50% 300%);
+                animation: unclip both linear;
+                animation-timeline: --article-five;
+                animation-range: entry 20% entry 80%;
+            }
+
+            .filler h2 {
+                animation: fade-away, fade-out;
+                animation-timing-function: linear;
+                animation-fill-mode: both;
+                animation-timeline: --article-four;
+                animation-range: exit 40% exit 75%, exit 70% exit 90%;
+            }
+
+            .loud-wrap {
+                clip-path: inset(0 0 0 0);
+                animation: unmask both linear;
+                animation-timeline: --article-two;
+                animation-range: entry 20% entry 80%;
+                mask: linear-gradient(white 50%, transparent) 0 100% / 100% 200% no-repeat;
+            }
+
+            .text-wrap {
+                position: sticky;
+                bottom: 4rem;
+                transform-origin: 50% 0;
+                animation: fade-away both linear, fade-out both linear;
+                animation-timeline: --article-two;
+                animation-range: exit 40% exit 75%, exit 70% exit 100%;
+            }
+
+            .text-blocks {
+                animation: fade-out both linear;
+                animation-timeline: --article-four;
+                animation-range: entry-crossing 75% entry-crossing 100%;
+            }
+
+            section:nth-of-type(2) article:nth-of-type(3) .fixed {
+                animation: fade-in both linear, fade-out both linear;
+                animation-timeline: --article-four, --article-four;
+                animation-range: entry 45% exit-crossing 0%, exit 0% exit 15%;
+            }
+
+            section:nth-of-type(2) article:nth-of-type(2) .fixed {
+                animation: fade-in;
+                animation-fill-mode: both;
+                animation-timing-function: linear;
+                animation-timeline: --article-three;
+                animation-range: entry 60% exit 30%;
+            }
+
+            section:nth-of-type(2) article:nth-of-type(2) h2 {
+                animation: slide-in, fade-in, fade-away, fade-out;
+                animation-fill-mode: both;
+                animation-timing-function: linear;
+                animation-timeline: view(), view(), --article-three, --article-three;
+                animation-range: entry 100% cover 25%, entry 100% cover 35%, exit 20% exit 40%, exit 40% exit 50%;
+            }
+
+            section:nth-of-type(2) article:first-of-type h2 {
+                animation: slide-up both linear;
+                animation-timeline: --article-two;
+                animation-range: entry 20% entry 80%;
+            }
+
+            section:nth-of-type(2) article:first-of-type img {
+                animation: scale-down both linear;
+                animation-timeline: --article-two;
+                animation-range: entry;
+            }
+
+            section:nth-of-type(2) article:first-of-type .fixed {
+                clip-path: ellipse(220% 200% at 50% 300%);
+                animation: unclip both linear;
+                animation-timeline: --article-two;
+                animation-range: entry 0 entry 100%;
+            }
+
+            section:first-of-type {
+                view-timeline: --section;
+            }
+
+            section:first-of-type .fixed {
+                animation: scale-and-move both linear, fade-out both linear;
+                animation-timeline: --section;
+                animation-range: exit 0% exit 50%, exit 0% exit 25%;
+                transform-origin: 50% 0;
+            }
+
+            /* Keyframes collection	*/
+            @keyframes slide-in {
+                0% {
+                    translate: 0 100%;
+                }
+            }
+
+            @keyframes fade-in {
+                0% {
+                    opacity: 0;
+                }
+            }
+
+            @keyframes slide-up {
+                0% {
+                    translate: 0 100%;
+                }
+            }
+
+            @keyframes fade-away {
+                to {
+                    filter: blur(4rem);
+                }
+            }
+
+            @keyframes unmask {
+                to {
+                    mask-position: 0 0;
+                }
+            }
+
+            @keyframes scale-down {
+                0% {
+                    scale: 5;
+                }
+            }
+
+            @keyframes unclip {
+                to {
+                    clip-path: ellipse(220% 200% at 50% 175%);
+                }
+            }
+
+            @keyframes fade-out {
+                to {
+                    opacity: 0;
+                }
+            }
+
+            @keyframes scale-and-move {
+                to {
+                    translate: 0 -10%;
+                    scale: 0.35 0.5;
+                }
+            }
+
+
+
+            /* Scroll indication work */
+            :root {
+                timeline-scope:
+                    --article-one,
+                    --article-two,
+                    --article-three,
+                    --article-four,
+                    --article-five;
+            }
+
+            .indicator {
+                animation: activate, deactivate;
+                animation-fill-mode: both;
+                animation-timing-function: linear;
+                animation-range: entry, exit;
+            }
+
+            .indicator:nth-of-type(1) {
+                animation-timeline: --article-one;
+            }
+
+            .indicator:nth-of-type(2) {
+                animation-timeline: --article-two;
+            }
+
+            .indicator:nth-of-type(3) {
+                animation-timeline: --article-three;
+            }
+
+            .indicator:nth-of-type(4) {
+                animation-timeline: --article-four;
+            }
+
+            .indicator:nth-of-type(5) {
+                animation-timeline: --article-five;
+            }
+
+            @keyframes activate {
+                to {
+                    flex: 3;
+                }
+            }
+
+            @keyframes deactivate {
+                to {
+                    flex: 1;
+                }
+            }
+        }
+
+        .contact-links img {
+            width: 45px;
+            height: 45px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+    </style>
 </head>
 
-<body id="home">
-  <header>
-
-    <nav id="navbar" class="nav" style="display: flex; align-items: center; justify-content: space-around;">
-
-      <figure>
-        <img src="./resources/img/dillihangrailogo.png" alt="" style="width: 50px; border-radius: 50%; padding: 6px;">
-      </figure>
-      <ul class="nav-list">
-
-        <li>
-          <a href="#home">Home</a>
-        </li>
-        <li>
-          <a href="#welcome-section">About</a>
-        </li>
-        <li>
-          <a href="#projects">Work</a>
-        </li>
-        <li>
-          <a href="#contact">Contact</a>
-        </li>
-      </ul>
+<body>
+    <nav>
+        <a href="./index.html">
+            <img src="./resources/img/dillihangrailogo.png" alt="" style="width: 40px; border-radius: 50%;">
+        </a>
+        <a href="#">Projects</a>
     </nav>
-    <!-- END NAV -->
-  </header>
-
-  <main>
-    <article>
-      <!-- START WELCOME SECTION -->
-      <section id="welcome-section" class="welcome-section">
-        <h1>Hello World, I am Dilli Hang Rai</h1>
-        <p style="font-size: 3rem; font-style: normal; text-align: center;">From Nepal <span style="font-size: 4rem;">
-            🇳🇵⛰ </span></p>
-        <p style="text-align: center; font-style: normal;"> Developer | Freelancer | B.Sc.CSIT Computer Science Student
-        </p>
-        <!-- <button class="btn btn-show-all"> Meet Now </button> -->
-        <br />
-        <figure>
-          <img src="./resources/img/insta-dilli.png" alt="dilli-profile-pic" class="profile" />
-        </figure>
-      </section>
-      <!-- END WELCOME SECTION -->
-      <!-- START PROJECTS SECTION -->
-      <section id="projects" class="projects-section">
-        <h2 class="projects-section-header">These are some of my projects</h2>
-        <div class="projects-grid">
-          <div>
-            <!-- <a
-               href="https://hikechinde.github.io"
-               target="_blank"
-               class="project project-tile"
-               >
-               <iframe class="project-image"
-                  src="https://www.youtube.com/embed/kwioIQLua_g?si=Nz6hHhwpgk94EQ9j" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-               <p class="project-title">
-                  <span class="code">&lt;</span>
-                  Fast Loading Blog Site (For Mobile Only)
-                  <span class="code">&#47;&gt;</span>
-               </p>
-            </a> -->
-            <a href="./academic-AI.html" target="_blank" class="project project-tile">
-              <iframe class="project-image" src="https://www.youtube.com/embed/6WWCchlZYaw?si=f-ruIULGG3TMWlXP"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen></iframe>
-              <p class="project-title">
-                <span class="code">&lt;</span>
-                Acamedic Artifical intelligence(AI)
-                <span class="code">&#47;&gt;</span>
-              </p>
-            </a>
-
-            <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/6WWCchlZYaw?si=f-ruIULGG3TMWlXP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
-
-            <a href="https://csit-solution.github.io/" target="_blank" class="project project-tile">
-              <iframe class="project-image" src="https://youtube.com/embed/rDyz0jsZaMQ?si=JGm59J41bGYPi2wb"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen></iframe>
-              <p class="project-title">
-                <span class="code">&lt;</span>
-                Lite CSIT Solution App
-                <span class="code">&#47;&gt;</span>
-              </p>
-            </a>
-            <a href="./academic-dsa.html" target="_blank" class="project project-tile">
-              <iframe class="project-image" src="https://www.youtube.com/embed/5yVy7OSoLV0?si=6sk6KbVW0ws7HgHz"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowfullscreen></iframe>
-              <p class="project-title">
-                <span class="code">&lt;</span>
-                College Data Structure & Algorithm
-                <span class="code">&#47;&gt;</span>
-              </p>
-            </a>
-
-            <!-- <a
-               href="https://dilli822.github.io/simple_graph_theory.html"
-               target="_blank"
-               class="project project-tile"
-               style="width: 100%; height: 100%;"
-               >
-               <iframe class="project-image"
-                  src="https://www.youtube.com/embed/OIWz6pfeFmM?si=mJnyEZGnnyEsubCL" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-               <p class="project-title">
-                  <span class="code">&lt;</span>
-                  Academic DSA Graph Theory
-                  <span class="code">&#47;&gt;</span>
-               </p>
-            </a> -->
-          </div>
-
-          <div class="projects-grid" id="hideShow">
-            <div>
-              <!-- <a
-               href="https://dilli822.github.io/queue_task_sechedular.html"
-               target="_blank"
-               class="project project-tile"
-               >
-               <iframe class="project-image"
-                src="https://www.youtube.com/embed/ntdTf618AoI?si=Vq2njKRLq7G4zMNM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-               <p class="project-title">
-                  <span class="code">&lt;</span>
-                  Academic DSA Queue
-                  <span class="code">&#47;&gt;</span>
-               </p>
-            </a> -->
-
-              <!-- <a
-            href="https://www.youtube.com/fjtNbeKb5jY?si=1UN9kqwgt0VyFCz2"
-            target="_blank"
-            class="project project-tile"
-            >
-            <iframe class="project-image" 
-               src="https://www.youtube.com/embed/fjtNbeKb5jY?si=1UN9kqwgt0VyFCz2" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-            <p class="project-title">
-               <span class="code">&lt;</span>
-               Slash Anime 
-               <span class="code">&#47;&gt;</span>
-            </p>
-         </a> -->
-              <a href="./designs.html" target="_blank" class="project project-tile">
-                <iframe class="project-image" src="https://www.youtube.com/embed/G1cKvDD8iDs?si=TeyCu9aVNJYLGySC"
-                  title="YouTube video player" frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen></iframe>
-                <p class="project-title">
-                  <span class="code">&lt;</span>
-                  Design UI/UX
-                  <span class="code">&#47;&gt;</span>
-                </p>
-              </a>
-
-
-              <a href="https://jaunt2.com/destin" target="_blank" class="project project-tile">
-                <iframe class="project-image" src="https://www.youtube.com/embed/KbVvi6eQnWI?si=KJiLvf437Gp2kpM7"
-                  title="YouTube video player" frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen></iframe>
-                <p class="project-title">
-                  <span class="code">&lt;</span>
-
-                  Jaunt2(Frontend Engineer)
-                  <span class="code">&#47;&gt;</span>
-                </p>
-              </a>
-              <a href="https://e-destinaccess.com" target="_blank" class="project project-tile">
-                <iframe class="project-image" src="https://www.youtube.com/embed/fSK-O2Dt_JE?si=PI1oXsE2Fet0wbvZ"
-                  title="YouTube video player" frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen></iframe>
-
-                <p class="project-title">
-                  <span class="code">&lt;</span>
-                  e-destinaccess(Project Member)
-                  <span class="code">&#47;&gt;</span>
-                </p>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <a onclick="hideShow()" id="btnHideShow" class="btn btn-show-all">Show All<i
-            class="fas fa-chevron-right"></i></a>
-      </section>
-      <!-- END PROJECTS SECTION -->
-
-      <!-- START CONTACT SECTION -->
-      <section id="podcast" class="contact-section" style="background: #083644de; border-bottom: 2px solid #fff;">
-        <div class="contact-section-header">
-          <h2>Podcast <i class="fas fa-podcast fa-3x"></i></h2>
-          <!-- <p>Here are methods to find me. It's Just One Click....</p> -->
-        </div>
-        <div class="contact-links">
-          <a href="./podcast.html" target="_blank" class="btn contact-details">
-            <i class="fas fa-waveform"></i>
-            <i class="fas fa-headphones fa-2x"></i>
-
-            Click Here to Listen Our Podcast
-          </a>
-          <br />
-        </div>
-        <button class="btnpod"><a href="./podcast.html" target="_blank"> Go to Podcast </a></button>
-      </section>
-
-      <hr />
-
-      <!-- START CONTACT SECTION -->
-      <section id="contact" class="contact-section">
-        <div class="contact-section-header">
-          <h2>Let's work together...</h2>
-          <p>Here are methods to find me. It's Just One Click....</p>
-        </div>
-        <div class="contact-links">
-          <a href="https://www.facebook.com/dilli822/" target="_blank" class="btn contact-details"><i
-              class="fab fa-facebook-square"></i> Facebook</a>
-          <a id="profile-link" href="https://github.com/dilli822" target="_blank" class="btn contact-details"><i
-              class="fab fa-github"></i> GitHub</a>
-          <a href="https://www.instagram.com/dilli_hangrae/" target="_blank" class="btn contact-details"><i
-              class="fab fa-instagram"></i> instagram</a>
-          <a href="mailto:dillihangrae@gmail.com" class="btn contact-details"><i class="fas fa-at"></i> Send a mail</a>
-          <a href="https://www.linkedin.com/in/dilli708" target="_blank" class="btn contact-details"><i
-              class="fab fa-linkedin"></i> LinkedIn</a>
-          <a href="https://twitter.com/dilli_hangrae" target="_blank" class="btn contact-details"><i
-              class="fab fa-twitter"></i> twitter </a>
-          <a href="https://youtube.com/@dilli_hangrae" target="_blank" class="btn contact-details"><i
-              class="fab fa-youtube"></i> Youtube </a>
-          <a href="tel:9863521357" class="btn contact-details"><i class="fas fa-mobile-alt"></i> Call me </a>
-        </div>
-      </section>
-
-      <!-- START CONTACT SECTION -->
-      <section id="visitingCard" class="contact-section" style="margin-top: 0;">
-        <div style="display: flex;">
-          <figure>
-            <img src="./resources/img/visitingCard/1.png" alt="">
-          </figure>
-          <figure>
-            <img src="./resources/img/visitingCard/2.png" alt="">
-          </figure>
-        </div>
-      </section>
-
-    </article>
-    <!-- END CONTACT SECTION -->
-  </main>
-
-  <!-- START FOOTER SECTION -->
-  <footer>
-    <div style="text-align: center;">
-      <p id="dateTime"></p>
-      <p>
-        @dilli_hangrae | 2021 - <span id="currentYear"></span> &copy; Reference | Created & Powered By
-        <a href="https://www.freecodecamp.com/" target="_blank">freeCodeCamp <i class="fab fa-free-code-camp"></i></a>
-      </p>
+    <div class="indicators">
+        <a href="#item-1" class="indicator"></a>
+        <a href="#item-2" class="indicator"></a>
+        <a href="#item-3" class="indicator"></a>
+        <a href="#item-4" class="indicator"></a>
+        <a href="#item-5" class="indicator"></a>
     </div>
-  </footer>
+    <main>
+        <section>
+            <article id="item-1">
+                <div class="fixed">
+                    <!-- <img src="https://fastly.picsum.photos/id/310/1920/1080.jpg?hmac=HDJM8ptvuyfahXPE6mcsYhG1XGE1mUb2oaa4hlFZ0yg"
+                        alt=""> -->
+                        <img src="https://fastly.picsum.photos/id/310/1920/1080.jpg?hmac=HDJM8ptvuyfahXPE6mcsYhG1XGE1mUb2oaa4hlFZ0yg"
+                        alt="">
+                    <div class="content">
+                        <h1>Hello World !</h1>
+                        <h2> I am Dilli Hang Rai. </h2>
+                        <p>
+                            Developer | AI Enthusiast | Freelancer | B.Sc.CSIT Computer Science Student
+                        </p>
+                    </div>
+                </div>
+            </article>
+        </section>
+        <section>
 
-  <!-- END FOOTER SECTION -->
+            <article id="item-2">
+                <div class="fixed"></div>
+                <div class="static">
+                    <div class="content">
+                        <h2>
+                            Let's make Connection...
 
-  <script>
-    // currentYear
-    document.getElementById("currentYear").innerText = new Date().getFullYear();
-  </script>
+                            <div class="contact-links">
+
+                                <a href="https://www.facebook.com/dilli822/" target="_blank"
+                                    class="btn contact-details">
+                                    <img src="./resources/img/icons8-facebook-240.png" alt="">
+                                </a>
+                                <a id="profile-link" href="https://github.com/dilli822" target="_blank"
+                                    class="btn contact-details">
+                                    <img src="./resources/img/icons8-github-240.png" alt=""> </a>
+                                <a href="https://www.instagram.com/dilli_hangrae/" target="_blank"
+                                    class="btn contact-details">
+                                    <img src="./resources/img/icons8-instagram-240.png" alt=""></a>
+                                <a href="mailto:dillihangrae@gmail.com" class="btn contact-details">
+                                    <img src="./resources/img/icons8-gmail-240.png" alt="">
+                                </a>
+                                <a href="https://www.linkedin.com/in/dilli708" target="_blank"
+                                    class="btn contact-details">
+                                    <img src="./resources/img/icons8-linkedin-240.png" alt=""> </a>
+                                <a href="https://twitter.com/dilli_hangrae" target="_blank" class="btn contact-details">
+                                    <img src="./resources/img/icons8-twitter-240.png" alt=""> </a>
+                                <a href="https://youtube.com/@dilli_hangrae" target="_blank"
+                                    class="btn contact-details">
+                                    <img src="./resources/img/icons8-youtube-480.png" alt="">
+                                </a>
+                                <a href="tel:9863521357" class="btn contact-details">
+                                    <img src="./resources/img/icons8-callback-96.png" alt="">
+                                </a>
+                                <a href="./podcast.html">
+                                    <img src="./resources/img/icons8-podcast-96.png" alt="">
+                                </a>
+                                <a href="https://medium.com/@dillihangrae">
+                                    <img src="./resources/img/icons8-medium-500.png" alt="">
+                                </a>
+
+
+                            </div>
+
+
+                        </h2>
+                    </div>
+                </div>
+            </article>
+            <article id="item-3">
+                <div class="fixed">
+                    <img src="https://fastly.picsum.photos/id/985/1920/1080.jpg?hmac=dLb_5lBJW4AZhZDUXweY5WlrnscpKLtCKffaqSrF9Vw"
+                        alt="">
+                </div>
+                <div class="static">
+                    <div class="content">
+                        <br>
+                        <h2> Namaste, from Nepal 🇳🇵 ⛰ </h2>
+                        <div class="chat-container">
+                            <div class="text-blocks">
+                                <p>What I do or Practice ?</p>
+                                <p> Software Development </p>
+                                <p> Freelancing | Hobby 🎵 </p>
+                                <p> AI Scholar | Enthusiast</p>
+                                <p> Articles, Study & Research .</p>
+                            </div>
+                        </div>
+                        <div class="filler">
+                            <h2> (डिल्ली हाङ् राई) </h2>
+                        </div>
+                    </div>
+                </div>
+            </article>
+            <div id="copyright-container"></div>
+            <div style="text-align: right; ">
+                <p style="font-size: 10px;">Designed Powered By <a href="https://codepen.io/jh3y"
+                        target="_blank">@jh3y</a></p>
+            </div>
+        </section>
+
+
+
+    </main>
+
+
+    <script>
+        // Function to update the document title based on the URL pathname
+        function updateTitle() {
+            const pageTitle = "Dilli Hang Rai"; // Default title
+            const path = window.location.pathname;
+            const trimmedPath = path.replace(/^\/|\.html$/g, ''); // Remove leading slash and '.html' extension
+            if (trimmedPath === "index") {
+                document.title = `${pageTitle} | Portfolio`; // Set the title to "Dilli Hang Rai | Portfolio"
+            } else {
+                // Update the document title with the trimmed path
+                document.title = `${pageTitle} | ${trimmedPath}`;
+            }
+        }
+
+        // Call the function when the page loads and whenever the URL changes
+        window.addEventListener('load', updateTitle);
+        window.addEventListener('popstate', updateTitle);
+
+        // Function to create the copyright div
+        function createCopyright() {
+            const currentYear = new Date().getFullYear(); // Get the current year
+            const copyrightDiv = document.createElement('div'); // Create a div element
+            copyrightDiv.innerHTML = `&copy; 1999 - ${currentYear} Dilli Hang Rai. All rights reserved.`; // Set inner HTML
+            copyrightDiv.style.textAlign = 'center'; // Center align the text
+            copyrightDiv.style.padding = '10px'; // Add some padding// Add background color
+
+            // Append the copyright div to the container
+            const container = document.getElementById('copyright-container');
+            container.appendChild(copyrightDiv);
+        }
+
+        // Call the function to create the copyright div
+        createCopyright();
+
+
+    </script>
+
 </body>
 
 </html>
