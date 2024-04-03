@@ -9,688 +9,232 @@
         integrity="sha512-BuD1E8ccBydDvTjr/Sm3tJp7Lq3OoGOmRnA11iIVQi2LW48RqNvA1rB2U1lzP1g0WIBGfj/PZiZ6sW3tgKPexQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-
-    <style>
-        @font-face {
-            font-family: "Geist Sans";
-            src: url("https://assets.codepen.io/605876/GeistVF.ttf") format("truetype");
-        }
-
-        *,
-        *:after,
-        *:before {
-            box-sizing: border-box;
-        }
-
-        a {
-            color: #fff;
-        }
-
-        html {
-            scroll-snap-type: y mandatory;
-        }
-
-        body {
-            min-height: 100vh;
-            font-family: "Geist Sans", "SF Pro Text", "SF Pro Icons", "AOS Icons", "Helvetica Neue", Helvetica, Arial, sans-serif, system-ui;
-            font-weight: 80;
-            background: black;
-            color: hsl(0 0% 90%);
-            overflow-x: hidden;
-        }
-
-        p {
-            max-width: 40ch;
-        }
-
-        section:nth-of-type(1) {
-            scroll-snap-align: center;
-            height: 100vh;
-        }
-
-        section:nth-of-type(2) {
-            scroll-snap-align: start;
-        }
-
-        article {
-            min-height: 100vh;
-        }
-
-        :is(h1, h2) {
-            font-weight: 70;
-            font-size: clamp(2.5rem, 3.35vw + 1rem, 8rem);
-            letter-spacing: -0.075ch;
-            margin: 0;
-        }
-
-        h1 {
-            color: hsl(0 0% 90%);
-        }
-
-        :is(section, article) {
-            position: relative;
-        }
-
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            padding: 1rem;
-            z-index: 999;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        nav a:first-of-type {
-            width: 48px;
-            aspect-ratio: 1;
-            display: grid;
-            place-items: center;
-            color: white;
-        }
-
-        nav a:last-of-type {
-            background: hsl(173 100% 51%);
-            color: black;
-            padding: 1rem 2rem;
-            border-radius: 22px;
-            text-decoration: none;
-            font-weight: 120;
-            transition: background 0.2s;
-        }
-
-        nav a:last-of-type:is(:hover, :focus-visible) {
-            background: hsl(173 100% 40%);
-        }
-
-        .content {
-            margin: 0 auto;
-            width: 900px;
-            max-width: 100%;
-            height: 100%;
-            z-index: 2;
-            position: absolute;
-            inset: 0;
-            padding: 1rem;
-        }
-
-        .fixed img {
-            height: 100%;
-            width: 150%;
-            object-fit: cover;
-            z-index: -1;
-            position: absolute;
-            inset: 0;
-            left: 50%;
-            translate: -50% 0;
-            filter: brightness(0.5);
-        }
-
-        section:first-of-type img {
-            left: 50%;
-            translate: -50% 0;
-        }
-
-        section:first-of-type {
-            padding: 2rem 1rem;
-            display: grid;
-            align-content: end;
-            justify-content: start;
-        }
-
-        section:first-of-type .fixed {
-            z-index: 5;
-        }
-
-        section:first-of-type .fixed .content {
-            margin: 0 auto;
-            width: 900px;
-            max-width: 100%;
-            display: grid;
-            align-content: center;
-            justify-content: start;
-            padding: 6rem 2rem;
-            height: 100%;
-        }
-
-        section:first-of-type {
-            background: black;
-        }
-
-        section:first-of-type p {
-            font-size: clamp(1rem, 0.2vw + 1rem, 2rem);
-            padding: 0 2rem 0 0;
-        }
-
-        section:nth-of-type(2) article:first-of-type .fixed {
-            z-index: 2;
-        }
-
-        section:nth-of-type(2) .content {
-            display: grid;
-            padding: 4rem 1rem;
-            align-content: center;
-        }
-
-        section:nth-of-type(2) article:first-of-type .content {
-            align-content: end;
-        }
-
-        section:nth-of-type(2) article:first-of-type .fixed::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: hsl(0 0% 0% / 0.25);
-        }
-
-        section:nth-of-type(2) article:first-of-type h2 {
-            padding: 1rem 0;
-        }
-
-        section:nth-of-type(2) article:nth-of-type(2) h2 {
-            padding: 0 2rem 0 0;
-        }
-
-        section:nth-of-type(2) article:nth-of-type(2) .fixed {
-            background: black;
-            z-index: 2;
-        }
-
-        section:nth-of-type(2) article:nth-of-type(3) .content {
-            align-content: start;
-        }
-
-        section:nth-of-type(2) article:nth-of-type(3) .fixed {
-            z-index: 2;
-        }
-
-        section:nth-of-type(2) article:nth-of-type(3) img {
-            filter: saturate(0.5) brightness(0.5);
-        }
-
-        .text-blocks {
-            width: 100%;
-            max-width: 46ch;
-            justify-self: end;
-            display: grid;
-            place-items: center;
-            gap: 2rem 0;
-            padding-right: 2rem;
-        }
-
-        /* Text block styling */
-        .chat-container {
-            height: 100vh;
-            width: 100%;
-            position: sticky;
-            top: 0;
-            display: grid;
-            place-items: center;
-        }
-
-        .text-blocks p {
-            display: inline-block;
-            border-radius: 6px;
-            margin: 0;
-            font-size: clamp(1.5rem, 0.5vw + 1rem, 4rem);
-            font-weight: 120;
-        }
-
-        .text-blocks p:nth-of-type(even) {
-            justify-self: end;
-            text-align: right;
-            color: hsl(173 100% 51%);
-        }
-
-        .text-blocks p:nth-of-type(odd) {
-            justify-self: start;
-        }
-
-        .filler {
-            display: none;
-        }
-
-        /* Scroll indicators */
-        .indicators {
-            width: 20px;
-            aspect-ratio: 1 / 7;
-            position: fixed;
-            top: 50%;
-            right: 1rem;
-            z-index: 999999;
-            translate: 0 -50%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .indicator {
-            background: linear-gradient(white, white) padding-box;
-            border-radius: 100px;
-            width: 100%;
-            min-height: 20px;
-            display: inline-block;
-            flex: 1;
-            border: 2px solid transparent;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        @supports (animation-timeline: scroll()) {
-            section:nth-of-type(1) article {
-                view-timeline: --article-one;
-            }
-
-            section:nth-of-type(2) article:nth-of-type(1) {
-                view-timeline: --article-two;
-            }
-
-            section:nth-of-type(2) article:nth-of-type(2) {
-                view-timeline: --article-three;
-            }
-
-            section:nth-of-type(2) article:nth-of-type(3) {
-                view-timeline: --article-four;
-            }
-
-            section:nth-of-type(2) article:nth-of-type(4) {
-                view-timeline: --article-five;
-            }
-
-            .fixed {
-                position: fixed;
-                inset: 0;
-            }
-
-            .static {
-                position: absolute;
-                inset: 0;
-                z-index: 6;
-            }
-
-            .filler {
-                display: block;
-                width: 100%;
-                position: absolute;
-                bottom: 30vh;
-                padding: 1rem;
-            }
-
-            .text-blocks p {
-                animation: slide-in, fade-in;
-                animation-fill-mode: both;
-                animation-timing-function: linear;
-                animation-timeline: --article-four;
-            }
-
-            .text-blocks p:nth-of-type(1) {
-                animation-range: entry-crossing 50% entry-crossing 55%;
-            }
-
-            .text-blocks p:nth-of-type(2) {
-                animation-range: entry-crossing 55% entry-crossing 60%;
-            }
-
-            .text-blocks p:nth-of-type(3) {
-                animation-range: entry-crossing 60% entry-crossing 65%;
-            }
-
-            .text-blocks p:nth-of-type(4) {
-                animation-range: entry-crossing 65% entry-crossing 70%;
-            }
-
-            .text-blocks p:nth-of-type(5) {
-                animation-range: entry-crossing 70% entry-crossing 75%;
-            }
-
-            section:nth-of-type(2) article:last-of-type {
-                z-index: 5;
-            }
-
-            section:nth-of-type(2) article:nth-of-type(3) {
-                height: 400vh;
-            }
-
-            section:nth-of-type(2) article:nth-of-type(3) h2 {
-                margin-top: 80vh;
-            }
-
-            section:nth-of-type(2) article:last-of-type .fixed {
-                clip-path: ellipse(220% 200% at 50% 300%);
-                animation: unclip both linear;
-                animation-timeline: --article-five;
-                animation-range: entry 20% entry 80%;
-            }
-
-            .filler h2 {
-                animation: fade-away, fade-out;
-                animation-timing-function: linear;
-                animation-fill-mode: both;
-                animation-timeline: --article-four;
-                animation-range: exit 40% exit 75%, exit 70% exit 90%;
-            }
-
-            .loud-wrap {
-                clip-path: inset(0 0 0 0);
-                animation: unmask both linear;
-                animation-timeline: --article-two;
-                animation-range: entry 20% entry 80%;
-                mask: linear-gradient(white 50%, transparent) 0 100% / 100% 200% no-repeat;
-            }
-
-            .text-wrap {
-                position: sticky;
-                bottom: 4rem;
-                transform-origin: 50% 0;
-                animation: fade-away both linear, fade-out both linear;
-                animation-timeline: --article-two;
-                animation-range: exit 40% exit 75%, exit 70% exit 100%;
-            }
-
-            .text-blocks {
-                animation: fade-out both linear;
-                animation-timeline: --article-four;
-                animation-range: entry-crossing 75% entry-crossing 100%;
-            }
-
-            section:nth-of-type(2) article:nth-of-type(3) .fixed {
-                animation: fade-in both linear, fade-out both linear;
-                animation-timeline: --article-four, --article-four;
-                animation-range: entry 45% exit-crossing 0%, exit 0% exit 15%;
-            }
-
-            section:nth-of-type(2) article:nth-of-type(2) .fixed {
-                animation: fade-in;
-                animation-fill-mode: both;
-                animation-timing-function: linear;
-                animation-timeline: --article-three;
-                animation-range: entry 60% exit 30%;
-            }
-
-            section:nth-of-type(2) article:nth-of-type(2) h2 {
-                animation: slide-in, fade-in, fade-away, fade-out;
-                animation-fill-mode: both;
-                animation-timing-function: linear;
-                animation-timeline: view(), view(), --article-three, --article-three;
-                animation-range: entry 100% cover 25%, entry 100% cover 35%, exit 20% exit 40%, exit 40% exit 50%;
-            }
-
-            section:nth-of-type(2) article:first-of-type h2 {
-                animation: slide-up both linear;
-                animation-timeline: --article-two;
-                animation-range: entry 20% entry 80%;
-            }
-
-            section:nth-of-type(2) article:first-of-type img {
-                animation: scale-down both linear;
-                animation-timeline: --article-two;
-                animation-range: entry;
-            }
-
-            section:nth-of-type(2) article:first-of-type .fixed {
-                clip-path: ellipse(220% 200% at 50% 300%);
-                animation: unclip both linear;
-                animation-timeline: --article-two;
-                animation-range: entry 0 entry 100%;
-            }
-
-            section:first-of-type {
-                view-timeline: --section;
-            }
-
-            section:first-of-type .fixed {
-                animation: scale-and-move both linear, fade-out both linear;
-                animation-timeline: --section;
-                animation-range: exit 0% exit 50%, exit 0% exit 25%;
-                transform-origin: 50% 0;
-            }
-
-            /* Keyframes collection	*/
-            @keyframes slide-in {
-                0% {
-                    translate: 0 100%;
-                }
-            }
-
-            @keyframes fade-in {
-                0% {
-                    opacity: 0;
-                }
-            }
-
-            @keyframes slide-up {
-                0% {
-                    translate: 0 100%;
-                }
-            }
-
-            @keyframes fade-away {
-                to {
-                    filter: blur(4rem);
-                }
-            }
-
-            @keyframes unmask {
-                to {
-                    mask-position: 0 0;
-                }
-            }
-
-            @keyframes scale-down {
-                0% {
-                    scale: 5;
-                }
-            }
-
-            @keyframes unclip {
-                to {
-                    clip-path: ellipse(220% 200% at 50% 175%);
-                }
-            }
-
-            @keyframes fade-out {
-                to {
-                    opacity: 0;
-                }
-            }
-
-            @keyframes scale-and-move {
-                to {
-                    translate: 0 -10%;
-                    scale: 0.35 0.5;
-                }
-            }
-
-
-
-            /* Scroll indication work */
-            :root {
-                timeline-scope:
-                    --article-one,
-                    --article-two,
-                    --article-three,
-                    --article-four,
-                    --article-five;
-            }
-
-            .indicator {
-                animation: activate, deactivate;
-                animation-fill-mode: both;
-                animation-timing-function: linear;
-                animation-range: entry, exit;
-            }
-
-            .indicator:nth-of-type(1) {
-                animation-timeline: --article-one;
-            }
-
-            .indicator:nth-of-type(2) {
-                animation-timeline: --article-two;
-            }
-
-            .indicator:nth-of-type(3) {
-                animation-timeline: --article-three;
-            }
-
-            .indicator:nth-of-type(4) {
-                animation-timeline: --article-four;
-            }
-
-            .indicator:nth-of-type(5) {
-                animation-timeline: --article-five;
-            }
-
-            @keyframes activate {
-                to {
-                    flex: 3;
-                }
-            }
-
-            @keyframes deactivate {
-                to {
-                    flex: 1;
-                }
-            }
-        }
-
-        .contact-links img {
-            width: 45px;
-            height: 45px;
-        }
-
-        a {
-            text-decoration: none;
-        }
-    </style>
+    <link rel="stylesheet" href="./resources/styles/loader..css" id="loaderCSS">
+    <link rel="stylesheet" href="./resources/styles/main.css" id="homeCSS">
 </head>
 
 <body>
-    <nav>
-        <a href="./index.html">
-            <img src="./resources/img/dillihangrailogo.png" alt="" style="width: 40px; border-radius: 50%;">
-        </a>
-        <a href="#">Projects</a>
-    </nav>
-    <div class="indicators">
-        <a href="#item-1" class="indicator"></a>
-        <a href="#item-2" class="indicator"></a>
-        <a href="#item-3" class="indicator"></a>
-        <a href="#item-4" class="indicator"></a>
-        <a href="#item-5" class="indicator"></a>
+    <div id="loader-wrapper" style="display: block;">
+        <div id="particles-background" class="vertical-centered-box"></div>
+        <div id="particles-foreground" class="vertical-centered-box"></div>
+
+        <div class="vertical-centered-box">
+            <div class="content">
+                <div class="loader-circle">
+                    <svg width="72px" height="72px" viewBox="0 0 72 72"
+                        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                        <circle cx="36" cy="36" r="36" fill="none" stroke="none" style="stroke-width:0; fill:#000;" />
+                        <clipPath id="circleClip">
+                            <circle cx="36" cy="36" r="36" />
+                        </clipPath>
+                        <image href="./resources/img/dillihangrailogo.png" width="72" height="72"
+                            clip-path="url(#circleClip)" />
+                    </svg>
+
+
+                    <!-- End of SVG logo code -->
+                </div>
+                <div class="loader-line-mask">
+                    <div class="loader-line"></div>
+                </div>
+            </div>
+        </div>
     </div>
-    <main>
-        <section>
-            <article id="item-1">
-                <div class="fixed">
-                    <!-- <img src="https://fastly.picsum.photos/id/310/1920/1080.jpg?hmac=HDJM8ptvuyfahXPE6mcsYhG1XGE1mUb2oaa4hlFZ0yg"
+
+
+    <div id="content" style="display: none;">
+
+
+
+        <nav>
+            <a href="#">
+                <img src="./resources/img/dillihangrailogo.png" alt="" style="width: 40px; border-radius: 50%;">
+            </a>
+            <a href="./project.html">Projects</a>
+        </nav>
+        <div class="indicators">
+            <a href="#item-1" class="indicator"></a>
+            <a href="#item-2" class="indicator"></a>
+            <a href="#item-3" class="indicator"></a>
+            <a href="#item-4" class="indicator"></a>
+            <a href="#item-5" class="indicator"></a>
+        </div>
+        <main>
+            <section>
+                <article id="item-1">
+                    <div class="fixed">
+                        <!-- <img src="https://fastly.picsum.photos/id/310/1920/1080.jpg?hmac=HDJM8ptvuyfahXPE6mcsYhG1XGE1mUb2oaa4hlFZ0yg"
                         alt=""> -->
                         <img src="https://fastly.picsum.photos/id/310/1920/1080.jpg?hmac=HDJM8ptvuyfahXPE6mcsYhG1XGE1mUb2oaa4hlFZ0yg"
-                        alt="">
-                    <div class="content">
-                        <h1>Hello World !</h1>
-                        <h2> I am Dilli Hang Rai. </h2>
-                        <p>
-                            Developer | AI Enthusiast | Freelancer | B.Sc.CSIT Computer Science Student
-                        </p>
-                    </div>
-                </div>
-            </article>
-        </section>
-        <section>
-
-            <article id="item-2">
-                <div class="fixed"></div>
-                <div class="static">
-                    <div class="content">
-                        <h2>
-                            Let's make Connection...
-
-                            <div class="contact-links">
-
-                                <a href="https://www.facebook.com/dilli822/" target="_blank"
-                                    class="btn contact-details">
-                                    <img src="./resources/img/icons8-facebook-240.png" alt="">
-                                </a>
-                                <a id="profile-link" href="https://github.com/dilli822" target="_blank"
-                                    class="btn contact-details">
-                                    <img src="./resources/img/icons8-github-240.png" alt=""> </a>
-                                <a href="https://www.instagram.com/dilli_hangrae/" target="_blank"
-                                    class="btn contact-details">
-                                    <img src="./resources/img/icons8-instagram-240.png" alt=""></a>
-                                <a href="mailto:dillihangrae@gmail.com" class="btn contact-details">
-                                    <img src="./resources/img/icons8-gmail-240.png" alt="">
-                                </a>
-                                <a href="https://www.linkedin.com/in/dilli708" target="_blank"
-                                    class="btn contact-details">
-                                    <img src="./resources/img/icons8-linkedin-240.png" alt=""> </a>
-                                <a href="https://twitter.com/dilli_hangrae" target="_blank" class="btn contact-details">
-                                    <img src="./resources/img/icons8-twitter-240.png" alt=""> </a>
-                                <a href="https://youtube.com/@dilli_hangrae" target="_blank"
-                                    class="btn contact-details">
-                                    <img src="./resources/img/icons8-youtube-480.png" alt="">
-                                </a>
-                                <a href="tel:9863521357" class="btn contact-details">
-                                    <img src="./resources/img/icons8-callback-96.png" alt="">
-                                </a>
-                                <a href="./podcast.html">
-                                    <img src="./resources/img/icons8-podcast-96.png" alt="">
-                                </a>
-                                <a href="https://medium.com/@dillihangrae">
-                                    <img src="./resources/img/icons8-medium-500.png" alt="">
-                                </a>
-
-
-                            </div>
-
-
-                        </h2>
-                    </div>
-                </div>
-            </article>
-            <article id="item-3">
-                <div class="fixed">
-                    <img src="https://fastly.picsum.photos/id/985/1920/1080.jpg?hmac=dLb_5lBJW4AZhZDUXweY5WlrnscpKLtCKffaqSrF9Vw"
-                        alt="">
-                </div>
-                <div class="static">
-                    <div class="content">
-                        <br>
-                        <h2> Namaste, from Nepal 🇳🇵 ⛰ </h2>
-                        <div class="chat-container">
-                            <div class="text-blocks">
-                                <p>What I do or Practice ?</p>
-                                <p> Software Development </p>
-                                <p> Freelancing | Hobby 🎵 </p>
-                                <p> AI Scholar | Enthusiast</p>
-                                <p> Articles, Study & Research .</p>
-                            </div>
-                        </div>
-                        <div class="filler">
-                            <h2> (डिल्ली हाङ् राई) </h2>
+                            alt="">
+                        <div class="content">
+                            <h1>Hello World !</h1>
+                            <h2> I am Dilli Hang Rai. </h2>
+                            <p>
+                                Developer | AI Enthusiast | Freelancer <br>
+                                B.Sc.CSIT Computer Science Student
+                            </p>
                         </div>
                     </div>
+                </article>
+            </section>
+            <section>
+
+                <article id="item-2">
+                    <div class="fixed"></div>
+                    <div class="static">
+                        <div class="content">
+                            <h2>
+                                Let's make Connection...
+
+                                <div class="contact-links">
+
+                                    <a href="https://www.facebook.com/dilli822/" target="_blank"
+                                        class="btn contact-details">
+                                        <img src="./resources/img/icons8-facebook-240.png" alt="">
+                                    </a>
+                                    <a id="profile-link" href="https://github.com/dilli822" target="_blank"
+                                        class="btn contact-details">
+                                        <img src="./resources/img/icons8-github-240.png" alt=""> </a>
+                                    <a href="https://www.instagram.com/dilli_hangrae/" target="_blank"
+                                        class="btn contact-details">
+                                        <img src="./resources/img/icons8-instagram-240.png" alt=""></a>
+                                    <a href="mailto:dillihangrae@gmail.com" class="btn contact-details">
+                                        <img src="./resources/img/icons8-gmail-240.png" alt="">
+                                    </a>
+                                    <a href="https://www.linkedin.com/in/dilli708" target="_blank"
+                                        class="btn contact-details">
+                                        <img src="./resources/img/icons8-linkedin-240.png" alt=""> </a>
+                                    <a href="https://twitter.com/dilli_hangrae" target="_blank"
+                                        class="btn contact-details">
+                                        <img src="./resources/img/icons8-twitter-240.png" alt=""> </a>
+                                    <a href="https://youtube.com/@dilli_hangrae" target="_blank"
+                                        class="btn contact-details">
+                                        <img src="./resources/img/icons8-youtube-480.png" alt="">
+                                    </a>
+                                    <a href="tel:9863521357" class="btn contact-details">
+                                        <img src="./resources/img/icons8-callback-96.png" alt="">
+                                    </a>
+                                    <a href="./podcast.html">
+                                        <img src="./resources/img/icons8-podcast-96.png" alt="">
+                                    </a>
+                                    <a href="https://medium.com/@dillihangrae">
+                                        <img src="./resources/img/icons8-medium-500.png" alt="">
+                                    </a>
+
+
+                                </div>
+
+
+                            </h2>
+                        </div>
+                    </div>
+                </article>
+                <article id="item-3">
+                    <div class="fixed">
+                        <img src="https://fastly.picsum.photos/id/985/1920/1080.jpg?hmac=dLb_5lBJW4AZhZDUXweY5WlrnscpKLtCKffaqSrF9Vw"
+                            alt="">
+                    </div>
+                    <div class="static">
+                        <div class="content">
+                            <br>
+                            <h2> Namaste, from Nepal 🇳🇵 ⛰ </h2>
+
+                            <div class="chat-container">
+                                <div class="text-blocks">
+                                    <p>What I do or Practice ?</p>
+                                    <p> Software Development </p>
+                                    <p> Freelancing | Hobby 🎵 </p>
+                                    <p> AI Scholar | Enthusiast</p>
+                                    <p> Articles, Study & Research .</p>
+
+                                </div>
+                            </div>
+                            <div class="filler">
+                                <h2> (डिल्ली हाङ् राई) </h2>
+
+                                <p> <!-- HTML -->
+                                    &nbsp; &nbsp;&nbsp;
+                                    <a id="resume" href="" download style="text-align: center;
+                                    color: hsl(173 100% 51%)!important; font-size: 22px;">Resume 📄</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <div id="copyright-container"></div>
+                <div style="text-align: right; ">
+                    <p style="font-size: 7px;">Designed Powered By <a href="https://codepen.io/jh3y"
+                            target="_blank">@jh3y</a> &nbsp;<a href="https://codepen.io/kenchen"
+                            target="_blank">@kenchen</a></p>
                 </div>
-            </article>
-            <div id="copyright-container"></div>
-            <div style="text-align: right; ">
-                <p style="font-size: 10px;">Designed Powered By <a href="https://codepen.io/jh3y"
-                        target="_blank">@jh3y</a></p>
-            </div>
-        </section>
+            </section>
 
 
 
-    </main>
+        </main>
+    </div>
+
+    <script>
+        /*!
+ * Particleground
+ *
+ * @author Jonathan Nicol - @mrjnicol
+ * @version 1.1.0
+ * @description Creates a canvas based particle system background
+ *
+ * Inspired by http://requestlab.fr/ and http://disruptivebydesign.com/
+ */
+        !function (a, b) { "use strict"; function c(a) { a = a || {}; for (var b = 1; b < arguments.length; b++) { var c = arguments[b]; if (c) for (var d in c) c.hasOwnProperty(d) && ("object" == typeof c[d] ? deepExtend(a[d], c[d]) : a[d] = c[d]) } return a } function d(d, g) { function h() { if (y) { r = b.createElement("canvas"), r.className = "pg-canvas", r.style.display = "block", d.insertBefore(r, d.firstChild), s = r.getContext("2d"), i(); for (var c = Math.round(r.width * r.height / g.density), e = 0; c > e; e++) { var f = new n; f.setStackPos(e), z.push(f) } a.addEventListener("resize", function () { k() }, !1), b.addEventListener("mousemove", function (a) { A = a.pageX, B = a.pageY }, !1), D && !C && a.addEventListener("deviceorientation", function () { F = Math.min(Math.max(-event.beta, -30), 30), E = Math.min(Math.max(-event.gamma, -30), 30) }, !0), j(), q("onInit") } } function i() { r.width = d.offsetWidth, r.height = d.offsetHeight, s.fillStyle = g.dotColor, s.strokeStyle = g.lineColor, s.lineWidth = g.lineWidth } function j() { if (y) { u = a.innerWidth, v = a.innerHeight, s.clearRect(0, 0, r.width, r.height); for (var b = 0; b < z.length; b++)z[b].updatePosition(); for (var b = 0; b < z.length; b++)z[b].draw(); G || (t = requestAnimationFrame(j)) } } function k() { i(); for (var a = d.offsetWidth, b = d.offsetHeight, c = z.length - 1; c >= 0; c--)(z[c].position.x > a || z[c].position.y > b) && z.splice(c, 1); var e = Math.round(r.width * r.height / g.density); if (e > z.length) for (; e > z.length;) { var f = new n; z.push(f) } else e < z.length && z.splice(e); for (c = z.length - 1; c >= 0; c--)z[c].setStackPos(c) } function l() { G = !0 } function m() { G = !1, j() } function n() { switch (this.stackPos, this.active = !0, this.layer = Math.ceil(3 * Math.random()), this.parallaxOffsetX = 0, this.parallaxOffsetY = 0, this.position = { x: Math.ceil(Math.random() * r.width), y: Math.ceil(Math.random() * r.height) }, this.speed = {}, g.directionX) { case "left": this.speed.x = +(-g.maxSpeedX + Math.random() * g.maxSpeedX - g.minSpeedX).toFixed(2); break; case "right": this.speed.x = +(Math.random() * g.maxSpeedX + g.minSpeedX).toFixed(2); break; default: this.speed.x = +(-g.maxSpeedX / 2 + Math.random() * g.maxSpeedX).toFixed(2), this.speed.x += this.speed.x > 0 ? g.minSpeedX : -g.minSpeedX }switch (g.directionY) { case "up": this.speed.y = +(-g.maxSpeedY + Math.random() * g.maxSpeedY - g.minSpeedY).toFixed(2); break; case "down": this.speed.y = +(Math.random() * g.maxSpeedY + g.minSpeedY).toFixed(2); break; default: this.speed.y = +(-g.maxSpeedY / 2 + Math.random() * g.maxSpeedY).toFixed(2), this.speed.x += this.speed.y > 0 ? g.minSpeedY : -g.minSpeedY } } function o(a, b) { return b ? void (g[a] = b) : g[a] } function p() { console.log("destroy"), r.parentNode.removeChild(r), q("onDestroy"), f && f(d).removeData("plugin_" + e) } function q(a) { void 0 !== g[a] && g[a].call(d) } var r, s, t, u, v, w, x, y = !!b.createElement("canvas").getContext, z = [], A = 0, B = 0, C = !navigator.userAgent.match(/(iPhone|iPod|iPad|Android|BlackBerry|BB10|mobi|tablet|opera mini|nexus 7)/i), D = !!a.DeviceOrientationEvent, E = 0, F = 0, G = !1; return g = c({}, a[e].defaults, g), n.prototype.draw = function () { s.beginPath(), s.arc(this.position.x + this.parallaxOffsetX, this.position.y + this.parallaxOffsetY, g.particleRadius / 2, 0, 2 * Math.PI, !0), s.closePath(), s.fill(), s.beginPath(); for (var a = z.length - 1; a > this.stackPos; a--) { var b = z[a], c = this.position.x - b.position.x, d = this.position.y - b.position.y, e = Math.sqrt(c * c + d * d).toFixed(2); e < g.proximity && (s.moveTo(this.position.x + this.parallaxOffsetX, this.position.y + this.parallaxOffsetY), g.curvedLines ? s.quadraticCurveTo(Math.max(b.position.x, b.position.x), Math.min(b.position.y, b.position.y), b.position.x + b.parallaxOffsetX, b.position.y + b.parallaxOffsetY) : s.lineTo(b.position.x + b.parallaxOffsetX, b.position.y + b.parallaxOffsetY)) } s.stroke(), s.closePath() }, n.prototype.updatePosition = function () { if (g.parallax) { if (D && !C) { var a = (u - 0) / 60; w = (E - -30) * a + 0; var b = (v - 0) / 60; x = (F - -30) * b + 0 } else w = A, x = B; this.parallaxTargX = (w - u / 2) / (g.parallaxMultiplier * this.layer), this.parallaxOffsetX += (this.parallaxTargX - this.parallaxOffsetX) / 10, this.parallaxTargY = (x - v / 2) / (g.parallaxMultiplier * this.layer), this.parallaxOffsetY += (this.parallaxTargY - this.parallaxOffsetY) / 10 } var c = d.offsetWidth, e = d.offsetHeight; switch (g.directionX) { case "left": this.position.x + this.speed.x + this.parallaxOffsetX < 0 && (this.position.x = c - this.parallaxOffsetX); break; case "right": this.position.x + this.speed.x + this.parallaxOffsetX > c && (this.position.x = 0 - this.parallaxOffsetX); break; default: (this.position.x + this.speed.x + this.parallaxOffsetX > c || this.position.x + this.speed.x + this.parallaxOffsetX < 0) && (this.speed.x = -this.speed.x) }switch (g.directionY) { case "up": this.position.y + this.speed.y + this.parallaxOffsetY < 0 && (this.position.y = e - this.parallaxOffsetY); break; case "down": this.position.y + this.speed.y + this.parallaxOffsetY > e && (this.position.y = 0 - this.parallaxOffsetY); break; default: (this.position.y + this.speed.y + this.parallaxOffsetY > e || this.position.y + this.speed.y + this.parallaxOffsetY < 0) && (this.speed.y = -this.speed.y) }this.position.x += this.speed.x, this.position.y += this.speed.y }, n.prototype.setStackPos = function (a) { this.stackPos = a }, h(), { option: o, destroy: p, start: m, pause: l } } var e = "particleground", f = a.jQuery; a[e] = function (a, b) { return new d(a, b) }, a[e].defaults = { minSpeedX: .1, maxSpeedX: .7, minSpeedY: .1, maxSpeedY: .7, directionX: "center", directionY: "center", density: 1e4, dotColor: "#666666", lineColor: "#666666", particleRadius: 7, lineWidth: 1, curvedLines: !1, proximity: 100, parallax: !0, parallaxMultiplier: 5, onInit: function () { }, onDestroy: function () { } }, f && (f.fn[e] = function (a) { if ("string" == typeof arguments[0]) { var b, c = arguments[0], g = Array.prototype.slice.call(arguments, 1); return this.each(function () { f.data(this, "plugin_" + e) && "function" == typeof f.data(this, "plugin_" + e)[c] && (b = f.data(this, "plugin_" + e)[c].apply(this, g)) }), void 0 !== b ? b : this } return "object" != typeof a && a ? void 0 : this.each(function () { f.data(this, "plugin_" + e) || f.data(this, "plugin_" + e, new d(this, a)) }) }) }(window, document),/**
+ * requestAnimationFrame polyfill by Erik Möller. fixes from Paul Irish and Tino Zijdel
+ * @see: http://paulirish.com/2011/requestanimationframe-for-smart-animating/
+ * @see: http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating
+ * @license: MIT license
+ */
+            function () { for (var a = 0, b = ["ms", "moz", "webkit", "o"], c = 0; c < b.length && !window.requestAnimationFrame; ++c)window.requestAnimationFrame = window[b[c] + "RequestAnimationFrame"], window.cancelAnimationFrame = window[b[c] + "CancelAnimationFrame"] || window[b[c] + "CancelRequestAnimationFrame"]; window.requestAnimationFrame || (window.requestAnimationFrame = function (b) { var c = (new Date).getTime(), d = Math.max(0, 16 - (c - a)), e = window.setTimeout(function () { b(c + d) }, d); return a = c + d, e }), window.cancelAnimationFrame || (window.cancelAnimationFrame = function (a) { clearTimeout(a) }) }();
+
+
+        particleground(document.getElementById('particles-foreground'), {
+            dotColor: 'rgba(255, 255, 255, 1)',
+            lineColor: 'rgba(255, 255, 255, 0.05)',
+            minSpeedX: 0.3,
+            maxSpeedX: 0.6,
+            minSpeedY: 0.3,
+            maxSpeedY: 0.6,
+            density: 50000, // One particle every n pixels
+            curvedLines: false,
+            proximity: 250, // How close two dots need to be before they join
+            parallaxMultiplier: 10, // Lower the number is more extreme parallax
+            particleRadius: 4, // Dot size
+        });
+
+        particleground(document.getElementById('particles-background'), {
+            dotColor: 'rgba(255, 255, 255, 0.5)',
+            lineColor: 'rgba(255, 255, 255, 0.05)',
+            minSpeedX: 0.075,
+            maxSpeedX: 0.15,
+            minSpeedY: 0.075,
+            maxSpeedY: 0.15,
+            density: 30000, // One particle every n pixels
+            curvedLines: false,
+            proximity: 20, // How close two dots need to be before they join
+            parallaxMultiplier: 20, // Lower the number is more extreme parallax
+            particleRadius: 2, // Dot size
+        });
+
+    </script>
 
 
     <script>
+        document.getElementById("loader-wrapper").style.display = "block";
+        document.getElementById("homeCSS").href = "";
+        document.getElementById("content").style.display = "none";
         // Function to update the document title based on the URL pathname
         function updateTitle() {
             const pageTitle = "Dilli Hang Rai"; // Default title
             const path = window.location.pathname;
             const trimmedPath = path.replace(/^\/|\.html$/g, ''); // Remove leading slash and '.html' extension
-            if (trimmedPath === "index") {
+            if (trimmedPath === "index" || trimmedPath === "") {
                 document.title = `${pageTitle} | Portfolio`; // Set the title to "Dilli Hang Rai | Portfolio"
             } else {
                 // Update the document title with the trimmed path
@@ -706,7 +250,7 @@
         function createCopyright() {
             const currentYear = new Date().getFullYear(); // Get the current year
             const copyrightDiv = document.createElement('div'); // Create a div element
-            copyrightDiv.innerHTML = `&copy; 1999 - ${currentYear} Dilli Hang Rai. All rights reserved.`; // Set inner HTML
+            copyrightDiv.innerHTML = `&copy; ${currentYear} Dilli Hang Rai. All rights reserved.`; // Set inner HTML
             copyrightDiv.style.textAlign = 'center'; // Center align the text
             copyrightDiv.style.padding = '10px'; // Add some padding// Add background color
 
@@ -717,6 +261,13 @@
 
         // Call the function to create the copyright div
         createCopyright();
+
+
+
+        document.getElementById("loader-wrapper").style.display = "none";
+        document.getElementById("loaderCSS").href = "";
+        document.getElementById("homeCSS").href = "./resources/styles/main.css";
+        document.getElementById("content").style.display = "block";
 
 
     </script>
