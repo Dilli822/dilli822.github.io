@@ -6,241 +6,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dilli Hang Rai | Project </title>
     <link rel="shortcut icon" href="./resources/favicon/favicon.ico" type="image/x-icon">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            height: 100vh;
-            display: grid;
-            place-items: center;
-            overflow: hidden;
-        }
-
-        main {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .item {
-            width: 200px;
-            height: 300px;
-            list-style-type: none;
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            z-index: 1;
-            background-position: center;
-            background-size: cover;
-            border-radius: 20px;
-            box-shadow: 0 20px 30px rgba(255, 255, 255, 0.3) inset;
-            transition: transform 0.1s, left 0.75s, top 0.75s, width 0.75s, height 0.75s;
-
-            &:nth-child(1),
-            &:nth-child(2) {
-                left: 0;
-                top: 0;
-                width: 100%;
-                height: 100%;
-                transform: none;
-                border-radius: 0;
-                box-shadow: none;
-                opacity: 1;
-            }
-
-            &:nth-child(3) {
-                left: 50%;
-            }
-
-            &:nth-child(4) {
-                left: calc(50% + 220px);
-            }
-
-            &:nth-child(5) {
-                left: calc(50% + 440px);
-            }
-
-            &:nth-child(6) {
-                left: calc(50% + 660px);
-                opacity: 0;
-            }
-        }
-
-        .content {
-            width: min(30vw, 400px);
-            position: absolute;
-            top: 50%;
-            left: 3rem;
-            transform: translateY(-50%);
-            font: 300 0.85rem helvetica, sans-serif;
-            color: rgb(255, 255, 255);
-            text-shadow: 0 3px 8px rgb(0, 0, 0);
-            opacity: 0;
-            display: none;
-
-            & .title {
-                font-family: 'arial-black';
-                font-size: 2.5rem;
-            }
-
-            & .description {
-                line-height: 1.7;
-                margin: 1rem 0 1.5rem;
-                font-size: 1rem;
-            }
-
-            & button {
-                width: fit-content;
-                background-color: rgba(17, 17, 17, 0.83);
-                color: rgb(233, 233, 233);
-                font-weight: bold;
-                border: 0px solid rgb(214, 214, 214);
-                border-radius: 0.35rem;
-                padding: 0.75rem;
-                cursor: pointer;
-            }
-        }
-
-        .item:nth-of-type(2) .content {
-            display: block;
-            animation: show 0.75s ease-in-out 0.3s forwards;
-        }
-
-        @keyframes show {
-            0% {
-                filter: blur(5px);
-                transform: translateY(calc(-50% + 75px));
-            }
-
-            100% {
-                opacity: 1;
-                filter: blur(0);
-            }
-        }
-
-        .nav {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 5;
-            user-select: none;
-
-            & .btn {
-                background-color: rgb(255, 255, 255);
-                color: rgba(0, 0, 0, 0.7);
-                border: 2px solid rgb(0, 0, 0);
-                margin: 0 0.25rem;
-                padding: 0.75rem;
-                border-radius: 50%;
-                cursor: pointer;
-
-                &:hover {
-                    background-color: rgb(255, 255, 255);
-                }
-            }
-        }
-
-        @media (width > 650px) and (width < 900px) {
-            .content {
-                & .title {
-                    font-size: 1rem;
-                }
-
-                & .description {
-                    font-size: 0.7rem;
-                }
-
-                & button {
-                    font-size: 0.7rem;
-                }
-            }
-
-            .item {
-                width: 160px;
-                height: 270px;
-
-                &:nth-child(3) {
-                    left: 50%;
-                }
-
-                &:nth-child(4) {
-                    left: calc(50% + 170px);
-                }
-
-                &:nth-child(5) {
-                    left: calc(50% + 340px);
-                }
-
-                &:nth-child(6) {
-                    left: calc(50% + 510px);
-                    opacity: 0;
-                }
-            }
-        }
-
-        @media (width < 650px) {
-            .content {
-                & .title {
-                    font-size: 0.9rem;
-                }
-
-                & .description {
-                    font-size: 0.65rem;
-                }
-
-                & button {
-                    font-size: 0.7rem;
-                }
-            }
-
-            .item {
-                width: 130px;
-                height: 220px;
-
-                &:nth-child(3) {
-                    left: 50%;
-                }
-
-                &:nth-child(4) {
-                    left: calc(50% + 140px);
-                }
-
-                &:nth-child(5) {
-                    left: calc(50% + 280px);
-                }
-
-                &:nth-child(6) {
-                    left: calc(50% + 420px);
-                    opacity: 0;
-                }
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="./resources/styles/loader..css" id="loaderCSS" />
+    <link rel="stylesheet" href="./resources/styles/project.css" id="projectCSS">   
 </head>
+
 <body>
-    <main>
+
+    <div id="loader-wrapper" style="display: block;">
+        <div id="particles-background" class="vertical-centered-box"></div>
+        <div id="particles-foreground" class="vertical-centered-box"></div>
+        <div class="vertical-centered-box">
+            <div class="content">
+                <div class="loader-circle">
+                    <svg width="72px" height="72px" viewBox="0 0 72 72"
+                        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                        <circle cx="36" cy="36" r="36" fill="none" stroke="none" style="stroke-width: 0; fill: #000;" />
+                        <clipPath id="circleClip">
+                            <circle cx="36" cy="36" r="36" />
+                        </clipPath>
+                        <image href="./resources/img/dillihangrailogo.png" width="72" height="72"
+                            clip-path="url(#circleClip)" />
+                    </svg>
+
+                    <!-- End of SVG logo code -->
+                </div>
+                <div class="loader-line-mask">
+                    <div class="loader-line"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main id="homeCSS">
         <section>
             <ul class='slider'> </ul>
-            <nav class='nav'>
+
+            <nav class='nav' style="display: flex; align-items: center;">
+                <!-- <ion-icon class='btn prev' name="arrow-back-outline"></ion-icon>
+                <span> Explore Some of My Projects</span>
+                <ion-icon class='btn next' name="arrow-forward-outline"></ion-icon> -->
+
                 <ion-icon class='btn prev' name="arrow-back-outline"></ion-icon>
+                <span style="font-family: Arial, sans-serif; text-align: center;"> Click Some of My Projects.</span>
                 <ion-icon class='btn next' name="arrow-forward-outline"></ion-icon>
+
             </nav>
 
         </section>
 
         <div>
             <h4 style="text-align: right;">
-                <p style="font-size: 7px;">Designed Powered By <a href="https://codepen.io/noirsociety" target="_blank">@noirsociety</a> &nbsp; </p>
+                <p style="font-size: 7px;">Designed Powered By <a href="https://codepen.io/noirsociety"
+                        target="_blank">@noirsociety</a> &nbsp; </p>
             </h4>
         </div>
     </main>
-
+    <script>
+        document.getElementById("loader-wrapper").style.display = "block";
+        document.getElementById("projectCSS").href = "";
+        document.getElementById("content").style.display = "none";
+    </script>
+    <script src="./resources/script/particles.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <script>
@@ -307,8 +133,9 @@
                 {
                     "title": "Blog App",
                     "description": "Full Stack Web Application ~ Final Project of LevelUp Boot Camp.",
-                    "href": "https://github.com/Dilli822/blogapp",
-                    "backgroundImage": "./resources/img/launching soon2.jpeg"
+                    "href": "https://blogapp-b3ah90p27-dilli822s-projects.vercel.app/",
+                    // "backgroundImage": "./resources/img/launching soon2.jpeg"
+                    "backgroundImage": "./resources/img/SSBLOGAPP.png"
                 },
                 {
                     "title": "Lite CSIT Solution",
@@ -338,7 +165,7 @@
                 description.textContent = itemData.description;
 
                 const button = document.createElement('button');
-                button.textContent = 'Read More';
+                button.textContent = 'Go to Project';
                 // Add event listener to the button
                 button.addEventListener('click', () => handleButtonClick(itemData.href));
 
@@ -353,7 +180,12 @@
         }
 
         document.addEventListener('DOMContentLoaded', populateSlider);
+        document.getElementById("loader-wrapper").style.display = "none";
+        document.getElementById("loaderCSS").href = "";
+        document.getElementById("projectCSS").href = "./resources/styles/project.css";
+        document.getElementById("content").style.display = "block";
     </script>
 
 </body>
+
 </html>

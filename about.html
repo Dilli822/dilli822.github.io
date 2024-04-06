@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dilli Hang Rai | About </title>
+    <link rel="shortcut icon" href="./resources/favicon/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+        integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="./resources/styles/loader..css" id="loaderCSS" />
+    <link rel="stylesheet" href="./resources/styles/about.css" id="aboutCSS" />
+
+    <style>
+        /* Your CSS styles */
+        img {
+            max-width: 100%;
+            width: 100%;
+            opacity: 0.5;
+            border-radius: 5px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+            /* Adjust max-width as needed */
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 15px;
+            padding-right: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="loader-wrapper" style="display: block;">
+        <div id="particles-background" class="vertical-centered-box"></div>
+        <div id="particles-foreground" class="vertical-centered-box"></div>
+
+        <div class="vertical-centered-box">
+            <div class="content">
+                <div class="loader-circle">
+                    <svg width="72px" height="72px" viewBox="0 0 72 72"
+                        style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+                        <circle cx="36" cy="36" r="36" fill="none" stroke="none" style="stroke-width: 0; fill: #000;" />
+                        <clipPath id="circleClip">
+                            <circle cx="36" cy="36" r="36" />
+                        </clipPath>
+                        <image href="./resources/img/dillihangrailogo.png" width="72" height="72"
+                            clip-path="url(#circleClip)" />
+                    </svg>
+
+                    <!-- End of SVG logo code -->
+                </div>
+                <div class="loader-line-mask">
+                    <div class="loader-line"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main id="content" style="display: none;">
+        <div class="scrollbar"></div>
+        <div class="container">
+        </div>
+    </main>
+
+    <script>
+        document.getElementById("loader-wrapper").style.display = "block";
+        document.getElementById("aboutCSS").href = "";
+        document.getElementById("content").style.display = "none";
+    </script>
+    <script>
+        const jsonData = [
+            {
+                "type": "div",
+                "content": [
+                    {
+                        "type": "p",
+                        "content": "Learning Today, Tomorrow, and Beyond"
+                    },
+                    {
+                        "type": "h1",
+                        "content": "Learning Trip 📌"
+                    },
+                    {
+                        "type": "h2",
+                        "content": "Transitioning from HTML to Full Stack Development..."
+                    },
+                    {
+                        "type": "h4",
+                        "content": "Continuing Development Journey Since 2021 ~ Present."
+                    }
+                ]
+            },
+            {
+                "type": "img",
+                "attributes": {
+
+                    "alt": ""
+                },
+            },
+            {
+                "type": "div",
+                "content": [
+                    {
+                        "type": "h2",
+                        "content": "Read ~ Write Articles"
+                    },
+                    {
+                        "type": "p",
+                        "content": "I study, write & share academic articles related to Computer Science, Algorithms, and Maths.at Linkedin & Medium. "
+                    }
+                ]
+            },
+            {
+                "type": "div",
+                "content": [
+                    {
+                        "type": "h2",
+                        "content": "AI Enthusiast"
+                    },
+                    {
+                        "type": "h3",
+                        "content": "Learning AI ~ ML Since 2024 "
+                    }
+                    ,
+                ]
+            }
+            ,
+            {
+                "type": "div",
+                "content": [
+                    {
+                        "type": "h2",
+                        "content": "Research Papers"
+                    },
+                    {
+                        "type": "h4",
+                        "content": "Coming Soon..."
+                    }
+                ]
+            },
+
+            {
+                "type": "div",
+                "content": [
+                    {
+                        "type": "h2",
+                        "content": "Close Podcast ~ Causal / Informal"
+                    },
+                    {
+                        "type": "p",
+                        "content": "Disclaimer: We are not experts and are not intentionally criticizing any particular individual. "
+                    }
+                    ,
+                    {
+                        "type": "iframe",
+                        "attributes": {
+                            "src": "https://www.youtube.com/embed/k6aZ5TSR3VQ",
+                            "width": "100%",
+                            "height": "315",
+                            "frameborder": "0",
+                            "allowfullscreen": true
+                        }
+                    }
+                ]
+            }
+            ,
+            {
+                "type": "p",
+                "content": "Close Podcast is a midnight conversation between two close friends Nishal (Right Side) & Dilli Hang (Left Side) discussing various topics like Spirituality, Failures/Success, and Trekking from life experiences.It is an unfiltered normal causal chat and talk from our up-to-date knowledge, experiences, and thought processes.We only share our perspectives views, experiences, thoughts, OPINIONS, and knowledge. Amid our discussions, we often find ourselves caught in the overwhelmed moment, sharing real and unfiltered thoughts .",
+            },
+            {
+                "type": "div",
+                "content": [
+                    {
+                        "type": "h2",
+                        "content": "Music "
+                    }
+                    ,
+                    {
+                        "type": "iframe",
+                        "attributes": {
+                            "src": "https://www.youtube.com/embed/5AGwPFtB-M0",
+                            "width": "100%",
+                            "height": "315",
+                            "frameborder": "0",
+                            "allowfullscreen": true
+                        }
+                    }
+                ]
+            }
+            ,
+            {
+                "type": "p",
+                "content": "Yes,I do Play Music. Deeply in love with Music, Nature and Computer Science (0 & 1). Passive Music Producer.",
+            },
+
+        ];
+
+        const container = document.querySelector('.container');
+
+        jsonData.forEach(item => {
+            const element = createElement(item);
+            container.appendChild(element);
+        });
+
+        function createElement(elementData) {
+            const element = document.createElement(elementData.type);
+
+            if (elementData.attributes) {
+                for (const [key, value] of Object.entries(elementData.attributes)) {
+                    element.setAttribute(key, value);
+                }
+            }
+
+            if (elementData.content) {
+                if (Array.isArray(elementData.content)) {
+                    elementData.content.forEach(childElementData => {
+                        const childElement = createElement(childElementData);
+                        element.appendChild(childElement);
+                    });
+                } else if (typeof elementData.content === 'object') {
+                    const childElement = createElement(elementData.content);
+                    element.appendChild(childElement);
+                } else {
+                    element.textContent = elementData.content;
+                }
+            }
+
+            // Add event listener for <a> elements to navigate to the href when clicked
+            if (element.tagName.toLowerCase() === 'a' && element.getAttribute('href')) {
+                element.addEventListener('click', function (event) {
+                    event.preventDefault(); // Prevent default behavior (navigating to the href)
+                    window.location.href = element.getAttribute('href'); // Navigate to the href
+                });
+            }
+
+            return element;
+        }
+
+    </script>
+
+    <script>
+        document.getElementById("loader-wrapper").style.display = "none";
+        document.getElementById("loaderCSS").href = "";
+        document.getElementById("aboutCSS").href = "./resources/styles/about.css";
+        document.getElementById("content").style.display = "block";
+    </script>
+</body>
+
+</html>

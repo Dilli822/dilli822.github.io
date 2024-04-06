@@ -550,6 +550,7 @@ a {
     text-decoration: none;
 }
 
+
 @media (max-width: 676px) {
     * {
         font-size: 14px;
