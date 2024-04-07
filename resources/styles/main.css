@@ -550,6 +550,18 @@ a {
     text-decoration: none;
 }
 
+#about{
+    cursor: pointer;
+    transition: color 0.5s ease;
+}
+#about:hover{
+    color: #f5f;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: color 0.63s ease-in-out; 
+
+
+}
 
 @media (max-width: 676px) {
     * {
