@@ -7,10 +7,11 @@
 *:after,
 *:before {
     box-sizing: border-box;
+    font-weight: 60!important;
 }
 
 a {
-    color: #fff;
+    color: #a7a5a5;
 }
 
 html {
@@ -45,7 +46,7 @@ article {
 
 :is(h1, h2) {
     font-weight: 70;
-    font-size: clamp(2.5rem, 3.35vw + 1rem, 8rem);
+    font-size: clamp(2rem, 3.35vw + 1rem, 5rem);
     letter-spacing: -0.075ch;
     margin: 0;
 }
