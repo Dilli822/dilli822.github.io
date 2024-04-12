@@ -59,7 +59,7 @@
   }
   body {
     margin: 0;
-    background: black;
+    background: rgb(113, 113, 113);
 	font-family: sans-serif;
   }
   .scrollbar {
@@ -213,7 +213,7 @@
   }
   body {
     margin: 0;
-    background: black;
+    background-color: rgb(12, 12, 12);
     font-family: sans-serif;
   }
   .scrollbar {
@@ -1567,4 +1567,18 @@
 svg {
 	width: 45%;
 	height: auto;
+}
+
+
+li a{
+    cursor: pointer;
+    transition: color 0.5s ease;
+}
+li a:hover{
+    color: #f5f;
+    cursor: pointer;
+    text-decoration: underline;
+    transition: color 0.63s ease-in-out; 
+
+
 }

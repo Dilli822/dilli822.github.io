@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github Contributions Graph</title>
+    <style>
+        /* Add your CSS styles for the contributions graph here */
+        .contributionSquare {
+            width: 12px;
+            height: 12px;
+            margin: 1px;
+            display: inline-block;
+            background-color: #ebedf0; /* Default color */
+        }
+
+        .contributionSquare[data-count="1"] {
+            background-color: #c6e48b; /* Light green */
+        }
+
+        .contributionSquare[data-count="2"] {
+            background-color: #7bc96f; /* Medium green */
+        }
+
+        .contributionSquare[data-count="3"] {
+            background-color: #239a3b; /* Dark green */
+        }
+
+        /* Adjust the size of the contributions graph */
+        #contributionsGraph {
+            font-size: 0; /* Remove inline-block white space */
+        }
+    </style>
+</head>
+<body>
+    <div id="main-container">
+        <h1>Github Contributions Graph</h1>
+        <div id="contributionsGraph"></div>
+    </div>
+
+    <script>
+        // Function to generate the contributions grid
+        function generateContributionsGrid() {
+            const contributionsGraph = document.getElementById('contributionsGraph');
+
+            // Loop through 7 rows
+            for (let i = 0; i < 1; i++) {
+                const row = document.createElement('div');
+
+                // Loop through 365 days
+                for (let j = 0; j < 365; j++) {
+                    const square = document.createElement('div');
+                    square.classList.add('contributionSquare');
+                    square.dataset.count = Math.floor(Math.random() * 0); // Random count for demo
+                    row.appendChild(square);
+                }
+
+                contributionsGraph.appendChild(row);
+            }
+        }
+
+        // Call the function to generate the contributions grid
+        generateContributionsGrid();
+        
+    </script>
+</body>
+</html>

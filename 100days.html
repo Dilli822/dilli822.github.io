@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dilli Hang Rai | 100DaysOfLearning ~ Articles </title>
+    <link rel="shortcut icon" href="./resources/favicon/favicon.ico" type="image/x-icon">
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Roboto:wght@100;400&display=swap");
+
+        body {
+            word-spacing: 1px;
+
+        }
+
+        .path-cont {
+            position: fixed;
+            width: 15vw;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            /* color: #FBF7F490; */
+            /* color: #ffffff; */
+            z-index: -10;
+        }
+
+        .svgpath {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            inset: 0;
+        }
+
+        .svgpath path {
+            /* stroke: #FBF7F430; */
+            stroke: #535253da;
+        }
+
+        .obj {
+            position: absolute;
+            offset-path: polygon(51% 0%, 61% 7%, 69% 12%, 74% 18%, 72% 25%, 62% 29%, 45% 32%, 29% 32%, 13% 26%, 20% 19%, 37% 15%, 56% 15%, 68% 17%, 80% 24%, 82% 31%, 76% 37%, 67% 43%, 57% 49%, 44% 55%, 35% 60%, 26% 66%, 25% 70%, 30% 75%, 36% 81%, 46% 86%, 55% 91%, 65% 96%, 72% 99%);
+            animation: followpath linear;
+            animation-timeline: scroll();
+        }
+
+        @keyframes followpath {
+            from {
+                offset-distance: 2%;
+            }
+
+            to {
+                offset-distance: 60%;
+            }
+        }
+
+        body {
+            background-color: #e2e2e2f5;
+            color: #141414e0;
+            font-family: Roboto, sans-serif;
+            font-weight: 400;
+        }
+
+        h1 {
+            font-family: "Architects Daughter", cursive;
+            /* font-size: clamp(2rem, 8vw + 1rem, 10rem); */
+            font-size: 2rem;
+            line-height: 1;
+            margin: 0;
+            /* background-image: linear-gradient(#ff6090, #E23636); */
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            color: #1c1c1c;
+        }
+
+        p {
+            line-height: 1.5;
+
+        }
+
+        .big-thing {
+            width: min(80ch, 100% - 3rem);
+            margin: 0 auto;
+        }
+
+        .obj {
+            --bg: rgb(255, 255, 255);
+            --brd: #ff6060;
+            width: 3vmin;
+            height: 1.5vmin;
+            border-top-right-radius: 30% 20%;
+            border-bottom-right-radius: 30% 20%;
+            border-top-left-radius: 30% 15%;
+            border-bottom-left-radius: 30% 15%;
+            border: 1px solid var(--brd);
+            border-width: 0.5vmin 2.5vmin 0.5vmin 0.8vmin;
+            box-shadow: 0 0 0 0.08em #000;
+            background-color: var(--bg);
+        }
+
+        .path-cont:before {
+            content: "0%";
+            position: absolute;
+            left: 40%;
+        }
+
+        .path-cont:after {
+            content: "100%";
+            position: absolute;
+            right: 0;
+            bottom: 0;
+        }
+
+        a {
+            color: #fe2667;
+            text-decoration-color: #ffafaf90;
+        }
+
+        h2 {
+            color: #ff6060;
+            font-family: "Architects Daughter", cursive;
+            letter-spacing: initial;
+        }
+
+        *,
+        p {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            letter-spacing: 1px;
+        }
+
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-weight: normal;
+            font-size: 1.5rem;
+        }
+    </style>
+
+    <script>
+        window.console = window.console || function (t) { };
+    </script>
+
+
+
+</head>
+
+<body translate="no" data-new-gr-c-s-check-loaded="14.1061.0" data-gr-ext-installed="">
+    <div class="path-cont">
+        <svg class="svgpath" preserveAspectRatio="none" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <path fill="none" stroke-dasharray="5,3" stroke="#0070f3"
+                d="M51,0 L61,7 L69,12 L74,18 L72,25 L62,29 L45,32 L29,32 L13,26 L20,19 L37,15 L56,15 L68,17 L80,24 L82 31 L76,37 L67,43 L57,49 L44,55 L35,60 L26,66 L25,70 L30,75 L36,81 L46,86 L55,91 L65,96 L72,99">
+            </path>
+        </svg>
+        <div class="obj"></div>
+    </div>
+
+    <div class="big-thing"></div>
+
+    <footer>
+        <h6 style="text-align: right; font-size: 7px;">
+            Design Powered by
+            <a href="https://codepen.io/ghaste" target="_blank">Amit</a>
+        </h6>
+    </footer>
+
+    <script>
+        // const jsonData = [
+        //     { 
+        //         "type": "h1",
+        //         "content": "DFS"
+        //     },
+        //     { 
+        //         "type": "p",
+        //         "content": "<strong>Sadly no love in firefox and safari yet for animation timeline, have to wait on such implementations.</strong>"
+        //     },
+        //     { 
+        //         "type": "iframe",
+        //         "content": ""
+        //     },
+
+        //     { 
+        //         "type": "p",
+        //         "content": "<a href='https://codepen.io/ghaste/pen/PoVWgZp' target='_blank'>SVG path </a>based offset-path does not support responsive design, which is another draw-back."
+        //     },
+        //     { 
+        //         "type": "p",
+        //         "content": "You can use a <strong>polygon path</strong>, which is responsive, but you will then have to create that visible path yourself (intentionally terrible job here). It will not be a smooth path as shown here."
+        //     },
+        //     { 
+        //         "type": "p",
+        //         "content": "I found that the <a href='https://bennettfeely.com/clippy/' target='_blank'>Clippy</a> - clip-path generator can be used for generating the polygon."
+        //     },
+        //     { 
+        //         "type": "p",
+        //         "content": "A reflex agent is a type of artificial intelligence (AI) agent that makes decisions based solely on the current state of the environment, without considering the history of past states. It reacts to sensory input using predefined rules or conditions. A vacuum cleaner can be considered a simple reflex agent, especially if it operates based on basic sensor input and a set of predefined rules."
+        //     },
+
+        //     { 
+        //         "type": "separator" // Separator between the two sets of data
+        //     },
+
+        //     { 
+        //         "type": "h1",
+        //         "content": "BFS"
+        //     },
+        //     { 
+        //         "type": "p",
+        //         "content": "<strong>Sadly no love in firefox and safari yet for animation timeline, have to wait on such implementations.</strong>"
+        //     },
+        //     { 
+        //         "type": "p",
+        //         "content": "<a href='https://codepen.io/ghaste/pen/PoVWgZp' target='_blank'>SVG path </a>based offset-path does not support responsive design, which is another draw-back."
+        //     },
+        //     { 
+        //         "type": "p",
+        //         "content": "You can use a <strong>polygon path</strong>, which is responsive, but you will then have to create that visible path yourself (intentionally terrible job here). It will not be a smooth path as shown here."
+        //     },
+        //     { 
+        //         "type": "p",
+        //         "content": "I found that the <a href='https://bennettfeely.com/clippy/' target='_blank'>Clippy</a> - clip-path generator can be used for generating the polygon."
+        //     },
+        //     { 
+        //         "type": "p",
+        //         "content": "A reflex agent is a type of artificial intelligence (AI) agent that makes decisions based solely on the current state of the environment, without considering the history of past states. It reacts to sensory input using predefined rules or conditions. A vacuum cleaner can be considered a simple reflex agent, especially if it operates based on basic sensor input and a set of predefined rules."
+        //     }
+        // ];
+
+        const jsonData = [
+            {
+                "type": "separator" // Separator between the two sets of data
+            },
+            {
+                "class": "heading",
+                "type": "h1",
+                "content": "⋉“Learning Today, Tomorrow, and Beyond”",
+            },
+
+            {
+                "type": "h2",
+                "content": "“🎓Just Graduated from 100DaysOfCode/100DaysOfLearning.”"
+            },
+            {
+                "type": "span",
+                "content": "April 14, 2024 ~ Dilli Hang Rai"
+            },
+            {
+                "type": "p",
+                "content": "Hello Everyone, I’m Dilli Hang Rai a B.Sc.CSIT Student, Developer, and AI Enthusiast. I am going to write about my 100DaysOfLearning experiences, opinions, insights, and tips and will also share some of my learning resources."
+            },
+            {
+                "type": "separator" // Separator between the two sets of data
+            },
+
+            {
+                "type": "h3",
+                "content": " What is 100DaysOfLearning or 100DaysOfCode?",
+            },
+            {
+                "type": "p",
+                "content": " Self-Guided Learning and Posting New things Continuously for 100 days.In other words, It is like a marathon for learners to learn any coding stuff, CS concepts, technology, and anything related to IT and Computer Science each day, and post them continuously on social media for 100 Days. Remember it’s a commitment, self-driven learning journey.",
+            },
+            {
+                "type": "separator" // Separator between the two sets of data
+            },
+
+            {
+                "type": "h3",
+                "content": " Why am I writing this article?",
+            },
+            {
+                "type": "p",
+                "content": " It is not to be popular or cool but to share my experience, knowledge, tips, and opinions of 100DaysOfCode/100DaysOfLearning. I hope this small article will help out for beginners, learners, and enthusiasts out there. And of course, it is a memo for me and marks of my growth, development, profile, and career boost.",
+            },
+
+
+            {
+                "type": "separator" // Separator between the two sets of data
+            },
+
+            {
+                "type": "h3",
+                "content": " How did I start?",
+            },
+            {
+                "type": "p",
+                "content": " I started my 100DaysOfCode or 100DaysOfLearning on Dec 4 2023 and completed it on April 14, 2024. Before Starting my 100Days I took part in the 60DaysofLearningwithleapfrog program in the years 2022 and 2023. So, that’s why I made the 100 days possible from prior experiences. I used to see the posts on social media and get inspiration for learning and starting my 100 days.",
+            },
+
+            {
+                "type": "blockquote",
+                "content": "<strong class=\"markup--strong markup--blockquote-strong\">Opinion vs Facts:</strong> In the Realm of the IT & Technology Industry, the CS Field is dynamic & growing so only the Consistent, Passionate, Learner can make a strong position and reach the top."
+            }
+            ,
+
+            {
+                "type": "separator" // Separator between the two sets of data
+            },
+
+            {
+                "type": "h3",
+                "content": "Before Starting 100Days ",
+            },
+            {
+                "type": "list",
+                "content": [
+                    "Some of the Guidelines:",
+                    "◉ Explore and Grab Basic Concepts/Fields, Know your field within CS/IT",
+                    "◉ Prepare your learning materials and resources",
+                    "◉ Prepare Your RoadMap ",
+                    "◉ Fuel yourself with Planning, Focused, Commitment, Determination, and Motivation, and then start",
+                ]
+            }
+
+            ,
+            {
+                "type": "p",
+                "content": "  In today's era, we have almost everything on the internet, there are vast learning materials and resources. So I do not expect you will be confused about the above steps. Some People Want To Learn Overnight which is not possible until you are some kinda genius or maybe a machine I do not know.",
+            },
+
+
+            {
+                "type": "h3",
+                "content": "Official Partner ",
+            },
+
+            {
+                "type": "a",
+                "content": {
+                    "href": "https://www.100daysofcode.com/",
+                    "text": "100DaysOfCode"
+                }
+            },
+
+            {
+                "type": "separator" // Separator between the two sets of data
+            },
+
+            {
+                "type": "separator" // Separator between the two sets of data
+            },
+            {
+                "type": "a",
+                "content": {
+                    "href": "https://clg.askmitra.com/",
+                    "text": "100DaysOfLearning"
+                }
+            },
+
+
+            {
+                "type": "separator" // Separator between the two sets of data
+            },
+
+            {
+                "type": "h3",
+                "content": " Why I should start 100Days and What are the advantages?",
+            },
+
+            {
+                "type": "blockquote",
+                "content": ' <span style="color: #fe2667;"> “Not Everyone Is a Learner Some Are Passers.” </span>'
+            }
+            ,
+
+            {
+                "type": "p",
+                "content": " This question’s answer is to not start if you are not passionate and committed. Even though 100 Days may not be the longest journey, I would suggest not to underestimate it. Because you may get stuck in the middle which is not a good sign, at the initial days like #Day1 #Day2……. you will be highly motivated, fueled with hype and so as the days pass you may be distracted, demotivated, lose interest, so only start if you are committed and determined to complete it. .",
+            },
+
+
+            {
+                "type": "p",
+                "content": "  One should start the 100Days because I think completing 100Days is like an achievement and title of 100Days that an individual will gain. Like hikers go hiking, trekkers go trekking and there is some sense of fun, achievement, connectiions, destination, experiences, and interaction so similar developers or Tech Persons or any individual who are in  IT/CS 100Days is a milestone, learning experience, growth, career & profile boost, and a beautiful journey. ",
+            },
+            {
+                "type": "blockquote",
+                "content": ' “ Make Your Mindset Strong And Rigid On Learning Straight For 100 Days And Posting It Online. “',
+            },
+
+
+
+
+        ]
+
+        const bigThing = document.querySelector('.big-thing');
+        const body = document.querySelector('body');
+
+        async function populateBigThing() {
+
+            for (let i = 0; i < jsonData.length; i++) {
+                await new Promise(resolve => setTimeout(resolve, 0)); // Simulate asynchronous behavior
+                const { type, content, quote } = jsonData[i];
+                const element = document.createElement(type);
+
+
+                if (type === 'separator') {
+                    const br = document.createElement('br');
+                    bigThing.appendChild(br);
+                    continue; // Skip the rest of the loop body for separator objects
+                }
+                else if (type === 'quote') {
+                    const blockquote = document.createElement('blockquote');
+                    const paragraph = document.createElement('p');
+                    paragraph.textContent = content;
+                    blockquote.appendChild(paragraph);
+                    bigThing.appendChild(blockquote);
+                    continue;
+                }
+                else if (type === 'code') {
+                    const pre = document.createElement('pre');
+                    const code = document.createElement('code');
+                    code.textContent = content;
+                    pre.style.width = '80%'; // Set width to 100%
+                    pre.style.overflow = 'auto'; // Add overflow auto
+                    pre.className = 'coding';
+                    pre.appendChild(code);
+                    element.appendChild(pre);
+                }
+                else if (type === 'iframe') {
+                    const iframe = document.createElement('iframe');
+                    const iframeContent = content;
+                    iframe.src = iframeContent.src;
+                    iframe.title = iframeContent.title;
+                    iframe.frameborder = iframeContent.frameborder;
+                    iframe.allow = iframeContent.allow;
+                    iframe.allowfullscreen = iframeContent.allowfullscreen;
+                    iframe.style.cssText = iframeContent.style;
+                    iframe.className = 'ciframe';
+
+                    bigThing.appendChild(iframe);
+                    continue;
+                }
+
+                // else if (type === 'a') {
+                //     const anchorElement = document.createElement('a');
+                //     console.log('Type:', type);
+                //     console.log('Content:', content);
+                //     console.log('Content.href:', content.href);
+                //     console.log('Content.text:', content.text);
+                //     anchorElement.href = content.href;
+                //     anchorElement.target = '_blank';
+                //     anchorElement.textContent = content.content;
+                //     bigThing.appendChild(anchorElement);
+                //     continue;
+                // }
+
+                else if (type === 'a') {
+                    const anchorElement = document.createElement('a');
+                    anchorElement.href = content.href;
+                    anchorElement.target = '_blank'; // Set the target attribute to open the link in a new tab
+                    anchorElement.textContent = content.text; // Use content.text instead of content.content
+                    bigThing.appendChild(anchorElement);
+                    continue;
+                }
+
+
+
+                else if (type === "nbsp") {
+                    const nbsp = document.createElement('span');
+                    nbsp.innerHTML = '&nbsp;';
+                    element.appendChild(nbsp);
+                }
+
+                else {
+                    if (Array.isArray(content)) {
+                        content.forEach(text => {
+                            const paragraph = document.createElement('p');
+                            paragraph.textContent = text;
+                            element.appendChild(paragraph);
+                        });
+                    } else {
+                        element.innerHTML = content;
+                    }
+                }
+
+                bigThing.appendChild(element);
+            }
+        }
+
+        populateBigThing();
+    </script>
+
+    <script>
+
+    </script>
+
+</body>
+
+</html>
