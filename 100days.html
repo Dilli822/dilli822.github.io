@@ -179,6 +179,16 @@
             margin-left: auto;
             margin-right: auto;
         }
+
+        .read-more {
+            color: red;
+        }
+
+        .ciframe {
+            width: 100%;
+            height: 60vh;
+            border: none;
+        }
     </style>
 
     <script>
@@ -728,7 +738,7 @@
             {
                 type: "a",
                 content: {
-                    href: "https://x.com/dilli_hangrae/status/1743218473537360022",
+                    href: "https://x.com/dilli_hangrae/status/1779404189270966706",
                     text: "twitter_Day100",
                 },
             },
@@ -743,7 +753,7 @@
             {
                 type: "a",
                 content: {
-                    href: "https://www.facebook.com/groups/itsnporg/permalink/1495236804591078/",
+                    href: "https://www.facebook.com/groups/itsnporg/permalink/1554110292037062/",
                     text: "facebook_Day100",
                 },
             },
@@ -755,10 +765,58 @@
             {
                 type: "a",
                 content: {
-                    href: "https://www.facebook.com/groups/itsnporg/permalink/1495236804591078/",
+                    href: "#",
                     text: "View Certificate",
                 },
             },
+            {
+                type: "h3",
+                classes: "read-more",
+                content: "Read More on",
+            },
+            {
+                type: "a",
+                content: {
+                    href: "    https://medium.com/@dillihangrae/just-graduated-from-100daysofcode-100daysoflearning-d074c7e22b21",
+                    text: "medium.com",
+                },
+            },
+
+
+            {
+                type: "nbsp",
+                content: ",",// Separator between the two sets of data
+            },
+
+            {
+                type: "a",
+                content: {
+                    href: " ",
+                    text: "LinkedIn",
+                },
+            },
+
+            {
+                "type": "separator",
+            }, {
+                type: "separator", // Separator between the two sets of data
+            },
+
+            {
+                type: "iframe",
+                content: {
+                    src: "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7185162236137521152",
+                    height: "auto",
+                    width: "auto",
+                    frameborder: "0",
+                    allowfullscreen: "",
+                    title: "Embedded post"
+                },
+            },
+
+
+
+
 
         ];
 
@@ -821,7 +879,11 @@
                     img.className = "image-class"; // Optional class name
                     bigThing.appendChild(img);
                     continue;
-                } else {
+                }
+                if (type === "div") {
+                    element.className = content.classes; // Set class name(s) for the div
+                }
+                else {
                     if (Array.isArray(content)) {
                         content.forEach((text) => {
                             const paragraph = document.createElement("p");

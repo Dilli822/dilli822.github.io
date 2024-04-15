@@ -25,7 +25,8 @@
             width: 100%;
             border-radius: 5px;
         }
-        iframe{
+
+        iframe {
             opacity: 0.65;
         }
 
@@ -56,7 +57,7 @@
         .achievement {
             display: flex;
             align-items: center;
-            
+
         }
 
         .achievement div {
@@ -64,10 +65,23 @@
             color: #d7d7d7;
         }
 
+        .cu-Container li a,
         .achievement li a {
             color: #d7d7d7;
             font-size: 1.2rem;
-            text-decoration-color: rgb(223, 211, 223);
+            text-decoration-color: rgb(97, 97, 97);
+            cursor: pointer;
+            transition: color 0.5s ease;
+        }
+
+        .cu-Container li :hover,
+        .achievement li :hover {
+            color: #f5f;
+            cursor: pointer;
+            text-decoration: underline;
+            transition: color 0.63s ease-in-out;
+
+
         }
 
         @media (max-width: 676px) {
@@ -93,6 +107,40 @@
             .achievement svg {
                 width: 55%;
                 height: auto;
+            }
+        }
+
+        /* Container */
+        .cu-Container {
+            width: 100%;
+            margin-right: auto;
+            margin-left: auto;
+            padding-right: 15px;
+            padding-left: 15px;
+        }
+
+        /* Responsive container */
+        @media (min-width: 576px) {
+            .cu-Container {
+                max-width: 540px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .cu-Container {
+                max-width: 720px;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .cu-Container {
+                max-width: 960px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .cu-Container {
+                max-width: 1140px;
             }
         }
     </style>
@@ -131,8 +179,8 @@
 
         <div class="container">
             <p><br>
-                <span style="font-size: 1.35rem;"> Learning Trip 〰 𓍯𓂃 </span><br><span
-                    style="font-size: 1.55rem;"> Learning Today, Tomorrow, and Beyond ⌖</span>
+                <span style="font-size: 1.35rem;"> Learning Trip 〰 𓍯𓂃 </span><br><span style="font-size: 1.55rem;">
+                    Learning Today, Tomorrow, and Beyond ⌖</span>
                 <br> <br> <br>
                 <span style="font-size: 1.7rem;  "> Transitioning from HTML to Full Stack Development... :) ‧₊˚ ⋅</span>
                 <br>
@@ -144,7 +192,7 @@
                     Devouring, Studying, Writing & Sharing academic articles related to Computer Science, Algorithms,
                     and
                     Maths.at Linkedin & Medium through learning. Love both theory & its real-world applications!</span>
-                <br> <br>   <br>   <br>
+                <br> <br> <br> <br>
                 <span style="font-size: 1.6rem;  "> ✨ AI Enthusiast </span>
                 <br>
                 <span style="font-size: 1.45rem;  "> Focusing, Learning AI ~ ML Since 2024 </span>
@@ -656,6 +704,20 @@
             </div>
 
             <br>
+            <br>
+
+            <div class="cu-Container">
+                <h1 style="font-size: 3rem;"> Updates </h1>
+                <span>
+                    <li>
+                        <a href="./100days.html">Journal on Completion of 100DaysOfCode Challenge!</a>
+                    </li>
+
+                </span>
+            </div>
+
+
+            <br><br>
             <br>
 
 
