@@ -578,3 +578,22 @@ a {
         }
     }
 }
+
+.content .explore {
+    margin-top: 0;
+    transition: color 0.76s ease;
+}
+
+.content .explore a {
+    display: inline-block; /* Ensures the anchor behaves like a block element */
+    border: 1px solid #fff;
+    padding: 10px;
+    text-decoration: none; /* Removes underline */
+    color: #fff; /* Default text color */
+}
+
+.content .explore a:hover {
+    border-color: hsl(173, 100%, 51%); /* Fixes the HSL format */
+    color: #fff; /* Text color on hover */
+    transition: color 0.83s ease-in-out;
+}
