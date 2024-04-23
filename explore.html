@@ -682,12 +682,14 @@
     </div>
 
     <audio id="nativeAudio" src="./videoplayback.mp3" autoplay></audio>
-
+    <audio id="nativeAudio1" src="./rain-in-forest-birds-nature-111405.mp3" autoplay></audio>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.2.3/howler.min.js"></script>
     <script>
         // Native HTML5 audio element
         const nativeAudio = document.getElementById("nativeAudio");
+        const nativeAudio1 = document.getElementById("nativeAudio1");
         nativeAudio.volume = 0.3;  // Set volume to 20%
+        nativeAudio1.volume = 0.25;  
 
         // Create a new Howl instance
         const sound = new Howl({
@@ -697,14 +699,24 @@
             volume: 0.3  // Set volume to 20%
         });
 
+        const sound1 = new Howl({
+            src: ['./rain-in-forest-birds-nature-111405.mp3'],
+            loop: true,
+            autoplay: false,  // Set autoplay to false
+            volume: 0.25  // Set volume to 20%
+        });
+
+
         // Function to start audio after delay
         function startAudio() {
             setTimeout(() => {
                 sound.play();
+                sound1.play();
 
                 // Pause the native audio to avoid overlapping sound
                 nativeAudio.pause();
-            }, 500);  // 2000 milliseconds = 2 seconds
+                nativeAudio1.pause();
+            }, 10);  // 2000 milliseconds = 2 seconds
         }
 
         // Call the function to start the audio
