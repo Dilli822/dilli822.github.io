@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 
+    <link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <title> Chessboard </title>
+    <style>
+        * {
+            font-family: 'Courier New', Courier, monospace;
+            
+        }
+
+        section {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(8, 50px);
+            grid-template-rows: repeat(8, 50px);
+            gap: 1px;
+        }
+
+        .square {
+            width: 100%;
+            height: 100%;
+            border: 1px solid black;
+            box-sizing: border-box;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            cursor: pointer;
+            /* Add cursor pointer */
+        }
+
+        .bg-white {
+            background-color: white;
+        }
+
+        .bg-dark {
+            background-color: gray;
+        }
+
+        /**/
+
+
+        .greenKingMove {
+            background: greenyellow !important;
+        }
+
+        .highlightedPawn {
+            background: greenyellow !important;
+        }
+
+        .rookUp,
+        .rookDiagonalDown,
+        .rookLeft,
+        .rookDiagonalRight {
+            background-color: rgb(114, 223, 114) !important;
+        }
+
+        .bishopDiagonalDown,
+        .bishopDiagonalUp,
+        .bishopTopRightDiagonal,
+        .bishopDownLeftDiagonal {
+            background-color: aqua !important;
+        }
+
+        .queenDiagonalRight,
+        .queenDiagonalDown,
+        .queenDown,
+        .queenDiagonalUp,
+        .queenUp,
+        .queenLeft,
+        .queenTopRightDiagonal,
+        .queenDownLeftDiagonal {
+            background-color: rgb(166, 0, 255) !important;
+        }
+
+        .horse,
+        .Lefthorse,
+        .rightEndLeftLeft,
+        .backward8LeftLeft,
+        .finalBackWar16LeftLeft,
+        .secondLast56Forward,
+        .secondLast56Backward,
+        .backward16stepLeft,
+        .horse8step,
+        .forwardLeftLefthorse,
+        .horses,
+        .Righthorse,
+        .backward8RightRight,
+        .backward16RightRight,
+        .finalforward8Left,
+        .finalBackward8Right,
+        .finalforward16Right,
+        .finalBackward16Left,
+        .finalBackward16Right,
+        .finalBackward8Left,
+        .horseforward16Left,
+        .horseforward8left,
+        .horseforward8right,
+        .finalForward8Left {
+            background-color: orange !important;
+        }
+
+        .pawn8step,.forward16Pawn,.highlightedPawn{
+            background-color: greenyellow!important;
+        }
+        p{
+            text-align: center;
+        }
+
+        /* .highlightedPawnLeft, .highlightedPawnRight{
+            background-color: rgb(0, 213, 255);
+        } */
+
+        .highlightedPawn16{
+            background-color: burlywood;
+        }
+        
+    </style>
+</head>
+
+<body>
+
+    </br>
+    <section>
+
+
+        <div class="container" id="chessboard">
+            <!-- Generate 64 squares -->
+        </div>
+
+
+    </section>
+
+    <p>  <span id="turn"></span></p>
+    <!-- 
+    <div style="text-align: center;">
+        <h3> Black Deads: <span id="blackDead"></span> </h3>
+ 
+        <h3> White Deads:      <span id="whiteDead"></span></h3>
+    </div> -->
+
+
+    <script>
+
+        //     document.addEventListener("DOMContentLoaded", function() {
+        //         localStorage.clear()
+    
+        // });
+// Function to remove specific items from localStorage
+
+    </script>
+
+    <script src="./chess.js" type="module"></script>
+
+</body>
+
+</html>
