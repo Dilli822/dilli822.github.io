@@ -58,7 +58,7 @@ export function pawnAgent(event) {
 
         
 
-        if ([51, 52, 53, 54, 55, 56, 57, 58].includes(clickedSquareId)) {
+        if ([49, 50, 51, 52, 53, 54, 55, 56, 57, 58].includes(clickedSquareId)) {
           document.getElementById(forward16Pawn.toString()).classList.add("highlightedPawn16");
       }
       
