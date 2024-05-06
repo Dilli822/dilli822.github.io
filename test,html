@@ -1,0 +1,44 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <h1>Profile</h1>
+
+    <script>
+  const apiUrl = 'https://api.medium.com/v1/me';
+const token = '26a24a5285637487910775b175eddd908637ce33f74b33676c358181dc1f34b91';
+
+fetch(`${apiUrl}`, {
+  method: 'GET',
+  headers: {
+    'Authorization': `Bearer ${token}`,
+    'Content-Type': 'application/json',
+    'Accept': 'application/json',
+    'Accept-Charset': 'utf-8'
+  }
+})
+.then(response => {
+  if (!response.ok) {
+    throw new Error('Failed to fetch data');
+  }
+  return response.json();
+})
+.then(data => {
+  console.log(data);
+})
+.catch(error => {
+  console.error('Error fetching data:', error);
+});
+
+
+    </script>
+</body>
+</html>
