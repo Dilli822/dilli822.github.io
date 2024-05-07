@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendance Table</title>
+
+    <style>
+        * {
+            font-family: sans-serif;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Attendance Table</h2>
+    <div id="currentMonthYear"></div>
+
+    <form id="addStudentNamesForm">
+        <label for="newStudentNames">Add Absent Students Names:</label>
+        <br>
+        <input type="text" id="StudentNames" name="StudentNames"
+            placeholder="Enter absent student names separated by commas" required style="min-width: 25vw;">
+        <button type="button" onclick="storeStudentNames()">Store</button>
+    </form>
+
+
+    <br>
+
+    <table id="attendanceTable">
+        <!-- Table headers -->
+        <thead>
+            <tr>
+                <th>Roll No</th>
+                <th>Student Name</th>
+                <!-- Day columns will be added dynamically -->
+            </tr>
+        </thead>
+        <!-- Table body -->
+        <tbody id="attendanceBody">
+            <!-- Rows will be dynamically added here -->
+        </tbody>
+    </table>
+
+    <script>
+        // Sample data for demonstration
+        const studentsData = [
+            { rollNo: 1, name: "John Doe", attendance: {} },
+            { rollNo: 2, name: "Jane Smith", attendance: {} },
+            { rollNo: 3, name: "Alice Johnson", attendance: {} },
+            { rollNo: 4, name: "Bob Brown", attendance: {} },
+        ];
+
+        // Function to populate the table with student data
+        function populateTable() {
+            const currentDate = new Date();
+            const currentMonthYear = `${currentDate.toLocaleString('default', { month: 'long' })} ${currentDate.getFullYear()}`;
+            document.getElementById('currentMonthYear').textContent = currentMonthYear;
+
+            const tableHeaderRow = document.querySelector('#attendanceTable thead tr');
+            for (let i = 1; i <= 32; i++) {
+                const th = document.createElement('th');
+                th.textContent = i;
+                tableHeaderRow.appendChild(th);
+            }
+
+            const tableBody = document.getElementById('attendanceBody');
+            studentsData.forEach(student => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${student.rollNo}</td>
+                    <td>${student.name}</td>
+                    <!-- Add empty attendance columns dynamically -->
+                    ${Array.from({ length: 32 }, (_, index) => `<td id="${student.rollNo}-${index + 1}"></td>`).join('')}
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Call the function to populate the table
+        populateTable();
+
+        // Function to store absent student names
+        // Function to store absent student names
+        function storeStudentNames() {
+
+            const StudentNames = document.getElementById('StudentNames').value;
+            const namesArray = StudentNames.split(',').map(name => name.trim());
+
+            console.log(namesArray)
+
+            // Array to store existing student names
+            const existingStudentNames = studentsData.map(student => student.name.toLowerCase());
+
+            // Check if any new student names match existing student names
+            const duplicates = namesArray.filter(name => existingStudentNames.includes(name.toLowerCase()));
+
+            if (duplicates.length > 0) {
+                // console.log(`The following names already exist in the database: ${duplicates.join(', ')}`);
+                // console.log(`absent student names: ${namesArray.join(', ')}`);
+            }
+
+            let studentsAbsent = JSON.stringify(namesArray);
+            // Add "P" to the table header for the current date
+            markPresentForToday(studentsAbsent);
+            // You can add code here to add the new students to the studentsData array if needed
+
+        }
+
+
+        function markPresentForToday(absentArrays) {
+            const currentDate = new Date();
+            const dayOfMonth = currentDate.getDate();
+            console.log(absentArrays);
+            // Parse the string back into an array
+            const studentsAbsent = JSON.parse(absentArrays);
+
+            // Iterate through each absent student name
+            studentsAbsent.forEach(absentName => {
+                // Find the corresponding student object in studentsData array
+                const absentStudent = studentsData.find(student => {
+                    // Use regex to remove spaces and convert to lowercase for comparison
+                    const regexName = student.name.replace(/\s+/g, '').toLowerCase();
+                    const regexAbsent = absentName.replace(/\s+/g, '').toLowerCase();
+                    return regexName === regexAbsent;
+                });
+
+                console.log("Absent student:", absentName, "-", absentStudent);
+
+                // Check if the student is absent
+                if (absentStudent) {
+                    // Extract the roll number of the absent student
+                    const absentRollNo = absentStudent.rollNo;
+                    console.log("absent", absentRollNo);
+                    // Get the table cell corresponding to the current date and the student's roll number
+                    const cell = document.getElementById(`${absentRollNo}-${dayOfMonth}`);
+
+                    if (cell) {
+                        // Append 'A' to the existing content of the cell
+                        cell.textContent += 'A';
+
+                    }
+                } else {
+                    console.log("Student not found:", absentName);
+                }
+
+            });
+
+
+            // Iterate through studentsData to find students who are not absent
+            studentsData.forEach(student => {
+                // Check if the student is not in the absent list
+                if (!studentsAbsent.includes(student.name)) {
+                    // Get the table cell corresponding to the current date and the student's roll number
+                    const cell = document.getElementById(`${student.rollNo}-${dayOfMonth}`);
+                    if (cell) {
+                        // Check if the cell already has content
+                        if (!cell.textContent) {
+                            // Set 'P' as the content of the cell
+                            cell.textContent = 'P';
+
+                        }
+                    }
+                }
+            });
+
+
+
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XLSX to JSON</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+
+</head>
+
+<body>
+    <input type="file" id="fileInput" accept=".xlsx">
+    <div id="tableContainer"></div>
+    <button id="downloadButton" class="btn btn-primary">Download JSON</button>
+
+
+    <script>
+        // Function to handle file input change
+        function handleFile(e) {
+            const file = e.target.files[0];
+            const reader = new FileReader();
+
+            reader.onload = function (event) {
+                const data = event.target.result;
+                const workbook = XLSX.read(data, { type: 'binary' });
+                const sheetName = workbook.SheetNames[0];
+                const worksheet = workbook.Sheets[sheetName];
+                const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+                console.log(jsonData);
+                renderTable(jsonData);
+                renderDownloadButton(jsonData);
+            };
+
+            reader.onerror = function (event) {
+                console.error("File could not be read! Code " + event.target.error.code);
+            };
+
+            reader.readAsBinaryString(file);
+        }
+
+        // Function to render JSON data in a Bootstrap table
+        function renderTable(jsonData) {
+            const tableContainer = document.getElementById('tableContainer');
+            const table = document.createElement('table');
+            table.classList.add('table', 'table-striped');
+
+            // Add table headers
+            const thead = document.createElement('thead');
+            const headerRow = document.createElement('tr');
+            for (const key in jsonData[0]) {
+                const th = document.createElement('th');
+                th.textContent = key === 'studentName' ? 'P1' : key;
+                headerRow.appendChild(th);
+            }
+            thead.appendChild(headerRow);
+            table.appendChild(thead);
+
+            // Add table rows
+            const tbody = document.createElement('tbody');
+            jsonData.forEach(data => {
+                const row = document.createElement('tr');
+                for (const key in data) {
+                    const cell = document.createElement('td');
+                    cell.textContent = data[key];
+                    row.appendChild(cell);
+                }
+                tbody.appendChild(row);
+            });
+            table.appendChild(tbody);
+
+            // Append table to container
+            tableContainer.innerHTML = '';
+            tableContainer.appendChild(table);
+        }
+
+        // Function to render download button
+        function renderDownloadButton(jsonData) {
+            const downloadButton = document.getElementById('downloadButton');
+            downloadButton.addEventListener('click', () => {
+                downloadJson(jsonData);
+            });
+        }
+
+        // Function to download JSON data as a file
+        function downloadJson(jsonData) {
+            const jsonContent = JSON.stringify(jsonData, null, 2);
+            const blob = new Blob([jsonContent], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'data.json';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+        }
+
+        // Attach event listener to file input
+        document.getElementById('fileInput').addEventListener('change', handleFile);
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
