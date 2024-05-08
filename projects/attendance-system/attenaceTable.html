@@ -2,552 +2,112 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title> Attendance App ~ Powered by Dilli Hang Rai </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>XLSX to JSON</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
 
-    <style>
-        * {
-            font-family: sans-serif;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        th,
-        td {
-            border: 1px solid #ddd;
-            padding: 5px;
-            text-align: left;
-            font-size: 14px;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-
-        @page {
-            size: landscape;
-        }
-
-        @media print {
-
-            #semesterBatchForm,
-            h4,
-            input,
-            button {
-                display: none !important;
-                /* Hide all buttons when printing */
-            }
-        }
-    </style>
 </head>
 
 <body>
+    <input type="file" id="fileInput" accept=".xlsx">
+    <div id="tableContainer"></div>
+    <button id="downloadButton" class="btn btn-primary">Download JSON</button>
 
-
-    <div class="container-fluid" id="contentToConvert">
-        <br>
-        <h2>Attendance Table</h2>
-
-        <div>
-            <h5><span id="fullDate"></span></h5>
-            <h5>Semester: <span id="semester">Please Enter Semester</span> | Batch: <span id="batch">Please Enter
-                    Batch</span> </h5>
-        </div>
-
-        <p>
-            <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse"
-                data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                Add/Update Semester and Batch
-            </button>
-        </p>
-        <div>
-            <div class="collapse" id="collapseExample">
-                <div class="card card-body">
-
-                    <form id="semesterBatchForm">
-
-                        <div class="row">
-                            <div class="col-3">
-                                <div class="mb-3">
-
-                                    <label class="form-label" for="semesterInput">Enter Semester:</label>
-
-                                    <input type="text" id="semesterInput" class="form-control" name="semesterInput"
-                                        required>
-                                </div>
-                            </div>
-                            <div class="col-3">
-                                <div class="mb-3">
-                                    <label for="batchInput" class="form-label">Enter Batch:</label>
-                                    <input type="text" id="batchInput" class="form-control" name="batchInput" required>
-                                </div>
-
-                            </div>
-
-                            <div class="col-3">
-                                <div class="mb-3">
-                                    <label for="batchInput" class="form-label" style="opacity: 0;">Enter Batch:</label>
-                                    <br>
-                                    <button type="submit" class="btn btn-outline-success">Save Semester and
-                                        Batch</button>
-                                </div>
-                            </div>
-
-                        </div>
-
-
-                    </form>
-                </div>
-            </div>
-        </div>
-
-        <form id="addStudentNamesForm">
-            <br>
-            <h4>Add Absent Students Names:</h4>
-            <div class="input-group input-group-lg">
-                <div class="col-12">
-                    <input type="text" class="form-control" aria-label="Sizing example input"
-                        aria-describedby="inputGroup-sizing-lg" id="StudentNames" name="StudentNames"
-                        placeholder="Enter absent student names separated by commas" required style="width: 100%;" />
-                </div>
-            </div>
-            <div class="d-flex">
-                <button type="button" onclick="storeStudentNames()" class="btn btn-outline-success mt-2"> Take
-                    Attendance </button>
-        </form>
-        &nbsp; &nbsp; &nbsp;
-        <button class="btn btn-outline-danger mt-2" onclick="reloadScript()">Retake Today's Attendance</button>
-    </div>
-    </br>
-    <table id="attendanceTable" class="overflow-auto">
-        <!-- Table headers -->
-        <thead>
-            <tr>
-                <th>Roll No</th>
-                <th>Student Name</th>
-                <!-- Day columns will be added dynamically -->
-            </tr>
-        </thead>
-        <!-- Table body -->
-        <tbody id="attendanceBody">
-            <!-- Rows will be dynamically added here -->
-        </tbody>
-    </table>
-
-    <button class="btn btn-outline-success mt-4" onclick="writeToFile()">
-        Save Attendance .json file
-    </button>
-    &nbsp; &nbsp;
-    <button id="convertButton" class="btn btn-outline-danger mt-4">
-        Export as PDF file
-    </button>
-    &nbsp;&nbsp;
-    <button onclick="saveOffline()" class="btn btn-outline-danger mt-4">
-        saveOffline
-    </button>
-
-    <div id="successMessage" style="display: none;" class="alert alert-success mt-2" role="alert">
-        Data saved successfully!
-    </div>
-
-    <div id="errorMessage" style="display: none;" class="alert alert-danger mt-2" role="alert">
-        error! first take attendance!
-    </div>
-
-    </div>
 
     <script>
+        // Function to handle file input change
+        function handleFile(e) {
+            const file = e.target.files[0];
+            const reader = new FileReader();
 
-        // Sample data for demonstration
-        let studentsData;
+            reader.onload = function (event) {
+                const data = event.target.result;
+                const workbook = XLSX.read(data, { type: 'binary' });
+                const sheetName = workbook.SheetNames[0];
+                const worksheet = workbook.Sheets[sheetName];
+                const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
+                console.log(jsonData);
+                renderTable(jsonData);
+                renderDownloadButton(jsonData);
+            };
 
-        // Variable to store the latest timestamp
-        let latestTimestamp = '';
-        let localStorageAttendance = localStorage.getItem("studentsLatestAttendance");
+            reader.onerror = function (event) {
+                console.error("File could not be read! Code " + event.target.error.code);
+            };
 
-        // Function to fetch and process JSON data
-        // fetch("./studentsLatestAttendance.json")
-
-        if (localStorageAttendance) {
-            // If data exists in localStorage, parse it as JSON
-            let data = JSON.parse(localStorageAttendance);
-
-            // Check if the fetched data includes the latest_timestamp part
-            const hasLatestTimestamp = data.some(item => item.latest_timestamp);
-
-            if (hasLatestTimestamp) {
-                // Remove the latest_timestamp part from the data and store it in a separate variable
-                const newData = data.filter(item => !item.latest_timestamp);
-
-                // Extract the latest timestamp
-                const latestTimestampItem = data.find(item => item.latest_timestamp);
-                latestTimestamp = latestTimestampItem.latest_timestamp;
-
-                // Store the modified data in studentsData
-                studentsData = newData;
-            } else {
-                // If the data doesn't include the latest_timestamp part, store it directly in studentsData
-                studentsData = data;
-            }
-
-            console.log(studentsData);
-
-            // Call populateTable here to ensure it's executed after data is fetched
-            populateTable();
-        } else {
-            // Handle case where no data exists in localStorage
-            console.error("No data found in localStorage.");
-            fetch("./studentsLatestAttendance.json") // fetch("./studentsLatestAttendance.json")
-                .then(response => response.json()) // Parse the response as JSON
-                .then(data => {
-                    // Check if the fetched data includes the latest_timestamp part
-                    const hasLatestTimestamp = data.some(item => item.latest_timestamp);
-
-                    if (hasLatestTimestamp) {
-                        // Remove the latest_timestamp part from the data and store it in a separate variable
-                        const newData = data.filter(item => !item.latest_timestamp);
-
-                        // Extract the latest timestamp
-                        const latestTimestampItem = data.find(item => item.latest_timestamp);
-                        latestTimestamp = latestTimestampItem.latest_timestamp;
-
-                        // Store the modified data in studentsData
-                        studentsData = newData;
-                    } else {
-                        // If the data doesn't include the latest_timestamp part, store it directly in studentsData
-                        studentsData = data;
-                    }
-
-                    console.log(studentsData);
-
-                    // Call populateTable here to ensure it's executed after data is fetched
-                    populateTable();
-                })
-                .catch(error => {
-                    // Handle errors during fetch
-                    console.error("Error loading JSON data:", error);
-                });
-
+            reader.readAsBinaryString(file);
         }
 
+        // Function to render JSON data in a Bootstrap table
+        function renderTable(jsonData) {
+            const tableContainer = document.getElementById('tableContainer');
+            const table = document.createElement('table');
+            table.classList.add('table', 'table-striped');
 
-        // Function to populate the table with JSON data
-        function populateTable() {
-            const tableHead = document.querySelector("#attendanceTable thead tr");
-
-            // Add headers for days
-            for (let i = 1; i <= 32; i++) {
-                const dayHeader = document.createElement("th");
-                dayHeader.textContent = `${i}`;
-                tableHead.appendChild(dayHeader);
+            // Add table headers
+            const thead = document.createElement('thead');
+            const headerRow = document.createElement('tr');
+            for (const key in jsonData[0]) {
+                const th = document.createElement('th');
+                th.textContent = key === 'studentName' ? 'P1' : key;
+                headerRow.appendChild(th);
             }
+            thead.appendChild(headerRow);
+            table.appendChild(thead);
 
-            const tableBody = document.getElementById("attendanceBody");
-
-            // Loop through each student data
-            studentsData.forEach((student) => {
-                const row = document.createElement("tr");
-
-                // Add roll number and name
-                const rollNoCell = document.createElement("td");
-                rollNoCell.textContent = student.rollNo;
-                row.appendChild(rollNoCell);
-
-                const nameCell = document.createElement("td");
-                nameCell.textContent = student.name;
-                row.appendChild(nameCell);
-
-                // Add attendance data for each day
-                for (let i = 1; i <= 32; i++) {
-                    const dayAttendance = student.attendance[i.toString()];
-                    const dayCell = document.createElement("td");
-                    dayCell.textContent = dayAttendance;
-                    // Assigning IDs in the format "rollNo-dayOfMonth"
-                    dayCell.id = `${student.rollNo}-${i}`;
-                    row.appendChild(dayCell);
+            // Add table rows
+            const tbody = document.createElement('tbody');
+            jsonData.forEach(data => {
+                const row = document.createElement('tr');
+                for (const key in data) {
+                    const cell = document.createElement('td');
+                    cell.textContent = data[key];
+                    row.appendChild(cell);
                 }
+                tbody.appendChild(row);
+            });
+            table.appendChild(tbody);
 
+            // Append table to container
+            tableContainer.innerHTML = '';
+            tableContainer.appendChild(table);
+        }
 
-                tableBody.appendChild(row);
+        // Function to render download button
+        function renderDownloadButton(jsonData) {
+            const downloadButton = document.getElementById('downloadButton');
+            downloadButton.addEventListener('click', () => {
+                downloadJson(jsonData);
             });
         }
 
-        // Function to store absent student names
-        function storeStudentNames() {
-            const StudentNames = document.getElementById("StudentNames").value;
-            const namesArray = StudentNames.split(",").map((name) => name.trim());
-
-            console.log(namesArray);
-
-            // Array to store existing student names
-            const existingStudentNames = studentsData.map((student) =>
-                student.name.toLowerCase()
-            );
-
-            // Check if any new student names match existing student names
-            const duplicates = namesArray.filter((name) =>
-                existingStudentNames.includes(name.toLowerCase())
-            );
-
-            if (duplicates.length > 0) {
-                // console.log(`The following names already exist in the database: ${duplicates.join(', ')}`);
-                // console.log(`absent student names: ${namesArray.join(', ')}`);
-            }
-
-            let studentsAbsent = JSON.stringify(namesArray);
-            // Add "P" to the table header for the current date
-            markPresentForToday(studentsAbsent);
-
-            // You can add code here to add the new students to the studentsData array if needed
+        // Function to download JSON data as a file
+        function downloadJson(jsonData) {
+            const jsonContent = JSON.stringify(jsonData, null, 2);
+            const blob = new Blob([jsonContent], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'data.json';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
         }
 
-        function markPresentForToday(absentArrays) {
-            let flag = false;
-            const currentDate = new Date();
-            const dayOfMonth = currentDate.getDate();
-            console.log(absentArrays);
-            // Parse the string back into an array
-            const studentsAbsent = JSON.parse(absentArrays);
+        // Attach event listener to file input
+        document.getElementById('fileInput').addEventListener('change', handleFile);
 
-            // Iterate through each absent student name
-            studentsAbsent.forEach((absentName) => {
-                // Find the corresponding student object in studentsData array
-                const absentStudent = studentsData.find((student) => {
-                    // Use regex to remove spaces and convert to lowercase for comparison
-                    const regexName = student.name.replace(/\s+/g, "").toLowerCase();
-                    const regexAbsent = absentName.replace(/\s+/g, "").toLowerCase();
-                    return regexName === regexAbsent;
-                });
-
-                console.log("Absent student:", absentName, "-", absentStudent);
-
-                // Check if the student is absent
-                if (absentStudent) {
-                    // Extract the roll number of the absent student
-                    const absentRollNo = absentStudent.rollNo;
-                    console.log("absent roll no only " + absentRollNo);
-                    // Get the table cell corresponding to the current date and the student's roll number
-                    const cell = document.getElementById(`${absentRollNo}-${dayOfMonth}`);
-                    console.log(`absent id -- ${absentRollNo}-${dayOfMonth}`);
-
-                    if (cell) {
-                        // Append 'A' to the existing content of the cell
-
-                        if (!cell.textContent) {
-                            // Set 'P' as the content of the cell
-
-                            cell.textContent += "A";
-                            flag = true;
-                        }
-                    }
-                } else {
-                    console.log("Student not found:", absentName);
-                }
-            });
-
-            // Iterate through studentsData to find students who are not absent
-            studentsData.forEach((student) => {
-                // Check if the student is not in the absent list
-                if (!studentsAbsent.includes(student.name)) {
-                    // Get the table cell corresponding to the current date and the student's roll number
-                    const cell = document.getElementById(`${student.rollNo}-${dayOfMonth}`);
-                    if (cell) {
-                        // Check if the cell already has content
-                        if (!cell.textContent && flag) {
-                            // Set 'P' as the content of the cell
-                            cell.textContent = "P";
-                        }
-                    }
-                }
-            });
-
-            // Extract table data and store it in JSON format
-            const jsonData = extractTableData();
-            console.log("into json" + JSON.stringify(jsonData, null, 2)); // Display the JSON data in a readable format
-        }
-
-        // Function to reload the script dynamically
-        function reloadScript() {
-            // Reload the window
-            window.location.reload();
-        }
-
-        const tableData = [];
-
-        function extractTableData() {
-            const table = document.getElementById("attendanceTable");
-            const tableRows = table.getElementsByTagName("tr");
-
-            // Iterate through each table row starting from index 1 to skip the header row
-            for (let i = 1; i < tableRows.length; i++) {
-                const row = tableRows[i];
-                const rowData = {};
-                const cells = row.getElementsByTagName("td");
-
-                // Extract Roll No and Student Name
-                rowData.rollNo = cells[0].textContent.trim();
-                rowData.name = cells[1].textContent.trim();
-
-                // Extract attendance data
-                rowData.attendance = {};
-                for (let j = 2; j < cells.length; j++) {
-                    const day = j - 1;
-                    const attendanceStatus = cells[j].textContent.trim(); // Default to 'P' if no attendance is marked
-                    rowData.attendance[day] = attendanceStatus;
-                }
-
-                tableData.push(rowData);
-            }
-
-            const currentDate = new Date();
-            const currentYear = currentDate.getFullYear();
-            const currentMonth = currentDate.getMonth() + 1; // Adding 1 because getMonth() returns a zero-based index
-            const currentDateValue = currentDate.getDate();
-            const currentHour = currentDate.getHours();
-            const currentMinute = currentDate.getMinutes();
-            const currentSecond = currentDate.getSeconds();
-            const currentMillisecond = currentDate.getMilliseconds();
-
-            const latestTimestamp = `${currentYear}-${currentMonth}-${currentDateValue} ${currentHour}:${currentMinute}:${currentSecond}.${currentMillisecond}`;
-            //  // Append the latest date to the table data
-            tableData.push({ "latest_timestamp": latestTimestamp });
-
-            // return { tableData , latestDate };
-            return { tableData };
-        }
-
-        async function writeToFile() {
-            try {
-                const handle = await window.showSaveFilePicker();
-                const writableStream = await handle.createWritable();
-
-                await writableStream.write(content);
-                await writableStream.close();
-                console.log("File written successfully");
-
-                // Reload the window
-                window.location.reload();
-            } catch (err) {
-                console.error("Error writing to file:", err);
-            }
-        }
-
-        function saveOffline() {
-            const content = JSON.stringify(tableData); // Convert tableData to a JSON string
-            const errorMessage = document.getElementById("errorMessage");
-
-            if (tableData.length > 0) {
-                // Clear any previous error messages
-                errorMessage.style.display = "none";
-
-                localStorage.setItem("studentsLatestAttendance", content);
-
-                // Show success message
-                const successMessage = document.getElementById("successMessage");
-                successMessage.style.display = "block";
-
-                // Hide success message after 3 seconds
-                setTimeout(() => {
-                    successMessage.style.display = "none";
-                }, 3000);
-
-            }
-            else {
-                // Show error message
-                errorMessage.style.display = "block";
-
-                // Hide error message after 3 seconds
-                setTimeout(() => {
-                    errorMessage.style.display = "none";
-                }, 1000);
-                return; // Exit the function early if tableData is empty
-            }
-
-
-        }
-
-
-        document.getElementById('semesterBatchForm').addEventListener('submit', function (event) {
-            event.preventDefault(); // Prevent form submission
-            // Get values from the form
-            var semesterValue = document.getElementById('semesterInput').value;
-            var batchValue = document.getElementById('batchInput').value;
-            // Save values to localStorage
-            localStorage.setItem('semester', semesterValue);
-            localStorage.setItem('batch', batchValue);
-            // Update display
-            document.getElementById('semester').textContent = semesterValue;
-            document.getElementById('batch').textContent = batchValue;
-            // Clear form inputs
-            document.getElementById('semesterInput').value = '';
-            document.getElementById('batchInput').value = '';
-        });
-
-        // Check if semester and batch are already saved in localStorage
-        var savedSemester = localStorage.getItem('semester');
-        var savedBatch = localStorage.getItem('batch');
-        if (savedSemester && savedBatch) {
-            // Update display with saved values
-            document.getElementById('semester').textContent = savedSemester;
-            document.getElementById('batch').textContent = savedBatch;
-        }
-
-        document.getElementById('convertButton').addEventListener('click', function () {
-            window.print(); // Open print dialog
-        });
     </script>
 
-<script>
-    // Get the current date
-    var currentDate = new Date();
-
-    // Array of month names
-    var months = [
-        "January", "February", "March", "April", "May", "June", 
-        "July", "August", "September", "October", "November", "December"
-    ];
-
-    // Array of day names
-    var days = [
-        "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
-    ];
-
-    // Get the current day of the week (0-indexed)
-    var currentDayIndex = currentDate.getDay();
-
-    // Get the day name from the array
-    var currentDay = days[currentDayIndex];
-
-    // Get the current month (0-indexed)
-    var currentMonthIndex = currentDate.getMonth();
-
-    // Get the month name from the array
-    var currentMonth = months[currentMonthIndex];
-
-    // Get the current day of the month
-    var currentDayOfMonth = currentDate.getDate();
-
-    // Get the current full year
-    var currentYear = currentDate.getFullYear();
-
-    // Construct the full date string
-    var fullDate = currentDay + ", " + currentDayOfMonth + " " + currentMonth + " " + currentYear;
-
-    // Set the content of the span element to the full date
-    document.getElementById("fullDate").textContent = fullDate;
-</script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-        integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
-        crossorigin="anonymous"></script>
+
 </body>
 
 </html>
+
