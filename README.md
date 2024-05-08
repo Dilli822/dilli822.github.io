@@ -1,6 +1,4 @@
-
-
-  <div contenteditable="plaintext-only">
+<div contenteditable="plaintext-only">
   Personal Portfolio.
   Lite CSIT Solution:
   This is a web app/site where the CSIT Student can view the solutions of Limited Semester past questions. This is only a demo version of app. The app may be slower because it is only built upon HTML &amp; and Javascript. No Database, No Backend Code.

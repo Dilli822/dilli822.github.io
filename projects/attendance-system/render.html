@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Attendance Table</title>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th, td {
+      border: 1px solid black;
+      padding: 8px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #f2f2f2;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Attendance Table</h2>
+
+<table id="attendanceTable">
+  <thead>
+    <tr>
+      <th>Roll No</th>
+      <th>Name</th>
+      <!-- Day columns will be added dynamically -->
+    </tr>
+  </thead>
+  <tbody id="attendanceBody">
+    <!-- Rows will be dynamically added here -->
+  </tbody>
+</table>
+
+<script>
+  // Sample JSON data
+  const jsonData = [
+    {"rollNo":"1","name":"John Doe","attendance":{"1":"","2":"","3":"","4":"","5":"","6":"","7":"A","8":"","9":"","10":"","11":"","12":"","13":"","14":"","15":"","16":"","17":"","18":"","19":"","20":"","21":"","22":"","23":"","24":"","25":"","26":"","27":"","28":"","29":"","30":"","31":"","32":""}},
+    {"rollNo":"2","name":"Jane Smith","attendance":{"1":"","2":"","3":"","4":"","5":"","6":"","7":"A","8":"","9":"","10":"","11":"","12":"","13":"","14":"","15":"","16":"","17":"","18":"","19":"","20":"","21":"","22":"","23":"","24":"","25":"","26":"","27":"","28":"","29":"","30":"","31":"","32":""}},
+    {"rollNo":"3","name":"Alice Johnson","attendance":{"1":"","2":"","3":"","4":"","5":"","6":"","7":"P","8":"","9":"","10":"","11":"","12":"","13":"","14":"","15":"","16":"","17":"","18":"","19":"","20":"","21":"","22":"","23":"","24":"","25":"","26":"","27":"","28":"","29":"","30":"","31":"","32":""}},
+    {"rollNo":"4","name":"Bob Brown","attendance":{"1":"","2":"","3":"","4":"","5":"","6":"","7":"P","8":"","9":"","10":"","11":"","12":"","13":"","14":"","15":"","16":"","17":"","18":"","19":"","20":"","21":"","22":"","23":"","24":"","25":"","26":"","27":"","28":"","29":"","30":"","31":"","32":""}}
+  ];
+
+  // Function to populate the table with JSON data
+  function populateTable() {
+    const tableHead = document.querySelector("#attendanceTable thead tr");
+
+    // Add headers for roll number and name
+    const rollNoHeader = document.createElement("th");
+    rollNoHeader.textContent = "Roll No";
+    const nameHeader = document.createElement("th");
+    nameHeader.textContent = "Name";
+    tableHead.appendChild(rollNoHeader);
+    tableHead.appendChild(nameHeader);
+
+    // Add headers for days
+    for (let i = 1; i <= 32; i++) {
+      const dayHeader = document.createElement("th");
+      dayHeader.textContent = `${i}`;
+      tableHead.appendChild(dayHeader);
+    }
+
+    const tableBody = document.getElementById("attendanceBody");
+
+    // Loop through each student data
+    jsonData.forEach((student) => {
+      const row = document.createElement("tr");
+
+      // Add roll number and name
+      const rollNoCell = document.createElement("td");
+      rollNoCell.textContent = student.rollNo;
+      row.appendChild(rollNoCell);
+
+      const nameCell = document.createElement("td");
+      nameCell.textContent = student.name;
+      row.appendChild(nameCell);
+
+      // Add attendance data for each day
+      for (let i = 1; i <= 34; i++) {
+        const dayAttendance = student.attendance[i.toString()];
+        const dayCell = document.createElement("td");
+        dayCell.textContent = dayAttendance;
+        row.appendChild(dayCell);
+      }
+
+      tableBody.appendChild(row);
+    });
+  }
+
+  // Call the function to populate the table
+  populateTable();
+</script>
+
+</body>
+</html>

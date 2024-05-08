@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Write to File</title>
+</head>
+<body>
+  <h1>Write to File</h1>
+  <button onclick="writeToFile()">Write to File</button>
+
+  <script>
+    async function writeToFile() {
+      try {
+        const handle = await window.showSaveFilePicker();
+        const writableStream = await handle.createWritable();
+        const content = 'Some content!';
+        await writableStream.write(content);
+        await writableStream.close();
+        console.log('File written successfully');
+      } catch (err) {
+        console.error('Error writing to file:', err);
+      }
+    }
+  </script>
+</body>
+</html>
