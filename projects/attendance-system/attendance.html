@@ -56,25 +56,71 @@
     <div class="container-fluid" id="contentToConvert">
         <br>
         <h2>Attendance Table</h2>
+
         <div>
-            <h5><span id="fullDate"></span></h5>
-            <h5>Semester: <span id="semester">Please Enter Semester</span> | Batch: <span id="batch">Please Enter
+            <h5>Today: <span id="fullDate"></span></h5>
+            <hr>
+            <h5>
+                Academic Name: <span id="savedAcademicName">Please Enter Academic Name</span> |
+                Level: <span id="savedLevel">Please Enter Level</span> | Faculty: <span id="savedFaculty">Please Enter Faculty</span>
+           </h5>
+           <h5>
+                Semester: <span id="semester">Please Enter Semester</span> | Batch: <span id="batch">Please Enter
                     Batch</span> </h5>
         </div>
-        <p>
+        <hr>
+        <p class="mt-2">
             <button class="btn btn-outline-primary" type="button" data-bs-toggle="collapse"
                 data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                Add/Update Semester and Batch
+                Click Here to Add/Update Attendance Details
             </button>
+    
         </p>
         <div>
             <div class="collapse" id="collapseExample">
+                <span>
+                    Eg: School/College's Institution Name, Faculty, Level , Student Batch, Semester/Class, Section
+                </span>
+                <br>
                 <div class="card card-body">
                     <form id="semesterBatchForm">
                         <div class="row">
+
                             <div class="col-3">
                                 <div class="mb-3">
-                                    <label class="form-label" for="semesterInput">Enter Semester:</label>
+                                    <label for="batchInput" class="form-label">Enter School/College/Instituion Name:</label>
+                                    <input type="text" id="instituionName" class="form-control" name="batchInput" required>
+                                </div>
+
+                            </div>
+
+                            <div class="col-3">
+                                <div class="mb-3">
+                                    <label for="level" class="form-label">Select Level:</label>
+                                    <select id="level" class="form-select" required>
+                                        <option value="School">School</option>
+                                        <option value="+2">+2 (Higher Secondary)</option>
+                                        <option value="Diploma">Diploma</option>
+                                        <option value="Bachelor">Bachelor</option>
+                                        <option value="Master">Master</option>
+                                        <option value="Others">Others</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+
+
+                            <div class="col-3">
+                                <div class="mb-3">
+                                    <label for="batchInput" class="form-label">Enter Faculty:</label>
+                                    <input type="text" id="faculty" class="form-control" name="batchInput" required>
+                                </div>
+
+                            </div>
+
+                            <div class="col-3">
+                                <div class="mb-3">
+                                    <label class="form-label" for="semesterInput">Enter Section/Semester:</label>
                                     <input type="text" id="semesterInput" class="form-control" name="semesterInput"
                                         required>
                                 </div>
@@ -86,6 +132,7 @@
                                 </div>
 
                             </div>
+
 
                             <div class="col-3">
                                 <div class="mb-3">
@@ -463,24 +510,43 @@
             // Get values from the form
             var semesterValue = document.getElementById('semesterInput').value;
             var batchValue = document.getElementById('batchInput').value;
+            var academicName = document.getElementById('instituionName').value;
+            var faculty = document.getElementById('faculty').value;
+            var level = document.getElementById('level').value;
+
             // Save values to localStorage
             localStorage.setItem('semester', semesterValue);
             localStorage.setItem('batch', batchValue);
+            localStorage.setItem('academicName', academicName);
+            localStorage.setItem('faculty', faculty);
+            localStorage.setItem('level', level);
+
             // Update display
             document.getElementById('semester').textContent = semesterValue;
             document.getElementById('batch').textContent = batchValue;
             // Clear form inputs
             document.getElementById('semesterInput').value = '';
             document.getElementById('batchInput').value = '';
+            document.getElementById('instituionName').value = '';
+            document.getElementById('faculty').value = '';
+            document.getElementById('level').value = '';
         });
 
         // Check if semester and batch are already saved in localStorage
         var savedSemester = localStorage.getItem('semester');
         var savedBatch = localStorage.getItem('batch');
+        var savedAcadNames = localStorage.getItem('academicName');
+        var savedLevels = localStorage.getItem('level');
+        var savedFacultys = localStorage.getItem('faculty')
+
         if (savedSemester && savedBatch) {
             // Update display with saved values
             document.getElementById('semester').textContent = savedSemester;
             document.getElementById('batch').textContent = savedBatch;
+            document.getElementById('savedAcademicName').textContent = savedAcadNames;
+            document.getElementById('savedLevel').textContent = savedLevels;
+            document.getElementById('savedFaculty').textContent = savedFacultys;
+
         }
 
         document.getElementById('convertButton').addEventListener('click', function () {
