@@ -65,10 +65,7 @@
                     <div class="cell wall"></div>
                     <div class="cell "></div>
                     <div class="cell start current">
-                        <span style="color: #fff;">
-                            START
-                        </span>
-                        <img id="agentImage" src="./683083.webp" alt="" style="width: 50px;">
+                        <img src="./683083.webp" alt="" style="width: 50px;">
                     </div>
 
                     <div class="cell "></div>
@@ -87,45 +84,22 @@
                     <div class="cell wall"></div>
                     <div class="cell "></div>
                     <div class="cell "></div>
-                    <div class="cell end">
-                        <span style="color: #fff;">
-                            End OF THE MAZE
-                        </span>
-                    </div>
+                    <div class="cell end"></div>
                 </div>
                 <br>
                 <div>
                     <h4> Status:<span id="finalStatus"> Agent is inside the Maze </span></h4>
                 </div>
                 <div class="col">
-                    <span>Change AI Agent Environment</span><br>
-                    <button class="btn btn-outline-secondary" onclick="shuffleMaze()">
-                        Change/Shuffle Puzzle
-                    </button>
                     <button class="btn btn-outline-success" onclick="    move()">
                         Start Game
                     </button>
                     <button class="btn btn-outline-danger" onclick="window.location.reload()">
                         Reset Game
                     </button>
-
                 </div>
             </div>
         </div>
-
-        <br>
-        <br>
-        <br>
-
-        <footer>
-            <div class="text-center">
-                <pre>
-                &copy; CopyRight <span id="fullYear"></span> | All Rights Reserved | Dilli Hang Rai
-                <span>Contribute to the Project ~ <a href="https://github.com/Dilli822/dilli822.github.io/tree/main/projects/Maze%20Runner" target="_blank">Github Code</a></span>
-                </pre>
-
-            </div>
-        </footer>
     </div>
 
     <script>
@@ -259,68 +233,7 @@
                 setTimeout(move, 500);
             }
         }
-
-        function shuffleMaze() {
-            // Select the .cell.end.current element
-            const clearImg = document.querySelector(".cell.end.current");
-
-            // Check if clearImg exists and contains an <img> tag
-            if (clearImg && clearImg.querySelector('img')) {
-                // Remove the <img> tag
-                clearImg.querySelector('img').remove();
-            }
-
-            // Select all <img> tags in the document
-            const imgTags = document.querySelectorAll('img');
-
-            // Loop through each <img> tag and remove it
-            imgTags.forEach(imgTag => {
-                imgTag.remove();
-            });
-
-
-            // Store references to the start and end cells
-            const startCell = document.querySelector('.maze .start');
-            const endCell = document.querySelector('.maze .end');
-
-            // Reset agent position to the starting cell
-            currentPosition = Array.from(mazeCells).findIndex(cell => cell === startCell);
-            startCell.classList.add('current');
-
-            // Reset maze cells
-            mazeCells.forEach(cell => {
-                // Skip start and end cells
-                if (cell !== startCell && cell !== endCell) {
-                    cell.classList.remove('wall');
-                }
-            });
-
-            // Add walls randomly
-            for (let i = 0; i < mazeCells.length / 2; i++) {
-                let randomIndex;
-                do {
-                    randomIndex = Math.floor(Math.random() * mazeCells.length);
-                } while (mazeCells[randomIndex] === startCell || mazeCells[randomIndex] === endCell || mazeCells[randomIndex].classList.contains('wall'));
-                mazeCells[randomIndex].classList.add('wall');
-            }
-
-            // Ensure start and end cells remain unchanged
-            startCell.classList.add('start');
-            endCell.classList.add('end');
-
-            // Update the image source at the first 'start' cell
-            const agentImage = document.getElementById('agentImage');
-            agentImage.src = "./newAgentImage.webp";
-        }
-
         // Start the movement
-    </script>
-
-    <script>
-        const currentYear = new Date().getFullYear(); // Get the current year
-        document.getElementById("fullYear").innerHTML = currentYear;
-
-
     </script>
 
 </body>
