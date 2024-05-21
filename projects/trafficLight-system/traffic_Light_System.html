@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../../resources/favicon/favicon.ico" type="image/x-icon">
+    <meta property="og:image"
+        content="    https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSy7altP3y2yMQdCDUjWgs6Q1GiTnNMnC8pddaqlJJdug&s    ">
+    <title>Dilli Hang Rai ~ Traffic Light Simulation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .traffic-light {
+            display: inline-block;
+            margin-bottom: 20px;
+            border: 1px solid #bfbdbd;
+            padding: 10px;
+            box-shadow: 5px 15px 15px rgb(164, 166, 164);
+        }
+
+        .light {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            margin: 10px;
+            opacity: 0.3;
+        }
+
+        .red {
+            background-color: red;
+
+        }
+
+        .yellow {
+            background-color: #FFBF00;
+
+        }
+
+        .green {
+            background-color: green;
+        }
+
+        .active {
+            opacity: 1;
+        }
+
+        .matrices {
+            display: flex;
+            justify-content: center;
+        }
+
+        .matrix-container {
+            margin: 20px;
+        }
+
+        #vehicle-matrix,
+        #people-matrix {
+            display: inline-grid;
+            grid-template-columns: repeat(3, 50px);
+            grid-gap: 5px;
+            text-align: center;
+        }
+
+        #vehicle-matrix div,
+        #people-matrix div {
+            background-color: #f0f0f0;
+            padding: 10px;
+        }
+
+        #output {
+            margin-top: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Traffic Light Simulation</h1>
+        <div class="traffic-light">
+            <div class="light red"></div>
+            <div class="light yellow"></div>
+            <div class="light green"></div>
+        </div>
+        <div id="output"></div>
+
+        <div class="matrices">
+            <div class="matrix-container">
+                <h2>Vehicle Matrix</h2>
+                <div id="vehicle-matrix"></div>
+            </div>
+            <div class="matrix-container">
+                <h2>People Matrix</h2>
+                <div id="people-matrix"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <br><br><br>
+
+    <footer>
+        <div class="text-center">
+            <pre>
+        &copy; CopyRight <span id="fullYear"></span> | All Rights Reserved | Dilli Hang Rai
+        <span>Contribute to the Project ~ <a href="https://github.com/Dilli822/dilli822.github.io/tree/main/projects/" target="_blank">Github Code</a></span>
+        <span> <a href="https://colab.research.google.com/drive/1S2gw4VD6KoxDwFlvyOWAzl3Dv5QFcmlK?usp=sharing" target="_blank"> Google Colab </a> </span>
+        </pre>
+
+        </div>
+    </footer>
+
+    <script>
+        let vehicleMatrix = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+        let peopleMatrix = [[1, 1, 1], [1, 1, 1], [1, 1, 1]];
+        const lightYellow = 0.3;
+
+        const redLight = document.querySelector('.red');
+        const yellowLight = document.querySelector('.yellow');
+        const greenLight = document.querySelector('.green');
+        const vehicleMatrixElement = document.getElementById('vehicle-matrix');
+        const peopleMatrixElement = document.getElementById('people-matrix');
+        const outputElement = document.getElementById('output');
+
+        function updateMatrixDisplay(matrix, element) {
+            element.innerHTML = '';
+            matrix.forEach(row => {
+                row.forEach(cellValue => {
+                    const cell = document.createElement('div');
+                    cell.textContent = cellValue.toFixed(2);
+                    element.appendChild(cell);
+                });
+            });
+        }
+
+        function activateLight(light) {
+            redLight.classList.remove('active');
+            yellowLight.classList.remove('active');
+            greenLight.classList.remove('active');
+            light.classList.add('active');
+        }
+
+        function incrementMatrix(matrix, increment, limit) {
+            return matrix.map(row => row.map(value => Math.min(value + increment, limit)));
+        }
+
+        function decrementMatrix(matrix, decrement, limit) {
+            return matrix.map(row => row.map(value => Math.max(value - decrement, limit)));
+        }
+
+        function simulateRedLight() {
+            outputElement.textContent = '>>>>> Red Light Signal <<<<<<\nVehicles Stopping behind the Zebra Line';
+            updateMatrixDisplay(vehicleMatrix, vehicleMatrixElement);
+            updateMatrixDisplay(peopleMatrix, peopleMatrixElement);
+            activateLight(redLight);
+
+            setTimeout(() => {
+                simulateGreenLight();
+            }, 4000);
+        }
+
+        function simulateGreenLight() {
+            outputElement.textContent = '>>>>> Green Light Signal <<<<<<\nVehicles Crossing, People Waiting';
+            activateLight(greenLight);
+
+            let step = 0;
+            const interval = setInterval(() => {
+                if (step < 5) {
+                    vehicleMatrix = incrementMatrix(vehicleMatrix, 0.2, 1);
+                    peopleMatrix = decrementMatrix(peopleMatrix, 0.2, 0);
+                    updateMatrixDisplay(vehicleMatrix, vehicleMatrixElement);
+                    updateMatrixDisplay(peopleMatrix, peopleMatrixElement);
+                    step++;
+                } else {
+                    clearInterval(interval);
+                    setTimeout(simulateYellowLight, 2000);
+                }
+            }, 1000);
+        }
+
+        function simulateYellowLight() {
+            outputElement.textContent = '>>>>> Yellow Light Signal <<<<<<\nVehicles Slowing Down';
+            activateLight(yellowLight);
+
+            let step = 0;
+            const interval = setInterval(() => {
+                if (step < 5) {
+                    vehicleMatrix = decrementMatrix(vehicleMatrix, 0.2, 0);
+                    peopleMatrix = incrementMatrix(peopleMatrix, 0.2, 1);
+                    updateMatrixDisplay(vehicleMatrix, vehicleMatrixElement);
+                    updateMatrixDisplay(peopleMatrix, peopleMatrixElement);
+                    step++;
+                } else {
+                    clearInterval(interval);
+                    setTimeout(simulateRedLight, 2000);
+                }
+            }, 1000);
+        }
+
+        simulateRedLight();
+        const currentYear = new Date().getFullYear(); // Get the current year
+        document.getElementById("fullYear").innerHTML = currentYear;
+
+    </script>
+</body>
+
+</html>

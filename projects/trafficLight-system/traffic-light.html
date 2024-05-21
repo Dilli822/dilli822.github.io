@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traffic Light System</title>
+    <style>
+        /* styles.css */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Arial, sans-serif;
+}
+
+.traffic-light {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    padding: 10px;
+    background-color: #333;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.light {
+    width: 60px;
+    height: 60px;
+    margin: 10px;
+    border-radius: 50%;
+    background-color: #555;
+}
+
+.light.red.active {
+    background-color: red;
+}
+
+.light.yellow.active {
+    background-color: yellow;
+}
+
+.light.green.active {
+    background-color: green;
+}
+
+.info {
+    text-align: center;
+}
+
+#vehicle-matrix, #people-matrix {
+    font-family: monospace;
+    white-space: pre;
+}
+
+.status {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+    </style>
+</head>
+<body>
+    <div class="traffic-light">
+        <div class="light red"></div>
+        <div class="light yellow"></div>
+        <div class="light green"></div>
+    </div>
+    <div class="info">
+        <h2>Traffic Light Simulation</h2>
+        <div class="vehicles">
+            <h3>Vehicles:</h3>
+            <pre id="vehicle-matrix"></pre>
+        </div>
+        <div class="people">
+            <h3>People:</h3>
+            <pre id="people-matrix"></pre>
+        </div>
+        <div class="status" id="status"></div>
+    </div>
+<script>
+    // script.js
+const vehicleMatrix = Array.from({ length: 3 }, () => Array(3).fill(0));
+const peopleMatrix = Array.from({ length: 3 }, () => Array(3).fill(1));
+const lightYellow = 0.3;
+
+const vehicleMatrixElement = document.getElementById('vehicle-matrix');
+const peopleMatrixElement = document.getElementById('people-matrix');
+const statusElement = document.getElementById('status');
+
+function updateMatrices() {
+    vehicleMatrixElement.textContent = vehicleMatrix.map(row => row.join(' ')).join('\n');
+    peopleMatrixElement.textContent = peopleMatrix.map(row => row.join(' ')).join('\n');
+}
+
+function setLight(color) {
+    document.querySelector('.light.red').classList.toggle('active', color === 'red');
+    document.querySelector('.light.yellow').classList.toggle('active', color === 'yellow');
+    document.querySelector('.light.green').classList.toggle('active', color === 'green');
+}
+
+function startTrafficLightSimulation() {
+    let step = 0;
+    setLight('red');
+    statusElement.textContent = 'Red Light: Vehicles stopping, people crossing';
+    updateMatrices();
+
+    const interval = setInterval(() => {
+        step++;
+        if (step === 1) {
+            // Green light logic
+            setLight('green');
+            statusElement.textContent = 'Green Light: Vehicles crossing, people stopping';
+            for (let i = 0; i < 3; i++) {
+                if (i % 2 === 0) {
+                    vehicleMatrix[i] = [0, 0.5, 1];
+                    peopleMatrix[i] = [0, 0.25, 0.75];
+                } else {
+                    vehicleMatrix[i] = [1, 0.5, 0];
+                    peopleMatrix[i] = [0.5, 0.25, 0];
+                }
+            }
+            updateMatrices();
+        } else if (step === 2) {
+            // Yellow light logic
+            setLight('yellow');
+            statusElement.textContent = 'Yellow Light: Vehicles slowing down';
+            let averageVehicleCrossed = vehicleMatrix.flat().reduce((a, b) => a + b, 0) / 9;
+            if (averageVehicleCrossed < lightYellow) {
+                clearInterval(interval);
+                statusElement.textContent = 'Yellow Light: Vehicles are less than threshold';
+                setLight('red');
+            }
+            updateMatrices();
+        } else {
+            // Reset to red light
+            step = 0;
+            setLight('red');
+            statusElement.textContent = 'Red Light: Vehicles stopping, people crossing';
+            vehicleMatrix.forEach((row, i) => row.fill(0));
+            peopleMatrix.forEach((row, i) => row.fill(1));
+            updateMatrices();
+        }
+    }, 5000);
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    startTrafficLightSimulation();
+});
+
+</script>
+</body>
+</html>
