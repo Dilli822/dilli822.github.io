@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,81 +6,150 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Google</title>
+   <style>
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a{
+    text-decoration: none;
+}
+body {
+    height: 90vh;
+    font-family: sans-serif;
 
-    <style>
-        * {
-            font-family: sans-serif;
-        }
+}
 
-        .footNav,
-        .headNav {
-            float: right;
-        }
+header {
+    display: flex;
+    justify-content: end;
+    height: 4rem;
+    align-items: center;
+    
+}
+.inputBox > input{
+    width:400px;
+    padding:5px;
+    border-radius: 15px;
+}   
+main {
+    margin-top: 100px;
+}
 
-        main {
-            text-align: center;
-        }
+.BrandImage {
+    display: flex;
+    justify-content: center;
 
-        input {
-            border: 0px solid #aaa3a3;
-            padding: 10px;
-     
-            outline: none;
 
-        }
-        .inputWrap{
-            border: 1px solid #000;
-            max-width: 500px;
-            display: block;
-            margin: 0 auto;
-        }
-    </style>
+}
+
+.inputBox {
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+
+}
+
+.childBtm {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    gap: 5px;
+}
+
+
+.btm{
+    width:60px;
+    
+}
+.mainBtmText {
+    display: flex;
+    justify-content: center;
+    margin-top: 4px;
+
+}
+
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.footerDiv1 {
+    width: 100%;
+}
+
+.footerDiv2 {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.inputBox > input,
+button{
+    padding: 10px;
+    border: 1px solid #cbcbcb;
+    outline: none;
+}
+   </style>
 </head>
 
 <body>
-
     <header>
-        <div class="headNav">
-            <span> Gmail </span>&nbsp;
-            <span> Images</span>
-            <span> </span>
+        <div class="Gmail btm">
+                Gmail
+          </div>
+        <div class="Image btm">
+          Image
         </div>
+        <div class="SignIn btm">
+            <button>SignIn</button>
+        </div>
+
     </header>
 
     <main>
-        <div>
-            <img src="./Google_2015_logo.svg.png" alt="" style="width: 20%;">
-        </div>
 
-        <div class="inputWrap">
+        <div class="BrandImage">
+            <img src="./Google_2015_logo.svg.png" alt="" style="width: 400px;">
+        </div>
+        <div class="inputBox">
             <input type="text">
+        </div>
+        <div class="childBtm">
+            <button>Google Search</button>
+
+            <button>I'm Felling Lucky</button>
 
         </div>
-        <br>
-
-        <div>
-            <Button>Google Search</Button>
-            <Button>I'm Feeling Lucky</Button>
+        <div class="mainBtmText">
+            Google offered in:<span> <a href="#"> नेपाली </a></span>
         </div>
 
     </main>
-
     <footer>
-        <div>
-            <span>About</span>&nbsp;
-            <span>Advertisement</span>&nbsp;
-            <span>Business</span>&nbsp;
-            <span>How Search Works</span>
-        </div>
+        <div class="footerDiv1">Nepal</div>
 
-        <div class="footNav">
-            <span>Privacy</span>&nbsp;&nbsp;
-            <span>Terms</span>&nbsp;&nbsp;
-            <span>Settings</span>
-        </div>
+        <div class="footerDiv2">
+            <div>
+                <span>About</span>
+                <span>Advertising</span>
+                <span>Business</span>
+                <span>How search Works</span>
+            </div>
+            <div>
+                <span>Privacy</span>
+                <span>Search</span>
+                <span>Setting</span>
 
+            </div>
+        </div>
     </footer>
-
 </body>
 
 </html>
+
+

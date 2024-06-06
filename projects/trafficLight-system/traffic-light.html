@@ -144,25 +144,25 @@
                 }
             }
 
-            updateChanges(prevVehicleMatrix, prevPeopleMatrix);
+            // updateChanges(prevVehicleMatrix, prevPeopleMatrix);
         }
 
-        function updateChanges(prevVehicleMatrix, prevPeopleMatrix) {
-            const vehicleChanges = [];
-            const peopleChanges = [];
+        // function updateChanges(prevVehicleMatrix, prevPeopleMatrix) {
+        //     const vehicleChanges = [];
+        //     const peopleChanges = [];
 
-            for (let i = 0; i < 3; i++) {
-                for (let j = 0; j < 3; j++) {
-                    const vehicleChange = vehicleMatrix[i][j] - prevVehicleMatrix[i][j];
-                    const peopleChange = peopleMatrix[i][j] - prevPeopleMatrix[i][j];
-                    vehicleChanges.push(vehicleChange.toFixed(2));
-                    peopleChanges.push(peopleChange.toFixed(2));
-                }
-            }
+        //     for (let i = 0; i < 3; i++) {
+        //         for (let j = 0; j < 3; j++) {
+        //             const vehicleChange = vehicleMatrix[i][j] - prevVehicleMatrix[i][j];
+        //             const peopleChange = peopleMatrix[i][j] - prevPeopleMatrix[i][j];
+        //             vehicleChanges.push(vehicleChange.toFixed(2));
+        //             peopleChanges.push(peopleChange.toFixed(2));
+        //         }
+        //     }
 
-            vehicleChangeElement.textContent = 'Changes in Vehicles: ' + vehicleChanges.join(', ');
-            peopleChangeElement.textContent = 'Changes in People: ' + peopleChanges.join(', ');
-        }
+        //     vehicleChangeElement.textContent = 'Changes in Vehicles: ' + vehicleChanges.join(', ');
+        //     peopleChangeElement.textContent = 'Changes in People: ' + peopleChanges.join(', ');
+        // }
 
         function calculateAverageVehicleStatus() {
             const total = vehicleMatrix.flat().reduce((acc, val) => acc + parseFloat(val), 0);

@@ -55,7 +55,7 @@
 <body>
     <div class="container-fluid" id="contentToConvert">
         <br>
-        <h2>Attendance Table</h2>
+        <h2>Attendance Table (Prototype) </h2>
 
         <div>
             <h5>Today: <span id="fullDate"></span></h5>
@@ -203,7 +203,21 @@
 
     </div>
 
+    <br><br>
+
+
+    <footer>
+        <div style="text-align: center;">
+            &copy; CopyRight <span id="fullCurrentYear"></span> | All Rights Reserved | Dilli Hang Rai &nbsp;
+            <span>Contribute to the Project ~ <a href="https://github.com/Dilli822/dilli822.github.io/tree/main/projects/" target="_blank">Github Code</a>
+            </span>
+        </div>
+    </footer>
+
     <script>
+
+
+
         // Sample data for demonstration
         let studentsData;
 
@@ -589,9 +603,11 @@
 
     // Construct the full date string
     var fullDate = currentDay + ", " + currentDayOfMonth + " " + currentMonth + " " + currentYear;
+    let currentFullYear = currentDate.getFullYear();
 
     // Set the content of the span element to the full date
-    document.getElementById("fullDate").textContent = fullDate;
+    document.getElementById("fullDate").innerHTML = fullDate;
+    document.getElementById("fullCurrentYear").innerHTML = currentFullYear;
 </script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
