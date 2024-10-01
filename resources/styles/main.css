@@ -557,9 +557,9 @@ a {
 }
 
 #about:hover {
-    color: #f5f;
+    color: #fff;
     cursor: pointer;
-    text-decoration: underline;
+    text-decoration: none;
     transition: color 0.63s ease-in-out;
 
 
