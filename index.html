@@ -5,17 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dilli Hang Rai</title>
     <script>
-        // Function to detect if the user is on a mobile device, tablet, or Safari
-        function isMobileOrTabletOrSafari() {
-            return /Mobi|Tablet|iPad|Safari/i.test(navigator.userAgent) && !/Chrome/i.test(navigator.userAgent);
+        // Function to detect if the user is on a mobile device, tablet, Safari, or Firefox
+        function isMobileOrTabletOrSafariOrFirefox() {
+            return (/Mobi|Tablet|iPad|Safari/i.test(navigator.userAgent) && !/Chrome/i.test(navigator.userAgent)) ||
+                   /Firefox/i.test(navigator.userAgent);
         }
 
         // Redirect based on device type
         window.onload = function() {
-            if (isMobileOrTabletOrSafari()) {
-                window.location.href = "index_safari.html"; // Redirect to index.html for mobile, tablet, or Safari
+            if (isMobileOrTabletOrSafariOrFirefox()) {
+                window.location.href = "index_safari.html"; // Redirect for mobile, tablet, Safari, or Firefox
             } else {
-                window.location.href = "Portfolio.html"; // Redirect to index1.html for desktop
+                window.location.href = "Portfolio.html"; // Redirect for other browsers (e.g., Chrome on desktop)
             }
         }
     </script>
