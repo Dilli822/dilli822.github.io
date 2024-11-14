@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>100DaysOfMaths</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero-section d-flex align-items-center text-white" style="background: url('whiteboard.jpeg') no-repeat center center/cover; height: 100vh;">
+        <div class="container text-center">
+            <h1 class="display-1 fw-bold text-black">100 Days of Maths</h1>
+            <h1 class="mt-3 text-danger"></h1>
+            <a href="#about" class="btn btn-dark btn-lg mt-4" onclick="scrollToSection('about')">Get Started</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-5 bg-light">
+        <div class="container">
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="col-md-6 ">
+                    <img src="100daysofmaths.png" class="img-fluid rounded" alt="Mathematics Image">
+                </div>
+                <div class="col-md-6">
+                    <h2 class="fw-bold">About 100DaysOfMaths</h2>
+                    <p class="mt-3" id="aboutText">Loading about section...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Topics Section -->
+    <section id="topics" class="py-5">
+        <div class="container">
+            <!-- <h2 class="text-center fw-bold mb-4">Topics Covered</h2> -->
+            <h2 class="text-center fw-bold mb-4">Coming Soon!</h2>
+            <div class="row" id="topicsContainer">
+                <!-- Topics will be dynamically added here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-dark text-white">
+        <div class="container text-center">
+            <h2 class="fw-bold mb-4">Get in Touch</h2>
+            <a href="mailto:dillihang.rai.sgc@gmail.com" class="btn btn-success">Send Mail</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        <p>&copy; 2024 - <span id="currentYear"></span> | 100DaysOfMaths. All Rights Reserved.</p>
+        <p> Powered by: <a class="text-danger" href="http://https://www.linkedin.com/company/nor-ai/?viewAsMember=true" target="_blank" rel="noopener noreferrer"> Nōrai</a> </p>
+    </footer>
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Dynamically populate the About text content
+document.addEventListener("DOMContentLoaded", function () {
+    const aboutText = 
+    "100DaysOfMaths is a compile of mathematical concepts over the course of 100 days. Starting with the basics and moving to more advanced topics, you can explore a wide range of mathematical disciplines through digital handwritten notes and resources. Whether you're a beginner or looking to strengthen your existing knowledge, this sources may help you learn at your own pace.";
+
+    // Update About Section Text
+    document.getElementById('aboutText').innerText = aboutText;
+
+    // Define Topics Data
+    const topics = [
+        // {
+        //     title: "Day 1-20: Algebra",
+        //     description: "Introduction to algebraic expressions, solving equations, and exploring functions.",
+        //     img: "https://source.unsplash.com/400x250/?algebra"
+        // },
+        // {
+        //     title: "Day 21-40: Geometry",
+        //     description: "Explore shapes, theorems, proofs, and geometric problem-solving techniques.",
+        //     img: "https://source.unsplash.com/400x250/?geometry"
+        // },
+        // {
+        //     title: "Day 41-60: Calculus",
+        //     description: "Dive into derivatives, integrals, limits, and their real-world applications.",
+        //     img: "https://source.unsplash.com/400x250/?calculus"
+        // },
+        // {
+        //     title: "Day 61-80: Statistics",
+        //     description: "Learn about probability, data analysis, and statistical models.",
+        //     img: "https://source.unsplash.com/400x250/?statistics"
+        // },
+        // {
+        //     title: "Day 81-100: Advanced Topics",
+        //     description: "Explore advanced mathematical concepts such as linear algebra and number theory.",
+        //     img: "https://source.unsplash.com/400x250/?linear-algebra"
+        // }
+    ];
+
+    // Dynamically create topic cards
+    const topicsContainer = document.getElementById('topicsContainer');
+    topics.forEach(topic => {
+        const topicCard = document.createElement('div');
+        topicCard.classList.add('col-md-4', 'mb-3');
+
+        topicCard.innerHTML = `
+            <div class="card border-0 shadow-sm">
+                <img src="${topic.img}" class="card-img-top" alt="${topic.title}">
+                <div class="card-body">
+                    <h5 class="card-title">${topic.title}</h5>
+                    <p class="card-text">${topic.description}</p>
+                </div>
+            </div>
+        `;
+
+        topicsContainer.appendChild(topicCard);
+    });
+});
+
+// Smooth Scroll Function
+function scrollToSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    window.scrollTo({
+        top: section.offsetTop - 20,
+        behavior: 'smooth'
+    });
+}
+
+// Set the current year dynamically in the footer
+document.getElementById('currentYear').innerText = new Date().getFullYear();
+
+    </script>
+</body>
+</html>
