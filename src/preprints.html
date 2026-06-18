@@ -2,7 +2,60 @@
 <html>
 
 <head>
-    <title>Protected PDF Library</title>
+    <title>Dilli Hang Rai | Protected Preprints </title>
+        <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            max-width: 900px;
+            margin: auto;
+            padding: 30px 40px;
+        }
+
+        /* Font sizes */
+        h1 {
+            font-size: 24pt;
+        }
+
+        h2 {
+            font-size: 18pt;
+            margin-top: 20px;
+        }
+
+        p,
+        li {
+            font-size: 14pt;
+        }
+
+        .details p {
+            font-size: 13pt;
+        }
+
+        /* Profile image */
+        figure {
+            float: left;
+            margin-right: 20px;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        /* Dynamic numbering */
+        ol {
+            counter-reset: section;
+        }
+
+        ol li {
+            list-style: none;
+            counter-increment: section;
+            margin-bottom: 8px;
+        }
+
+        ol li::before {
+            content: "[" counter(section) "] ";
+            font-weight: bold;
+        }
+    </style>
 </head>
 
 <body>
@@ -41,12 +94,12 @@
             While ECG signals are harder to forge than fingerprints or facial features, privacy,
             spoofing, and identification in noisy environments remain concerns. We present an
             attention-based (self and cross attention) multimodal that leverages the MobileNetV4
-            and BiGRU as encoders. We simulate noisy or wearable acquisition conditions by seg-
-            menting ECG signals into random non-overlapping windows of (1-4) seconds. Multiple
+            and BiGRU as encoders. We simulate noisy or wearable acquisition conditions by segmenting 
+            ECG signals into random non-overlapping windows of (1-4) seconds. Multiple
             noise sources, including Gaussian noise, muscle artifacts, powerline interference, base-
             line wander, electrode noise, and motion artifacts, were randomly injected at varying
-            signal-to-noise ratio (SNR) levels ranging from -6 dB to 24 dB for each subject and sig-
-            nal segment. Using ECG-ID with a synthetic(GAN) dataset under adversarial training,
+            signal-to-noise ratio (SNR) levels ranging from -6 dB to 24 dB for each subject and signal segment.
+            Using ECG-ID with a synthetic(GAN) dataset under adversarial training,
             our method achieves an accuracy of 96.93% with an EER of 3.70%.
         </p>
         <p>
