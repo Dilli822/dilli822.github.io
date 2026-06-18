@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Protected PDF Library</title>
+</head>
+
+<body>
+
+    <h2>Protected Preprint</h2>
+
+    <div>
+        <h3>Preprint I(unpublished)</h3>
+        <h2>Physiologically-Constrained Generative Models for Long-Duration ECG Synthesis And Robust
+            Heart-Rate-Variability (HRV) Reconstruction</h2>
+        <h4>Abstract</h4>
+        <p>
+            Short ECG recordings are common in research datasets, but many clinical and physiological phenomena, such as
+            autonomic modulation, circadian HRV changes, and transient arrhythmias, require long continuous recordings.
+            Existing generative models either synthesize short beats/segments or fail to preserve physiologically
+            meaningful beat-to-
+            beat variability over long durations.We propose an architecture PhysioDyn with (a) a physiology-constrained
+            GAN that separates beat morphology from inter-beat interval
+            (IBI) dynamics and (b) IDM models inter-beat intervals (RR series) as a continuous-time latent process
+            (GRU-Neural ODEs) and (c) Composer compose beat morphologies
+            spaced by IBIs and (d) a multi-scale discriminator suite. This enables the synthesis of longer-range ECG
+            that preserve clinically and statistically significant HRV properties.
+        </p>
+        <p>
+            This manuscript is available upon request. <a
+                href="mailto:dillihangrae@email.com?subject=Request Access for Preprint: Preprint I" target="_blank">
+                Contact Author
+            </a>
+        </p>
+        <hr>
+
+        <h3>Preprint II(unpublished)</h3>
+        <h2>Attention-Based Multimodal ECG Identification with GAN-Based Augmentation in Noisy Environments</h2>
+        <h4>Abstract</h4>
+        <p>
+            While ECG signals are harder to forge than fingerprints or facial features, privacy,
+            spoofing, and identification in noisy environments remain concerns. We present an
+            attention-based (self and cross attention) multimodal that leverages the MobileNetV4
+            and BiGRU as encoders. We simulate noisy or wearable acquisition conditions by seg-
+            menting ECG signals into random non-overlapping windows of (1-4) seconds. Multiple
+            noise sources, including Gaussian noise, muscle artifacts, powerline interference, base-
+            line wander, electrode noise, and motion artifacts, were randomly injected at varying
+            signal-to-noise ratio (SNR) levels ranging from -6 dB to 24 dB for each subject and sig-
+            nal segment. Using ECG-ID with a synthetic(GAN) dataset under adversarial training,
+            our method achieves an accuracy of 96.93% with an EER of 3.70%.
+        </p>
+        <p>
+            This manuscript is available upon request. <a
+                href="mailto:dillihangrae@email.com?subject=Request Access for Preprint: Preprint II" target="_blank">
+                Contact Author
+            </a>
+        </p>
+        <hr>
+
+    </div>
+
+    <footer>
+        <h2>Contact</h2>
+        <p>
+            Available for academic collaborations, research partnerships, grant proposals, and scholarly discussions.
+            mail:dillihangrae@gmail.com<br>
+            &copy; <span id="current-year"></span> Dilli Hang Rai.
+        </p>
+    </footer>
+
+    <script>
+        document.getElementById("current-year").textContent = new Date().getFullYear();
+    </script>
+
+</body>
+
+</html>
