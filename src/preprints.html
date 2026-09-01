@@ -141,17 +141,13 @@
         <h2> Hybrid Variational Quantum-Classical Framework with Adaptive Weighting and Efficiency Assessment</h2>
         <h4>Abstract</h4>
         <p>
-        Hybrid quantum-classical neural networks have emerged as a promising approach for leveraging quantum computing in
-        machine learning while overcoming current hardware limitations. This paper presents a Deep Quantum Neural Network (DQNN)
-        for handwritten digit classification on the MNIST dataset using a hybrid architecture that combines classical feature
-        extraction with a Variational Quantum Circuit (VQC). The proposed model first compresses high-dimensional image features
-        through a classical neural network before encoding them into an 8-qubit quantum circuit based on angle embedding and
-        strongly entangling layers. The measured quantum expectation values are then used for final classification. To provide a
-        comprehensive evaluation, the study will investigate model reproducibility through multi-seed experiments, analyze
-        performance under various datasets (MNIST and low-resource indigenous scripts of Nepal) with varying training dataset
-        sizes, and include a lightweight interpretability analysis to examine latent feature representations and quantum
-        measurement outputs. The proposed framework aims to offer an efficient and reproducible benchmark for hybrid quantum
-        machine learning while improving the transparency and practical understanding of quantum-enhanced classification models.
+            Hybrid quantum-classical neural networks have emerged as a promising approach for leveraging quantum computing in machine learning while mitigating current hardware limitations. 
+            This paper presents Sim-HVQC, a hybrid Deep Quantum Neural Network that couples an adaptive, parameter-free SimAM weighting module with classical feature extraction to preserve class-discriminative information prior to encoding into a Variational Quantum Circuit (VQC). 
+            Previous studies are restricted to binary classification [1] [2] [3], [4] [5]. 
+            In contrast, the proposed framework is trained and evaluated on various multi-class datasets(MNIST, KMNIST, Fashion-MNIST, 
+            and EMNIST). The framework further demonstrates reproducibility, parameter efficiency, and 
+            interpretability through multi-seed evaluation, parameter analysis, and latent/quantum feature inspection. 
+            The source code is publicly available at <a href="https://github.com/Dilli822/SimAM-HVQC" target="_blank">github.com/Dilli822/SimAM-HVQC</a>.
         </p>
         <p>
             This manuscript is available upon request. <a
